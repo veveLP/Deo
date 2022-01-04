@@ -34,6 +34,8 @@ func save(content):
 	file.store_string(content)
 	file.close()
 
+var check = false
+
 func _on_Button_pressed():
 	
 	print($Panel/LineEdit.text)
@@ -44,4 +46,14 @@ func _on_Button_pressed():
 	password = password.left(10)
 	save("$"+$Panel/LineEdit.text+"$"+password)
 	get_tree().change_scene("res://Trebic.tscn")
-	OS.window_fullscreen = true
+	if (check):
+		OS.window_fullscreen = true
+	else:
+		OS.window_size = Vector2(1920,1080)
+
+
+func _on_CheckBox_toggled(button_pressed):
+	if (check):
+		check = false
+	else:
+		check = true
