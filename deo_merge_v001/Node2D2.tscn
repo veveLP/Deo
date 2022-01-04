@@ -1,0 +1,118 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://StaticBody2D.gd" type="Script" id=1]
+[ext_resource path="res://back.png" type="Texture" id=2]
+[ext_resource path="res://Node2D2.gd" type="Script" id=3]
+[ext_resource path="res://pico.png" type="Texture" id=4]
+[ext_resource path="res://weed.png" type="Texture" id=5]
+[ext_resource path="res://meds.png" type="Texture" id=6]
+[ext_resource path="res://pills.png" type="Texture" id=7]
+
+[sub_resource type="Theme" id=1]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Back" type="Sprite" parent="."]
+position = Vector2( 933, 553 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+input_pickable = true
+script = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 844, 437, 901, 416, 967, 407, 1014, 408, 1055, 430, 1083, 465, 1096, 496, 1087, 519, 1077, 533, 1039, 543, 997, 544, 962, 537, 886, 508, 870, 500, 853, 471 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 432.0
+margin_top = 280.0
+margin_right = 1125.0
+margin_bottom = 766.0
+rect_pivot_offset = Vector2( 335, 167 )
+theme = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Panel"]
+anchor_left = 0.095
+anchor_top = 0.195
+anchor_right = 0.154
+anchor_bottom = 0.237
+margin_left = 577.165
+margin_top = -88.77
+margin_right = 577.278
+margin_bottom = -89.182
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Meds" type="Sprite" parent="Panel"]
+position = Vector2( 64.25, 53.75 )
+scale = Vector2( 0.216797, 0.212891 )
+texture = ExtResource( 6 )
+
+[node name="Pills" type="Sprite" parent="Panel"]
+position = Vector2( 66, 198 )
+scale = Vector2( 0.242188, 0.242188 )
+texture = ExtResource( 7 )
+
+[node name="Pico" type="Sprite" parent="Panel"]
+position = Vector2( 65, 125 )
+scale = Vector2( 0.246094, 0.246094 )
+texture = ExtResource( 4 )
+
+[node name="Weed" type="Sprite" parent="Panel"]
+position = Vector2( 64, 265 )
+scale = Vector2( 0.207031, 0.207031 )
+texture = ExtResource( 5 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+margin_left = 114.0
+margin_top = 38.0
+margin_right = 248.0
+margin_bottom = 78.0
+rect_pivot_offset = Vector2( 67, 94 )
+text = "Meds
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel"]
+margin_left = 114.0
+margin_top = 106.0
+margin_right = 248.0
+margin_bottom = 146.0
+rect_pivot_offset = Vector2( 67, 94 )
+text = "Pico"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Panel"]
+margin_left = 114.0
+margin_top = 182.0
+margin_right = 248.0
+margin_bottom = 222.0
+rect_pivot_offset = Vector2( 67, 94 )
+text = "Pils"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Panel"]
+margin_left = 114.0
+margin_top = 254.0
+margin_right = 248.0
+margin_bottom = 294.0
+rect_pivot_offset = Vector2( 67, 94 )
+text = "Weed"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="input_event" from="StaticBody2D" to="." method="_on_StaticBody2D_input_event"]
+[connection signal="pressed" from="Panel/Button" to="." method="_on_Button_pressed"]
