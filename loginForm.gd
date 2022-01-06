@@ -102,4 +102,3 @@ func login():
 	password = password.sha256_text()
 	password = password.left(10)
 	_send("loadmap$" + $Panel/LineEdit.text + "$" + password)
-	

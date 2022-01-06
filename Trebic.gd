@@ -70,6 +70,7 @@ func _on_data():
 			
 		
 		$LabelRespekt.bbcode_text = "[center]Respekt: " + str(stepify(test,0.1)) +text+ "[/center]"
+
 	if (x[0] == "hood"):
 		
 		
@@ -180,13 +181,13 @@ func _on_ButtonExit_pressed():
 	$ExitPanel.visible = true
 
 
-
 func _on_borovina_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			var text = loadd()
 			$HoodPannel.visible = true
 			$HoodPannel/HoodName.bbcode_text = "[center]Borovina[/center]"
+
 			_send("hood" + text + "$1")
 			
 
@@ -198,7 +199,6 @@ func _on_kokain_ctvrt_input_event(viewport, event, shape_idx):
 				
 				$HoodPannel.visible = true
 				$HoodPannel/HoodName.bbcode_text = "[center]Čtvrť zbohatlíků[/center]"
-				
 
 
 func _on_podklasteri_input_event(viewport, event, shape_idx):
@@ -256,6 +256,7 @@ func _on_horkasever_input_event(viewport, event, shape_idx):
 				var text = loadd()
 				$HoodPannel.visible = true
 				$HoodPannel/HoodName.bbcode_text = "[center]Horka domky sever[/center]"
+
 				_send("hood" + text + "$2")
 
 
