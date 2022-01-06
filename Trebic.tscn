@@ -1,29 +1,36 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=67 format=2]
 
-[ext_resource path="res://trebic.png" type="Texture" id=1]
+[ext_resource path="res://assets/trebic.png" type="Texture" id=1]
 [ext_resource path="res://borovina.gd" type="Script" id=2]
-[ext_resource path="res://aceton.png" type="Texture" id=3]
-[ext_resource path="res://chloro.png" type="Texture" id=4]
-[ext_resource path="res://alkohol.png" type="Texture" id=5]
-[ext_resource path="res://hnuj.png" type="Texture" id=6]
-[ext_resource path="res://semeno.png" type="Texture" id=7]
-[ext_resource path="res://kyselina.png" type="Texture" id=8]
-[ext_resource path="res://varna.png" type="Texture" id=9]
-[ext_resource path="res://varic.png" type="Texture" id=10]
-[ext_resource path="res://efedrin.png" type="Texture" id=11]
-[ext_resource path="res://ether.png" type="Texture" id=12]
-[ext_resource path="res://hydroxid.png" type="Texture" id=13]
-[ext_resource path="res://uhlicitan.png" type="Texture" id=14]
-[ext_resource path="res://pico.png" type="Texture" id=15]
-[ext_resource path="res://weed.png" type="Texture" id=16]
-[ext_resource path="res://meds.png" type="Texture" id=17]
-[ext_resource path="res://pills.png" type="Texture" id=18]
+[ext_resource path="res://assets/ether.png" type="Texture" id=3]
+[ext_resource path="res://assets/semeno.png" type="Texture" id=4]
+[ext_resource path="res://assets/hydroxid.png" type="Texture" id=5]
+[ext_resource path="res://assets/kyselina.png" type="Texture" id=6]
+[ext_resource path="res://assets/efedrin.png" type="Texture" id=7]
+[ext_resource path="res://assets/uhlicitan.png" type="Texture" id=8]
+[ext_resource path="res://assets/varna.png" type="Texture" id=9]
+[ext_resource path="res://assets/hnuj.png" type="Texture" id=10]
+[ext_resource path="res://assets/chloro.png" type="Texture" id=11]
+[ext_resource path="res://assets/aceton.png" type="Texture" id=12]
+[ext_resource path="res://assets/varic.png" type="Texture" id=13]
+[ext_resource path="res://assets/alkohol.png" type="Texture" id=14]
+[ext_resource path="res://assets/weed.png" type="Texture" id=15]
+[ext_resource path="res://assets/pico.png" type="Texture" id=16]
+[ext_resource path="res://assets/dealer1.png" type="Texture" id=17]
+[ext_resource path="res://assets/pills.png" type="Texture" id=18]
 [ext_resource path="res://Trebic.gd" type="Script" id=19]
-[ext_resource path="res://varna.gd" type="Script" id=20]
+[ext_resource path="res://Varna1.gd" type="Script" id=20]
 [ext_resource path="res://Inv.gd" type="Script" id=21]
-[ext_resource path="res://money.png" type="Texture" id=22]
+[ext_resource path="res://assets/money.png" type="Texture" id=22]
 [ext_resource path="res://zastavarna_load.gd" type="Script" id=23]
 [ext_resource path="res://assets/dollar.png" type="Texture" id=24]
+[ext_resource path="res://assets/herion.png" type="Texture" id=25]
+[ext_resource path="res://Varna2.gd" type="Script" id=26]
+[ext_resource path="res://Varna5.gd" type="Script" id=27]
+[ext_resource path="res://Varna6.gd" type="Script" id=28]
+[ext_resource path="res://Varna4.gd" type="Script" id=29]
+[ext_resource path="res://Varna3.gd" type="Script" id=30]
+[ext_resource path="res://Varna7.gd" type="Script" id=31]
 
 [sub_resource type="DynamicFontData" id=22]
 font_path = "res://DroidSans.ttf"
@@ -36,19 +43,47 @@ font_data = SubResource( 22 )
 
 [sub_resource type="Theme" id=1]
 
+[sub_resource type="DynamicFontData" id=32]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=33]
+size = 24
+font_data = SubResource( 32 )
+
+[sub_resource type="DynamicFontData" id=30]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=31]
+size = 24
+font_data = SubResource( 30 )
+
+[sub_resource type="DynamicFontData" id=24]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=25]
+size = 32
+font_data = SubResource( 24 )
+
+[sub_resource type="DynamicFontData" id=26]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=27]
+size = 32
+font_data = SubResource( 26 )
+
+[sub_resource type="DynamicFontData" id=28]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=29]
+size = 32
+font_data = SubResource( 28 )
+
 [sub_resource type="DynamicFontData" id=2]
 font_path = "/usr/share/fonts/droid/DroidSans.ttf"
 
 [sub_resource type="DynamicFont" id=3]
-size = 26
+size = 36
 font_data = SubResource( 2 )
-
-[sub_resource type="DynamicFontData" id=8]
-font_path = "res://DroidSans.ttf"
-
-[sub_resource type="DynamicFont" id=9]
-size = 40
-font_data = SubResource( 8 )
 
 [sub_resource type="DynamicFontData" id=6]
 font_path = "res://DroidSans.ttf"
@@ -85,8 +120,15 @@ font_path = "res://DroidSans.ttf"
 size = 30
 font_data = SubResource( 20 )
 
+[sub_resource type="DynamicFontData" id=8]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=9]
+size = 40
+font_data = SubResource( 8 )
+
 [sub_resource type="DynamicFontData" id=4]
-font_path = "/home/veve/projekt/DroidSans.ttf"
+font_path = "res://DroidSans.ttf"
 
 [sub_resource type="DynamicFont" id=5]
 size = 40
@@ -106,6 +148,13 @@ font_path = "res://DroidSans.ttf"
 size = 30
 font_data = SubResource( 10 )
 
+[sub_resource type="DynamicFontData" id=34]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=35]
+size = 19
+font_data = SubResource( 34 )
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 19 )
 
@@ -121,7 +170,6 @@ script = ExtResource( 2 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trebic/borovina"]
 process_priority = 1
 position = Vector2( 3.69702, -3.6969 )
-z_index = 5
 polygon = PoolVector2Array( -3493.56, 1160.82, -3301.32, 1408.52, -2720.91, 1360.46, -2713.52, 1493.54, -2554.55, 1463.97, -2380.8, 1393.73, -2380.8, 1486.15, -2303.16, 1497.24, -2280.98, 1515.73, -2110.93, 1393.73, -2144.2, 1341.97, -2070.26, 1293.91, -2000.02, 1219.97, -1866.93, 1157.13, -1767.11, 1120.16, -1737.54, 1134.95, -1726.45, 1160.82, -1493.54, 1271.73, -1090.58, 1219.97, -776.347, 436.233, -1515.73, 439.93, -2073.96, 602.594, -2329.04, 731.985, -2451.04, 839.195, -2447.34, 902.042, -2942.73, 964.889, -3138.66, 920.526, -3549.02, 994.464, -3493.57, 1160.83 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Trebic/borovina"]
@@ -330,7 +378,8 @@ __meta__ = {
 input_pickable = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trebic/horkaSever"]
-polygon = PoolVector2Array( -1282.82, 421.446, -1005.55, 236.601, -765.257, 166.36, -576.715, 155.269, -354.901, 136.785, -258.782, 129.391, -147.875, 155.269, 22.1816, 269.873, 658.047, 447.324, 946.405, 465.808, 994.464, 554.534, 1057.31, 720.894, 1090.58, 780.044, 1031.43, 802.226, 975.98, 809.619, 1072.1, 743.075, 1094.28, 780.044, 502.778, 1090.58, 462.112, 1105.37, -121.997, 1079.49, -517.565, 1049.92, -698.712, 1046.22, -765.257, 417.749, -1279.13, 421.446 )
+position = Vector2( 0, 7.3938 )
+polygon = PoolVector2Array( -1282.82, 421.446, -1005.55, 236.601, -765.257, 166.36, -576.715, 155.269, -354.901, 136.785, -258.782, 129.391, -147.875, 155.269, 22.1816, 269.873, 658.047, 447.324, 946.405, 465.808, 994.464, 554.534, 1012.95, 602.595, 1042.53, 665.442, 1064.71, 717.198, 1075.8, 743.077, 1083.19, 761.561, 1094.28, 780.044, 502.778, 1090.58, 462.112, 1105.37, -121.997, 1079.49, -517.565, 1049.92, -698.712, 1046.22, -765.257, 417.749, -1279.13, 421.446 )
 
 [node name="Line2D" type="Line2D" parent="Trebic/horkaSever"]
 width = 20.0
@@ -431,19 +480,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Area2D" type="Area2D" parent="Trebic"]
-position = Vector2( -3556.42, -1844.75 )
-scale = Vector2( 3.6969, 3.6969 )
-script = ExtResource( 20 )
-
-[node name="Sprite" type="Sprite" parent="Trebic/Area2D"]
-position = Vector2( 691, 705 )
-scale = Vector2( 0.15625, 0.15625 )
-texture = ExtResource( 18 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trebic/Area2D"]
-polygon = PoolVector2Array( 672, 690, 712, 698, 705, 717, 677, 718, 670, 711 )
-
 [node name="nemocnice" type="StaticBody2D" parent="Trebic"]
 position = Vector2( -3.69678, 0 )
 input_pickable = true
@@ -482,12 +518,103 @@ texture = ExtResource( 24 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trebic/zastavarna"]
 polygon = PoolVector2Array( -561.929, -292.055, -517.566, -292.055, -517.566, -243.995, -543.444, -229.208, -565.625, -247.692 )
 
+[node name="Varna1" type="Area2D" parent="Trebic"]
+position = Vector2( -0.000915527, 0.000671387 )
+script = ExtResource( 20 )
+
+[node name="Sprite" type="Sprite" parent="Trebic/Varna1"]
+position = Vector2( -1590.5, 616.38 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 18 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trebic/Varna1"]
+position = Vector2( -2293.56, -73.5695 )
+polygon = PoolVector2Array( 643.261, 639.564, 776.349, 658.048, 780.046, 676.533, 765.258, 717.198, 717.199, 735.683, 650.654, 739.38, 624.776, 706.108, 632.17, 646.957 )
+
+[node name="Varna2" type="Area2D" parent="Trebic"]
+position = Vector2( -0.000915527, 0.000671387 )
+script = ExtResource( 26 )
+
+[node name="Sprite" type="Sprite" parent="Trebic/Varna2"]
+position = Vector2( -1384.94, 609.356 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 18 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trebic/Varna2"]
+position = Vector2( -2086.53, -80.9626 )
+polygon = PoolVector2Array( 643.261, 639.564, 776.349, 658.048, 780.046, 676.533, 765.258, 717.198, 717.199, 735.683, 650.654, 739.38, 624.776, 706.108, 632.17, 646.957 )
+
+[node name="Varna3" type="Area2D" parent="Trebic"]
+position = Vector2( -0.000915527, 0.000671387 )
+script = ExtResource( 30 )
+
+[node name="Sprite" type="Sprite" parent="Trebic/Varna3"]
+position = Vector2( -1213.41, 612.684 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 18 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trebic/Varna3"]
+position = Vector2( -1916.47, -77.2661 )
+polygon = PoolVector2Array( 643.261, 639.564, 776.349, 658.048, 780.046, 676.533, 765.258, 717.198, 717.199, 735.683, 650.654, 739.38, 624.776, 706.108, 632.17, 646.957 )
+
+[node name="Varna4" type="Area2D" parent="Trebic"]
+position = Vector2( -0.000915527, 0.000671387 )
+script = ExtResource( 29 )
+
+[node name="Sprite" type="Sprite" parent="Trebic/Varna4"]
+position = Vector2( -1032.26, 616.38 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 18 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trebic/Varna4"]
+position = Vector2( -1735.32, -73.5691 )
+polygon = PoolVector2Array( 643.261, 639.564, 776.349, 658.048, 780.046, 676.533, 765.258, 717.198, 717.199, 735.683, 650.654, 739.38, 624.776, 706.108, 632.17, 646.957 )
+
+[node name="Varna5" type="Area2D" parent="Trebic"]
+position = Vector2( -0.000915527, 0.000671387 )
+script = ExtResource( 27 )
+
+[node name="Sprite" type="Sprite" parent="Trebic/Varna5"]
+position = Vector2( -847.416, 608.986 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 18 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trebic/Varna5"]
+position = Vector2( -1550.48, -80.9629 )
+polygon = PoolVector2Array( 643.261, 639.564, 776.349, 658.048, 780.046, 676.533, 765.258, 717.198, 717.199, 735.683, 650.654, 739.38, 624.776, 706.108, 632.17, 646.957 )
+
+[node name="Varna6" type="Area2D" parent="Trebic"]
+position = Vector2( -0.000915527, 0.000671387 )
+script = ExtResource( 28 )
+
+[node name="Sprite" type="Sprite" parent="Trebic/Varna6"]
+position = Vector2( -662.57, 612.684 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 18 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trebic/Varna6"]
+position = Vector2( -1365.63, -77.2661 )
+polygon = PoolVector2Array( 643.261, 639.564, 776.349, 658.048, 780.046, 676.533, 765.258, 717.198, 717.199, 735.683, 650.654, 739.38, 624.776, 706.108, 632.17, 646.957 )
+
+[node name="Varna7" type="Area2D" parent="Trebic"]
+position = Vector2( -0.000915527, 0.000671387 )
+script = ExtResource( 31 )
+
+[node name="Sprite" type="Sprite" parent="Trebic/Varna7"]
+position = Vector2( -477.726, 605.29 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 18 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trebic/Varna7"]
+position = Vector2( -1180.79, -84.6599 )
+polygon = PoolVector2Array( 643.261, 639.564, 776.349, 658.048, 780.046, 676.533, 765.258, 717.198, 717.199, 735.683, 650.654, 739.38, 624.776, 706.108, 632.17, 646.957 )
+
 [node name="HoodPannel" type="Panel" parent="."]
 visible = false
-margin_left = 592.0
-margin_top = 216.0
-margin_right = 1391.0
-margin_bottom = 778.0
+margin_left = 320.0
+margin_top = 128.0
+margin_right = 1536.0
+margin_bottom = 928.0
 rect_pivot_offset = Vector2( 335, 167 )
 theme = SubResource( 1 )
 __meta__ = {
@@ -499,85 +626,256 @@ anchor_left = 0.095
 anchor_top = 0.195
 anchor_right = 0.154
 anchor_bottom = 0.237
-margin_left = 668.095
-margin_top = -101.59
-margin_right = 668.208
-margin_bottom = -102.002
+margin_left = 1036.48
+margin_top = -148.0
+margin_right = 1012.74
+margin_bottom = -161.6
 text = "Exit"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Meds" type="Sprite" parent="HoodPannel"]
-position = Vector2( 272, 136 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 17 )
+[node name="Dealer1" type="StaticBody2D" parent="HoodPannel"]
+position = Vector2( 10, 0 )
 
-[node name="Pills" type="Sprite" parent="HoodPannel"]
-position = Vector2( 528, 264 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 18 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HoodPannel/Dealer1"]
+visible = false
 
-[node name="Pico" type="Sprite" parent="HoodPannel"]
-position = Vector2( 272, 264 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 15 )
-
-[node name="Weed" type="Sprite" parent="HoodPannel"]
-position = Vector2( 536, 136 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 16 )
-
-[node name="RichTextLabel" type="RichTextLabel" parent="HoodPannel"]
-margin_left = 304.0
-margin_top = 104.0
-margin_right = 432.0
-margin_bottom = 168.0
-rect_pivot_offset = Vector2( 67, 94 )
-text = "Meds
-"
+[node name="RichTextLabel" type="RichTextLabel" parent="HoodPannel/Dealer1"]
+margin_left = 280.0
+margin_top = 480.0
+margin_right = 408.0
+margin_bottom = 500.0
+text = "Placeholder 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="HoodPannel"]
-margin_left = 304.0
-margin_top = 232.0
-margin_right = 432.0
+[node name="RichTextLabel2" type="RichTextLabel" parent="HoodPannel/Dealer1"]
+margin_left = 280.0
+margin_top = 536.0
+margin_right = 408.0
+margin_bottom = 552.0
+text = "Placeholder 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="HoodPannel/Dealer1"]
+margin_left = 280.0
+margin_top = 592.0
+margin_right = 408.0
+margin_bottom = 608.0
+text = "Placeholder 3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dealer1" type="Sprite" parent="HoodPannel/Dealer1"]
+position = Vector2( 208, 464 )
+scale = Vector2( 0.608491, 0.608491 )
+texture = ExtResource( 17 )
+offset = Vector2( 52.2319, 127.507 )
+
+[node name="Weed" type="Sprite" parent="HoodPannel/Dealer1"]
+position = Vector2( 175, 592 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 15 )
+
+[node name="Pico" type="Sprite" parent="HoodPannel/Dealer1"]
+position = Vector2( 176, 504 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 16 )
+
+[node name="Line2D" type="Line2D" parent="HoodPannel/Dealer1"]
+points = PoolVector2Array( 128, 448, 384, 448, 384, 640, 128, 640, 128, 443 )
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="UpperPanel" type="StaticBody2D" parent="HoodPannel"]
+
+[node name="NabHeroinValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
+margin_left = 987.0
+margin_top = 354.0
+margin_right = 1027.0
+margin_bottom = 385.0
+rect_pivot_offset = Vector2( 100, 80 )
+custom_fonts/normal_font = SubResource( 33 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopHeroinValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
+margin_left = 985.0
+margin_top = 265.0
+margin_right = 1025.0
 margin_bottom = 296.0
+rect_pivot_offset = Vector2( 100, 80 )
+custom_fonts/normal_font = SubResource( 33 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopNabHeroinText" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
+margin_left = 872.0
+margin_top = 265.0
+margin_right = 992.0
+margin_bottom = 393.0
+custom_fonts/normal_font = SubResource( 31 )
+text = "Poptávka:
+
+
+ Nabídka:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NabPikoValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
+margin_left = 659.0
+margin_top = 354.0
+margin_right = 699.0
+margin_bottom = 385.0
+rect_pivot_offset = Vector2( 168, -1 )
+custom_fonts/normal_font = SubResource( 33 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopPikoValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
+margin_left = 657.0
+margin_top = 265.0
+margin_right = 697.0
+margin_bottom = 296.0
+rect_pivot_offset = Vector2( 170, 88 )
+custom_fonts/normal_font = SubResource( 33 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopNabPikoText" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
+margin_left = 544.0
+margin_top = 265.0
+margin_right = 664.0
+margin_bottom = 393.0
+rect_pivot_offset = Vector2( 283, 88 )
+custom_fonts/normal_font = SubResource( 31 )
+text = "Poptávka:
+
+
+ Nabídka:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NabWeedValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
+margin_left = 336.0
+margin_top = 354.0
+margin_right = 376.0
+margin_bottom = 385.0
+rect_pivot_offset = Vector2( 100, 80 )
+custom_fonts/normal_font = SubResource( 33 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopWeedValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
+margin_left = 336.0
+margin_top = 265.0
+margin_right = 376.0
+margin_bottom = 296.0
+rect_pivot_offset = Vector2( 100, 80 )
+custom_fonts/normal_font = SubResource( 33 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopNabWeedText" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
+margin_left = 224.0
+margin_top = 265.0
+margin_right = 344.0
+margin_bottom = 393.0
+custom_fonts/normal_font = SubResource( 31 )
+text = "Poptávka:
+
+
+ Nabídka:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelHeroin" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
+margin_left = 832.0
+margin_top = 152.0
+margin_right = 1024.0
+margin_bottom = 192.0
 rect_pivot_offset = Vector2( 67, 94 )
+custom_fonts/normal_font = SubResource( 25 )
+bbcode_enabled = true
+bbcode_text = "[center]Heroin"
+text = "Heroin"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelPiko" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
+margin_left = 512.0
+margin_top = 152.0
+margin_right = 702.0
+margin_bottom = 192.0
+rect_pivot_offset = Vector2( 67, 94 )
+custom_fonts/normal_font = SubResource( 27 )
+bbcode_enabled = true
+bbcode_text = "[center]Piko"
 text = "Piko"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="HoodPannel"]
-margin_left = 560.0
-margin_top = 232.0
-margin_right = 688.0
-margin_bottom = 296.0
+[node name="LabelWeed" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
+margin_left = 192.0
+margin_top = 152.0
+margin_right = 384.0
+margin_bottom = 192.0
 rect_pivot_offset = Vector2( 67, 94 )
-text = "Pils"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RichTextLabel4" type="RichTextLabel" parent="HoodPannel"]
-margin_left = 560.0
-margin_top = 104.0
-margin_right = 688.0
-margin_bottom = 168.0
-rect_pivot_offset = Vector2( 67, 94 )
+custom_fonts/normal_font = SubResource( 29 )
+bbcode_enabled = true
+bbcode_text = "[center]Weed"
 text = "Weed"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel5" type="RichTextLabel" parent="HoodPannel"]
-margin_left = 240.0
-margin_top = 40.0
-margin_right = 560.0
-margin_bottom = 80.0
+[node name="Pico" type="Sprite" parent="HoodPannel/UpperPanel"]
+position = Vector2( 608, 224 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 16 )
+
+[node name="Weed" type="Sprite" parent="HoodPannel/UpperPanel"]
+position = Vector2( 288, 224 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 15 )
+
+[node name="Herion" type="Sprite" parent="HoodPannel/UpperPanel"]
+position = Vector2( 928, 224 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 25 )
+
+[node name="Border" type="Line2D" parent="HoodPannel/UpperPanel"]
+position = Vector2( -79.2066, 13.7565 )
+scale = Vector2( 1.1385, 0.878261 )
+points = PoolVector2Array( 192, 128, 1024, 128, 1024, 448, 192, 448, 192, 123 )
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="HoodName" type="RichTextLabel" parent="HoodPannel"]
+margin_left = 192.0
+margin_top = 16.0
+margin_right = 1024.0
+margin_bottom = 64.0
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[center]Test[/center]
@@ -589,16 +887,61 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonExit" type="Button" parent="."]
-margin_left = 1680.0
-margin_top = 8.0
-margin_right = 1912.0
-margin_bottom = 64.0
-custom_fonts/font = SubResource( 9 )
-text = "Exit"
+[node name="Dealer2" type="StaticBody2D" parent="HoodPannel"]
+position = Vector2( 704, 0 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HoodPannel/Dealer2"]
+visible = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HoodPannel/Dealer2"]
+margin_left = 280.0
+margin_top = 480.0
+margin_right = 408.0
+margin_bottom = 500.0
+text = "Placeholder 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="HoodPannel/Dealer2"]
+margin_left = 280.0
+margin_top = 536.0
+margin_right = 408.0
+margin_bottom = 552.0
+text = "Placeholder 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="HoodPannel/Dealer2"]
+margin_left = 280.0
+margin_top = 592.0
+margin_right = 408.0
+margin_bottom = 608.0
+text = "Placeholder 3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dealer1" type="Sprite" parent="HoodPannel/Dealer2"]
+position = Vector2( 208, 464 )
+scale = Vector2( 0.608491, 0.608491 )
+texture = ExtResource( 17 )
+offset = Vector2( 52.2319, 127.507 )
+
+[node name="Weed" type="Sprite" parent="HoodPannel/Dealer2"]
+position = Vector2( 175, 592 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 15 )
+
+[node name="Pico" type="Sprite" parent="HoodPannel/Dealer2"]
+position = Vector2( 176, 504 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 16 )
+
+[node name="Line2D" type="Line2D" parent="HoodPannel/Dealer2"]
+points = PoolVector2Array( 128, 448, 384, 448, 384, 640, 128, 640, 128, 443 )
+default_color = Color( 0, 0, 0, 1 )
 
 [node name="Inv" type="Panel" parent="."]
 visible = false
@@ -625,17 +968,17 @@ __meta__ = {
 [node name="Weed" type="Sprite" parent="Inv"]
 position = Vector2( 288, 160 )
 scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 16 )
+texture = ExtResource( 15 )
 
-[node name="Meds" type="Sprite" parent="Inv"]
-position = Vector2( 608, 160 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 17 )
-
-[node name="Pico" type="Sprite" parent="Inv"]
+[node name="Herion" type="Sprite" parent="Inv"]
 position = Vector2( 928, 160 )
 scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 15 )
+texture = ExtResource( 25 )
+
+[node name="Pico" type="Sprite" parent="Inv"]
+position = Vector2( 608, 160 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 16 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Inv"]
 margin_left = 192.0
@@ -701,8 +1044,8 @@ margin_right = 768.0
 margin_bottom = 128.0
 custom_fonts/normal_font = SubResource( 17 )
 bbcode_enabled = true
-bbcode_text = "[center]Metamfetamin[/center]"
-text = "Metamfetamin"
+bbcode_text = "[center]Piko[/center]"
+text = "Piko"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -715,8 +1058,8 @@ margin_right = 384.0
 margin_bottom = 128.0
 custom_fonts/normal_font = SubResource( 19 )
 bbcode_enabled = true
-bbcode_text = "[center]Marihuana[center]"
-text = "Marihuana"
+bbcode_text = "[center]Weed[center]"
+text = "Weed"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -729,57 +1072,62 @@ default_color = Color( 0, 0, 0, 1 )
 [node name="Aceton" type="Sprite" parent="Inv"]
 position = Vector2( 288, 352 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 3 )
+texture = ExtResource( 12 )
 
 [node name="Alkohol" type="Sprite" parent="Inv"]
 position = Vector2( 288, 472 )
 scale = Vector2( 0.35, 0.35 )
-texture = ExtResource( 5 )
+texture = ExtResource( 14 )
 
 [node name="Chloro" type="Sprite" parent="Inv"]
 position = Vector2( 288, 608 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 4 )
+texture = ExtResource( 11 )
 
 [node name="Efedrin" type="Sprite" parent="Inv"]
 position = Vector2( 288, 736 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 11 )
+texture = ExtResource( 7 )
 
 [node name="Hydroxid" type="Sprite" parent="Inv"]
 position = Vector2( 608, 608 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 13 )
+texture = ExtResource( 5 )
 
 [node name="Kyselina" type="Sprite" parent="Inv"]
 position = Vector2( 934, 352 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 8 )
+texture = ExtResource( 6 )
 
 [node name="Semeno" type="Sprite" parent="Inv"]
 position = Vector2( 616, 736 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 7 )
+texture = ExtResource( 4 )
 
 [node name="Ether" type="Sprite" parent="Inv"]
 position = Vector2( 608, 352 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 12 )
+texture = ExtResource( 3 )
 
 [node name="Hnuj" type="Sprite" parent="Inv"]
 position = Vector2( 608, 480 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 6 )
+texture = ExtResource( 10 )
 
 [node name="Uhlicitan" type="Sprite" parent="Inv"]
 position = Vector2( 934, 480 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 14 )
+texture = ExtResource( 8 )
 
 [node name="Varic" type="Sprite" parent="Inv"]
 position = Vector2( 934, 608 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 10 )
+texture = ExtResource( 13 )
+
+[node name="Varna" type="Sprite" parent="Inv"]
+position = Vector2( 934, 736 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 9 )
 
 [node name="HydroxidText" type="RichTextLabel" parent="Inv"]
 margin_left = 672.0
@@ -893,11 +1241,6 @@ text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Varna" type="Sprite" parent="Inv"]
-position = Vector2( 934, 736 )
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 9 )
 
 [node name="RichTextLabel18" type="RichTextLabel" parent="Inv"]
 margin_left = 808.0
@@ -1084,6 +1427,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ButtonExit" type="Button" parent="."]
+margin_left = 1680.0
+margin_top = 8.0
+margin_right = 1912.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 9 )
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Button-Inv" type="Button" parent="."]
 margin_left = 8.0
 margin_top = 8.0
@@ -1095,7 +1449,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="."]
+[node name="BackgroundRespekt" type="Button" parent="."]
 margin_left = 808.0
 margin_top = 8.0
 margin_right = 1112.0
@@ -1104,7 +1458,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+[node name="LabelRespekt" type="RichTextLabel" parent="."]
 margin_left = 240.0
 margin_top = 8.0
 margin_right = 1680.0
@@ -1124,16 +1478,57 @@ position = Vector2( 36.5, 82.25 )
 scale = Vector2( 0.196429, 0.196429 )
 texture = ExtResource( 22 )
 
-[node name="RichTextLabelMoney" type="RichTextLabel" parent="."]
+[node name="LabelMoney" type="RichTextLabel" parent="."]
 margin_left = 64.0
 margin_top = 64.0
 margin_right = 240.0
 margin_bottom = 104.0
 custom_fonts/normal_font = SubResource( 11 )
+text = "0"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ExitPanel" type="Panel" parent="."]
+visible = false
+margin_left = 832.0
+margin_top = 428.0
+margin_right = 1088.0
+margin_bottom = 576.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitButtonYes" type="Button" parent="ExitPanel"]
+margin_left = 32.0
+margin_top = 100.0
+margin_right = 96.0
+margin_bottom = 120.0
+text = "Ano"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitButtonNo" type="Button" parent="ExitPanel"]
+margin_left = 168.0
+margin_top = 100.0
+margin_right = 232.0
+margin_bottom = 120.0
+text = "Ne"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ExitPanel"]
+margin_top = 20.0
+margin_right = 256.0
+margin_bottom = 44.0
+custom_fonts/normal_font = SubResource( 35 )
+bbcode_enabled = true
+bbcode_text = "[center]Opravdu si přejete odejít?"
+text = "Opravdu si přejete odejít?"
+scroll_active = false
 
 [connection signal="input_event" from="Trebic/borovina" to="." method="_on_borovina_input_event"]
 [connection signal="mouse_entered" from="Trebic/borovina" to="Trebic/borovina" method="_on_borovina_mouse_entered"]
@@ -1199,7 +1594,9 @@ __meta__ = {
 [connection signal="mouse_exited" from="Trebic/nemocnice" to="." method="_on_nemocnice_mouse_exited"]
 [connection signal="mouse_exited" from="Trebic/nemocnice" to="Trebic/nemocnice" method="_on_nemocnice_mouse_exited"]
 [connection signal="pressed" from="HoodPannel/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Inv/Button-Inv-Exit" to="." method="_on_ButtonInvExit_pressed"]
 [connection signal="pressed" from="ButtonExit" to="." method="_on_ButtonExit_pressed"]
 [connection signal="pressed" from="ButtonExit" to="Inv" method="_on_ButtonExit_pressed"]
-[connection signal="pressed" from="Inv/Button-Inv-Exit" to="." method="_on_ButtonInvExit_pressed"]
 [connection signal="pressed" from="Button-Inv" to="." method="_on_ButtonInv_pressed"]
+[connection signal="pressed" from="ExitPanel/ExitButtonYes" to="." method="_on_ExitButtonYes_pressed"]
+[connection signal="pressed" from="ExitPanel/ExitButtonNo" to="." method="_on_ExitButtonNo_pressed"]

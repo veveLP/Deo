@@ -135,5 +135,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="text_entered" from="Panel/LineEdit2" to="." method="_on_LineEdit2_text_entered"]
 [connection signal="pressed" from="Panel/Button" to="." method="_on_Button_pressed"]
 [connection signal="toggled" from="Panel/CheckBox" to="." method="_on_CheckBox_toggled"]

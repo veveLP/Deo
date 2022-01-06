@@ -1,10 +1,9 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://varna_scene.gd" type="Script" id=2]
 [ext_resource path="res://assets/player.png" type="Texture" id=3]
 [ext_resource path="res://48x48/Room.png" type="Texture" id=4]
-[ext_resource path="res://assets/pod.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 15.0938, 10.5 )
@@ -988,17 +987,68 @@ position = Vector2( 216, 492 )
 z_index = 2
 shape = SubResource( 41 )
 
+[node name="table4" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="table4"]
+position = Vector2( 98, 115.75 )
+rotation = 1.5708
+shape = SubResource( 42 )
+
+[node name="Sprite" type="Sprite" parent="table4"]
+position = Vector2( 60, 42.7499 )
+scale = Vector2( 0.5625, 0.538194 )
+z_index = 3
+offset = Vector2( 90.6667, 55.7421 )
+
+[node name="table3" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="table3"]
+position = Vector2( 239, 114.75 )
+rotation = 1.5708
+shape = SubResource( 42 )
+
+[node name="Sprite" type="Sprite" parent="table3"]
+position = Vector2( 201, 41.7499 )
+scale = Vector2( 0.5625, 0.538194 )
+z_index = 3
+offset = Vector2( 90.6667, 55.7421 )
+
+[node name="table2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="table2"]
+position = Vector2( 383, 117 )
+rotation = 1.5708
+shape = SubResource( 42 )
+
+[node name="Sprite" type="Sprite" parent="table2"]
+position = Vector2( 345, 44 )
+scale = Vector2( 0.5625, 0.538194 )
+z_index = 3
+offset = Vector2( 90.6667, 55.7421 )
+
 [node name="table1" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="table1"]
-position = Vector2( 68, 431.75 )
+position = Vector2( 463, 428 )
 shape = SubResource( 42 )
 
 [node name="Sprite" type="Sprite" parent="table1"]
-position = Vector2( 65, 432 )
+position = Vector2( 443, 385 )
 scale = Vector2( 0.5625, 0.538194 )
 z_index = 3
-texture = ExtResource( 5 )
+offset = Vector2( 90.6667, 55.7421 )
+
+[node name="table0" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="table0"]
+position = Vector2( 68, 431.75 )
+shape = SubResource( 42 )
+
+[node name="Sprite" type="Sprite" parent="table0"]
+position = Vector2( 12, 387 )
+scale = Vector2( 0.5625, 0.538194 )
+z_index = 3
+offset = Vector2( 90.6667, 55.7421 )
 
 [node name="harvested" type="RichTextLabel" parent="."]
 margin_left = -2.0
@@ -1019,5 +1069,3 @@ __meta__ = {
 }
 
 [connection signal="body_entered" from="leave" to="." method="_on_leave_body_entered"]
-[connection signal="body_entered" from="table1" to="." method="_on_table1_body_entered"]
-[connection signal="body_exited" from="table1" to="." method="_on_table1_body_exited"]

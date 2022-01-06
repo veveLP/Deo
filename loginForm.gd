@@ -17,7 +17,6 @@ func _ready():
 	print (loaded)
 	var x = loaded.split("$")
 	print (x[1])
-	
 	$Panel/LineEdit.text = x[1]
 	
 
@@ -57,3 +56,18 @@ func _on_CheckBox_toggled(button_pressed):
 		check = false
 	else:
 		check = true
+
+
+func _on_LineEdit2_text_entered(new_text):
+	print($Panel/LineEdit.text)
+	print($Panel/LineEdit2.text)
+	var password = $Panel/LineEdit2.text
+	print(password.sha256_text())
+	password = password.sha256_text()
+	password = password.left(10)
+	save("$"+$Panel/LineEdit.text+"$"+password)
+	get_tree().change_scene("res://Trebic.tscn")
+	if (check):
+		OS.window_fullscreen = true
+	else:
+		OS.window_size = Vector2(1920,1080)

@@ -1,9 +1,8 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://48x48/Room.png" type="Texture" id=2]
 [ext_resource path="res://assets/player.png" type="Texture" id=3]
-[ext_resource path="res://varna_scene7.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 15.0938, 10.5 )
@@ -932,7 +931,6 @@ segments = PoolVector2Array( 0, 0, 24, 0, 24, 0, 24, 24, 24, 24, 0, 24, 0, 24, 0
 extents = Vector2( 21, 6 )
 
 [node name="varna_scene7" type="Node2D"]
-script = ExtResource( 4 )
 
 [node name="player" type="KinematicBody2D" parent="."]
 script = ExtResource( 1 )

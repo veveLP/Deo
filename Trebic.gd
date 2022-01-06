@@ -9,7 +9,7 @@ var unlockedHoods = 1
 #	return unlockedHoods
 
 func _ready():
-	
+	#$HoodPannel/Dealer1/Pico.texture = load("res://assets/money.png")
 	$HoodPannel.visible = false
 	$Inv.visible = false
 	client.connect("connection_closed", self, "_on_connection_closed")
@@ -46,7 +46,7 @@ func _on_data():
 	print("Received data: ", payload)
 	var x = payload.split("$")
 	if (x[0] == "loadmap"):
-		$RichTextLabelMoney.text = x[2]
+		$LabelMoney.text = x[2]
 		unlockedHoods = x[1] 
 		var test=float(x[3])
 		var numb = float(0)
@@ -66,7 +66,7 @@ func _on_data():
 			
 			
 		
-		$RichTextLabel2.bbcode_text = "[center]Respekt: " + str(stepify(test,0.1)) +text+ "[/center]"
+		$LabelRespekt.bbcode_text = "[center]Respekt: " + str(stepify(test,0.1)) +text+ "[/center]"
 		
 
 func _send(text):
@@ -87,14 +87,15 @@ func _on_Button_pressed():
 
 
 func _on_ButtonExit_pressed():
-	get_tree().quit()
+	
+	$ExitPanel.visible = true
 
 
 func _on_borovina_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			$HoodPannel.visible = true
-			$HoodPannel/RichTextLabel5.bbcode_text = "[center]Borovina[/center]"
+			$HoodPannel/HoodName.bbcode_text = "[center]Borovina[/center]"
 			
 
 
@@ -103,7 +104,7 @@ func _on_kokain_ctvrt_input_event(viewport, event, shape_idx):
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if int(unlockedHoods) >= 10:
 				$HoodPannel.visible = true
-				$HoodPannel/RichTextLabel5.bbcode_text = "[center]Čtvrť zbohatlíků[/center]"
+				$HoodPannel/HoodName.bbcode_text = "[center]Čtvrť zbohatlíků[/center]"
 
 
 func _on_podklasteri_input_event(viewport, event, shape_idx):
@@ -111,7 +112,7 @@ func _on_podklasteri_input_event(viewport, event, shape_idx):
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if int(unlockedHoods) >= 9:
 				$HoodPannel.visible = true
-				$HoodPannel/RichTextLabel5.bbcode_text = "[center]Podkláštěří[/center]"
+				$HoodPannel/HoodName.bbcode_text = "[center]Podkláštěří[/center]"
 
 
 func _on_zid_input_event(viewport, event, shape_idx):
@@ -119,7 +120,7 @@ func _on_zid_input_event(viewport, event, shape_idx):
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if int(unlockedHoods) >= 8:
 				$HoodPannel.visible = true
-				$HoodPannel/RichTextLabel5.bbcode_text = "[center]Židovská čtvrť[/center]"
+				$HoodPannel/HoodName.bbcode_text = "[center]Židovská čtvrť[/center]"
 
 
 func _on_namesti_input_event(viewport, event, shape_idx):
@@ -127,7 +128,7 @@ func _on_namesti_input_event(viewport, event, shape_idx):
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if int(unlockedHoods) >= 7:
 				$HoodPannel.visible = true
-				$HoodPannel/RichTextLabel5.bbcode_text = "[center]Centrum[/center]"
+				$HoodPannel/HoodName.bbcode_text = "[center]Centrum[/center]"
 
 
 func _on_spst_input_event(viewport, event, shape_idx):
@@ -135,7 +136,7 @@ func _on_spst_input_event(viewport, event, shape_idx):
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if int(unlockedHoods) >= 13:
 				$HoodPannel.visible = true
-				$HoodPannel/RichTextLabel5.bbcode_text = "[center]SPŠT[/center]"
+				$HoodPannel/HoodName.bbcode_text = "[center]SPŠT[/center]"
 
 
 func _on_tyn_input_event(viewport, event, shape_idx):
@@ -143,7 +144,7 @@ func _on_tyn_input_event(viewport, event, shape_idx):
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if int(unlockedHoods) >= 11:
 				$HoodPannel.visible = true
-				$HoodPannel/RichTextLabel5.bbcode_text = "[center]Týn[/center]"
+				$HoodPannel/HoodName.bbcode_text = "[center]Týn[/center]"
 
 
 func _on_atom_input_event(viewport, event, shape_idx):
@@ -151,7 +152,7 @@ func _on_atom_input_event(viewport, event, shape_idx):
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if int(unlockedHoods) >= 12:
 				$HoodPannel.visible = true
-				$HoodPannel/RichTextLabel5.bbcode_text = "[center]Hotel atom[/center]"
+				$HoodPannel/HoodName.bbcode_text = "[center]Hotel atom[/center]"
 
 
 func _on_horkasever_input_event(viewport, event, shape_idx):
@@ -159,7 +160,7 @@ func _on_horkasever_input_event(viewport, event, shape_idx):
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if int(unlockedHoods) >= 2:
 				$HoodPannel.visible = true
-				$HoodPannel/RichTextLabel5.bbcode_text = "[center]Horka domky sever[/center]"
+				$HoodPannel/HoodName.bbcode_text = "[center]Horka domky sever[/center]"
 
 
 func _on_horkajih_input_event(viewport, event, shape_idx):
@@ -167,7 +168,7 @@ func _on_horkajih_input_event(viewport, event, shape_idx):
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if int(unlockedHoods) >= 3:
 				$HoodPannel.visible = true
-				$HoodPannel/RichTextLabel5.bbcode_text = "[center]Horka domky jih[/center]"
+				$HoodPannel/HoodName.bbcode_text = "[center]Horka domky jih[/center]"
 
 
 func _on_stopshop_input_event(viewport, event, shape_idx):
@@ -175,7 +176,7 @@ func _on_stopshop_input_event(viewport, event, shape_idx):
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if int(unlockedHoods) >= 4:
 				$HoodPannel.visible = true
-				$HoodPannel/RichTextLabel5.bbcode_text = "[center]Stop shop[/center]"
+				$HoodPannel/HoodName.bbcode_text = "[center]Stop shop[/center]"
 
 
 func _on_prumyslova_input_event(viewport, event, shape_idx):
@@ -183,7 +184,7 @@ func _on_prumyslova_input_event(viewport, event, shape_idx):
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if int(unlockedHoods) >= 5:
 				$HoodPannel.visible = true
-				$HoodPannel/RichTextLabel5.bbcode_text = "[center]Průmyslová čtvrť[/center]"
+				$HoodPannel/HoodName.bbcode_text = "[center]Průmyslová čtvrť[/center]"
 
 
 func _on_nemocnice_input_event(viewport, event, shape_idx):
@@ -191,7 +192,7 @@ func _on_nemocnice_input_event(viewport, event, shape_idx):
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if int(unlockedHoods) >= 6:
 				$HoodPannel.visible = true
-				$HoodPannel/RichTextLabel5.bbcode_text = "[center]Nemocnice[/center]"
+				$HoodPannel/HoodName.bbcode_text = "[center]Nemocnice[/center]"
 
 
 ##############################################################
@@ -420,3 +421,11 @@ func _on_spst_mouse_entered():
 func _on_spst_mouse_exited():
 	$Trebic/spst/Line2D.hide()
 	$Trebic/spst/RichTextLabel.hide()
+
+
+func _on_ExitButtonYes_pressed():
+	get_tree().quit()
+
+
+func _on_ExitButtonNo_pressed():
+	$ExitPanel.visible = false
