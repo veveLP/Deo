@@ -646,53 +646,64 @@ position = Vector2( 10, 0 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HoodPannel/Dealer1"]
 visible = false
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HoodPannel/Dealer1"]
-margin_left = 280.0
-margin_top = 480.0
-margin_right = 408.0
-margin_bottom = 500.0
+[node name="ProfitCut" type="RichTextLabel" parent="HoodPannel/Dealer1"]
+margin_left = 344.0
+margin_top = 519.0
+margin_right = 472.0
+margin_bottom = 539.0
 text = "Placeholder 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="HoodPannel/Dealer1"]
-margin_left = 280.0
-margin_top = 536.0
-margin_right = 408.0
-margin_bottom = 552.0
+[node name="PoliceChance" type="RichTextLabel" parent="HoodPannel/Dealer1"]
+margin_left = 344.0
+margin_top = 575.0
+margin_right = 472.0
+margin_bottom = 591.0
 text = "Placeholder 2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="HoodPannel/Dealer1"]
-margin_left = 280.0
-margin_top = 592.0
-margin_right = 408.0
-margin_bottom = 608.0
+[node name="SellingAmount" type="RichTextLabel" parent="HoodPannel/Dealer1"]
+margin_left = 344.0
+margin_top = 631.0
+margin_right = 472.0
+margin_bottom = 647.0
 text = "Placeholder 3"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Name" type="RichTextLabel" parent="HoodPannel/Dealer1"]
+margin_left = 198.0
+margin_top = 472.0
+margin_right = 438.0
+margin_bottom = 512.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Dealer1" type="Sprite" parent="HoodPannel/Dealer1"]
-position = Vector2( 208, 464 )
+position = Vector2( 272, 503 )
 scale = Vector2( 0.608491, 0.608491 )
 texture = ExtResource( 17 )
 offset = Vector2( 52.2319, 127.507 )
 
-[node name="Weed" type="Sprite" parent="HoodPannel/Dealer1"]
-position = Vector2( 175, 592 )
+[node name="Drug2" type="Sprite" parent="HoodPannel/Dealer1"]
+position = Vector2( 239, 631 )
 scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 15 )
 
-[node name="Pico" type="Sprite" parent="HoodPannel/Dealer1"]
-position = Vector2( 176, 504 )
+[node name="Drug1" type="Sprite" parent="HoodPannel/Dealer1"]
+position = Vector2( 240, 543 )
 scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 16 )
 
 [node name="Line2D" type="Line2D" parent="HoodPannel/Dealer1"]
+position = Vector2( 64, -32.8894 )
+scale = Vector2( 1, 1.1106 )
 points = PoolVector2Array( 128, 448, 384, 448, 384, 640, 128, 640, 128, 443 )
 default_color = Color( 0, 0, 0, 1 )
 
@@ -893,40 +904,10 @@ __meta__ = {
 }
 
 [node name="Dealer2" type="StaticBody2D" parent="HoodPannel"]
-position = Vector2( 704, 0 )
+position = Vector2( 704, 32 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HoodPannel/Dealer2"]
 visible = false
-
-[node name="RichTextLabel" type="RichTextLabel" parent="HoodPannel/Dealer2"]
-margin_left = 280.0
-margin_top = 480.0
-margin_right = 408.0
-margin_bottom = 500.0
-text = "Placeholder 1"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="HoodPannel/Dealer2"]
-margin_left = 280.0
-margin_top = 536.0
-margin_right = 408.0
-margin_bottom = 552.0
-text = "Placeholder 2"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RichTextLabel3" type="RichTextLabel" parent="HoodPannel/Dealer2"]
-margin_left = 280.0
-margin_top = 592.0
-margin_right = 408.0
-margin_bottom = 608.0
-text = "Placeholder 3"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Dealer1" type="Sprite" parent="HoodPannel/Dealer2"]
 position = Vector2( 208, 464 )
@@ -934,17 +915,58 @@ scale = Vector2( 0.608491, 0.608491 )
 texture = ExtResource( 17 )
 offset = Vector2( 52.2319, 127.507 )
 
-[node name="Weed" type="Sprite" parent="HoodPannel/Dealer2"]
+[node name="Drug2" type="Sprite" parent="HoodPannel/Dealer2"]
 position = Vector2( 175, 592 )
 scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 15 )
 
-[node name="Pico" type="Sprite" parent="HoodPannel/Dealer2"]
+[node name="Drug1" type="Sprite" parent="HoodPannel/Dealer2"]
 position = Vector2( 176, 504 )
 scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 16 )
 
+[node name="Name" type="RichTextLabel" parent="HoodPannel/Dealer2"]
+margin_left = 136.0
+margin_top = 432.0
+margin_right = 376.0
+margin_bottom = 472.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProfitCut" type="RichTextLabel" parent="HoodPannel/Dealer2"]
+margin_left = 280.0
+margin_top = 488.0
+margin_right = 408.0
+margin_bottom = 508.0
+text = "Placeholder 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PoliceChance" type="RichTextLabel" parent="HoodPannel/Dealer2"]
+margin_left = 280.0
+margin_top = 544.0
+margin_right = 408.0
+margin_bottom = 560.0
+text = "Placeholder 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SellingAmount" type="RichTextLabel" parent="HoodPannel/Dealer2"]
+margin_left = 280.0
+margin_top = 600.0
+margin_right = 408.0
+margin_bottom = 616.0
+text = "Placeholder 3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Line2D" type="Line2D" parent="HoodPannel/Dealer2"]
+position = Vector2( 0, -74.8848 )
+scale = Vector2( 1, 1.11521 )
 points = PoolVector2Array( 128, 448, 384, 448, 384, 640, 128, 640, 128, 443 )
 default_color = Color( 0, 0, 0, 1 )
 

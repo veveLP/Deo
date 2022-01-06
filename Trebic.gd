@@ -8,6 +8,9 @@ var unlockedHoods = 1
 #func getHoods() :
 #	return unlockedHoods
 
+
+
+
 func _ready():
 	#$HoodPannel/Dealer1/Pico.texture = load("res://assets/money.png")
 	$HoodPannel.visible = false
@@ -68,16 +71,92 @@ func _on_data():
 		
 		$LabelRespekt.bbcode_text = "[center]Respekt: " + str(stepify(test,0.1)) +text+ "[/center]"
 	if (x[0] == "hood"):
-		print("hood received")
+		
+		
+		var fileJSON = File.new()
+		fileJSON.open("res://assets/dealeri.json", fileJSON.READ)
+		var json= fileJSON.get_as_text()
+		var json_result = JSON.parse(json).result
+		fileJSON.close()
+		$HoodPannel/Dealer1/Name.text = (json_result[x[9]][x[7]]["name"])
+		match (json_result[x[9]][x[7]]["drugs"][0]):
+			"weed": 
+				print("weed")
+				$HoodPannel/Dealer1/Drug1.texture = load("res://assets/weed.png") 
+				pass
+			"meth": 
+				print("meth") 
+				$HoodPannel/Dealer1/Drug1.texture = load("res://assets/pico.png") 
+				pass
+			"heroin": 
+				print("heroin") 
+				$HoodPannel/Dealer1/Drug1.texture = load("res://assets/herion.png") 
+				pass
+		
+		match (json_result[x[9]][x[7]]["drugs"][1]):
+			"weed": 
+				print("weed")
+				$HoodPannel/Dealer1/Drug2.texture = load("res://assets/weed.png") 
+				pass
+			"meth": 
+				print("meth") 
+				$HoodPannel/Dealer1/Drug2.texture = load("res://assets/pico.png") 
+				pass
+			"heroin": 
+				print("heroin") 
+				$HoodPannel/Dealer1/Drug2.texture = load("res://assets/herion.png") 
+				pass
+		
+		
+		
+		
+		$HoodPannel/Dealer2/Name.text = (json_result[x[9]][x[8]]["name"])
+		match (json_result[x[9]][x[8]]["drugs"][0]):
+			"weed": 
+				print("weed")
+				$HoodPannel/Dealer2/Drug1.texture = load("res://assets/weed.png") 
+				pass
+			"meth": 
+				print("meth") 
+				$HoodPannel/Dealer2/Drug1.texture = load("res://assets/pico.png") 
+				pass
+			"heroin": 
+				print("heroin") 
+				$HoodPannel/Dealer2/Drug1.texture = load("res://assets/herion.png") 
+				pass
+		
+		match (json_result[x[9]][x[8]]["drugs"][1]):
+			"weed": 
+				print("weed")
+				$HoodPannel/Dealer2/Drug2.texture = load("res://assets/weed.png") 
+				pass
+			"meth": 
+				print("meth") 
+				$HoodPannel/Dealer2/Drug2.texture = load("res://assets/pico.png") 
+				pass
+			"heroin": 
+				print("heroin") 
+				$HoodPannel/Dealer2/Drug2.texture = load("res://assets/herion.png") 
+				pass
+		
+		$HoodPannel/Dealer1/ProfitCut.text = str(json_result[x[9]][x[7]]["profit_cut"])
+		$HoodPannel/Dealer1/PoliceChance.text = str(json_result[x[9]][x[7]]["police_chance"])
+		$HoodPannel/Dealer1/SellingAmount.text = str(json_result[x[9]][x[7]]["selling_amount"])
+		
+		$HoodPannel/Dealer2/ProfitCut.text = str(json_result[x[9]][x[8]]["profit_cut"])
+		$HoodPannel/Dealer2/PoliceChance.text = str(json_result[x[9]][x[8]]["police_chance"])
+		$HoodPannel/Dealer2/SellingAmount.text = str(json_result[x[9]][x[8]]["selling_amount"])
+		
+		#print("hood received")
 		$HoodPannel/UpperPanel/PopWeedValue.text = x[1]
 		$HoodPannel/UpperPanel/PriceWeedValue.text = x[2]
 		$HoodPannel/UpperPanel/PopPikoValue.text = x[3]
 		$HoodPannel/UpperPanel/PricePikoValue.text = x[4]
 		$HoodPannel/UpperPanel/PopHeroinValue.text = x[5]
 		$HoodPannel/UpperPanel/PriceHeroinValue.text = x[6]
-		print ("id0=" + x[7])
-		print ("id1=" + x[8])
-		
+		#print ("id0=" + x[7])
+		#print ("id1=" + x[8])
+		#print ("hoodId=" + x[9])
 		
 func _send(text):
 	var packet: PoolByteArray = text.to_utf8()
@@ -101,8 +180,6 @@ func _on_ButtonExit_pressed():
 	$ExitPanel.visible = true
 
 
-func GetHoodPanelInfo(var i):
-	pass
 
 func _on_borovina_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -118,8 +195,10 @@ func _on_kokain_ctvrt_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if int(unlockedHoods) >= 10:
+				
 				$HoodPannel.visible = true
 				$HoodPannel/HoodName.bbcode_text = "[center]Čtvrť zbohatlíků[/center]"
+				
 
 
 func _on_podklasteri_input_event(viewport, event, shape_idx):
@@ -174,8 +253,10 @@ func _on_horkasever_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if int(unlockedHoods) >= 2:
+				var text = loadd()
 				$HoodPannel.visible = true
 				$HoodPannel/HoodName.bbcode_text = "[center]Horka domky sever[/center]"
+				_send("hood" + text + "$2")
 
 
 func _on_horkajih_input_event(viewport, event, shape_idx):
