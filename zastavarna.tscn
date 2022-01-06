@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player.png" type="Texture" id=2]
@@ -6,9 +6,9 @@
 [ext_resource path="res://zastavarna.gd" type="Script" id=4]
 [ext_resource path="res://assets/varna.png" type="Texture" id=5]
 [ext_resource path="res://48x48/Zastavarna.png" type="Texture" id=6]
-[ext_resource path="res://assets/kyselina.png" type="Texture" id=8]
+[ext_resource path="res://assets/ether.png" type="Texture" id=7]
+[ext_resource path="res://assets/aceton.png" type="Texture" id=8]
 [ext_resource path="res://assets/hydroxid.png" type="Texture" id=9]
-[ext_resource path="res://assets/hnuj.png" type="Texture" id=11]
 [ext_resource path="res://assets/chloro.png" type="Texture" id=12]
 [ext_resource path="res://assets/alkohol.png" type="Texture" id=13]
 [ext_resource path="res://assets/varic.png" type="Texture" id=14]
@@ -19,6 +19,14 @@ extents = Vector2( 15.0938, 12.5 )
 
 [sub_resource type="RectangleShape2D" id=43]
 extents = Vector2( 12, 37 )
+
+[sub_resource type="StreamTexture" id=44]
+flags = 4
+load_path = "res://.import/kyselina.png-a49500f7ee6dc569651f4fdbb5e6080e.stex"
+
+[sub_resource type="StreamTexture" id=45]
+flags = 4
+load_path = "res://.import/hnuj.png-e8f2d3c41e6d5a10524b293bbef85bd8.stex"
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 21, 5.75 )
@@ -1353,7 +1361,7 @@ position = Vector2( 680, 958.505 )
 rotation = 1.5708
 scale = Vector2( 0.121132, 0.114742 )
 z_index = 2
-texture = ExtResource( 8 )
+texture = SubResource( 44 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kyselina"]
 position = Vector2( 613, 959.025 )
@@ -1367,7 +1375,7 @@ position = Vector2( 679, 382.505 )
 rotation = 1.5708
 scale = Vector2( 0.121132, 0.114742 )
 z_index = 2
-texture = ExtResource( 11 )
+texture = SubResource( 45 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hnuj"]
 position = Vector2( 612, 383.025 )
@@ -1381,7 +1389,7 @@ position = Vector2( 40, 241 )
 rotation = -1.5708
 scale = Vector2( 0.137869, 0.130597 )
 z_index = 2
-texture = ExtResource( 11 )
+texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ether"]
 position = Vector2( 108, 241 )

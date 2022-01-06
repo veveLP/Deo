@@ -5,11 +5,9 @@
 [ext_resource path="res://assets/ether.png" type="Texture" id=3]
 [ext_resource path="res://assets/semeno.png" type="Texture" id=4]
 [ext_resource path="res://assets/hydroxid.png" type="Texture" id=5]
-[ext_resource path="res://assets/kyselina.png" type="Texture" id=6]
 [ext_resource path="res://assets/efedrin.png" type="Texture" id=7]
 [ext_resource path="res://assets/uhlicitan.png" type="Texture" id=8]
 [ext_resource path="res://assets/varna.png" type="Texture" id=9]
-[ext_resource path="res://assets/hnuj.png" type="Texture" id=10]
 [ext_resource path="res://assets/chloro.png" type="Texture" id=11]
 [ext_resource path="res://assets/aceton.png" type="Texture" id=12]
 [ext_resource path="res://assets/varic.png" type="Texture" id=13]
@@ -113,6 +111,14 @@ font_path = "res://DroidSans.ttf"
 size = 32
 font_data = SubResource( 18 )
 
+[sub_resource type="StreamTexture" id=44]
+flags = 4
+load_path = "res://.import/kyselina.png-a49500f7ee6dc569651f4fdbb5e6080e.stex"
+
+[sub_resource type="StreamTexture" id=45]
+flags = 4
+load_path = "res://.import/hnuj.png-e8f2d3c41e6d5a10524b293bbef85bd8.stex"
+
 [sub_resource type="DynamicFontData" id=20]
 font_path = "res://DroidSans.ttf"
 
@@ -128,7 +134,7 @@ size = 40
 font_data = SubResource( 8 )
 
 [sub_resource type="DynamicFontData" id=4]
-font_path = "/home/veve/projekt/DroidSans.ttf"
+font_path = "res://DroidSans.ttf"
 
 [sub_resource type="DynamicFont" id=5]
 size = 40
@@ -610,7 +616,6 @@ position = Vector2( -1180.79, -84.6599 )
 polygon = PoolVector2Array( 643.261, 639.564, 776.349, 658.048, 780.046, 676.533, 765.258, 717.198, 717.199, 735.683, 650.654, 739.38, 624.776, 706.108, 632.17, 646.957 )
 
 [node name="HoodPannel" type="Panel" parent="."]
-visible = false
 margin_left = 320.0
 margin_top = 128.0
 margin_right = 1536.0
@@ -693,11 +698,11 @@ default_color = Color( 0, 0, 0, 1 )
 
 [node name="UpperPanel" type="StaticBody2D" parent="HoodPannel"]
 
-[node name="NabHeroinValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
-margin_left = 987.0
-margin_top = 354.0
-margin_right = 1027.0
-margin_bottom = 385.0
+[node name="PriceHeroinValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
+margin_left = 944.0
+margin_top = 355.0
+margin_right = 984.0
+margin_bottom = 386.0
 rect_pivot_offset = Vector2( 100, 80 )
 custom_fonts/normal_font = SubResource( 33 )
 text = "0"
@@ -726,16 +731,16 @@ custom_fonts/normal_font = SubResource( 31 )
 text = "Poptávka:
 
 
- Nabídka:"
+ Cena:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NabPikoValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
-margin_left = 659.0
-margin_top = 354.0
-margin_right = 699.0
-margin_bottom = 385.0
+[node name="PricePikoValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
+margin_left = 615.0
+margin_top = 355.0
+margin_right = 655.0
+margin_bottom = 386.0
 rect_pivot_offset = Vector2( 168, -1 )
 custom_fonts/normal_font = SubResource( 33 )
 text = "0"
@@ -765,16 +770,16 @@ custom_fonts/normal_font = SubResource( 31 )
 text = "Poptávka:
 
 
- Nabídka:"
+ Cena:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NabWeedValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
-margin_left = 336.0
-margin_top = 354.0
-margin_right = 376.0
-margin_bottom = 385.0
+[node name="PriceWeedValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
+margin_left = 293.0
+margin_top = 355.0
+margin_right = 333.0
+margin_bottom = 386.0
 rect_pivot_offset = Vector2( 100, 80 )
 custom_fonts/normal_font = SubResource( 33 )
 text = "0"
@@ -803,7 +808,7 @@ custom_fonts/normal_font = SubResource( 31 )
 text = "Poptávka:
 
 
- Nabídka:"
+ Cena:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1097,7 +1102,7 @@ texture = ExtResource( 5 )
 [node name="Kyselina" type="Sprite" parent="Inv"]
 position = Vector2( 934, 352 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 6 )
+texture = SubResource( 44 )
 
 [node name="Semeno" type="Sprite" parent="Inv"]
 position = Vector2( 616, 736 )
@@ -1112,7 +1117,7 @@ texture = ExtResource( 3 )
 [node name="Hnuj" type="Sprite" parent="Inv"]
 position = Vector2( 608, 480 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 10 )
+texture = SubResource( 45 )
 
 [node name="Uhlicitan" type="Sprite" parent="Inv"]
 position = Vector2( 934, 480 )
