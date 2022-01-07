@@ -1,8 +1,9 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player.png" type="Texture" id=2]
 [ext_resource path="res://48x48/Room.png" type="Texture" id=3]
+[ext_resource path="res://varna_scene.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14.5, 10.5 )
@@ -930,7 +931,15 @@ segments = PoolVector2Array( 0, 0, 24, 0, 24, 0, 24, 24, 24, 24, 0, 24, 0, 24, 0
 [sub_resource type="RectangleShape2D" id=37]
 extents = Vector2( 21, 6 )
 
+[sub_resource type="RectangleShape2D" id=38]
+extents = Vector2( 37, 49.25 )
+
+[sub_resource type="RectangleShape2D" id=39]
+extents = Vector2( 37, 49.25 )
+
 [node name="varna_scene2" type="Node2D"]
+position = Vector2( 590, 354 )
+script = ExtResource( 4 )
 
 [node name="player" type="KinematicBody2D" parent="."]
 script = ExtResource( 1 )
@@ -942,6 +951,13 @@ z_index = 2
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2( 263, 580 )
+z_index = 2
+shape = SubResource( 1 )
+
+[node name="body" type="Area2D" parent="player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/body"]
 position = Vector2( 263, 580 )
 z_index = 2
 shape = SubResource( 1 )
@@ -979,5 +995,104 @@ tile_data = PoolIntArray( 720900, 0, 0, 720901, 1, 0, 720914, 0, 0, 720915, 1, 0
 position = Vector2( 264, 636 )
 z_index = 2
 shape = SubResource( 37 )
+
+[node name="table4" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="table4"]
+position = Vector2( 431, 212 )
+rotation = 1.5708
+shape = SubResource( 38 )
+
+[node name="Sprite" type="Sprite" parent="table4"]
+position = Vector2( 392, 143 )
+scale = Vector2( 0.5625, 0.538194 )
+z_index = 3
+offset = Vector2( 90.6667, 55.7421 )
+
+[node name="table3" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="table3"]
+position = Vector2( 625, 214 )
+rotation = 1.5708
+shape = SubResource( 39 )
+
+[node name="Sprite" type="Sprite" parent="table3"]
+position = Vector2( 587, 141 )
+scale = Vector2( 0.5625, 0.538194 )
+z_index = 3
+offset = Vector2( 90.6667, 55.7421 )
+
+[node name="table2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="table2"]
+position = Vector2( 697, 579 )
+shape = SubResource( 39 )
+
+[node name="Sprite" type="Sprite" parent="table2"]
+position = Vector2( 677, 536 )
+scale = Vector2( 0.5625, 0.538194 )
+z_index = 3
+offset = Vector2( 90.6667, 55.7421 )
+
+[node name="table1" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="table1"]
+position = Vector2( 433, 451.75 )
+rotation = 1.5708
+shape = SubResource( 39 )
+
+[node name="Sprite" type="Sprite" parent="table1"]
+position = Vector2( 395, 380.75 )
+scale = Vector2( 0.5625, 0.538194 )
+z_index = 3
+offset = Vector2( 90.6667, 55.7421 )
+
+[node name="table0" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="table0"]
+position = Vector2( 118, 481.75 )
+shape = SubResource( 39 )
+
+[node name="Sprite" type="Sprite" parent="table0"]
+position = Vector2( 62, 437 )
+scale = Vector2( 0.5625, 0.538194 )
+z_index = 3
+offset = Vector2( 90.6667, 55.7421 )
+
+[node name="table6" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="table6"]
+position = Vector2( 145, 116.75 )
+rotation = 1.5708
+shape = SubResource( 39 )
+
+[node name="Sprite" type="Sprite" parent="table6"]
+position = Vector2( 107, 45.7499 )
+scale = Vector2( 0.5625, 0.538194 )
+z_index = 3
+offset = Vector2( 90.6667, 55.7421 )
+
+[node name="table5" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="table5"]
+position = Vector2( 288, 119.75 )
+rotation = 1.5708
+shape = SubResource( 39 )
+
+[node name="Sprite" type="Sprite" parent="table5"]
+position = Vector2( 250, 48.7499 )
+scale = Vector2( 0.5625, 0.538194 )
+z_index = 3
+offset = Vector2( 90.6667, 55.7421 )
+
+[node name="textbox" type="RichTextLabel" parent="."]
+margin_left = 160.0
+margin_top = -96.0
+margin_right = 646.0
+margin_bottom = -15.0
+text = "Planted a seed"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="body_entered" from="leave" to="." method="_on_leave_body_entered"]
