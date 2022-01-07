@@ -9,10 +9,13 @@ export var SOCKET_URL = "ws://194.15.112.30:6988"
 
 var client = WebSocketClient.new()
 
-onready var items = [get_node("table0/Sprite"), get_node("table1/Sprite"),get_node("table2/Sprite"),get_node("table3/Sprite"),get_node("table4/Sprite")]
+onready var items = []
+var tableitems = []
+var tablecount = 0
+onready var player = get_node("player")
+var varnaID
 
-onready var planted = get_node("planted")
-onready var harvested = get_node("harvested")
+onready var textbox = get_node("textbox")
 
 var pod = load("res://assets/pod.png")
 var weed_1 = load("res://assets/weed_1.png")
@@ -29,63 +32,68 @@ func _ready():
 	if err != OK:
 		print("Unable to connect")
 		set_process(false)
-	planted.visible = false
-	harvested.visible = false
+	textbox.visible = false
+	varnaID = player.scene
+	varnaID.erase(0,11)
 
 func _set_item(var drug, var state, var item):
-	if (drug == "weed"):
-		if (state != "0"):
-			item.set_texture(weed_3)
-		else:
-			item.set_texture(pod)
-	elif (drug == "meth"):
-		print("meth")
-		pass
-	elif (drug == "heroin"):
-		print("heroin")
-		pass
+	match drug:
+		"weed":
+			if (state != "0"):
+				item.set_texture(weed_3)
+			else:
+				item.set_texture(pod)
+		"meth":
+			pass
+		"heroin":
+			pass
+ 
+func _get_table_count(var x):
+	return (x.size()-2)/2
 
 func _weedstart(var item):
 	print(OS.get_system_time_secs())
-	planted.visible = true
+	textbox.visible = true
+	textbox.text = "You just planted a seed"
 	item.set_texture(weed_1)
 	yield(get_tree().create_timer(3.0), "timeout")
 	item.set_texture(weed_2)
-	planted.visible = false
+	textbox.visible = false
 	yield(get_tree().create_timer(3.0), "timeout")
 	item.set_texture(weed_3)
 	
 func _get_tablenumber():
-	if($table0.overlaps_body($player)):
-		tablenumber = 0
-	elif($table1.overlaps_body($player)):
-		tablenumber = 1
-	elif($table2.overlaps_body($player)):
-		tablenumber = 2
-	elif($table3.overlaps_body($player)):
-		tablenumber = 3
-	elif($table4.overlaps_body($player)):
-		tablenumber = 4
-	else:
-		tablenumber = null
-	
-func _weedharvest(var i,var grams):
-		items[i].set_texture(pod)
-		harvested.visible = true
-		harvested.text = "You just harvested " + grams + " weed"
-		yield(get_tree().create_timer(3.0), "timeout")
-		harvested.visible = false
-	
-func _weedstart_weedharvest(var i, var text):
-	if i == null:
+	var body = $player/body.get_overlapping_areas()
+	tablenumber = null
+	if (body.size()==0):
+		print(body)
 		pass
-	elif (items[i].texture == weed_3):
+	else:
+		var table = body[0]
+		for i in tablecount+1:
+			if(table.name == "table" + String(i)):
+				print(i)
+				tablenumber = i
+				break
+
+func _weedharvest(var i,var grams):
+	if tablenumber == null:
+		pass
+	else:
+		items[i].set_texture(pod)
+		textbox.visible = true
+		textbox.text = "You just harvested " + grams + " weed"
+		yield(get_tree().create_timer(3.0), "timeout")
+		textbox.visible = false
+
+func _weedstart_weedharvest(var i, var text):
+	if (items[i].texture == weed_3):
 		i+=1
-		_send("weedharvest"+text+"$1$"+String(i))
+		_send("weedharvest"+text+"$"+ varnaID + "$"+String(i))
 		firsttime = "n"
 	else:
 		i+=1
-		_send("weedstart"+text+"$1$"+String(i))
+		_send("weedstart"+text+"$"+ varnaID + "$"+String(i))
 		firsttime = "n"
 
 func _process(delta):
@@ -105,24 +113,27 @@ func _on_connection_closed(was_clean = false):
 func _on_connected(proto = ""):
 	var text = loadd()
 	print("Connected with protocol: ", proto)
-	_send("loadinterior"+ text +"$1")
+	_send("loadinterior"+ text +"$" + varnaID)
 	
 func _on_data():
 	var payload = client.get_peer(1).get_packet().get_string_from_utf8()
 	print("Received data: ", payload)
 	var x = payload.split("$")
-	if (x[0] == "weedstart"):
-		_weedstart(items[tablenumber])
-	elif (x[0] == "weedharvest"):
-		_get_tablenumber()
-		_weedharvest(tablenumber,x[1])
-	elif (x[0] == "loadinterior"):
-		var m = 1
-		var n = 2
-		for i in 5:
-			_set_item(x[m],x[n],items[i])
-			n+=2
-			m+=2
+	match x[0]:
+		"weedstart":
+			_weedstart(items[tablenumber])
+		"weedharvest":
+			_weedharvest(tablenumber,x[1])
+		"loadinterior":
+			var m = 1
+			var n = 2
+			for i in _get_table_count(x):
+				items.append(get_node("table"+ String(i) +"/Sprite"))
+				_set_item(x[m],x[n],items[i])
+				tablecount = i
+				tableitems.append(x[m])
+				n+=2
+				m+=2
 
 func _send(text):
 	var packet: PoolByteArray = text.to_utf8()
@@ -132,16 +143,24 @@ func _send(text):
 #func _process(delta):
 #	pass
 var firsttime = "y"
-var tablenumber = 0
+var tablenumber = null
 
 func _input(event):
 	if event is InputEventKey:
 		if event.scancode == KEY_E and firsttime == "y":
 			_get_tablenumber()
-			_weedstart_weedharvest(tablenumber,loadd())
+			if tablenumber == null:
+				pass
+			else:
+				match tableitems[tablenumber]:
+					"weed":
+						_weedstart_weedharvest(tablenumber,loadd())
+					"meth":
+						pass
+					"heroin":
+						pass
 		else:
 			firsttime = "y"
 
 func _on_leave_body_entered(body):
-	_send("Prcám na to leavuju")
-	get_tree().change_scene("res://Trebic.tscn") # Replace with function body.
+	get_tree().change_scene("res://Trebic.tscn")
