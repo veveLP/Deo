@@ -39,13 +39,9 @@ func _on_data():
 	if payload == "error 0x01":
 		print ("cancel login")
 		OS.alert("Zadal jsi špatné údaje")
-	elif payload == "error 0x06":
-		print ("cancel login")
-		OS.alert("Tento uživatel je již registrovaný")
 	else:
 		print("login succesfull")
 		var password = $Panel/LineEdit2.text
-		print(password.sha256_text())
 		password = password.sha256_text()
 		password = password.left(10)
 		save("$"+$Panel/LineEdit.text+"$"+password)
@@ -73,8 +69,6 @@ func loadd():
 	file.close()
 	return content
 
-
-
 func save(content):
 	var file = File.new()
 	file.open("res://save_game.dat", File.WRITE)
@@ -86,13 +80,11 @@ var check = false
 func _on_Button_pressed():
 	login()
 
-
 func _on_CheckBox_toggled(button_pressed):
 	if (check):
 		check = false
 	else:
 		check = true
-
 
 func _on_LineEdit2_text_entered(new_text):
 	login()
@@ -105,13 +97,3 @@ func login():
 	password = password.sha256_text()
 	password = password.left(10)
 	_send("loadmap$" + $Panel/LineEdit.text + "$" + password)
-
-
-func _on_Button2_pressed():
-	print($Panel/LineEdit.text)
-	print($Panel/LineEdit2.text)
-	var password = $Panel/LineEdit2.text
-	print(password.sha256_text())
-	password = password.sha256_text()
-	_send("registration$"+$Panel/LineEdit.text+"$"+password)
-	
