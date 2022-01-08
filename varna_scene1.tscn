@@ -959,12 +959,12 @@ position = Vector2( 216, 459 )
 z_index = 2
 shape = SubResource( 27 )
 
-[node name="body" type="Area2D" parent="player"]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/body"]
 position = Vector2( 216, 458 )
 z_index = 2
 shape = SubResource( 27 )
+
+[node name="body" type="Area2D" parent="player"]
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( -144, 96 )
