@@ -1,10 +1,11 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=81 format=2]
 
 [ext_resource path="res://assets/trebic.png" type="Texture" id=1]
 [ext_resource path="res://borovina.gd" type="Script" id=2]
 [ext_resource path="res://assets/ether.png" type="Texture" id=3]
 [ext_resource path="res://assets/semeno.png" type="Texture" id=4]
 [ext_resource path="res://assets/hydroxid.png" type="Texture" id=5]
+[ext_resource path="res://assets/ocet.png" type="Texture" id=6]
 [ext_resource path="res://assets/efedrin.png" type="Texture" id=7]
 [ext_resource path="res://assets/uhlicitan.png" type="Texture" id=8]
 [ext_resource path="res://assets/varna.png" type="Texture" id=9]
@@ -15,6 +16,7 @@
 [ext_resource path="res://assets/alkohol.png" type="Texture" id=14]
 [ext_resource path="res://assets/weed.png" type="Texture" id=15]
 [ext_resource path="res://assets/pico.png" type="Texture" id=16]
+[ext_resource path="res://assets/cpavek.png" type="Texture" id=17]
 [ext_resource path="res://assets/pills.png" type="Texture" id=18]
 [ext_resource path="res://Trebic.gd" type="Script" id=19]
 [ext_resource path="res://Varna1.gd" type="Script" id=20]
@@ -30,6 +32,7 @@
 [ext_resource path="res://Varna3.gd" type="Script" id=30]
 [ext_resource path="res://Varna7.gd" type="Script" id=31]
 [ext_resource path="res://Lekarna_load.gd" type="Script" id=32]
+[ext_resource path="res://assets/vapno.png" type="Texture" id=33]
 
 [sub_resource type="DynamicFontData" id=22]
 font_path = "res://DroidSans.ttf"
@@ -97,6 +100,26 @@ font_path = "res://DroidSans.ttf"
 [sub_resource type="DynamicFont" id=49]
 size = 22
 font_data = SubResource( 48 )
+
+[sub_resource type="DynamicFontData" id=50]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=51]
+size = 20
+font_data = SubResource( 50 )
+
+[sub_resource type="StyleBoxFlat" id=52]
+bg_color = Color( 0.435294, 0.823529, 0.160784, 1 )
+
+[sub_resource type="StyleBoxFlat" id=53]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFontData" id=54]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=55]
+size = 20
+font_data = SubResource( 54 )
 
 [sub_resource type="DynamicFontData" id=6]
 font_path = "res://DroidSans.ttf"
@@ -645,6 +668,7 @@ position = Vector2( -698.714, -691.32 )
 polygon = PoolVector2Array( 639.563, 635.867, 780.046, 658.048, 783.742, 676.532, 765.258, 717.198, 717.199, 735.683, 650.654, 739.38, 624.776, 706.108, 632.17, 646.957 )
 
 [node name="DealerVyber" type="Panel" parent="."]
+visible = false
 margin_left = 320.0
 margin_top = 128.0
 margin_right = 1536.0
@@ -1284,13 +1308,57 @@ margin_top = -232.0
 margin_right = -344.0
 margin_bottom = -192.0
 
+[node name="Dealer1Remain" type="StaticBody2D" parent="HoodPannel"]
+
+[node name="ProgressBar" type="ProgressBar" parent="HoodPannel/Dealer1Remain"]
+margin_left = 192.0
+margin_top = 624.0
+margin_right = 368.0
+margin_bottom = 656.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 51 )
+custom_styles/fg = SubResource( 52 )
+custom_styles/bg = SubResource( 53 )
+value = 50.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HoodPannel/Dealer1Remain/ProgressBar"]
+margin_right = 176.0
+margin_bottom = 32.0
+text = "58/100"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HoodPannel/Dealer1Remain"]
+margin_left = 376.0
+margin_top = 624.0
+margin_right = 528.0
+margin_bottom = 656.0
+custom_fonts/normal_font = SubResource( 55 )
+text = "Hotovo v:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dealer1Sell" type="StaticBody2D" parent="HoodPannel"]
+
+[node name="Dealer2Remain" type="StaticBody2D" parent="HoodPannel"]
+
+[node name="Dealer2Sell" type="StaticBody2D" parent="HoodPannel"]
+
 [node name="Inv" type="Panel" parent="."]
 visible = false
 margin_left = 320.0
 margin_top = 128.0
 margin_right = 1536.0
-margin_bottom = 928.0
-rect_pivot_offset = Vector2( 832, 728 )
+margin_bottom = 1064.0
+rect_pivot_offset = Vector2( 224, 840 )
 script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1425,6 +1493,22 @@ position = Vector2( 288, 608 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 11 )
 
+[node name="Ocet" type="Sprite" parent="Inv"]
+position = Vector2( 288, 824 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 6 )
+
+[node name="Efedrin3" type="Sprite" parent="Inv"]
+position = Vector2( 608, 832 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 17 )
+
+[node name="Efedrin2" type="Sprite" parent="Inv"]
+position = Vector2( -848, -408 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 33 )
+offset = Vector2( 5937.78, 4142.22 )
+
 [node name="Efedrin" type="Sprite" parent="Inv"]
 position = Vector2( 288, 736 )
 scale = Vector2( 0.3, 0.3 )
@@ -1466,7 +1550,7 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 13 )
 
 [node name="Varna" type="Sprite" parent="Inv"]
-position = Vector2( 934, 736 )
+position = Vector2( 935, 727 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 9 )
 
@@ -1492,6 +1576,45 @@ margin_bottom = 634.0
 rect_pivot_offset = Vector2( -80, 88 )
 custom_fonts/normal_font = SubResource( 21 )
 text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OcetText" type="RichTextLabel" parent="Inv"]
+margin_left = 352.0
+margin_top = 808.0
+margin_right = 420.0
+margin_bottom = 848.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 21 )
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VapnoText" type="RichTextLabel" parent="Inv"]
+margin_left = 992.0
+margin_top = 808.0
+margin_right = 1060.0
+margin_bottom = 848.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 21 )
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CpavekText" type="RichTextLabel" parent="Inv"]
+margin_left = 672.0
+margin_top = 808.0
+margin_right = 740.0
+margin_bottom = 848.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 21 )
+text = "0"
+scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1585,9 +1708,9 @@ __meta__ = {
 
 [node name="RichTextLabel18" type="RichTextLabel" parent="Inv"]
 margin_left = 808.0
-margin_top = 723.0
+margin_top = 712.0
 margin_right = 888.0
-margin_bottom = 765.0
+margin_bottom = 754.0
 rect_pivot_offset = Vector2( -80, 88 )
 custom_fonts/normal_font = SubResource( 21 )
 text = "Varna"
@@ -1681,6 +1804,42 @@ rect_pivot_offset = Vector2( -80, 88 )
 custom_fonts/normal_font = SubResource( 21 )
 text = "Diethyl
   ether"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel21" type="RichTextLabel" parent="Inv"]
+margin_left = 800.0
+margin_top = 808.0
+margin_right = 904.0
+margin_bottom = 848.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 21 )
+text = "Vápno"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel20" type="RichTextLabel" parent="Inv"]
+margin_left = 464.0
+margin_top = 808.0
+margin_right = 568.0
+margin_bottom = 848.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 21 )
+text = "Čpavek"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel19" type="RichTextLabel" parent="Inv"]
+margin_left = 176.0
+margin_top = 808.0
+margin_right = 248.0
+margin_bottom = 848.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 21 )
+text = "Ocet"
 __meta__ = {
 "_edit_use_anchors_": false
 }
