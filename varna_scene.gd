@@ -93,7 +93,7 @@ func _weedstart_weedharvest(var i, var text):
 		firsttime = "n"
 	else:
 		i+=1
-		_send("weedstart"+text+"$"+ varnaID + "$"+String(i))
+		_send("weedstart"+text+"$"+ varnaID + "$"+String(i) + "$0")
 		firsttime = "n"
 
 func _process(delta):

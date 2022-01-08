@@ -45,7 +45,6 @@ func _on_data():
 	else:
 		print("login succesfull")
 		var password = $Panel/LineEdit2.text
-		print(password.sha256_text())
 		password = password.sha256_text()
 		password = password.left(10)
 		save("$"+$Panel/LineEdit.text+"$"+password)
