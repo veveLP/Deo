@@ -49,7 +49,7 @@ func _input(event):
 	if event is InputEventKey:
 		if event.scancode == KEY_E and firsttime == "y":
 			if ($lekarna/Prodavac.overlaps_body($lekarna/player)):
-				print("haha pičo")
+				
 				
 				firsttime = "n"
 		else:
@@ -57,3 +57,37 @@ func _input(event):
 
 func _on_leave_body_entered(body):
 	get_tree().change_scene("res://Trebic.tscn")
+
+
+func _on_ButtonModafen_pressed():
+	$SelectPanel.visible = true;
+
+
+
+func _on_HSlider_value_changed(value):
+	$SelectPanel/BuyAmount.text = str($SelectPanel/HSlider.value)
+
+
+func _on_ButtonPlus_pressed():
+	if $SelectPanel/HSlider.value < 100:
+		$SelectPanel/BuyAmount.text = str($SelectPanel/HSlider.value)
+		$SelectPanel/HSlider.value = int($SelectPanel/HSlider.value+1)
+		
+
+
+func _on_ButtonMinus_pressed():
+	if $SelectPanel/HSlider.value > 1:
+		$SelectPanel/BuyAmount.text = str($SelectPanel/HSlider.value)
+		$SelectPanel/HSlider.value = $SelectPanel/HSlider.value-1
+		
+
+
+func _on_ButtonCancel_pressed():
+	$SelectPanel.visible = false;
+
+
+func _on_ButtonBuy_pressed():
+	var text = loadd()
+	for n in $SelectPanel/HSlider.value:
+		_send("buy"+text+"$8")
+	$SelectPanel.visible = false;
