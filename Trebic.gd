@@ -79,74 +79,95 @@ func _on_data():
 		var json= fileJSON.get_as_text()
 		var json_result = JSON.parse(json).result
 		fileJSON.close()
-		$HoodPannel/Dealer1/Name.text = (json_result[x[9]][x[7]]["name"])
-		match (json_result[x[9]][x[7]]["drugs"][0]):
-			"weed": 
-				print("weed")
-				$HoodPannel/Dealer1/Drug1.texture = load("res://assets/weed.png") 
-				pass
-			"meth": 
-				print("meth") 
-				$HoodPannel/Dealer1/Drug1.texture = load("res://assets/pico.png") 
-				pass
-			"heroin": 
-				print("heroin") 
-				$HoodPannel/Dealer1/Drug1.texture = load("res://assets/herion.png") 
-				pass
+		if x[7] == str(0):
+			$HoodPannel/Dealer1/Name.visible = false
+			$HoodPannel/Dealer1/Drug1.visible = false
+			$HoodPannel/Dealer1/Drug2.visible = false
+			$HoodPannel/Dealer1/PoliceChance.visible = false
+			$HoodPannel/Dealer1/SellingAmount.visible = false
+			$HoodPannel/Dealer1/ProfitCut.visible = false
+			$HoodPannel/Dealer1/Dealer.texture = load("res://assets/none.png") 
+		else:
+			$HoodPannel/Dealer1/Name.text = (json_result[x[9]][x[7]]["name"])
+			match (json_result[x[9]][x[7]]["drugs"][0]):
+				"weed": 
+					print("weed")
+					$HoodPannel/Dealer1/Drug1.texture = load("res://assets/weed.png") 
+					pass
+				"meth": 
+					print("meth") 
+					$HoodPannel/Dealer1/Drug1.texture = load("res://assets/pico.png") 
+					pass
+				"heroin": 
+					print("heroin") 
+					$HoodPannel/Dealer1/Drug1.texture = load("res://assets/herion.png") 
+					pass
+			$HoodPannel/Dealer1/ProfitCut.text = str(json_result[x[9]][x[7]]["profit_cut"])
+			$HoodPannel/Dealer1/PoliceChance.text = str(json_result[x[9]][x[7]]["police_chance"])
+			$HoodPannel/Dealer1/SellingAmount.text = str(json_result[x[9]][x[7]]["selling_amount"])
 		
-		match (json_result[x[9]][x[7]]["drugs"][1]):
-			"weed": 
-				print("weed")
-				$HoodPannel/Dealer1/Drug2.texture = load("res://assets/weed.png") 
-				pass
-			"meth": 
-				print("meth") 
-				$HoodPannel/Dealer1/Drug2.texture = load("res://assets/pico.png") 
-				pass
-			"heroin": 
-				print("heroin") 
-				$HoodPannel/Dealer1/Drug2.texture = load("res://assets/herion.png") 
-				pass
+			
+		
+			match (json_result[x[9]][x[7]]["drugs"][1]):
+				"weed": 
+					print("weed")
+					$HoodPannel/Dealer1/Drug2.texture = load("res://assets/weed.png") 
+					pass
+				"meth": 
+					print("meth") 
+					$HoodPannel/Dealer1/Drug2.texture = load("res://assets/pico.png") 
+					pass
+				"heroin": 
+					print("heroin") 
+					$HoodPannel/Dealer1/Drug2.texture = load("res://assets/herion.png") 
+					pass
+					
+		if x[8] == str(0):
+			
+		
+			$HoodPannel/Dealer2/Name.visible = false
+			$HoodPannel/Dealer2/Drug1.visible = false
+			$HoodPannel/Dealer2/Drug2.visible = false
+			$HoodPannel/Dealer2/PoliceChance.visible = false
+			$HoodPannel/Dealer2/SellingAmount.visible = false
+			$HoodPannel/Dealer2/ProfitCut.visible = false
+			$HoodPannel/Dealer2/Dealer.texture = load("res://assets/none.png") 
+		else:
+			$HoodPannel/Dealer2/ProfitCut.text = str(json_result[x[9]][x[8]]["profit_cut"])
+			$HoodPannel/Dealer2/PoliceChance.text = str(json_result[x[9]][x[8]]["police_chance"])
+			$HoodPannel/Dealer2/SellingAmount.text = str(json_result[x[9]][x[8]]["selling_amount"])
+			$HoodPannel/Dealer2/Name.text = (json_result[x[9]][x[8]]["name"])
+			match (json_result[x[9]][x[8]]["drugs"][0]):
+				"weed": 
+					print("weed")
+					$HoodPannel/Dealer2/Drug1.texture = load("res://assets/weed.png") 
+					pass
+				"meth": 
+					print("meth") 
+					$HoodPannel/Dealer2/Drug1.texture = load("res://assets/pico.png") 
+					pass
+				"heroin": 
+					print("heroin") 
+					$HoodPannel/Dealer2/Drug1.texture = load("res://assets/herion.png") 
+					pass
+		
+			match (json_result[x[9]][x[8]]["drugs"][1]):
+				"weed": 
+					print("weed")
+					$HoodPannel/Dealer2/Drug2.texture = load("res://assets/weed.png") 
+					pass
+				"meth": 
+					print("meth") 
+					$HoodPannel/Dealer2/Drug2.texture = load("res://assets/pico.png") 
+					pass
+				"heroin": 
+					print("heroin") 
+					$HoodPannel/Dealer2/Drug2.texture = load("res://assets/herion.png") 
+					pass
 		
 		
 		
 		
-		$HoodPannel/Dealer2/Name.text = (json_result[x[9]][x[8]]["name"])
-		match (json_result[x[9]][x[8]]["drugs"][0]):
-			"weed": 
-				print("weed")
-				$HoodPannel/Dealer2/Drug1.texture = load("res://assets/weed.png") 
-				pass
-			"meth": 
-				print("meth") 
-				$HoodPannel/Dealer2/Drug1.texture = load("res://assets/pico.png") 
-				pass
-			"heroin": 
-				print("heroin") 
-				$HoodPannel/Dealer2/Drug1.texture = load("res://assets/herion.png") 
-				pass
-		
-		match (json_result[x[9]][x[8]]["drugs"][1]):
-			"weed": 
-				print("weed")
-				$HoodPannel/Dealer2/Drug2.texture = load("res://assets/weed.png") 
-				pass
-			"meth": 
-				print("meth") 
-				$HoodPannel/Dealer2/Drug2.texture = load("res://assets/pico.png") 
-				pass
-			"heroin": 
-				print("heroin") 
-				$HoodPannel/Dealer2/Drug2.texture = load("res://assets/herion.png") 
-				pass
-		
-		$HoodPannel/Dealer1/ProfitCut.text = str(json_result[x[9]][x[7]]["profit_cut"])
-		$HoodPannel/Dealer1/PoliceChance.text = str(json_result[x[9]][x[7]]["police_chance"])
-		$HoodPannel/Dealer1/SellingAmount.text = str(json_result[x[9]][x[7]]["selling_amount"])
-		
-		$HoodPannel/Dealer2/ProfitCut.text = str(json_result[x[9]][x[8]]["profit_cut"])
-		$HoodPannel/Dealer2/PoliceChance.text = str(json_result[x[9]][x[8]]["police_chance"])
-		$HoodPannel/Dealer2/SellingAmount.text = str(json_result[x[9]][x[8]]["selling_amount"])
 		
 		#print("hood received")
 		$HoodPannel/UpperPanel/PopWeedValue.text = x[1]

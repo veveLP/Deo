@@ -1,10 +1,11 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://assets/trebic.png" type="Texture" id=1]
 [ext_resource path="res://borovina.gd" type="Script" id=2]
 [ext_resource path="res://assets/ether.png" type="Texture" id=3]
 [ext_resource path="res://assets/semeno.png" type="Texture" id=4]
 [ext_resource path="res://assets/hydroxid.png" type="Texture" id=5]
+[ext_resource path="res://assets/2.png" type="Texture" id=6]
 [ext_resource path="res://assets/efedrin.png" type="Texture" id=7]
 [ext_resource path="res://assets/uhlicitan.png" type="Texture" id=8]
 [ext_resource path="res://assets/varna.png" type="Texture" id=9]
@@ -385,7 +386,6 @@ input_pickable = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trebic/horkaSever"]
 position = Vector2( 0, 7.3938 )
-
 polygon = PoolVector2Array( -1282.82, 421.446, -1005.55, 236.601, -765.257, 166.36, -576.715, 155.269, -354.901, 136.785, -258.782, 129.391, -147.875, 155.269, 22.1816, 269.873, 658.047, 447.324, 946.405, 465.808, 994.464, 554.534, 1057.31, 720.894, 1090.58, 780.044, 1031.43, 802.226, 975.98, 809.619, 1072.1, 743.075, 1094.28, 780.044, 502.778, 1090.58, 462.112, 1105.37, -121.997, 1079.49, -517.565, 1049.92, -698.712, 1046.22, -765.257, 417.749, -1279.13, 421.446 )
 
 [node name="Line2D" type="Line2D" parent="Trebic/horkaSever"]
@@ -617,7 +617,6 @@ position = Vector2( -1180.79, -84.6599 )
 polygon = PoolVector2Array( 643.261, 639.564, 776.349, 658.048, 780.046, 676.533, 765.258, 717.198, 717.199, 735.683, 650.654, 739.38, 624.776, 706.108, 632.17, 646.957 )
 
 [node name="HoodPannel" type="Panel" parent="."]
-
 margin_left = 320.0
 margin_top = 128.0
 margin_right = 1536.0
@@ -648,32 +647,30 @@ position = Vector2( 10, 0 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HoodPannel/Dealer1"]
 visible = false
 
-
 [node name="ProfitCut" type="RichTextLabel" parent="HoodPannel/Dealer1"]
-margin_left = 344.0
-margin_top = 519.0
-margin_right = 472.0
-margin_bottom = 539.0
-
+margin_left = 422.0
+margin_top = 472.0
+margin_right = 550.0
+margin_bottom = 492.0
 text = "Placeholder 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PoliceChance" type="RichTextLabel" parent="HoodPannel/Dealer1"]
-margin_left = 344.0
-margin_top = 575.0
-margin_right = 472.0
-margin_bottom = 591.0
-
+margin_left = 422.0
+margin_top = 520.0
+margin_right = 550.0
+margin_bottom = 536.0
 text = "Placeholder 2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [node name="SellingAmount" type="RichTextLabel" parent="HoodPannel/Dealer1"]
-margin_left = 344.0
+margin_left = 390.0
 margin_top = 631.0
-margin_right = 472.0
+margin_right = 518.0
 margin_bottom = 647.0
 text = "Placeholder 3"
 __meta__ = {
@@ -681,7 +678,7 @@ __meta__ = {
 }
 
 [node name="Name" type="RichTextLabel" parent="HoodPannel/Dealer1"]
-margin_left = 198.0
+margin_left = 102.0
 margin_top = 472.0
 margin_right = 438.0
 margin_bottom = 512.0
@@ -689,29 +686,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Dealer1" type="Sprite" parent="HoodPannel/Dealer1"]
-position = Vector2( 272, 503 )
-
-scale = Vector2( 0.608491, 0.608491 )
-texture = ExtResource( 17 )
+[node name="Dealer" type="Sprite" parent="HoodPannel/Dealer1"]
+position = Vector2( 291, 515 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
 offset = Vector2( 52.2319, 127.507 )
 
 [node name="Drug2" type="Sprite" parent="HoodPannel/Dealer1"]
-position = Vector2( 239, 631 )
+position = Vector2( 214, 624 )
 scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 15 )
 
 [node name="Drug1" type="Sprite" parent="HoodPannel/Dealer1"]
-position = Vector2( 240, 543 )
-
+position = Vector2( 198, 544 )
 scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 16 )
 
 [node name="Line2D" type="Line2D" parent="HoodPannel/Dealer1"]
-
-position = Vector2( 64, -32.8894 )
-scale = Vector2( 1, 1.1106 )
-
+position = Vector2( 6.00001, -48 )
+scale = Vector2( 1.37681, 1.1106 )
 points = PoolVector2Array( 128, 448, 384, 448, 384, 640, 128, 640, 128, 443 )
 default_color = Color( 0, 0, 0, 1 )
 
@@ -719,10 +712,9 @@ default_color = Color( 0, 0, 0, 1 )
 
 [node name="PriceHeroinValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
 margin_left = 944.0
-margin_top = 355.0
+margin_top = 328.0
 margin_right = 984.0
-margin_bottom = 386.0
-
+margin_bottom = 359.0
 rect_pivot_offset = Vector2( 100, 80 )
 custom_fonts/normal_font = SubResource( 33 )
 text = "0"
@@ -751,18 +743,16 @@ custom_fonts/normal_font = SubResource( 31 )
 text = "Poptávka:
 
  Cena:"
-
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PricePikoValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
 margin_left = 615.0
-margin_top = 355.0
+margin_top = 328.0
 margin_right = 655.0
-margin_bottom = 386.0
+margin_bottom = 359.0
 rect_pivot_offset = Vector2( 168, -1 )
-
 custom_fonts/normal_font = SubResource( 33 )
 text = "0"
 __meta__ = {
@@ -790,7 +780,6 @@ rect_pivot_offset = Vector2( 283, 88 )
 custom_fonts/normal_font = SubResource( 31 )
 text = "Poptávka:
 
-
  Cena:"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -798,9 +787,9 @@ __meta__ = {
 
 [node name="PriceWeedValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
 margin_left = 293.0
-margin_top = 355.0
+margin_top = 328.0
 margin_right = 333.0
-margin_bottom = 386.0
+margin_bottom = 359.0
 rect_pivot_offset = Vector2( 100, 80 )
 custom_fonts/normal_font = SubResource( 33 )
 text = "0"
@@ -813,7 +802,6 @@ margin_left = 336.0
 margin_top = 265.0
 margin_right = 376.0
 margin_bottom = 296.0
-
 rect_pivot_offset = Vector2( 100, 80 )
 custom_fonts/normal_font = SubResource( 33 )
 text = "0"
@@ -830,7 +818,6 @@ custom_fonts/normal_font = SubResource( 31 )
 text = "Poptávka:
 
  Cena:"
- 
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -845,7 +832,6 @@ custom_fonts/normal_font = SubResource( 25 )
 bbcode_enabled = true
 bbcode_text = "[center]Heroin"
 text = "Heroin"
-
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -870,7 +856,6 @@ margin_top = 152.0
 margin_right = 384.0
 margin_bottom = 192.0
 rect_pivot_offset = Vector2( 67, 94 )
-
 custom_fonts/normal_font = SubResource( 29 )
 bbcode_enabled = true
 bbcode_text = "[center]Weed"
@@ -917,14 +902,13 @@ __meta__ = {
 }
 
 [node name="Dealer2" type="StaticBody2D" parent="HoodPannel"]
-
 position = Vector2( 704, 32 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HoodPannel/Dealer2"]
 visible = false
 
-[node name="Dealer1" type="Sprite" parent="HoodPannel/Dealer2"]
-position = Vector2( 208, 464 )
+[node name="Dealer" type="Sprite" parent="HoodPannel/Dealer2"]
+position = Vector2( 208, 457 )
 scale = Vector2( 0.608491, 0.608491 )
 texture = ExtResource( 17 )
 offset = Vector2( 52.2319, 127.507 )
@@ -944,7 +928,6 @@ margin_left = 136.0
 margin_top = 432.0
 margin_right = 376.0
 margin_bottom = 472.0
-
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -955,7 +938,6 @@ margin_top = 488.0
 margin_right = 408.0
 margin_bottom = 508.0
 text = "Placeholder 1"
-
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -966,7 +948,6 @@ margin_top = 544.0
 margin_right = 408.0
 margin_bottom = 560.0
 text = "Placeholder 2"
-
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -982,9 +963,8 @@ __meta__ = {
 }
 
 [node name="Line2D" type="Line2D" parent="HoodPannel/Dealer2"]
-position = Vector2( 0, -74.8848 )
-scale = Vector2( 1, 1.11521 )
-
+position = Vector2( -160, -80 )
+scale = Vector2( 1.25362, 1.11521 )
 points = PoolVector2Array( 128, 448, 384, 448, 384, 640, 128, 640, 128, 443 )
 default_color = Color( 0, 0, 0, 1 )
 
@@ -1142,7 +1122,6 @@ texture = ExtResource( 5 )
 [node name="Kyselina" type="Sprite" parent="Inv"]
 position = Vector2( 934, 352 )
 scale = Vector2( 0.3, 0.3 )
-
 texture = SubResource( 44 )
 
 [node name="Semeno" type="Sprite" parent="Inv"]
@@ -1158,7 +1137,6 @@ texture = ExtResource( 3 )
 [node name="Hnuj" type="Sprite" parent="Inv"]
 position = Vector2( 608, 480 )
 scale = Vector2( 0.3, 0.3 )
-
 texture = SubResource( 45 )
 
 [node name="Uhlicitan" type="Sprite" parent="Inv"]
