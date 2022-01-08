@@ -5,9 +5,10 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 
-
+var scene
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	scene = String(get_tree().get_current_scene().get_name())
 	pass # Replace with function body.
 
 export (int) var speed = 200
@@ -32,3 +33,7 @@ func _physics_process(delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_leave_body_entered(body):
+	pass # Replace with function body.

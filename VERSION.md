@@ -168,36 +168,6 @@ Please, visit [this site](https://help.github.com/en/github/authenticating-to-gi
 - search bar for repositories
 
 -----------------
-**version 1.0.0**  
-*fixed*
-- overall fixes
-- *infinite loading after commit/push:* fixed an issue that blocked commiting and pushing an entire project or some specific files. Now everything should be committed fine. A whole project can be committed just selecting "Select current directory"
-- *.gitignore handling:* fixed gitignore handling, sometimes they were empty or overwritten randomly
-
-*added*
-- *new UI:* now the plugin follows the official GitHub color palette and interface
-- *gist searchbar:* it is now possible to use the searchbar for gist
-- *autolog:* now an auto login option is available. When activated, the plugin will automatically log inside user's github profile
-- **darkmode:** it is now available a darkmode. Both light and dark modes respect github color palette. The dark mode can be activated anytime during the plugin usage
-  
------------------
-**version 1.1.0**  
-*fixed*
-- *faster login and auto-login*
-- *minor errors with nodes*
-
-*added*
-- *fast social button to header:* you can now join the social I share in the README with some buttons in the header.
-
------------------
-**version 1.2.0**  
-*fixed*
-- dark theme fixed
-
-*added*
-- *collaborations:* you can now invite other users for a collaboration in your repositories. If the user has been invited successfully, they will receive an email with an invitation to accept/decline. Users that have repositories in collaboration will see these repositories marked with a new icon inside their repositories list. Collaborators can work with this repositories as they are their own repositories (based on the permissions granted), so teamworking will be much faster.
-
-
 > This text file was created via [TextEditor Integration](https://github.com/fenix-hub/godot-engine.text-editor) inside Godot Engine's Editor.
 
 
