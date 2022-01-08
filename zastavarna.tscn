@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player.png" type="Texture" id=2]
@@ -6,11 +6,9 @@
 [ext_resource path="res://zastavarna.gd" type="Script" id=4]
 [ext_resource path="res://assets/varna.png" type="Texture" id=5]
 [ext_resource path="res://48x48/Zastavarna.png" type="Texture" id=6]
-
 [ext_resource path="res://assets/ether.png" type="Texture" id=7]
 [ext_resource path="res://assets/aceton.png" type="Texture" id=8]
 [ext_resource path="res://assets/hydroxid.png" type="Texture" id=9]
-
 [ext_resource path="res://assets/chloro.png" type="Texture" id=12]
 [ext_resource path="res://assets/alkohol.png" type="Texture" id=13]
 [ext_resource path="res://assets/varic.png" type="Texture" id=14]
