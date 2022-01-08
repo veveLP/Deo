@@ -1,4 +1,3 @@
-
 [gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://assets/trebic.png" type="Texture" id=1]
@@ -6,7 +5,6 @@
 [ext_resource path="res://assets/ether.png" type="Texture" id=3]
 [ext_resource path="res://assets/semeno.png" type="Texture" id=4]
 [ext_resource path="res://assets/hydroxid.png" type="Texture" id=5]
-[ext_resource path="res://assets/2.png" type="Texture" id=6]
 [ext_resource path="res://assets/efedrin.png" type="Texture" id=7]
 [ext_resource path="res://assets/uhlicitan.png" type="Texture" id=8]
 [ext_resource path="res://assets/varna.png" type="Texture" id=9]
@@ -17,7 +15,6 @@
 [ext_resource path="res://assets/alkohol.png" type="Texture" id=14]
 [ext_resource path="res://assets/weed.png" type="Texture" id=15]
 [ext_resource path="res://assets/pico.png" type="Texture" id=16]
-[ext_resource path="res://assets/dealer1.png" type="Texture" id=17]
 [ext_resource path="res://assets/pills.png" type="Texture" id=18]
 [ext_resource path="res://Trebic.gd" type="Script" id=19]
 [ext_resource path="res://Varna1.gd" type="Script" id=20]
@@ -43,7 +40,21 @@ outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = SubResource( 22 )
 
+[sub_resource type="DynamicFontData" id=46]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=47]
+size = 22
+font_data = SubResource( 46 )
+
 [sub_resource type="Theme" id=1]
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "/usr/share/fonts/droid/DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 36
+font_data = SubResource( 2 )
 
 [sub_resource type="DynamicFontData" id=32]
 font_path = "res://DroidSans.ttf"
@@ -80,12 +91,12 @@ font_path = "res://DroidSans.ttf"
 size = 32
 font_data = SubResource( 28 )
 
-[sub_resource type="DynamicFontData" id=2]
-font_path = "/usr/share/fonts/droid/DroidSans.ttf"
+[sub_resource type="DynamicFontData" id=48]
+font_path = "res://DroidSans.ttf"
 
-[sub_resource type="DynamicFont" id=3]
-size = 36
-font_data = SubResource( 2 )
+[sub_resource type="DynamicFont" id=49]
+size = 22
+font_data = SubResource( 48 )
 
 [sub_resource type="DynamicFontData" id=6]
 font_path = "res://DroidSans.ttf"
@@ -633,12 +644,286 @@ texture = ExtResource( 18 )
 position = Vector2( -698.714, -691.32 )
 polygon = PoolVector2Array( 639.563, 635.867, 780.046, 658.048, 783.742, 676.532, 765.258, 717.198, 717.199, 735.683, 650.654, 739.38, 624.776, 706.108, 632.17, 646.957 )
 
+[node name="DealerVyber" type="Panel" parent="."]
+margin_left = 320.0
+margin_top = 128.0
+margin_right = 1536.0
+margin_bottom = 928.0
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dealer1" type="StaticBody2D" parent="DealerVyber"]
+
+[node name="ProfitCut" type="RichTextLabel" parent="DealerVyber/Dealer1"]
+margin_left = 128.0
+margin_top = 424.0
+margin_right = 320.0
+margin_bottom = 456.0
+text = "Placeholder 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PoliceChance" type="RichTextLabel" parent="DealerVyber/Dealer1"]
+margin_left = 128.0
+margin_top = 464.0
+margin_right = 320.0
+margin_bottom = 496.0
+text = "Placeholder 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SellingAmount" type="RichTextLabel" parent="DealerVyber/Dealer1"]
+margin_left = 128.0
+margin_top = 504.0
+margin_right = 320.0
+margin_bottom = 537.0
+text = "Placeholder 3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="RichTextLabel" parent="DealerVyber/Dealer1"]
+margin_left = 72.0
+margin_top = 72.0
+margin_right = 376.0
+margin_bottom = 96.0
+custom_fonts/normal_font = SubResource( 47 )
+bbcode_enabled = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Drug2" type="Sprite" parent="DealerVyber/Dealer1"]
+position = Vector2( 301, 352 )
+scale = Vector2( 0.34375, 0.34375 )
+texture = ExtResource( 15 )
+
+[node name="Drug1" type="Sprite" parent="DealerVyber/Dealer1"]
+position = Vector2( 144, 352 )
+scale = Vector2( 0.344, 0.344 )
+texture = ExtResource( 16 )
+
+[node name="Line2D" type="Line2D" parent="DealerVyber/Dealer1"]
+position = Vector2( -95, -340 )
+points = PoolVector2Array( 154, 404, 479, 404, 479, 892, 159, 892, 159, 404 )
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="Dealer1" type="Button" parent="DealerVyber/Dealer1"]
+margin_left = 128.0
+margin_top = 106.0
+margin_right = 555.0
+margin_bottom = 533.0
+rect_scale = Vector2( 0.45, 0.45 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DealerID" type="RichTextLabel" parent="DealerVyber/Dealer1"]
+margin_left = 200.0
+margin_top = 64.0
+margin_right = 240.0
+margin_bottom = 104.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dealer2" type="StaticBody2D" parent="DealerVyber"]
+
+[node name="ProfitCut" type="RichTextLabel" parent="DealerVyber/Dealer2"]
+margin_left = 513.0
+margin_top = 424.0
+margin_right = 705.0
+margin_bottom = 456.0
+text = "Placeholder 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PoliceChance" type="RichTextLabel" parent="DealerVyber/Dealer2"]
+margin_left = 513.0
+margin_top = 464.0
+margin_right = 705.0
+margin_bottom = 496.0
+text = "Placeholder 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SellingAmount" type="RichTextLabel" parent="DealerVyber/Dealer2"]
+margin_left = 513.0
+margin_top = 504.0
+margin_right = 705.0
+margin_bottom = 537.0
+text = "Placeholder 3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="RichTextLabel" parent="DealerVyber/Dealer2"]
+margin_left = 457.0
+margin_top = 72.0
+margin_right = 761.0
+margin_bottom = 96.0
+custom_fonts/normal_font = SubResource( 47 )
+bbcode_enabled = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Drug2" type="Sprite" parent="DealerVyber/Dealer2"]
+position = Vector2( 686, 352 )
+scale = Vector2( 0.34375, 0.34375 )
+texture = ExtResource( 15 )
+
+[node name="Drug1" type="Sprite" parent="DealerVyber/Dealer2"]
+position = Vector2( 529, 352 )
+scale = Vector2( 0.344, 0.344 )
+texture = ExtResource( 16 )
+
+[node name="Line2D" type="Line2D" parent="DealerVyber/Dealer2"]
+position = Vector2( 290, -340 )
+points = PoolVector2Array( 154, 404, 479, 404, 479, 892, 159, 892, 159, 404 )
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="Dealer1" type="Button" parent="DealerVyber/Dealer2"]
+margin_left = 513.0
+margin_top = 106.0
+margin_right = 940.0
+margin_bottom = 533.0
+rect_scale = Vector2( 0.45, 0.45 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DealerID" type="RichTextLabel" parent="DealerVyber/Dealer2"]
+margin_left = 592.0
+margin_top = 64.0
+margin_right = 632.0
+margin_bottom = 104.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dealer3" type="StaticBody2D" parent="DealerVyber"]
+
+[node name="ProfitCut" type="RichTextLabel" parent="DealerVyber/Dealer3"]
+margin_left = 895.0
+margin_top = 424.0
+margin_right = 1087.0
+margin_bottom = 456.0
+text = "Placeholder 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PoliceChance" type="RichTextLabel" parent="DealerVyber/Dealer3"]
+margin_left = 895.0
+margin_top = 464.0
+margin_right = 1087.0
+margin_bottom = 496.0
+text = "Placeholder 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SellingAmount" type="RichTextLabel" parent="DealerVyber/Dealer3"]
+margin_left = 895.0
+margin_top = 504.0
+margin_right = 1087.0
+margin_bottom = 537.0
+text = "Placeholder 3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="RichTextLabel" parent="DealerVyber/Dealer3"]
+margin_left = 839.0
+margin_top = 72.0
+margin_right = 1143.0
+margin_bottom = 96.0
+custom_fonts/normal_font = SubResource( 47 )
+bbcode_enabled = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Drug2" type="Sprite" parent="DealerVyber/Dealer3"]
+position = Vector2( 1068, 352 )
+scale = Vector2( 0.34375, 0.34375 )
+texture = ExtResource( 15 )
+
+[node name="Drug1" type="Sprite" parent="DealerVyber/Dealer3"]
+position = Vector2( 911, 352 )
+scale = Vector2( 0.344, 0.344 )
+texture = ExtResource( 16 )
+
+[node name="Line2D" type="Line2D" parent="DealerVyber/Dealer3"]
+position = Vector2( 672, -340 )
+points = PoolVector2Array( 154, 404, 479, 404, 479, 892, 159, 892, 159, 404 )
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="Dealer1" type="Button" parent="DealerVyber/Dealer3"]
+margin_left = 895.0
+margin_top = 106.0
+margin_right = 1322.0
+margin_bottom = 533.0
+rect_scale = Vector2( 0.45, 0.45 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DealerID" type="RichTextLabel" parent="DealerVyber/Dealer3"]
+margin_left = 976.0
+margin_top = 72.0
+margin_right = 1016.0
+margin_bottom = 112.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonDealer1" type="Button" parent="DealerVyber"]
+margin_left = 64.0
+margin_top = 576.0
+margin_right = 385.0
+margin_bottom = 640.0
+
+[node name="ButtonDealer2" type="Button" parent="DealerVyber"]
+margin_left = 448.0
+margin_top = 576.0
+margin_right = 768.0
+margin_bottom = 640.0
+
+[node name="ButtonDealer3" type="Button" parent="DealerVyber"]
+margin_left = 832.0
+margin_top = 576.0
+margin_right = 1152.0
+margin_bottom = 640.0
+
+[node name="ButtonVyberExit" type="Button" parent="DealerVyber"]
+margin_left = 1160.0
+margin_top = 8.0
+margin_right = 1208.0
+margin_bottom = 28.0
+text = "Exit"
+
 [node name="HoodPannel" type="Panel" parent="."]
+visible = false
 margin_left = 320.0
 margin_top = 128.0
 margin_right = 1536.0
 margin_bottom = 928.0
 rect_pivot_offset = Vector2( 335, 167 )
+mouse_filter = 1
 theme = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -649,88 +934,37 @@ anchor_left = 0.095
 anchor_top = 0.195
 anchor_right = 0.154
 anchor_bottom = 0.237
-margin_left = 1036.48
+margin_left = 1044.48
 margin_top = -148.0
-margin_right = 1012.74
+margin_right = 1020.74
 margin_bottom = -161.6
 text = "Exit"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Dealer1" type="StaticBody2D" parent="HoodPannel"]
-position = Vector2( 10, 0 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HoodPannel/Dealer1"]
-visible = false
-
-[node name="ProfitCut" type="RichTextLabel" parent="HoodPannel/Dealer1"]
-margin_left = 422.0
-margin_top = 472.0
-margin_right = 550.0
-margin_bottom = 492.0
-text = "Placeholder 1"
+[node name="HoodName" type="RichTextLabel" parent="HoodPannel"]
+margin_left = 192.0
+margin_top = 16.0
+margin_right = 1024.0
+margin_bottom = 64.0
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[center]Test[/center]
+"
+text = "Test
+"
+scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="PoliceChance" type="RichTextLabel" parent="HoodPannel/Dealer1"]
-margin_left = 422.0
-margin_top = 520.0
-margin_right = 550.0
-margin_bottom = 536.0
-text = "Placeholder 2"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SellingAmount" type="RichTextLabel" parent="HoodPannel/Dealer1"]
-margin_left = 390.0
-margin_top = 631.0
-margin_right = 518.0
-margin_bottom = 647.0
-text = "Placeholder 3"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Name" type="RichTextLabel" parent="HoodPannel/Dealer1"]
-margin_left = 102.0
-margin_top = 472.0
-margin_right = 438.0
-margin_bottom = 512.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Dealer" type="Sprite" parent="HoodPannel/Dealer1"]
-position = Vector2( 291, 515 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 6 )
-offset = Vector2( 52.2319, 127.507 )
-
-[node name="Drug2" type="Sprite" parent="HoodPannel/Dealer1"]
-position = Vector2( 214, 624 )
-scale = Vector2( 0.15, 0.15 )
-texture = ExtResource( 15 )
-
-[node name="Drug1" type="Sprite" parent="HoodPannel/Dealer1"]
-position = Vector2( 198, 544 )
-scale = Vector2( 0.15, 0.15 )
-texture = ExtResource( 16 )
-
-[node name="Line2D" type="Line2D" parent="HoodPannel/Dealer1"]
-position = Vector2( 6.00001, -48 )
-scale = Vector2( 1.37681, 1.1106 )
-points = PoolVector2Array( 128, 448, 384, 448, 384, 640, 128, 640, 128, 443 )
-default_color = Color( 0, 0, 0, 1 )
 
 [node name="UpperPanel" type="StaticBody2D" parent="HoodPannel"]
 
 [node name="PriceHeroinValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
 margin_left = 944.0
 margin_top = 328.0
-margin_right = 984.0
+margin_right = 1056.0
 margin_bottom = 359.0
 rect_pivot_offset = Vector2( 100, 80 )
 custom_fonts/normal_font = SubResource( 33 )
@@ -742,7 +976,7 @@ __meta__ = {
 [node name="PopHeroinValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
 margin_left = 985.0
 margin_top = 265.0
-margin_right = 1025.0
+margin_right = 1064.0
 margin_bottom = 296.0
 rect_pivot_offset = Vector2( 100, 80 )
 custom_fonts/normal_font = SubResource( 33 )
@@ -767,7 +1001,7 @@ __meta__ = {
 [node name="PricePikoValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
 margin_left = 615.0
 margin_top = 328.0
-margin_right = 655.0
+margin_right = 752.0
 margin_bottom = 359.0
 rect_pivot_offset = Vector2( 168, -1 )
 custom_fonts/normal_font = SubResource( 33 )
@@ -779,7 +1013,7 @@ __meta__ = {
 [node name="PopPikoValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
 margin_left = 657.0
 margin_top = 265.0
-margin_right = 697.0
+margin_right = 758.0
 margin_bottom = 296.0
 rect_pivot_offset = Vector2( 170, 88 )
 custom_fonts/normal_font = SubResource( 33 )
@@ -805,7 +1039,7 @@ __meta__ = {
 [node name="PriceWeedValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
 margin_left = 293.0
 margin_top = 328.0
-margin_right = 333.0
+margin_right = 396.0
 margin_bottom = 359.0
 rect_pivot_offset = Vector2( 100, 80 )
 custom_fonts/normal_font = SubResource( 33 )
@@ -817,7 +1051,7 @@ __meta__ = {
 [node name="PopWeedValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
 margin_left = 336.0
 margin_top = 265.0
-margin_right = 376.0
+margin_right = 419.0
 margin_bottom = 296.0
 rect_pivot_offset = Vector2( 100, 80 )
 custom_fonts/normal_font = SubResource( 33 )
@@ -902,88 +1136,153 @@ scale = Vector2( 1.1385, 0.878261 )
 points = PoolVector2Array( 192, 128, 1024, 128, 1024, 448, 192, 448, 192, 123 )
 default_color = Color( 0, 0, 0, 1 )
 
-[node name="HoodName" type="RichTextLabel" parent="HoodPannel"]
-margin_left = 192.0
-margin_top = 16.0
-margin_right = 1024.0
-margin_bottom = 64.0
-custom_fonts/normal_font = SubResource( 3 )
-bbcode_enabled = true
-bbcode_text = "[center]Test[/center]
-"
-text = "Test
-"
-scroll_active = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Dealer2" type="StaticBody2D" parent="HoodPannel"]
-position = Vector2( 704, 32 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HoodPannel/Dealer2"]
-visible = false
-
-[node name="Dealer" type="Sprite" parent="HoodPannel/Dealer2"]
-position = Vector2( 208, 457 )
-scale = Vector2( 0.608491, 0.608491 )
-texture = ExtResource( 17 )
-offset = Vector2( 52.2319, 127.507 )
-
-[node name="Drug2" type="Sprite" parent="HoodPannel/Dealer2"]
-position = Vector2( 175, 592 )
-scale = Vector2( 0.15, 0.15 )
-texture = ExtResource( 15 )
-
-[node name="Drug1" type="Sprite" parent="HoodPannel/Dealer2"]
-position = Vector2( 176, 504 )
-scale = Vector2( 0.15, 0.15 )
-texture = ExtResource( 16 )
-
-[node name="Name" type="RichTextLabel" parent="HoodPannel/Dealer2"]
-margin_left = 136.0
-margin_top = 432.0
-margin_right = 376.0
-margin_bottom = 472.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+position = Vector2( 523, 0 )
+input_pickable = true
 
 [node name="ProfitCut" type="RichTextLabel" parent="HoodPannel/Dealer2"]
-margin_left = 280.0
-margin_top = 488.0
-margin_right = 408.0
-margin_bottom = 508.0
+margin_left = 397.0
+margin_top = 490.0
+margin_right = 501.0
+margin_bottom = 506.0
 text = "Placeholder 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PoliceChance" type="RichTextLabel" parent="HoodPannel/Dealer2"]
-margin_left = 280.0
-margin_top = 544.0
-margin_right = 408.0
-margin_bottom = 560.0
+margin_left = 397.0
+margin_top = 530.0
+margin_right = 501.0
+margin_bottom = 546.0
 text = "Placeholder 2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SellingAmount" type="RichTextLabel" parent="HoodPannel/Dealer2"]
-margin_left = 280.0
-margin_top = 600.0
-margin_right = 408.0
-margin_bottom = 616.0
+margin_left = 397.0
+margin_top = 570.0
+margin_right = 501.0
+margin_bottom = 586.0
 text = "Placeholder 3"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Name" type="RichTextLabel" parent="HoodPannel/Dealer2"]
+margin_left = 181.0
+margin_top = 448.0
+margin_right = 502.0
+margin_bottom = 472.0
+custom_fonts/normal_font = SubResource( 49 )
+bbcode_enabled = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Drug2" type="Sprite" parent="HoodPannel/Dealer2"]
+position = Vector2( 214, 570 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 15 )
+
+[node name="Drug1" type="Sprite" parent="HoodPannel/Dealer2"]
+position = Vector2( 214, 506 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 16 )
+
 [node name="Line2D" type="Line2D" parent="HoodPannel/Dealer2"]
-position = Vector2( -160, -80 )
-scale = Vector2( 1.25362, 1.11521 )
-points = PoolVector2Array( 128, 448, 384, 448, 384, 640, 128, 640, 128, 443 )
+position = Vector2( 0, 26 )
+points = PoolVector2Array( 169, 414, 510, 414, 510, 584, 174, 584, 174, 414 )
 default_color = Color( 0, 0, 0, 1 )
+
+[node name="Dealer2" type="Button" parent="HoodPannel/Dealer2"]
+margin_left = 253.0
+margin_top = 480.0
+margin_right = 521.0
+margin_bottom = 742.0
+rect_scale = Vector2( 0.45, 0.45 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dealer1" type="StaticBody2D" parent="HoodPannel"]
+
+[node name="ProfitCut" type="RichTextLabel" parent="HoodPannel/Dealer1"]
+margin_left = 407.0
+margin_top = 490.0
+margin_right = 511.0
+margin_bottom = 506.0
+text = "Placeholder 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PoliceChance" type="RichTextLabel" parent="HoodPannel/Dealer1"]
+margin_left = 407.0
+margin_top = 528.0
+margin_right = 511.0
+margin_bottom = 544.0
+text = "Placeholder 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SellingAmount" type="RichTextLabel" parent="HoodPannel/Dealer1"]
+margin_left = 407.0
+margin_top = 568.0
+margin_right = 511.0
+margin_bottom = 584.0
+text = "Placeholder 3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="RichTextLabel" parent="HoodPannel/Dealer1"]
+margin_left = 191.0
+margin_top = 448.0
+margin_right = 512.0
+margin_bottom = 472.0
+custom_fonts/normal_font = SubResource( 47 )
+bbcode_enabled = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Drug2" type="Sprite" parent="HoodPannel/Dealer1"]
+position = Vector2( 224, 570 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 15 )
+
+[node name="Drug1" type="Sprite" parent="HoodPannel/Dealer1"]
+position = Vector2( 224, 506 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 16 )
+
+[node name="Line2D" type="Line2D" parent="HoodPannel/Dealer1"]
+position = Vector2( 10, 26 )
+points = PoolVector2Array( 169, 414, 510, 414, 510, 584, 174, 584, 174, 414 )
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="Dealer1" type="Button" parent="HoodPannel/Dealer1"]
+margin_left = 264.0
+margin_top = 480.0
+margin_right = 532.0
+margin_bottom = 742.0
+rect_scale = Vector2( 0.45, 0.45 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HoodiD" type="RichTextLabel" parent="HoodPannel"]
+margin_left = -384.0
+margin_top = -232.0
+margin_right = -344.0
+margin_bottom = -192.0
 
 [node name="Inv" type="Panel" parent="."]
 visible = false
@@ -998,9 +1297,9 @@ __meta__ = {
 }
 
 [node name="Button-Inv-Exit" type="Button" parent="Inv"]
-margin_left = 1152.0
+margin_left = 1160.0
 margin_top = 8.0
-margin_right = 1200.0
+margin_right = 1208.0
 margin_bottom = 28.0
 text = "Exit"
 __meta__ = {
@@ -1480,7 +1779,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button-Inv" type="Button" parent="."]
+[node name="ButtonInv" type="Button" parent="."]
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 240.0
@@ -1635,10 +1934,16 @@ scroll_active = false
 [connection signal="mouse_entered" from="Trebic/nemocnice" to="Trebic/nemocnice" method="_on_nemocnice_mouse_entered"]
 [connection signal="mouse_exited" from="Trebic/nemocnice" to="." method="_on_nemocnice_mouse_exited"]
 [connection signal="mouse_exited" from="Trebic/nemocnice" to="Trebic/nemocnice" method="_on_nemocnice_mouse_exited"]
+[connection signal="pressed" from="DealerVyber/ButtonDealer1" to="." method="_on_ButtonDealer1_pressed"]
+[connection signal="pressed" from="DealerVyber/ButtonDealer2" to="." method="_on_ButtonDealer2_pressed"]
+[connection signal="pressed" from="DealerVyber/ButtonDealer3" to="." method="_on_ButtonDealer3_pressed"]
+[connection signal="pressed" from="DealerVyber/ButtonVyberExit" to="." method="_on_ButtonVyberExit_pressed"]
 [connection signal="pressed" from="HoodPannel/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="HoodPannel/Dealer2/Dealer2" to="." method="_on_Dealer2_pressed"]
+[connection signal="pressed" from="HoodPannel/Dealer1/Dealer1" to="." method="_on_Dealer1_pressed"]
 [connection signal="pressed" from="Inv/Button-Inv-Exit" to="." method="_on_ButtonInvExit_pressed"]
 [connection signal="pressed" from="ButtonExit" to="." method="_on_ButtonExit_pressed"]
 [connection signal="pressed" from="ButtonExit" to="Inv" method="_on_ButtonExit_pressed"]
-[connection signal="pressed" from="Button-Inv" to="." method="_on_ButtonInv_pressed"]
+[connection signal="pressed" from="ButtonInv" to="." method="_on_ButtonInv_pressed"]
 [connection signal="pressed" from="ExitPanel/ExitButtonYes" to="." method="_on_ExitButtonYes_pressed"]
 [connection signal="pressed" from="ExitPanel/ExitButtonNo" to="." method="_on_ExitButtonNo_pressed"]

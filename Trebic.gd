@@ -8,7 +8,7 @@ var unlockedHoods = 1
 #func getHoods() :
 #	return unlockedHoods
 
-
+var text = loadd()
 
 
 func _ready():
@@ -43,7 +43,7 @@ func _on_connected(proto = ""):
 	var text = loadd()
 	print("Connected with protocol: ", proto)
 	_send("loadmap" + text)
-	
+	###############################################################
 func _on_data():
 	var payload = client.get_peer(1).get_packet().get_string_from_utf8()
 	print("Received data: ", payload)
@@ -72,7 +72,18 @@ func _on_data():
 		$LabelRespekt.bbcode_text = "[center]Respekt: " + str(stepify(test,0.1)) +text+ "[/center]"
 
 	if (x[0] == "hood"):
-		
+		$HoodPannel/Dealer1/Name.visible = true
+		$HoodPannel/Dealer1/Drug1.visible = true
+		$HoodPannel/Dealer1/Drug2.visible = true
+		$HoodPannel/Dealer1/PoliceChance.visible = true
+		$HoodPannel/Dealer1/SellingAmount.visible = true
+		$HoodPannel/Dealer1/ProfitCut.visible = true
+		$HoodPannel/Dealer2/Name.visible = true
+		$HoodPannel/Dealer2/Drug1.visible = true
+		$HoodPannel/Dealer2/Drug2.visible = true
+		$HoodPannel/Dealer2/PoliceChance.visible = true
+		$HoodPannel/Dealer2/SellingAmount.visible = true
+		$HoodPannel/Dealer2/ProfitCut.visible = true
 		
 		var fileJSON = File.new()
 		fileJSON.open("res://assets/dealeri.json", fileJSON.READ)
@@ -86,9 +97,9 @@ func _on_data():
 			$HoodPannel/Dealer1/PoliceChance.visible = false
 			$HoodPannel/Dealer1/SellingAmount.visible = false
 			$HoodPannel/Dealer1/ProfitCut.visible = false
-			$HoodPannel/Dealer1/Dealer.texture = load("res://assets/none.png") 
+			$HoodPannel/Dealer1/Dealer1.icon = load("res://assets/none.png") 
 		else:
-			$HoodPannel/Dealer1/Name.text = (json_result[x[9]][x[7]]["name"])
+			
 			match (json_result[x[9]][x[7]]["drugs"][0]):
 				"weed": 
 					print("weed")
@@ -105,8 +116,8 @@ func _on_data():
 			$HoodPannel/Dealer1/ProfitCut.text = str(json_result[x[9]][x[7]]["profit_cut"])
 			$HoodPannel/Dealer1/PoliceChance.text = str(json_result[x[9]][x[7]]["police_chance"])
 			$HoodPannel/Dealer1/SellingAmount.text = str(json_result[x[9]][x[7]]["selling_amount"])
-		
-			
+			$HoodPannel/Dealer1/Name.bbcode_text = ("[center]"+json_result[x[9]][x[7]]["name"])
+			$HoodPannel/Dealer1/Dealer1.icon = load("res://assets/"+x[9]+x[7]+".png")
 		
 			match (json_result[x[9]][x[7]]["drugs"][1]):
 				"weed": 
@@ -131,12 +142,13 @@ func _on_data():
 			$HoodPannel/Dealer2/PoliceChance.visible = false
 			$HoodPannel/Dealer2/SellingAmount.visible = false
 			$HoodPannel/Dealer2/ProfitCut.visible = false
-			$HoodPannel/Dealer2/Dealer.texture = load("res://assets/none.png") 
+			$HoodPannel/Dealer2/Dealer2.icon = load("res://assets/none.png") 
 		else:
 			$HoodPannel/Dealer2/ProfitCut.text = str(json_result[x[9]][x[8]]["profit_cut"])
 			$HoodPannel/Dealer2/PoliceChance.text = str(json_result[x[9]][x[8]]["police_chance"])
 			$HoodPannel/Dealer2/SellingAmount.text = str(json_result[x[9]][x[8]]["selling_amount"])
-			$HoodPannel/Dealer2/Name.text = (json_result[x[9]][x[8]]["name"])
+			$HoodPannel/Dealer2/Name.bbcode_text = ("[center]"+json_result[x[9]][x[8]]["name"])
+			$HoodPannel/Dealer2/Dealer2.icon = load("res://assets/"+x[9]+x[8]+".png")
 			match (json_result[x[9]][x[8]]["drugs"][0]):
 				"weed": 
 					print("weed")
@@ -176,10 +188,128 @@ func _on_data():
 		$HoodPannel/UpperPanel/PricePikoValue.text = x[4]
 		$HoodPannel/UpperPanel/PopHeroinValue.text = x[5]
 		$HoodPannel/UpperPanel/PriceHeroinValue.text = x[6]
-		#print ("id0=" + x[7])
-		#print ("id1=" + x[8])
-		#print ("hoodId=" + x[9])
 		
+		
+	
+	if(x[0] == "showdealers"):
+		var fileJSON = File.new()
+		fileJSON.open("res://assets/dealeri.json", fileJSON.READ)
+		var json= fileJSON.get_as_text()
+		var json_result = JSON.parse(json).result
+		fileJSON.close()
+		print (x[1] + "," + x[2] + "," + x[3] + "," + x[4])
+		match (json_result[x[4]][x[1]]["drugs"][0]):
+				"weed": 
+					print("weed")
+					$DealerVyber/Dealer1/Drug1.texture = load("res://assets/weed.png") 
+					pass
+				"meth": 
+					print("meth") 
+					$DealerVyber/Dealer1/Drug1.texture = load("res://assets/pico.png") 
+					pass
+				"heroin": 
+					print("heroin") 
+					$DealerVyber/Dealer1/Drug1.texture = load("res://assets/herion.png") 
+					pass
+					
+		$DealerVyber/Dealer1/ProfitCut.text = str(json_result[x[4]][x[1]]["profit_cut"])
+		$DealerVyber/Dealer1/PoliceChance.text = str(json_result[x[4]][x[1]]["police_chance"])
+		$DealerVyber/Dealer1/SellingAmount.text = str(json_result[x[4]][x[1]]["selling_amount"])
+		$DealerVyber/Dealer1/Name.bbcode_text = ("[center]"+json_result[x[4]][x[1]]["name"])
+		$DealerVyber/Dealer1/Dealer1.icon = load("res://assets/"+x[4]+x[1]+".png")
+		$DealerVyber/Dealer1/DealerID.text = x[1]
+		
+		match (json_result[x[4]][x[1]]["drugs"][1]):
+			"weed": 
+				print("weed")
+				$DealerVyber/Dealer1/Drug2.texture = load("res://assets/weed.png") 
+				pass
+			"meth": 
+				print("meth") 
+				$DealerVyber/Dealer1/Drug2.texture = load("res://assets/pico.png") 
+				pass
+			"heroin": 
+				print("heroin") 
+				$DealerVyber/Dealer1/Drug2.texture = load("res://assets/herion.png") 
+				pass
+					
+		#################################################################
+		
+		match (json_result[x[4]][x[2]]["drugs"][0]):
+				"weed": 
+					print("weed")
+					$DealerVyber/Dealer2/Drug1.texture = load("res://assets/weed.png") 
+					pass
+				"meth": 
+					print("meth") 
+					$DealerVyber/Dealer2/Drug1.texture = load("res://assets/pico.png") 
+					pass
+				"heroin": 
+					print("heroin") 
+					$DealerVyber/Dealer2/Drug1.texture = load("res://assets/herion.png") 
+					pass
+					
+		$DealerVyber/Dealer2/ProfitCut.text = str(json_result[x[4]][x[2]]["profit_cut"])
+		$DealerVyber/Dealer2/PoliceChance.text = str(json_result[x[4]][x[2]]["police_chance"])
+		$DealerVyber/Dealer2/SellingAmount.text = str(json_result[x[4]][x[2]]["selling_amount"])
+		$DealerVyber/Dealer2/Name.bbcode_text = ("[center]"+json_result[x[4]][x[2]]["name"])
+		$DealerVyber/Dealer2/Dealer1.icon = load("res://assets/"+x[4]+x[2]+".png")
+		$DealerVyber/Dealer2/DealerID.text = x[2]
+		
+		match (json_result[x[4]][x[2]]["drugs"][1]):
+			"weed": 
+				print("weed")
+				$DealerVyber/Dealer2/Drug2.texture = load("res://assets/weed.png") 
+				pass
+			"meth": 
+				print("meth") 
+				$DealerVyber/Dealer2/Drug2.texture = load("res://assets/pico.png") 
+				pass
+			"heroin": 
+				print("heroin") 
+				$DealerVyber/Dealer2/Drug2.texture = load("res://assets/herion.png") 
+				pass
+		#######################################################################
+		
+		
+		
+		match (json_result[x[4]][x[3]]["drugs"][0]):
+				"weed": 
+					print("weed")
+					$DealerVyber/Dealer3/Drug1.texture = load("res://assets/weed.png") 
+					pass
+				"meth": 
+					print("meth") 
+					$DealerVyber/Dealer3/Drug1.texture = load("res://assets/pico.png") 
+					pass
+				"heroin": 
+					print("heroin") 
+					$DealerVyber/Dealer3/Drug1.texture = load("res://assets/herion.png") 
+					pass
+					
+		$DealerVyber/Dealer3/ProfitCut.text = str(json_result[x[4]][x[3]]["profit_cut"])
+		$DealerVyber/Dealer3/PoliceChance.text = str(json_result[x[4]][x[3]]["police_chance"])
+		$DealerVyber/Dealer3/SellingAmount.text = str(json_result[x[4]][x[3]]["selling_amount"])
+		$DealerVyber/Dealer3/Name.bbcode_text = ("[center]"+json_result[x[4]][x[3]]["name"])
+		$DealerVyber/Dealer3/Dealer1.icon = load("res://assets/"+x[4]+x[3]+".png")
+		$DealerVyber/Dealer3/DealerID.text = x[3]
+		
+		match (json_result[x[4]][x[3]]["drugs"][1]):
+			"weed": 
+				print("weed")
+				$DealerVyber/Dealer3/Drug2.texture = load("res://assets/weed.png") 
+				pass
+			"meth": 
+				print("meth") 
+				$DealerVyber/Dealer3/Drug2.texture = load("res://assets/pico.png") 
+				pass
+			"heroin": 
+				print("heroin") 
+				$DealerVyber/Dealer3/Drug2.texture = load("res://assets/herion.png") 
+				pass
+	
+	
+	
 func _send(text):
 	var packet: PoolByteArray = text.to_utf8()
 	print("Sending: " + text)
@@ -189,7 +319,7 @@ func _send(text):
 #	pass
 
 
-
+###############################################################################
 
 
 func _on_Button_pressed():
@@ -198,7 +328,6 @@ func _on_Button_pressed():
 
 
 func _on_ButtonExit_pressed():
-	
 	$ExitPanel.visible = true
 
 
@@ -208,7 +337,7 @@ func _on_borovina_input_event(viewport, event, shape_idx):
 			var text = loadd()
 			$HoodPannel.visible = true
 			$HoodPannel/HoodName.bbcode_text = "[center]Borovina[/center]"
-
+			$HoodPannel/HoodiD.text = "1"
 			_send("hood" + text + "$1")
 			
 
@@ -277,7 +406,7 @@ func _on_horkasever_input_event(viewport, event, shape_idx):
 				var text = loadd()
 				$HoodPannel.visible = true
 				$HoodPannel/HoodName.bbcode_text = "[center]Horka domky sever[/center]"
-
+				$HoodPannel/HoodiD.text = "2"
 				_send("hood" + text + "$2")
 
 
@@ -285,8 +414,10 @@ func _on_horkajih_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if int(unlockedHoods) >= 3:
+				var text = loadd()
 				$HoodPannel.visible = true
 				$HoodPannel/HoodName.bbcode_text = "[center]Horka domky jih[/center]"
+				_send("hood" + text + "$3")
 
 
 func _on_stopshop_input_event(viewport, event, shape_idx):
@@ -540,6 +671,7 @@ func _on_spst_mouse_exited():
 	$Trebic/spst/Line2D.hide()
 	$Trebic/spst/RichTextLabel.hide()
 
+#####################################################################
 
 func _on_ExitButtonYes_pressed():
 	get_tree().quit()
@@ -547,3 +679,44 @@ func _on_ExitButtonYes_pressed():
 
 func _on_ExitButtonNo_pressed():
 	$ExitPanel.visible = false
+
+#####################################################################
+
+
+
+
+
+
+func _on_Dealer1_pressed():
+	$HoodPannel.visible = false
+	$DealerVyber.visible = true
+	var text = loadd()
+	_send("showdealers"+ text + "$" +$HoodPannel/HoodiD.text)
+
+func _on_Dealer2_pressed():
+	$HoodPannel.visible = false
+	$DealerVyber.visible = true
+	var text = loadd()
+	_send("showdealers"+ text + "$" +$HoodPannel/HoodiD.text)
+
+
+
+
+func _on_ButtonVyberExit_pressed():
+	$HoodPannel.visible = true
+	$DealerVyber.visible = false
+
+
+func _on_ButtonDealer1_pressed():
+	
+	_send("assigndealer" + text +"$" + $HoodPannel/HoodiD.text + "$" +$DealerVyber/Dealer1/DealerID.text)
+
+
+func _on_ButtonDealer2_pressed():
+	
+	_send("assigndealer" + text +"$" + $HoodPannel/HoodiD.text + "$" +$DealerVyber/Dealer2/DealerID.text)
+
+
+func _on_ButtonDealer3_pressed():
+	
+	_send("assigndealer" + text +"$" + $HoodPannel/HoodiD.text + "$" +$DealerVyber/Dealer3/DealerID.text)
