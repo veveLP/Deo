@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://assets/trebic.png" type="Texture" id=1]
@@ -633,7 +634,6 @@ position = Vector2( -698.714, -691.32 )
 polygon = PoolVector2Array( 639.563, 635.867, 780.046, 658.048, 783.742, 676.532, 765.258, 717.198, 717.199, 735.683, 650.654, 739.38, 624.776, 706.108, 632.17, 646.957 )
 
 [node name="HoodPannel" type="Panel" parent="."]
-visible = false
 margin_left = 320.0
 margin_top = 128.0
 margin_right = 1536.0

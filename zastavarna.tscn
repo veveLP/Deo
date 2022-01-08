@@ -1375,6 +1375,7 @@ position = Vector2( 679, 382.505 )
 rotation = 1.5708
 scale = Vector2( 0.121132, 0.114742 )
 z_index = 2
+
 texture = SubResource( 45 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hnuj"]
