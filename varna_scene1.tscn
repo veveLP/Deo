@@ -963,6 +963,7 @@ z_index = 2
 shape = SubResource( 27 )
 
 [node name="TileMap" type="TileMap" parent="varna"]
+
 position = Vector2( -144, 96 )
 tile_set = SubResource( 2 )
 cell_size = Vector2( 48, 48 )
