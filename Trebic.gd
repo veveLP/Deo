@@ -345,7 +345,7 @@ func _on_data():
 			$HoodPannel/Dealer2/Drug1.disabled = false
 			$HoodPannel/Dealer2/Drug2.disabled = false
 			$HoodPannel/Dealer2/Dealer2.disabled = false
-			#$HoodPannel/Dealer2/RichTextLabel.visible = true
+			
 		var min1 = 0
 		var sec1 = int(x[2])
 		while sec1 > 59:
@@ -460,6 +460,8 @@ func _on_horkasever_input_event(viewport, event, shape_idx):
 				$HoodPannel/HoodName.bbcode_text = "[center]Horka domky sever[/center]"
 				$HoodPannel/HoodiD.text = "2"
 				_send("hood" + text + "$2")
+				_send("loaddealers"+text+"$2")
+				$HoodPannel/Timer.start()
 
 
 func _on_horkajih_input_event(viewport, event, shape_idx):
@@ -797,13 +799,13 @@ func _on_2Drug1_pressed():
 	$HoodPannel/Dealer2Remain1.visible = true
 	$HoodPannel/Dealer2Remain2.visible = false
 	$HoodPannel/Dealer2Remain1/HSlider.max_value = int($HoodPannel/Dealer2/SellingAmount.text)
-	
+	$HoodPannel/Dealer2Remain1/Icon.icon = $HoodPannel/Dealer2/Drug1.icon
 
 func _on_2Drug2_pressed():
 	$HoodPannel/Dealer2Remain1.visible = false
 	$HoodPannel/Dealer2Remain2.visible = true
 	$HoodPannel/Dealer2Remain2/HSlider.max_value = int($HoodPannel/Dealer2/SellingAmount.text)
-	
+	$HoodPannel/Dealer2Remain2/Icon.icon = $HoodPannel/Dealer2/Drug2.icon
 
 func _on_1HSlider1_value_changed(value):
 	$HoodPannel/Dealer1Remain1/ButtonSend.text = "Prodat " + str($HoodPannel/Dealer1Remain1/HSlider.value) 
