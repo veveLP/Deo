@@ -1292,14 +1292,7 @@ font_data = SubResource( 64 )
 position = Vector2( 614, 266 )
 script = ExtResource( 3 )
 
-[node name="lekarna" type="Panel" parent="."]
-margin_left = -93.0
-margin_top = 62.0
-margin_right = 382.0
-margin_bottom = 505.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="lekarna" type="Area2D" parent="."]
 
 [node name="player" type="KinematicBody2D" parent="lekarna"]
 position = Vector2( 238, 368 )
