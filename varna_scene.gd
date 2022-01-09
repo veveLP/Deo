@@ -61,13 +61,11 @@ func _get_tablenumber():
 	var body = $varna/player/body.get_overlapping_areas()
 	tablenumber = null
 	if (body.size()==0):
-		print(body)
 		pass
 	else:
 		var table = body[0]
 		for i in tablecount+1:
 			if(table.name == "table" + String(i)):
-				print(i)
 				tablenumber = i
 				break
 
@@ -86,7 +84,7 @@ func _weedstart_weedharvest(var i, var text):
 		i+=1
 		_send("weedharvest" + text + "$" + varnaID + "$" + String(i))
 		firsttime = "n"
-	else:
+	elif (items[i].texture == pod):
 		i+=1
 		$varna.visible = false
 		$WeedMinigame.visible = true
