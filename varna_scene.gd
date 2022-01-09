@@ -154,6 +154,27 @@ func _input(event):
 						pass
 					"heroin":
 						pass
+		elif event.scancode == KEY_Q and firsttime == "y":
+			var user = loadd()
+			_get_tablenumber()
+			if tablenumber == null:
+				pass
+			else:
+				_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$weed")
+				items[tablenumber].set_texture(pod)
+				tableitems[tablenumber] = "weed"
+				firsttime = "n"
+		elif event.scancode == KEY_R and firsttime == "y": #testing only
+			var user = loadd()
+			_get_tablenumber()
+			if tablenumber == null:
+				pass
+			else:
+				_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$meth")
+				items[tablenumber].set_texture(null)
+				tableitems[tablenumber] = "meth"
+				firsttime = "n"
+
 		else:
 			firsttime = "y"
 
