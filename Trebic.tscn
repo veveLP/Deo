@@ -941,6 +941,7 @@ margin_bottom = 28.0
 text = "Exit"
 
 [node name="HoodPannel" type="Panel" parent="."]
+visible = false
 margin_left = 322.0
 margin_top = 148.0
 margin_right = 1538.0
@@ -1438,6 +1439,8 @@ margin_left = 256.0
 margin_top = 684.0
 margin_right = 419.0
 margin_bottom = 748.0
+min_value = 1.0
+value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1476,6 +1479,8 @@ margin_left = 256.0
 margin_top = 684.0
 margin_right = 421.0
 margin_bottom = 748.0
+min_value = 1.0
+value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1483,7 +1488,7 @@ __meta__ = {
 [node name="ButtonSend" type="Button" parent="HoodPannel/Dealer1Remain2"]
 margin_left = 424.0
 margin_top = 692.0
-margin_right = 511.0
+margin_right = 514.0
 margin_bottom = 740.0
 text = "Placeholder"
 __meta__ = {
@@ -1511,18 +1516,20 @@ visible = false
 position = Vector2( 513, 0 )
 
 [node name="HSlider" type="HSlider" parent="HoodPannel/Dealer2Remain1"]
-margin_left = 192.0
-margin_top = 689.0
-margin_right = 384.0
-margin_bottom = 737.0
+margin_left = 253.0
+margin_top = 684.0
+margin_right = 420.0
+margin_bottom = 748.0
+min_value = 1.0
+value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ButtonSend" type="Button" parent="HoodPannel/Dealer2Remain1"]
-margin_left = 392.0
+margin_left = 421.0
 margin_top = 688.0
-margin_right = 512.0
+margin_right = 511.0
 margin_bottom = 736.0
 text = "Placeholder"
 __meta__ = {
@@ -1534,23 +1541,36 @@ points = PoolVector2Array( 180.5, 680, 519, 680, 519, 752, 183, 752, 183, 680 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="Icon" type="Button" parent="HoodPannel/Dealer2Remain1"]
+margin_left = 189.0
+margin_top = 684.0
+margin_right = 445.0
+margin_bottom = 940.0
+rect_scale = Vector2( 0.25, 0.25 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Dealer2Remain2" type="StaticBody2D" parent="HoodPannel"]
 visible = false
 
 [node name="HSlider" type="HSlider" parent="HoodPannel/Dealer2Remain2"]
-margin_left = 705.0
-margin_top = 688.5
-margin_right = 897.0
-margin_bottom = 736.5
+margin_left = 766.0
+margin_top = 684.0
+margin_right = 933.0
+margin_bottom = 748.0
+min_value = 1.0
+value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ButtonSend" type="Button" parent="HoodPannel/Dealer2Remain2"]
-margin_left = 905.0
-margin_top = 687.5
-margin_right = 1025.0
-margin_bottom = 735.5
+margin_left = 933.0
+margin_top = 688.0
+margin_right = 1023.0
+margin_bottom = 736.0
 text = "Placeholder"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1561,6 +1581,17 @@ position = Vector2( 513, 0 )
 points = PoolVector2Array( 180.5, 680, 519, 680, 519, 752, 183, 752, 183, 680 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
+
+[node name="Icon" type="Button" parent="HoodPannel/Dealer2Remain2"]
+margin_left = 702.0
+margin_top = 684.0
+margin_right = 958.0
+margin_bottom = 940.0
+rect_scale = Vector2( 0.25, 0.25 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Timer" type="Timer" parent="HoodPannel"]
 
