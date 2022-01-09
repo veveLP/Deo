@@ -345,7 +345,7 @@ func _on_data():
 			$HoodPannel/Dealer2/Drug1.disabled = false
 			$HoodPannel/Dealer2/Drug2.disabled = false
 			$HoodPannel/Dealer2/Dealer2.disabled = false
-			$HoodPannel/Dealer2/RichTextLabel.visible = true
+			#$HoodPannel/Dealer2/RichTextLabel.visible = true
 		var min1 = 0
 		var sec1 = int(x[2])
 		while sec1 > 59:
