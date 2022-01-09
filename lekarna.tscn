@@ -1292,11 +1292,17 @@ font_data = SubResource( 64 )
 position = Vector2( 614, 266 )
 script = ExtResource( 3 )
 
-[node name="lekarna" type="StaticBody2D" parent="."]
-visible = false
+[node name="lekarna" type="Panel" parent="."]
+margin_left = -93.0
+margin_top = 62.0
+margin_right = 382.0
+margin_bottom = 505.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="player" type="KinematicBody2D" parent="lekarna"]
-position = Vector2( 336, 418 )
+position = Vector2( 238, 368 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="lekarna/player"]
@@ -1316,12 +1322,14 @@ z_index = 3
 shape = SubResource( 49 )
 
 [node name="TileMap" type="TileMap" parent="lekarna"]
+position = Vector2( -98, -50 )
 tile_set = SubResource( 2 )
 cell_size = Vector2( 48, 48 )
 format = 1
 tile_data = PoolIntArray( 65538, 3, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 6, 0, 131074, 4, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 131082, 1, 0, 131083, 7, 0, 196610, 5, 0, 196611, 2, 0, 196612, 2, 0, 196613, 2, 0, 196614, 2, 0, 196615, 2, 0, 196616, 2, 0, 196617, 2, 0, 196618, 2, 0, 196619, 8, 0, 262146, 5, 0, 262147, 2, 0, 262148, 2, 0, 262149, 2, 0, 262150, 2, 0, 262151, 2, 0, 262152, 2, 0, 262153, 2, 0, 262154, 2, 0, 262155, 8, 0, 327682, 5, 0, 327683, 2, 0, 327684, 2, 0, 327685, 2, 0, 327686, 2, 0, 327687, 2, 0, 327688, 2, 0, 327689, 2, 0, 327690, 2, 0, 327691, 8, 0, 393218, 5, 0, 393219, 2, 0, 393220, 2, 0, 393221, 2, 0, 393222, 2, 0, 393223, 2, 0, 393224, 2, 0, 393225, 2, 0, 393226, 2, 0, 393227, 8, 0, 458754, 5, 0, 458755, 2, 0, 458756, 2, 0, 458757, 2, 0, 458758, 2, 0, 458759, 2, 0, 458760, 2, 0, 458761, 2, 0, 458762, 2, 0, 458763, 8, 0, 524290, 5, 0, 524291, 2, 0, 524292, 2, 0, 524293, 2, 0, 524294, 2, 0, 524295, 2, 0, 524296, 2, 0, 524297, 2, 0, 524298, 2, 0, 524299, 8, 0, 589826, 5, 0, 589827, 2, 0, 589828, 2, 0, 589829, 2, 0, 589830, 2, 0, 589831, 2, 0, 589832, 2, 0, 589833, 2, 0, 589834, 2, 0, 589835, 8, 0, 655362, 9, 0, 655363, 10, 0, 655364, 10, 0, 655365, 11, 0, 655366, 12, 0, 655367, 12, 0, 655368, 9, 0, 655369, 10, 0, 655370, 10, 0, 655371, 11, 0 )
 
 [node name="TileMap2" type="TileMap" parent="lekarna"]
+position = Vector2( -98, -50 )
 z_index = 1
 tile_set = SubResource( 36 )
 cell_size = Vector2( 48, 48 )
@@ -1329,6 +1337,7 @@ format = 1
 tile_data = PoolIntArray( 65539, 0, 0, 65540, 1, 0, 65541, 18, 0, 65542, 19, 0, 65543, 6, 0, 65544, 7, 0, 65545, 12, 0, 65546, 13, 0, 131075, 2, 0, 131076, 3, 0, 131077, 20, 0, 131078, 21, 0, 131079, 8, 0, 131080, 9, 0, 131081, 14, 0, 131082, 15, 0, 196611, 4, 0, 196612, 5, 0, 196615, 10, 0, 196616, 11, 0, 196617, 16, 0, 196618, 17, 0 )
 
 [node name="TileMap3" type="TileMap" parent="lekarna"]
+position = Vector2( -98, -50 )
 z_index = 2
 tile_set = SubResource( 47 )
 cell_size = Vector2( 48, 48 )
@@ -1336,6 +1345,7 @@ format = 1
 tile_data = PoolIntArray( 196613, 0, 0, 196616, 1, 0, 262149, 2, 0, 262150, 3, 0, 262151, 4, 0, 262152, 5, 0, 327685, 6, 0, 327686, 7, 0, 327687, 8, 0, 327688, 9, 0 )
 
 [node name="TileMap4" type="TileMap" parent="lekarna"]
+position = Vector2( -98, -50 )
 z_index = 1
 tile_set = SubResource( 54 )
 cell_size = Vector2( 24, 24 )
@@ -1343,6 +1353,7 @@ format = 1
 tile_data = PoolIntArray( 720902, 0, 0, 720903, 1, 0, 720916, 0, 0, 720917, 1, 0, 786438, 2, 0, 786439, 3, 0, 786452, 2, 0, 786453, 3, 0, 1245190, 0, 0, 1245191, 1, 0, 1245204, 0, 0, 1245205, 1, 0 )
 
 [node name="TileMap5" type="TileMap" parent="lekarna"]
+position = Vector2( -98, -50 )
 z_index = 4
 tile_set = SubResource( 55 )
 cell_size = Vector2( 24, 24 )
@@ -1350,7 +1361,7 @@ format = 1
 tile_data = PoolIntArray( 589830, 0, 0, 589831, 1, 0, 589844, 0, 0, 589845, 1, 0, 655366, 2, 0, 655367, 3, 0, 655380, 2, 0, 655381, 3, 0, 1114118, 0, 0, 1114119, 1, 0, 1114132, 0, 0, 1114133, 1, 0, 1179654, 2, 0, 1179655, 3, 0, 1179668, 2, 0, 1179669, 3, 0, 1310732, 4, 0, 1310733, 5, 0, 1310734, 4, 0, 1310735, 5, 0 )
 
 [node name="leave" type="Area2D" parent="lekarna"]
-position = Vector2( 336, 491 )
+position = Vector2( 238, 441 )
 z_index = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lekarna/leave"]
@@ -1358,6 +1369,7 @@ z_index = 4
 shape = SubResource( 48 )
 
 [node name="Prodavac" type="Area2D" parent="lekarna"]
+position = Vector2( -98, -50 )
 
 [node name="Sprite" type="Sprite" parent="lekarna/Prodavac"]
 z_index = 3
@@ -1368,10 +1380,11 @@ shape = SubResource( 56 )
 
 [node name="NabidkaPanel" type="Panel" parent="."]
 process_priority = 2
-margin_left = -102.0
-margin_top = -74.0
-margin_right = 666.0
-margin_bottom = 566.0
+visible = false
+margin_left = -27.0
+margin_top = -29.0
+margin_right = 741.0
+margin_bottom = 611.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1459,6 +1472,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ButtonExit" type="Button" parent="NabidkaPanel"]
+margin_left = 627.0
+margin_top = 12.0
+margin_right = 754.0
+margin_bottom = 40.0
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="SelectPanel" type="Panel" parent="."]
 visible = false
 margin_left = 178.0
@@ -1530,6 +1553,7 @@ width = 2.0
 
 [connection signal="body_entered" from="lekarna/leave" to="." method="_on_leave_body_entered"]
 [connection signal="pressed" from="NabidkaPanel/ButtonModafen" to="." method="_on_ButtonModafen_pressed"]
+[connection signal="pressed" from="NabidkaPanel/ButtonExit" to="." method="_on_ButtonExit_pressed"]
 [connection signal="changed" from="SelectPanel/HSlider" to="." method="_on_HSlider_changed"]
 [connection signal="value_changed" from="SelectPanel/HSlider" to="." method="_on_HSlider_value_changed"]
 [connection signal="pressed" from="SelectPanel/ButtonPlus" to="." method="_on_ButtonPlus_pressed"]

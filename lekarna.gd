@@ -49,8 +49,8 @@ func _input(event):
 	if event is InputEventKey:
 		if event.scancode == KEY_E and firsttime == "y":
 			if ($lekarna/Prodavac.overlaps_body($lekarna/player)):
-				
-				
+				$lekarna.visible=false
+				$NabidkaPanel.visible=true
 				firsttime = "n"
 		else:
 			firsttime = "y"
@@ -58,10 +58,11 @@ func _input(event):
 func _on_leave_body_entered(body):
 	get_tree().change_scene("res://Trebic.tscn")
 
+var select_id
 
 func _on_ButtonModafen_pressed():
+	select_id = 8
 	$SelectPanel.visible = true;
-
 
 
 func _on_HSlider_value_changed(value):
@@ -89,5 +90,9 @@ func _on_ButtonCancel_pressed():
 func _on_ButtonBuy_pressed():
 	var text = loadd()
 	for n in $SelectPanel/HSlider.value:
-		_send("buy"+text+"$8")
+		_send("buy"+text+"$"+str(select_id))
 	$SelectPanel.visible = false;
+	
+func _on_ButtonExit_pressed():
+	$NabidkaPanel.visible = false
+	$lekarna.visible = true;

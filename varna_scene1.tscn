@@ -955,16 +955,9 @@ shape = SubResource( 27 )
 [node name="body" type="Area2D" parent="player"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/body"]
-position = Vector2( 216, 459 )
-z_index = 2
-shape = SubResource( 27 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player/body"]
 position = Vector2( 216, 458 )
 z_index = 2
 shape = SubResource( 27 )
-
-[node name="body" type="Area2D" parent="player"]
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( -144, 96 )
@@ -1056,6 +1049,7 @@ offset = Vector2( 90.6667, 55.7421 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="table0"]
 position = Vector2( 68, 431.75 )
+z_index = 2
 shape = SubResource( 42 )
 
 [node name="Sprite" type="Sprite" parent="table0"]
