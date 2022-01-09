@@ -941,10 +941,10 @@ margin_bottom = 28.0
 text = "Exit"
 
 [node name="HoodPannel" type="Panel" parent="."]
-margin_left = 320.0
-margin_top = 128.0
-margin_right = 1536.0
-margin_bottom = 928.0
+margin_left = 322.0
+margin_top = 148.0
+margin_right = 1538.0
+margin_bottom = 948.0
 rect_pivot_offset = Vector2( 335, 167 )
 mouse_filter = 1
 theme = SubResource( 1 )
@@ -1173,30 +1173,30 @@ position = Vector2( 523, 0 )
 input_pickable = true
 
 [node name="ProfitCut" type="RichTextLabel" parent="HoodPannel/Dealer2"]
-margin_left = 397.0
-margin_top = 490.0
-margin_right = 501.0
-margin_bottom = 506.0
+margin_left = 389.0
+margin_top = 480.0
+margin_right = 493.0
+margin_bottom = 496.0
 text = "Placeholder 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PoliceChance" type="RichTextLabel" parent="HoodPannel/Dealer2"]
-margin_left = 397.0
-margin_top = 530.0
-margin_right = 501.0
-margin_bottom = 546.0
+margin_left = 389.0
+margin_top = 518.0
+margin_right = 493.0
+margin_bottom = 534.0
 text = "Placeholder 2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SellingAmount" type="RichTextLabel" parent="HoodPannel/Dealer2"]
-margin_left = 397.0
-margin_top = 570.0
-margin_right = 501.0
-margin_bottom = 586.0
+margin_left = 389.0
+margin_top = 562.0
+margin_right = 493.0
+margin_bottom = 578.0
 text = "Placeholder 3"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1216,7 +1216,7 @@ __meta__ = {
 
 [node name="Line2D" type="Line2D" parent="HoodPannel/Dealer2"]
 position = Vector2( 0, 26 )
-points = PoolVector2Array( 169, 414, 510, 414, 509, 630, 173, 630, 174, 414 )
+points = PoolVector2Array( 171, 410, 507, 410, 507, 626, 171, 626, 171, 405 )
 default_color = Color( 0, 0, 0, 1 )
 
 [node name="Dealer2" type="Button" parent="HoodPannel/Dealer2"]
@@ -1231,20 +1231,21 @@ __meta__ = {
 }
 
 [node name="Drug2" type="Button" parent="HoodPannel/Dealer2"]
-margin_left = 181.0
-margin_top = 536.0
-margin_right = 437.0
-margin_bottom = 792.0
-rect_scale = Vector2( 0.25, 0.25 )
+margin_left = 187.0
+margin_top = 542.0
+margin_right = 443.0
+margin_bottom = 798.0
+rect_scale = Vector2( 0.21, 0.21 )
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ProgressBar" type="ProgressBar" parent="HoodPannel/Dealer2"]
-margin_left = 182.0
-margin_top = 601.0
-margin_right = 358.0
-margin_bottom = 633.0
+margin_left = 187.0
+margin_top = 604.0
+margin_right = 363.0
+margin_bottom = 636.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 51 )
 custom_styles/fg = SubResource( 52 )
@@ -1267,22 +1268,23 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HoodPannel/Dealer2"]
-margin_left = 361.0
-margin_top = 601.0
-margin_right = 513.0
-margin_bottom = 633.0
+margin_left = 374.0
+margin_top = 604.0
+margin_right = 526.0
+margin_bottom = 636.0
 custom_fonts/normal_font = SubResource( 55 )
-text = "Hotovo v:"
+text = "Hotovo za:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Drug1" type="Button" parent="HoodPannel/Dealer2"]
-margin_left = 181.0
-margin_top = 469.0
-margin_right = 437.0
-margin_bottom = 725.0
-rect_scale = Vector2( 0.25, 0.25 )
+margin_left = 187.0
+margin_top = 480.0
+margin_right = 443.0
+margin_bottom = 736.0
+rect_scale = Vector2( 0.21, 0.21 )
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1290,7 +1292,7 @@ __meta__ = {
 [node name="ButtonCollect" type="Button" parent="HoodPannel/Dealer2"]
 visible = false
 margin_left = 182.0
-margin_top = 608.0
+margin_top = 604.0
 margin_right = 494.0
 margin_bottom = 640.0
 text = "Vyber peníze"
@@ -1301,30 +1303,30 @@ __meta__ = {
 [node name="Dealer1" type="StaticBody2D" parent="HoodPannel"]
 
 [node name="ProfitCut" type="RichTextLabel" parent="HoodPannel/Dealer1"]
-margin_left = 407.0
-margin_top = 490.0
-margin_right = 511.0
-margin_bottom = 506.0
+margin_left = 396.0
+margin_top = 480.0
+margin_right = 500.0
+margin_bottom = 496.0
 text = "Placeholder 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PoliceChance" type="RichTextLabel" parent="HoodPannel/Dealer1"]
-margin_left = 407.0
-margin_top = 528.0
-margin_right = 511.0
-margin_bottom = 544.0
+margin_left = 396.0
+margin_top = 522.0
+margin_right = 500.0
+margin_bottom = 538.0
 text = "Placeholder 2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SellingAmount" type="RichTextLabel" parent="HoodPannel/Dealer1"]
-margin_left = 407.0
-margin_top = 568.0
-margin_right = 511.0
-margin_bottom = 584.0
+margin_left = 396.0
+margin_top = 566.0
+margin_right = 500.0
+margin_bottom = 582.0
 text = "Placeholder 3"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1357,9 +1359,9 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HoodPannel/Dealer1"]
-margin_left = 368.0
+margin_left = 374.0
 margin_top = 608.0
-margin_right = 520.0
+margin_right = 526.0
 margin_bottom = 640.0
 custom_fonts/normal_font = SubResource( 55 )
 text = "Hotovo za:"
@@ -1396,21 +1398,23 @@ __meta__ = {
 }
 
 [node name="Drug2" type="Button" parent="HoodPannel/Dealer1"]
-margin_left = 192.0
-margin_top = 537.0
-margin_right = 448.0
-margin_bottom = 793.0
-rect_scale = Vector2( 0.25, 0.25 )
+margin_left = 198.0
+margin_top = 542.0
+margin_right = 454.0
+margin_bottom = 798.0
+rect_scale = Vector2( 0.21, 0.21 )
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Drug1" type="Button" parent="HoodPannel/Dealer1"]
-margin_left = 192.0
-margin_top = 469.0
-margin_right = 448.0
-margin_bottom = 725.0
-rect_scale = Vector2( 0.25, 0.25 )
+margin_left = 198.0
+margin_top = 480.0
+margin_right = 454.0
+margin_bottom = 736.0
+rect_scale = Vector2( 0.21, 0.21 )
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1427,21 +1431,22 @@ __meta__ = {
 }
 
 [node name="Dealer1Remain1" type="StaticBody2D" parent="HoodPannel"]
+visible = false
 
 [node name="HSlider" type="HSlider" parent="HoodPannel/Dealer1Remain1"]
-margin_left = 192.0
-margin_top = 689.0
-margin_right = 384.0
-margin_bottom = 737.0
+margin_left = 256.0
+margin_top = 684.0
+margin_right = 419.0
+margin_bottom = 748.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ButtonSend" type="Button" parent="HoodPannel/Dealer1Remain1"]
-margin_left = 392.0
-margin_top = 688.0
-margin_right = 512.0
-margin_bottom = 736.0
+margin_left = 424.0
+margin_top = 692.0
+margin_right = 511.0
+margin_bottom = 740.0
 text = "Placeholder"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1452,22 +1457,34 @@ points = PoolVector2Array( 184, 680, 520, 680, 520, 752, 184, 752, 184, 677.5 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="Icon" type="Button" parent="HoodPannel/Dealer1Remain1"]
+margin_left = 190.0
+margin_top = 684.0
+margin_right = 446.0
+margin_bottom = 940.0
+rect_scale = Vector2( 0.25, 0.25 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Dealer1Remain2" type="StaticBody2D" parent="HoodPannel"]
+visible = false
 
 [node name="HSlider" type="HSlider" parent="HoodPannel/Dealer1Remain2"]
-margin_left = 192.0
-margin_top = 689.0
-margin_right = 384.0
-margin_bottom = 737.0
+margin_left = 256.0
+margin_top = 684.0
+margin_right = 421.0
+margin_bottom = 748.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ButtonSend" type="Button" parent="HoodPannel/Dealer1Remain2"]
-margin_left = 392.0
-margin_top = 688.0
-margin_right = 512.0
-margin_bottom = 736.0
+margin_left = 424.0
+margin_top = 692.0
+margin_right = 511.0
+margin_bottom = 740.0
 text = "Placeholder"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1478,7 +1495,19 @@ points = PoolVector2Array( 184, 680, 520, 680, 520, 752, 184, 752, 184, 677.5 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
+[node name="Icon" type="Button" parent="HoodPannel/Dealer1Remain2"]
+margin_left = 190.0
+margin_top = 684.0
+margin_right = 446.0
+margin_bottom = 940.0
+rect_scale = Vector2( 0.25, 0.25 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Dealer2Remain1" type="StaticBody2D" parent="HoodPannel"]
+visible = false
 position = Vector2( 513, 0 )
 
 [node name="HSlider" type="HSlider" parent="HoodPannel/Dealer2Remain1"]
@@ -1506,6 +1535,7 @@ width = 5.0
 default_color = Color( 0, 0, 0, 1 )
 
 [node name="Dealer2Remain2" type="StaticBody2D" parent="HoodPannel"]
+visible = false
 
 [node name="HSlider" type="HSlider" parent="HoodPannel/Dealer2Remain2"]
 margin_left = 705.0
@@ -1531,6 +1561,8 @@ position = Vector2( 513, 0 )
 points = PoolVector2Array( 180.5, 680, 519, 680, 519, 752, 183, 752, 183, 680 )
 width = 5.0
 default_color = Color( 0, 0, 0, 1 )
+
+[node name="Timer" type="Timer" parent="HoodPannel"]
 
 [node name="Inv" type="Panel" parent="."]
 visible = false
@@ -2294,6 +2326,7 @@ scroll_active = false
 [connection signal="pressed" from="HoodPannel/Dealer2Remain1/ButtonSend" to="." method="_on_2ButtonSend1_pressed"]
 [connection signal="value_changed" from="HoodPannel/Dealer2Remain2/HSlider" to="." method="_on_2HSlider2_value_changed"]
 [connection signal="pressed" from="HoodPannel/Dealer2Remain2/ButtonSend" to="." method="_on_2ButtonSend2_pressed"]
+[connection signal="timeout" from="HoodPannel/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="Inv/Button-Inv-Exit" to="." method="_on_ButtonInvExit_pressed"]
 [connection signal="pressed" from="ButtonExit" to="." method="_on_ButtonExit_pressed"]
 [connection signal="pressed" from="ButtonExit" to="Inv" method="_on_ButtonExit_pressed"]
