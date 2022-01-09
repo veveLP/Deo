@@ -11,6 +11,7 @@ var client = WebSocketClient.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	client.connect("connection_closed", self, "_on_connection_closed")
 	client.connect("connection_error", self, "_on_connection_closed")
 	client.connect("connection_established", self, "_on_connected")
@@ -59,41 +60,68 @@ func _input(event):
 	if event is InputEventKey:
 		if event.scancode == KEY_E and firsttime == "y":
 			if ($semen.overlaps_body($player)):
-				_send("buy" + user + "$1")
-				firsttime = "n"
+				$SelectBody.visible=true
+				$SelectBody/SelectPanel/ItemID.text = "1"
 			if ($hnuj.overlaps_body($player)):
-				_send("buy" + user + "$2")
-				firsttime = "n"
+				$SelectBody.visible=true
+				$SelectBody/SelectPanel/ItemID.text = "2"
 			if ($varna.overlaps_body($player)):
-				_send("buy" + user + "$3")
-				firsttime = "n"
+				$SelectBody.visible=true
+				$SelectBody/SelectPanel/ItemID.text = "3"
 			if ($aceton.overlaps_body($player)):
-				_send("buy" + user + "$4")
-				firsttime = "n"
+				$SelectBody.visible=true
+				$SelectBody/SelectPanel/ItemID.text = "4"
 			if ($hydroxid.overlaps_body($player)):
-				_send("buy" + user + "$5")
-				firsttime = "n"
+				$SelectBody.visible=true
+				$SelectBody/SelectPanel/ItemID.text = "5"
 			if ($kyselina.overlaps_body($player)):
-				_send("buy" + user + "$6")
-				firsttime = "n"
+				$SelectBody.visible=true
+				$SelectBody/SelectPanel/ItemID.text = "6"
 			if ($ether.overlaps_body($player)):
-				_send("buy" + user + "$7")
-				firsttime = "n"
+				$SelectBody.visible=true
+				$SelectBody/SelectPanel/ItemID.text = "7"
 			if ($varic.overlaps_body($player)):
-				_send("buy" + user + "$9")
-				firsttime = "n"
+				$SelectBody.visible=true
+				$SelectBody/SelectPanel/ItemID.text = "9"
 			if ($chloroform.overlaps_body($player)):
-				_send("buy" + user + "$10")
-				firsttime = "n"
+				$SelectBody.visible=true
+				$SelectBody/SelectPanel/ItemID.text = "10"
 			if ($uhlicitan.overlaps_body($player)):
-				_send("buy" + user + "$11")
-				firsttime = "n"
+				$SelectBody.visible=true
+				$SelectBody/SelectPanel/ItemID.text = "11"
 			if ($alkohol.overlaps_body($player)):
-				_send("buy" + user + "$13")
-				firsttime = "n"
+				$SelectBody.visible=true
+				$SelectBody/SelectPanel/ItemID.text = "13"
 		else:
 			firsttime = "y"
 
 func _on_leave_body_entered(body):
 	_send("Prcám na to leavuju")
 	get_tree().change_scene("res://Trebic.tscn") # Replace with function body.
+
+
+
+func _on_ButtonPlus_pressed():
+	if $SelectBody/SelectPanel/HSlider.value < 100:
+		$SelectBody/SelectPanel/BuyAmount.text = str($SelectBody/SelectPanel/HSlider.value)
+		$SelectBody/SelectPanel/HSlider.value = int($SelectBody/SelectPanel/HSlider.value+1)
+
+
+func _on_ButtonMinus_pressed():
+	if $SelectBody/SelectPanel/HSlider.value > 1:
+		$SelectBody/SelectPanel/BuyAmount.text = str($SelectBody/SelectPanel/HSlider.value)
+		$SelectBody/SelectPanel/HSlider.value = $SelectBody/SelectPanel/HSlider.value-1
+
+
+func _on_ButtonBuy_pressed():
+	for n in $SelectBody/SelectPanel/HSlider.value:
+		_send("buy"+user+"$" + $SelectBody/SelectPanel/ItemID.text)
+	$SelectBody.visible = false;
+
+
+func _on_ButtonCancel_pressed():
+	$SelectBody.visible = false;
+
+
+func _on_HSlider_value_changed(value):
+	$SelectBody/SelectPanel/BuyAmount.text = str($SelectBody/SelectPanel/HSlider.value)

@@ -1177,6 +1177,19 @@ segments = PoolVector2Array( 0, 0, 24, 0, 24, 0, 24, 24, 24, 24, 0, 24, 0, 24, 0
 11/shapes = [  ]
 11/z_index = 0
 
+[sub_resource type="DynamicFontData" id=59]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=62]
+size = 50
+font_data = SubResource( 59 )
+
+[sub_resource type="DynamicFontData" id=61]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=63]
+font_data = SubResource( 61 )
+
 [node name="zastavarna" type="Node2D"]
 position = Vector2( 640, 217 )
 script = ExtResource( 4 )
@@ -1403,4 +1416,94 @@ cell_size = Vector2( 24, 24 )
 format = 1
 tile_data = PoolIntArray( 196610, 0, 0, 196611, 1, 0, 196632, 0, 0, 196633, 1, 0, 262146, 2, 0, 262147, 3, 0, 262168, 2, 0, 262169, 3, 0, 1441803, 4, 0, 1441808, 7, 0, 1507330, 0, 0, 1507331, 1, 0, 1507339, 5, 0, 1507344, 8, 0, 1507352, 0, 0, 1507353, 1, 0, 1572866, 2, 0, 1572867, 3, 0, 1572875, 6, 0, 1572880, 9, 0, 1572888, 2, 0, 1572889, 3, 0, 1703948, 10, 0, 1703949, 11, 0, 1703950, 10, 0, 1703951, 11, 0 )
 
+[node name="SelectBody" type="StaticBody2D" parent="."]
+visible = false
+z_index = 5
+
+[node name="SelectPanel" type="Panel" parent="SelectBody"]
+process_priority = 3
+margin_left = 256.0
+margin_top = 424.0
+margin_right = 464.0
+margin_bottom = 616.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider" type="HSlider" parent="SelectBody/SelectPanel"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 192.0
+margin_bottom = 90.0
+min_value = 1.0
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BuyAmount" type="RichTextLabel" parent="SelectBody/SelectPanel"]
+margin_left = 104.0
+margin_top = 72.0
+margin_right = 192.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 62 )
+text = "1"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonPlus" type="Button" parent="SelectBody/SelectPanel"]
+margin_left = 40.0
+margin_top = 72.0
+margin_right = 72.0
+margin_bottom = 104.0
+text = "+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonMinus" type="Button" parent="SelectBody/SelectPanel"]
+margin_left = 40.0
+margin_top = 104.0
+margin_right = 72.0
+margin_bottom = 136.0
+text = "-"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonBuy" type="Button" parent="SelectBody/SelectPanel"]
+margin_left = 128.0
+margin_top = 144.0
+margin_right = 192.0
+margin_bottom = 176.0
+text = "Koupit"
+
+[node name="ButtonCancel" type="Button" parent="SelectBody/SelectPanel"]
+margin_left = 16.0
+margin_top = 144.0
+margin_right = 80.0
+margin_bottom = 176.0
+custom_fonts/font = SubResource( 63 )
+text = "Zrušit"
+
+[node name="Line2D" type="Line2D" parent="SelectBody/SelectPanel"]
+visible = false
+points = PoolVector2Array( 207, 0, 0, 0, 0, 192, 208, 192, 208, -1 )
+width = 2.0
+
+[node name="ItemID" type="RichTextLabel" parent="SelectBody/SelectPanel"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="body_entered" from="leave" to="." method="_on_leave_body_entered"]
+[connection signal="value_changed" from="SelectBody/SelectPanel/HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="pressed" from="SelectBody/SelectPanel/ButtonPlus" to="." method="_on_ButtonPlus_pressed"]
+[connection signal="pressed" from="SelectBody/SelectPanel/ButtonMinus" to="." method="_on_ButtonMinus_pressed"]
+[connection signal="pressed" from="SelectBody/SelectPanel/ButtonBuy" to="." method="_on_ButtonBuy_pressed"]
+[connection signal="pressed" from="SelectBody/SelectPanel/ButtonCancel" to="." method="_on_ButtonCancel_pressed"]

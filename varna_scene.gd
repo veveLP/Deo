@@ -1,10 +1,5 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 export var SOCKET_URL = "ws://194.15.112.30:6988"
 
 var client = WebSocketClient.new()
@@ -12,16 +7,16 @@ var client = WebSocketClient.new()
 onready var items = []
 var tableitems = []
 var tablecount = 0
-onready var player = get_node("player")
+onready var player = get_node("varna/player")
 var varnaID
 
-onready var textbox = get_node("textbox")
+onready var textbox = get_node("varna/textbox")
 
 var pod = load("res://assets/pod.png")
 var weed_1 = load("res://assets/weed_1.png")
 var weed_2 = load("res://assets/weed_2.png")
 var weed_3 = load("res://assets/weed_3.png")
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	client.connect("connection_closed", self, "_on_connection_closed")
 	client.connect("connection_error", self, "_on_connection_closed")
@@ -32,8 +27,8 @@ func _ready():
 	if err != OK:
 		print("Unable to connect")
 		set_process(false)
-	textbox.visible = false
-	varnaID = player.scene
+	$varna/textbox.visible = false
+	varnaID = $varna/player.scene
 	varnaID.erase(0,11)
 
 func _set_item(var drug, var state, var item):
@@ -53,17 +48,17 @@ func _get_table_count(var x):
 
 func _weedstart(var item):
 	print(OS.get_system_time_secs())
-	textbox.visible = true
-	textbox.text = "You just planted a seed"
+	$varna/textbox.visible = true
+	$varna/textbox.text = "You just planted a seed"
 	item.set_texture(weed_1)
 	yield(get_tree().create_timer(3.0), "timeout")
 	item.set_texture(weed_2)
-	textbox.visible = false
+	$varna/textbox.visible = false
 	yield(get_tree().create_timer(3.0), "timeout")
 	item.set_texture(weed_3)
 	
 func _get_tablenumber():
-	var body = $player/body.get_overlapping_areas()
+	var body = $varna/player/body.get_overlapping_areas()
 	tablenumber = null
 	if (body.size()==0):
 		print(body)
@@ -81,19 +76,21 @@ func _weedharvest(var i,var grams):
 		pass
 	else:
 		items[i].set_texture(pod)
-		textbox.visible = true
-		textbox.text = "You just harvested " + grams + " weed"
+		$varna/textbox.visible = true
+		$varna/textbox.text = "You just harvested " + grams + " weed"
 		yield(get_tree().create_timer(3.0), "timeout")
-		textbox.visible = false
+		$varna/textbox.visible = false
 
 func _weedstart_weedharvest(var i, var text):
 	if (items[i].texture == weed_3):
 		i+=1
-		_send("weedharvest"+text+"$"+ varnaID + "$"+String(i))
+		_send("weedharvest" + text + "$" + varnaID + "$" + String(i))
 		firsttime = "n"
 	else:
 		i+=1
-		_send("weedstart" + text + "$" + varnaID + "$" +String(i) + "$" + "0")
+		$varna.visible = false
+		$WeedMinigame.visible = true
+		$WeedMinigame/Timer.start()
 		firsttime = "n"
 
 func _process(delta):
@@ -128,7 +125,7 @@ func _on_data():
 			var m = 1
 			var n = 2
 			for i in _get_table_count(x):
-				items.append(get_node("table"+ String(i) +"/Sprite"))
+				items.append(get_node("varna/table"+ String(i) +"/Sprite"))
 				_set_item(x[m],x[n],items[i])
 				tablecount = i
 				tableitems.append(x[m])
@@ -139,9 +136,7 @@ func _send(text):
 	var packet: PoolByteArray = text.to_utf8()
 	print("Sending: " + text)
 	client.get_peer(1).put_packet(packet)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
 var firsttime = "y"
 var tablenumber = null
 
@@ -164,3 +159,29 @@ func _input(event):
 
 func _on_leave_body_entered(body):
 	get_tree().change_scene("res://Trebic.tscn")
+
+func _on_ButtonSelect_pressed():
+	$WeedMinigame/Timer.stop()
+	var Quantity 
+	var PBvalue = $WeedMinigame/ProgressBar.value
+	var i = tablenumber + 1
+	if (PBvalue >= 0 && PBvalue < 12 || PBvalue > 88):
+		Quantity = 4
+	elif (PBvalue >= 12 && PBvalue < 23 || PBvalue > 77 && PBvalue <= 88):
+		Quantity = 3
+	elif (PBvalue >= 23 && PBvalue < 34 || PBvalue > 66 && PBvalue <= 77):
+		Quantity = 2
+	elif (PBvalue >= 34 && PBvalue < 45 || PBvalue > 55 && PBvalue <= 66):
+		Quantity = 1
+	else:
+		Quantity = 0
+	_send("weedstart" + loadd() + "$" + varnaID + "$" + str(i) + "$" + str(Quantity))
+	$WeedMinigame.visible = false
+	$varna.visible = true
+
+func _on_Timer_timeout():
+	if($WeedMinigame/ProgressBar.value == 100):	
+		$WeedMinigame/ProgressBar.value = 0;
+	else:
+		$WeedMinigame/ProgressBar.value += 5
+	
