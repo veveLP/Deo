@@ -1,9 +1,11 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://varna_scene.gd" type="Script" id=2]
 [ext_resource path="res://assets/player.png" type="Texture" id=3]
 [ext_resource path="res://48x48/Room.png" type="Texture" id=4]
+[ext_resource path="res://assets/WeedMinigameBG.png" type="Texture" id=5]
+[ext_resource path="res://assets/Progressbar.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 15.0938, 10.75 )
@@ -932,7 +934,7 @@ segments = PoolVector2Array( 0, 0, 24, 0, 24, 0, 24, 24, 24, 24, 0, 24, 0, 24, 0
 extents = Vector2( 21, 7.5 )
 
 [sub_resource type="RectangleShape2D" id=42]
-extents = Vector2( 37, 49.25 )
+extents = Vector2( 35.875, 45 )
 
 [node name="varna_scene1" type="Node2D"]
 position = Vector2( 731, 442 )
@@ -963,7 +965,6 @@ z_index = 2
 shape = SubResource( 27 )
 
 [node name="TileMap" type="TileMap" parent="varna"]
-
 position = Vector2( -144, 96 )
 tile_set = SubResource( 2 )
 cell_size = Vector2( 48, 48 )
@@ -1001,7 +1002,7 @@ shape = SubResource( 41 )
 [node name="table4" type="Area2D" parent="varna"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="varna/table4"]
-position = Vector2( 98, 115.75 )
+position = Vector2( 96, 116.875 )
 rotation = 1.5708
 z_index = 2
 shape = SubResource( 42 )
@@ -1015,7 +1016,7 @@ offset = Vector2( 90.6667, 55.7421 )
 [node name="table3" type="Area2D" parent="varna"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="varna/table3"]
-position = Vector2( 239, 114.75 )
+position = Vector2( 239, 117 )
 rotation = 1.5708
 z_index = 2
 shape = SubResource( 42 )
@@ -1043,7 +1044,7 @@ offset = Vector2( 90.6667, 55.7421 )
 [node name="table1" type="Area2D" parent="varna"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="varna/table1"]
-position = Vector2( 463, 428 )
+position = Vector2( 460, 432 )
 z_index = 2
 shape = SubResource( 42 )
 
@@ -1075,21 +1076,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="WeedMinigame" type="Panel" parent="."]
+[node name="WeedMinigame" type="Sprite" parent="."]
 visible = false
-margin_left = -86.0
-margin_top = -166.0
-margin_right = 542.0
-margin_bottom = 399.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+position = Vector2( 231, 114 )
+scale = Vector2( 2.8, 2.8 )
+texture = ExtResource( 5 )
 
 [node name="ButtonSelect" type="Button" parent="WeedMinigame"]
-margin_left = 263.0
-margin_top = 214.0
-margin_right = 377.0
-margin_bottom = 246.0
+margin_left = -53.0
+margin_top = 59.0
+margin_right = 53.0
+margin_bottom = 86.0
 text = "Select"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1098,11 +1095,19 @@ __meta__ = {
 [node name="Timer" type="Timer" parent="WeedMinigame"]
 wait_time = 0.05
 
+[node name="Sprite" type="Sprite" parent="WeedMinigame"]
+position = Vector2( 0, -80.5357 )
+scale = Vector2( 1.77857, 0.928571 )
+texture = ExtResource( 6 )
+
 [node name="ProgressBar" type="ProgressBar" parent="WeedMinigame"]
-margin_left = 207.0
-margin_top = 121.0
-margin_right = 406.0
-margin_bottom = 135.0
+modulate = Color( 1, 1, 1, 0.392157 )
+margin_left = -91.0
+margin_top = -85.0
+margin_right = 91.0
+margin_bottom = -76.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 step = 1.0
 percent_visible = false
 __meta__ = {

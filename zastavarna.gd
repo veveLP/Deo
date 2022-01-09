@@ -92,6 +92,15 @@ func _input(event):
 			if ($alkohol.overlaps_body($player)):
 				$SelectBody.visible=true
 				$SelectBody/SelectPanel/ItemID.text = "13"
+			if ($ocet.overlaps_body($player)):
+				$SelectBody.visible=true
+				$SelectBody/SelectPanel/ItemID.text = "14"
+			if ($cpavek.overlaps_body($player)):
+				$SelectBody.visible=true
+				$SelectBody/SelectPanel/ItemID.text = "15"
+			if ($vapno.overlaps_body($player)):
+				$SelectBody.visible=true
+				$SelectBody/SelectPanel/ItemID.text = "16"
 		else:
 			firsttime = "y"
 

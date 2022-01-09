@@ -184,13 +184,13 @@ func _on_ButtonSelect_pressed():
 	var Quantity 
 	var PBvalue = $WeedMinigame/ProgressBar.value
 	var i = tablenumber + 1
-	if (PBvalue >= 0 && PBvalue < 12 || PBvalue > 88):
+	if PBvalue >= 0 && PBvalue < 12 || PBvalue > 88:
 		Quantity = 4
-	elif (PBvalue >= 12 && PBvalue < 23 || PBvalue > 77 && PBvalue <= 88):
+	elif PBvalue >= 12 && PBvalue < 23 || PBvalue > 77 && PBvalue <= 88:
 		Quantity = 3
-	elif (PBvalue >= 23 && PBvalue < 34 || PBvalue > 66 && PBvalue <= 77):
+	elif PBvalue >= 23 && PBvalue < 34 || PBvalue > 66 && PBvalue <= 77:
 		Quantity = 2
-	elif (PBvalue >= 34 && PBvalue < 45 || PBvalue > 55 && PBvalue <= 66):
+	elif PBvalue >= 34 && PBvalue < 45 || PBvalue > 55 && PBvalue <= 66:
 		Quantity = 1
 	else:
 		Quantity = 0
@@ -199,7 +199,7 @@ func _on_ButtonSelect_pressed():
 	$varna.visible = true
 
 func _on_Timer_timeout():
-	if($WeedMinigame/ProgressBar.value == 100):	
+	if $WeedMinigame/ProgressBar.value == 100:	
 		$WeedMinigame/ProgressBar.value = 0;
 	else:
 		$WeedMinigame/ProgressBar.value += 5
