@@ -1196,12 +1196,12 @@ font_path = "res://DroidSans.ttf"
 size = 50
 font_data = SubResource( 85 )
 
-[sub_resource type="DynamicFontData" id=87]
+[sub_resource type="DynamicFontData" id=89]
 font_path = "res://DroidSans.ttf"
 
 [sub_resource type="DynamicFont" id=88]
 size = 28
-font_data = SubResource( 87 )
+font_data = SubResource( 89 )
 
 [node name="zastavarna" type="Node2D"]
 position = Vector2( 640, 217 )

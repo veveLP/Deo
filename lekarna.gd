@@ -61,13 +61,15 @@ func _on_leave_body_entered(body):
 var select_id
 
 func _on_ButtonModafen_pressed():
-	select_id = 8
+	$SelectPanel/ItemPrice.text = "2000"
+	$SelectPanel/ItemID.text = "8"
+	$SelectPanel/LabelPrice.text = "Cena:" + str(int($SelectPanel/ItemPrice.text) * int($SelectPanel/BuyAmount.text))
 	$SelectPanel.visible = true;
 
 
 func _on_HSlider_value_changed(value):
 	$SelectPanel/BuyAmount.text = str($SelectPanel/HSlider.value)
-
+	$SelectPanel/LabelPrice.text = "Cena:" + str(int($SelectPanel/ItemPrice.text) * int($SelectPanel/BuyAmount.text))
 
 func _on_ButtonPlus_pressed():
 	if $SelectPanel/HSlider.value < 100:
@@ -90,7 +92,7 @@ func _on_ButtonCancel_pressed():
 func _on_ButtonBuy_pressed():
 	var text = loadd()
 	for n in $SelectPanel/HSlider.value:
-		_send("buy"+text+"$"+str(select_id))
+		_send("buy"+text+"$"+str($SelectPanel/ItemID.text))
 	$SelectPanel.visible = false;
 	
 func _on_ButtonExit_pressed():
