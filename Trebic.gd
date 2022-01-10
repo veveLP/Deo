@@ -888,7 +888,6 @@ func _on_Timer_timeout():
 	if(time[2] + time[3] < 0 && !collect[1]):
 		_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
 		collect[1] = true
-		
 	else:
 		if (time[3]<0):
 			time[2]-=1
