@@ -117,9 +117,9 @@ func _on_data():
 					$HoodPannel/Dealer1/Drug1.icon = load("res://assets/herion.png") 
 					$HoodPannel/Dealer1/Drug1.text = "heroin"
 					pass
-			$HoodPannel/Dealer1/ProfitCut.text = "profit_cut"+str(json_result[x[9]][x[7]]["profit_cut"])
-			$HoodPannel/Dealer1/PoliceChance.text = "police_chance"+str(json_result[x[9]][x[7]]["police_chance"])
-			$HoodPannel/Dealer1/SellingAmount.text = "selling_amount"+str(json_result[x[9]][x[7]]["selling_amount"])
+			$HoodPannel/Dealer1/ProfitCut.text = "Podíl ze zisku: "+str(json_result[x[9]][x[7]]["profit_cut"])
+			$HoodPannel/Dealer1/PoliceChance.text = "Šance na chycení: "+str(json_result[x[9]][x[7]]["police_chance"])
+			$HoodPannel/Dealer1/SellingAmount.text = "Max množství: "+str(json_result[x[9]][x[7]]["selling_amount"])
 			$HoodPannel/Dealer1/Name.bbcode_text = ("[center]"+json_result[x[9]][x[7]]["name"])
 			$HoodPannel/Dealer1/Dealer1.icon = load("res://assets/"+x[9]+x[7]+".png")
 		
@@ -151,9 +151,9 @@ func _on_data():
 			$HoodPannel/Dealer2/ProfitCut.visible = false
 			$HoodPannel/Dealer2/Dealer2.icon = load("res://assets/none.png") 
 		else:
-			$HoodPannel/Dealer2/ProfitCut.text = "profit_cut"+str(json_result[x[9]][x[8]]["profit_cut"])
-			$HoodPannel/Dealer2/PoliceChance.text = "police_chance"+str(json_result[x[9]][x[8]]["police_chance"])
-			$HoodPannel/Dealer2/SellingAmount.text = "selling_amount"+str(json_result[x[9]][x[8]]["selling_amount"])
+			$HoodPannel/Dealer2/ProfitCut.text = "Podíl ze zisku: "+str(json_result[x[9]][x[8]]["profit_cut"])
+			$HoodPannel/Dealer2/PoliceChance.text = "Šance na chycení: "+str(json_result[x[9]][x[8]]["police_chance"])
+			$HoodPannel/Dealer2/SellingAmount.text = "Max množství: "+str(json_result[x[9]][x[8]]["selling_amount"])
 			$HoodPannel/Dealer2/Name.bbcode_text = ("[center]"+json_result[x[9]][x[8]]["name"])
 			$HoodPannel/Dealer2/Dealer2.icon = load("res://assets/"+x[9]+x[8]+".png")
 			match (json_result[x[9]][x[8]]["drugs"][0]):
@@ -320,10 +320,10 @@ func _on_data():
 				pass
 	
 	if(x[0] == "loaddealers"):
-		if int(x[2]) < 0:
+		if int(x[2]) <= 0:
 			$HoodPannel/Dealer1/ButtonCollect.visible = true
 			collect[0] = true
-			#$HoodPannel/Dealer1/RichTextLabel.visible = false
+			$HoodPannel/Dealer1/RichTextLabel.visible = false
 		if int(x[2]) > 0:
 			#$HoodPannel/Dealer1/RichTextLabel.visible = true
 			$HoodPannel/Dealer1/Drug1.disabled = true
@@ -334,10 +334,10 @@ func _on_data():
 			$HoodPannel/Dealer1/Drug1.disabled = false
 			$HoodPannel/Dealer1/Drug2.disabled = false
 			$HoodPannel/Dealer1/Dealer1.disabled = false
-		if int(x[5]) < 0:
+		if int(x[5]) <= 0:
 			$HoodPannel/Dealer2/ButtonCollect.visible = true
 			collect[1] = true
-			#$HoodPannel/Dealer2/RichTextLabel.visible = false
+			$HoodPannel/Dealer2/RichTextLabel.visible = false
 		if int(x[5]) > 0:
 			#$HoodPannel/Dealer2/RichTextLabel.visible = true
 			$HoodPannel/Dealer2/Drug1.disabled = true
@@ -364,15 +364,20 @@ func _on_data():
 		time[2]=min2
 		time[3]=sec2
 		if (sec1 > 9):
-			$HoodPannel/Dealer1/RichTextLabel.text = str(min1) + ":" + str(sec1)
+			$HoodPannel/Dealer1/RichTextLabel.text = "Zbývá: " +str(min1) + ":" + str(sec1)
 		else:
-			$HoodPannel/Dealer1/RichTextLabel.text = str(min1) + ":0" + str(sec1)
+			$HoodPannel/Dealer1/RichTextLabel.text = "Zbývá: " +str(min1) + ":0" + str(sec1)
 		if (sec2 > 9):
-			$HoodPannel/Dealer2/RichTextLabel.text = str(min2) + ":" + str(sec2)
+			$HoodPannel/Dealer2/RichTextLabel.text = "Zbývá: " +str(min2) + ":" + str(sec2)
 		else:
-			$HoodPannel/Dealer2/RichTextLabel.text = str(min2) + ":0" + str(sec2)
+			$HoodPannel/Dealer2/RichTextLabel.text = "Zbývá: " +str(min2) + ":0" + str(sec2)
 		$HoodPannel/Dealer1/ProgressBar/Label.text = x[3]+"/"+x[1]
 		$HoodPannel/Dealer2/ProgressBar/Label.text = x[6]+"/"+x[4]
+		$HoodPannel/Dealer1/ProgressBar.max_value = int(x[1])
+		$HoodPannel/Dealer1/ProgressBar.value = int(x[3])
+		$HoodPannel/Dealer2/ProgressBar.max_value = int(x[4])
+		$HoodPannel/Dealer2/ProgressBar.value = int(x[6])
+		
 func _send(text):
 	var packet: PoolByteArray = text.to_utf8()
 	print("Sending: " + text)
@@ -893,9 +898,10 @@ func _on_Timer_timeout():
 			time[2]-=1
 			time[3]=59
 		if (time[3] > 9):
-			$HoodPannel/Dealer2/RichTextLabel.text = str(time[2]) + ":" + str(time[3])
+			$HoodPannel/Dealer2/RichTextLabel.text = "Zbývá: " + str(time[2]) + ":" + str(time[3])
 		else:
-			$HoodPannel/Dealer2/RichTextLabel.text = str(time[2]) + ":0" + str(time[3])
+			$HoodPannel/Dealer2/RichTextLabel.text = "Zbývá: " +str(time[2]) + ":0" + str(time[3])
+		
 	if(time[0] + time[1] < 0 && !collect[0]):
 		_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
 		collect[0] = true
@@ -904,7 +910,7 @@ func _on_Timer_timeout():
 			time[0]-=1
 			time[1]=59
 		if (time[1] > 9):
-			$HoodPannel/Dealer1/RichTextLabel.text = str(time[0]) + ":" + str(time[1])
+			$HoodPannel/Dealer1/RichTextLabel.text = "Zbývá: " +str(time[0]) + ":" + str(time[1])
 		else:
-			$HoodPannel/Dealer1/RichTextLabel.text = str(time[0]) + ":0" + str(time[1])
+			$HoodPannel/Dealer1/RichTextLabel.text = "Zbývá: " +str(time[0]) + ":0" + str(time[1])
 
