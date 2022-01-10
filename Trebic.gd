@@ -830,7 +830,6 @@ func _on_1HSlider2_value_changed(value):
 func _on_1ButtonSend1_pressed():
 	_send("sendtodealer"+text+ "$" +$HoodPannel/HoodiD.text + "$1$" + $HoodPannel/Dealer1/Drug1.text + "$" + str($HoodPannel/Dealer1Remain1/HSlider.value)  )
 	collect[0] = false
-	collect[0] = false
 	TimeStampID = 12
 	$HoodPannel/Dealer1Remain1.visible = false
 	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
@@ -838,7 +837,6 @@ func _on_1ButtonSend1_pressed():
 	
 func _on_1ButtonSend2_pressed():
 	_send("sendtodealer"+text+ "$" +$HoodPannel/HoodiD.text + "$1$" + $HoodPannel/Dealer1/Drug2.text + "$" + str($HoodPannel/Dealer1Remain2/HSlider.value)  )
-	collect[0] = false
 	collect[0] = false
 	TimeStampID = 12
 	$HoodPannel/Dealer1Remain2.visible = false
@@ -856,7 +854,6 @@ func _on_2HSlider2_value_changed(value):
 func _on_2ButtonSend1_pressed():
 	_send("sendtodealer"+text+ "$" +$HoodPannel/HoodiD.text + "$2$" + $HoodPannel/Dealer2/Drug1.text + "$" + str($HoodPannel/Dealer2Remain1/HSlider.value)  )
 	collect[1] = false
-	collect[1] = false
 	TimeStampID = 21
 	$HoodPannel/Dealer2Remain1.visible = false
 	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
@@ -867,7 +864,6 @@ var TimeStamp
 
 func _on_2ButtonSend2_pressed():
 	_send("sendtodealer"+text+ "$" +$HoodPannel/HoodiD.text + "$2$" + $HoodPannel/Dealer2/Drug2.text + "$" + str($HoodPannel/Dealer2Remain2/HSlider.value)  )
-	collect[1] = false
 	collect[1] = false
 	TimeStampID = 22
 	$HoodPannel/Dealer2Remain2.visible = false
