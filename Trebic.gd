@@ -9,6 +9,7 @@ var unlockedHoods = 1
 #	return unlockedHoods
 
 var text = loadd()
+var time = [null,null,null,null]
 
 
 func _ready():
@@ -351,14 +352,23 @@ func _on_data():
 		while sec1 > 59:
 			min1+=1
 			sec1-=60
-			
+		time[0]=min1
+		time[1]=sec1
 		var min2 = 0
 		var sec2 = int(x[5])
 		while sec2 > 59:
 			min2+=1
 			sec2-=60
-		$HoodPannel/Dealer1/RichTextLabel.text = str(min1) + ":" + str(sec1)
-		$HoodPannel/Dealer2/RichTextLabel.text = str(min2) + ":" + str(sec2)
+		time[2]=min2
+		time[3]=sec2
+		if (sec1 > 9):
+			$HoodPannel/Dealer1/RichTextLabel.text = str(min1) + ":" + str(sec1)
+		else:
+			$HoodPannel/Dealer1/RichTextLabel.text = str(min1) + ":0" + str(sec1)
+		if (sec2 > 9):
+			$HoodPannel/Dealer2/RichTextLabel.text = str(min2) + ":" + str(sec2)
+		else:
+			$HoodPannel/Dealer2/RichTextLabel.text = str(min2) + ":0" + str(sec2)
 		$HoodPannel/Dealer1/ProgressBar/Label.text = x[3]+"/"+x[1]
 		$HoodPannel/Dealer2/ProgressBar/Label.text = x[6]+"/"+x[4]
 func _send(text):
@@ -867,4 +877,27 @@ func _on_ButtonCollect2_pressed():
 	$HoodPannel/Dealer2/RichTextLabel.visible = false
 
 func _on_Timer_timeout():
-	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
+	time[1]-=1
+	time[3]-=1
+	if(time[2] + time[3] < 0):
+		_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
+	else:
+		if (time[3]<0):
+			time[2]-=1
+			time[3]=59
+		if (time[3] > 9):
+			$HoodPannel/Dealer2/RichTextLabel.text = str(time[2]) + ":" + str(time[3])
+		else:
+			$HoodPannel/Dealer2/RichTextLabel.text = str(time[2]) + ":0" + str(time[3])
+	if(time[0] + time[1] < 0):
+		_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
+	else:
+		if (time[1]<0):
+			time[0]-=1
+			time[1]=59
+		if (time[1] > 9):
+			$HoodPannel/Dealer1/RichTextLabel.text = str(time[0]) + ":" + str(time[1])
+		else:
+			$HoodPannel/Dealer1/RichTextLabel.text = str(time[0]) + ":0" + str(time[1])
+
+	#_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)

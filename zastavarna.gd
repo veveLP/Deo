@@ -105,7 +105,6 @@ func _input(event):
 			firsttime = "y"
 
 func _on_leave_body_entered(body):
-	_send("Prcám na to leavuju")
 	get_tree().change_scene("res://Trebic.tscn") # Replace with function body.
 
 
