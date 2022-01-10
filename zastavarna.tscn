@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player.png" type="Texture" id=2]
@@ -1189,6 +1189,20 @@ segments = PoolVector2Array( 0, 0, 24, 0, 24, 0, 24, 24, 24, 24, 0, 24, 0, 24, 0
 11/shapes = [  ]
 11/z_index = 0
 
+[sub_resource type="DynamicFontData" id=85]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=86]
+size = 50
+font_data = SubResource( 85 )
+
+[sub_resource type="DynamicFontData" id=87]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=88]
+size = 28
+font_data = SubResource( 87 )
+
 [node name="zastavarna" type="Node2D"]
 position = Vector2( 640, 217 )
 script = ExtResource( 4 )
@@ -1461,10 +1475,10 @@ z_index = 5
 
 [node name="SelectPanel" type="Panel" parent="SelectBody"]
 process_priority = 3
-margin_left = 256.0
-margin_top = 424.0
-margin_right = 464.0
-margin_bottom = 616.0
+margin_left = 232.0
+margin_top = 255.0
+margin_right = 440.0
+margin_bottom = 447.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1485,6 +1499,7 @@ margin_left = 104.0
 margin_top = 72.0
 margin_right = 192.0
 margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 86 )
 text = "1"
 scroll_active = false
 __meta__ = {
@@ -1524,9 +1539,11 @@ margin_top = 144.0
 margin_right = 80.0
 margin_bottom = 176.0
 text = "Zrušit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Line2D" type="Line2D" parent="SelectBody/SelectPanel"]
-visible = false
 points = PoolVector2Array( 207, 0, 0, 0, 0, 192, 208, 192, 208, -1 )
 width = 2.0
 
@@ -1537,6 +1554,22 @@ margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="LabelPrice" type="Label" parent="SelectBody/SelectPanel"]
+margin_right = 208.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 88 )
+text = "Cena: 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemPrice" type="Label" parent="SelectBody/SelectPanel"]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
 
 [connection signal="body_entered" from="leave" to="." method="_on_leave_body_entered"]
 [connection signal="value_changed" from="SelectBody/SelectPanel/HSlider" to="." method="_on_HSlider_value_changed"]
