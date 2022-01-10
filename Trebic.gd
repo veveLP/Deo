@@ -10,7 +10,7 @@ var unlockedHoods = 1
 
 var text = loadd()
 var time = [null,null,null,null]
-
+var collect = [false, false]
 
 func _ready():
 	#$HoodPannel/Dealer1/Pico.texture = load("res://assets/money.png")
@@ -322,6 +322,7 @@ func _on_data():
 	if(x[0] == "loaddealers"):
 		if int(x[2]) < 0:
 			$HoodPannel/Dealer1/ButtonCollect.visible = true
+			collect[0] = true
 			#$HoodPannel/Dealer1/RichTextLabel.visible = false
 		if int(x[2]) > 0:
 			#$HoodPannel/Dealer1/RichTextLabel.visible = true
@@ -335,6 +336,7 @@ func _on_data():
 			$HoodPannel/Dealer1/Dealer1.disabled = false
 		if int(x[5]) < 0:
 			$HoodPannel/Dealer2/ButtonCollect.visible = true
+			collect[1] = true
 			#$HoodPannel/Dealer2/RichTextLabel.visible = false
 		if int(x[5]) > 0:
 			#$HoodPannel/Dealer2/RichTextLabel.visible = true
@@ -827,6 +829,8 @@ func _on_1HSlider2_value_changed(value):
 
 func _on_1ButtonSend1_pressed():
 	_send("sendtodealer"+text+ "$" +$HoodPannel/HoodiD.text + "$1$" + $HoodPannel/Dealer1/Drug1.text + "$" + str($HoodPannel/Dealer1Remain1/HSlider.value)  )
+	collect[0] = false
+	collect[0] = false
 	TimeStampID = 12
 	$HoodPannel/Dealer1Remain1.visible = false
 	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
@@ -834,6 +838,8 @@ func _on_1ButtonSend1_pressed():
 	
 func _on_1ButtonSend2_pressed():
 	_send("sendtodealer"+text+ "$" +$HoodPannel/HoodiD.text + "$1$" + $HoodPannel/Dealer1/Drug2.text + "$" + str($HoodPannel/Dealer1Remain2/HSlider.value)  )
+	collect[0] = false
+	collect[0] = false
 	TimeStampID = 12
 	$HoodPannel/Dealer1Remain2.visible = false
 	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
@@ -849,6 +855,8 @@ func _on_2HSlider2_value_changed(value):
 
 func _on_2ButtonSend1_pressed():
 	_send("sendtodealer"+text+ "$" +$HoodPannel/HoodiD.text + "$2$" + $HoodPannel/Dealer2/Drug1.text + "$" + str($HoodPannel/Dealer2Remain1/HSlider.value)  )
+	collect[1] = false
+	collect[1] = false
 	TimeStampID = 21
 	$HoodPannel/Dealer2Remain1.visible = false
 	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
@@ -859,6 +867,8 @@ var TimeStamp
 
 func _on_2ButtonSend2_pressed():
 	_send("sendtodealer"+text+ "$" +$HoodPannel/HoodiD.text + "$2$" + $HoodPannel/Dealer2/Drug2.text + "$" + str($HoodPannel/Dealer2Remain2/HSlider.value)  )
+	collect[1] = false
+	collect[1] = false
 	TimeStampID = 22
 	$HoodPannel/Dealer2Remain2.visible = false
 	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
@@ -879,8 +889,10 @@ func _on_ButtonCollect2_pressed():
 func _on_Timer_timeout():
 	time[1]-=1
 	time[3]-=1
-	if(time[2] + time[3] < 0):
+	if(time[2] + time[3] < 0 && !collect[1]):
 		_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
+		collect[1] = true
+		
 	else:
 		if (time[3]<0):
 			time[2]-=1
@@ -889,8 +901,9 @@ func _on_Timer_timeout():
 			$HoodPannel/Dealer2/RichTextLabel.text = str(time[2]) + ":" + str(time[3])
 		else:
 			$HoodPannel/Dealer2/RichTextLabel.text = str(time[2]) + ":0" + str(time[3])
-	if(time[0] + time[1] < 0):
+	if(time[0] + time[1] < 0 && !collect[0]):
 		_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
+		collect[0] = true
 	else:
 		if (time[1]<0):
 			time[0]-=1
