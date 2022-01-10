@@ -908,4 +908,3 @@ func _on_Timer_timeout():
 		else:
 			$HoodPannel/Dealer1/RichTextLabel.text = str(time[0]) + ":0" + str(time[1])
 
-	#_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
