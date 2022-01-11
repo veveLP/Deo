@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=2]
+[gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://assets/trebic.png" type="Texture" id=1]
 [ext_resource path="res://borovina.gd" type="Script" id=2]
@@ -47,7 +47,7 @@ font_data = SubResource( 22 )
 font_path = "res://DroidSans.ttf"
 
 [sub_resource type="DynamicFont" id=47]
-size = 22
+size = 24
 font_data = SubResource( 46 )
 
 [sub_resource type="Theme" id=1]
@@ -94,13 +94,6 @@ font_path = "res://DroidSans.ttf"
 size = 32
 font_data = SubResource( 28 )
 
-[sub_resource type="DynamicFontData" id=48]
-font_path = "res://DroidSans.ttf"
-
-[sub_resource type="DynamicFont" id=49]
-size = 22
-font_data = SubResource( 48 )
-
 [sub_resource type="DynamicFontData" id=50]
 font_path = "res://DroidSans.ttf"
 
@@ -120,6 +113,27 @@ font_path = "res://DroidSans.ttf"
 [sub_resource type="DynamicFont" id=55]
 size = 20
 font_data = SubResource( 54 )
+
+[sub_resource type="DynamicFontData" id=56]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=57]
+size = 20
+font_data = SubResource( 56 )
+
+[sub_resource type="DynamicFontData" id=58]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=59]
+size = 20
+font_data = SubResource( 58 )
+
+[sub_resource type="DynamicFontData" id=60]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=61]
+size = 20
+font_data = SubResource( 60 )
 
 [sub_resource type="DynamicFontData" id=6]
 font_path = "res://DroidSans.ttf"
@@ -941,7 +955,6 @@ margin_bottom = 28.0
 text = "Exit"
 
 [node name="HoodPannel" type="Panel" parent="."]
-visible = false
 margin_left = 322.0
 margin_top = 148.0
 margin_right = 1538.0
@@ -1070,9 +1083,9 @@ __meta__ = {
 }
 
 [node name="PriceWeedValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
-margin_left = 293.0
+margin_left = 301.0
 margin_top = 328.0
-margin_right = 396.0
+margin_right = 404.0
 margin_bottom = 359.0
 rect_pivot_offset = Vector2( 100, 80 )
 custom_fonts/normal_font = SubResource( 33 )
@@ -1101,7 +1114,7 @@ margin_bottom = 393.0
 custom_fonts/normal_font = SubResource( 31 )
 text = "Poptávka:
 
- Cena:"
+  Cena:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1173,58 +1186,17 @@ default_color = Color( 0, 0, 0, 1 )
 position = Vector2( 523, 0 )
 input_pickable = true
 
-[node name="ProfitCut" type="RichTextLabel" parent="HoodPannel/Dealer2"]
-margin_left = 389.0
-margin_top = 480.0
-margin_right = 493.0
-margin_bottom = 496.0
-text = "Placeholder 1"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PoliceChance" type="RichTextLabel" parent="HoodPannel/Dealer2"]
-margin_left = 389.0
-margin_top = 518.0
-margin_right = 493.0
-margin_bottom = 534.0
-text = "Placeholder 2"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SellingAmount" type="RichTextLabel" parent="HoodPannel/Dealer2"]
-margin_left = 389.0
-margin_top = 562.0
-margin_right = 493.0
-margin_bottom = 578.0
-text = "Placeholder 3"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Name" type="RichTextLabel" parent="HoodPannel/Dealer2"]
-margin_left = 181.0
-margin_top = 448.0
-margin_right = 502.0
-margin_bottom = 472.0
-custom_fonts/normal_font = SubResource( 49 )
-bbcode_enabled = true
-scroll_active = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Line2D" type="Line2D" parent="HoodPannel/Dealer2"]
-position = Vector2( 0, 26 )
-points = PoolVector2Array( 171, 410, 507, 410, 507, 626, 171, 626, 171, 405 )
+position = Vector2( -106, 0 )
+scale = Vector2( 1.19391, 1.0339 )
+points = PoolVector2Array( 169, 414, 510, 414, 510, 630, 174, 630, 174, 414 )
 default_color = Color( 0, 0, 0, 1 )
 
 [node name="Dealer2" type="Button" parent="HoodPannel/Dealer2"]
-margin_left = 253.0
-margin_top = 480.0
-margin_right = 521.0
-margin_bottom = 742.0
+margin_left = 179.0
+margin_top = 484.0
+margin_right = 447.0
+margin_bottom = 746.0
 rect_scale = Vector2( 0.45, 0.45 )
 expand_icon = true
 __meta__ = {
@@ -1232,10 +1204,10 @@ __meta__ = {
 }
 
 [node name="Drug2" type="Button" parent="HoodPannel/Dealer2"]
-margin_left = 187.0
-margin_top = 542.0
-margin_right = 443.0
-margin_bottom = 798.0
+margin_left = 113.0
+margin_top = 546.0
+margin_right = 369.0
+margin_bottom = 802.0
 rect_scale = Vector2( 0.21, 0.21 )
 expand_icon = true
 __meta__ = {
@@ -1243,23 +1215,23 @@ __meta__ = {
 }
 
 [node name="ProgressBar" type="ProgressBar" parent="HoodPannel/Dealer2"]
-margin_left = 187.0
-margin_top = 604.0
-margin_right = 363.0
-margin_bottom = 636.0
+margin_left = 115.0
+margin_top = 608.0
+margin_right = 339.0
+margin_bottom = 640.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 51 )
 custom_styles/fg = SubResource( 52 )
 custom_styles/bg = SubResource( 53 )
 min_value = 1.0
-value = 50.0
+value = 75.0
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="HoodPannel/Dealer2/ProgressBar"]
-margin_right = 176.0
+margin_right = 224.0
 margin_bottom = 32.0
 text = "58/100"
 align = 1
@@ -1269,10 +1241,10 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HoodPannel/Dealer2"]
-margin_left = 374.0
-margin_top = 604.0
-margin_right = 526.0
-margin_bottom = 636.0
+margin_left = 347.0
+margin_top = 608.0
+margin_right = 499.0
+margin_bottom = 640.0
 custom_fonts/normal_font = SubResource( 55 )
 text = "Hotovo za:"
 __meta__ = {
@@ -1280,10 +1252,10 @@ __meta__ = {
 }
 
 [node name="Drug1" type="Button" parent="HoodPannel/Dealer2"]
-margin_left = 187.0
-margin_top = 480.0
-margin_right = 443.0
-margin_bottom = 736.0
+margin_left = 113.0
+margin_top = 484.0
+margin_right = 369.0
+margin_bottom = 740.0
 rect_scale = Vector2( 0.21, 0.21 )
 expand_icon = true
 __meta__ = {
@@ -1292,7 +1264,7 @@ __meta__ = {
 
 [node name="ButtonCollect" type="Button" parent="HoodPannel/Dealer2"]
 visible = false
-margin_left = 182.0
+margin_left = 113.0
 margin_top = 604.0
 margin_right = 494.0
 margin_bottom = 640.0
@@ -1301,43 +1273,92 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ProfitCut" type="RichTextLabel" parent="HoodPannel/Dealer2"]
+margin_left = 307.0
+margin_top = 476.0
+margin_right = 492.0
+margin_bottom = 502.0
+custom_fonts/normal_font = SubResource( 57 )
+text = "Placeholder 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PoliceChance" type="RichTextLabel" parent="HoodPannel/Dealer2"]
+margin_left = 307.0
+margin_top = 520.0
+margin_right = 502.0
+margin_bottom = 547.0
+custom_fonts/normal_font = SubResource( 59 )
+text = "Placeholder 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="RichTextLabel" parent="HoodPannel/Dealer2"]
+margin_left = 113.0
+margin_top = 436.0
+margin_right = 494.0
+margin_bottom = 476.0
+custom_fonts/normal_font = SubResource( 47 )
+bbcode_enabled = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SellingAmount" type="RichTextLabel" parent="HoodPannel/Dealer2"]
+margin_left = 309.0
+margin_top = 572.0
+margin_right = 494.0
+margin_bottom = 598.0
+custom_fonts/normal_font = SubResource( 61 )
+text = "Placeholder 3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Dealer1" type="StaticBody2D" parent="HoodPannel"]
+position = Vector2( -2, -4 )
 
 [node name="ProfitCut" type="RichTextLabel" parent="HoodPannel/Dealer1"]
-margin_left = 396.0
+margin_left = 392.0
 margin_top = 480.0
-margin_right = 500.0
-margin_bottom = 496.0
+margin_right = 577.0
+margin_bottom = 506.0
+custom_fonts/normal_font = SubResource( 57 )
 text = "Placeholder 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PoliceChance" type="RichTextLabel" parent="HoodPannel/Dealer1"]
-margin_left = 396.0
-margin_top = 522.0
-margin_right = 500.0
-margin_bottom = 538.0
+margin_left = 392.0
+margin_top = 524.0
+margin_right = 587.0
+margin_bottom = 551.0
+custom_fonts/normal_font = SubResource( 59 )
 text = "Placeholder 2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SellingAmount" type="RichTextLabel" parent="HoodPannel/Dealer1"]
-margin_left = 396.0
-margin_top = 566.0
-margin_right = 500.0
-margin_bottom = 582.0
+margin_left = 392.0
+margin_top = 572.0
+margin_right = 577.0
+margin_bottom = 598.0
+custom_fonts/normal_font = SubResource( 61 )
 text = "Placeholder 3"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ProgressBar" type="ProgressBar" parent="HoodPannel/Dealer1"]
-margin_left = 192.0
+margin_left = 198.0
 margin_top = 608.0
-margin_right = 368.0
-margin_bottom = 640.0
+margin_right = 422.0
+margin_bottom = 644.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 51 )
 custom_styles/fg = SubResource( 52 )
@@ -1350,8 +1371,8 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="HoodPannel/Dealer1/ProgressBar"]
-margin_right = 176.0
-margin_bottom = 32.0
+margin_right = 224.0
+margin_bottom = 36.0
 text = "58/100"
 align = 1
 valign = 1
@@ -1360,10 +1381,10 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HoodPannel/Dealer1"]
-margin_left = 374.0
-margin_top = 608.0
-margin_right = 526.0
-margin_bottom = 640.0
+margin_left = 424.0
+margin_top = 612.0
+margin_right = 591.0
+margin_bottom = 644.0
 custom_fonts/normal_font = SubResource( 55 )
 text = "Hotovo za:"
 __meta__ = {
@@ -1372,9 +1393,9 @@ __meta__ = {
 
 [node name="Name" type="RichTextLabel" parent="HoodPannel/Dealer1"]
 margin_left = 191.0
-margin_top = 448.0
-margin_right = 512.0
-margin_bottom = 472.0
+margin_top = 436.0
+margin_right = 581.0
+margin_bottom = 476.0
 custom_fonts/normal_font = SubResource( 47 )
 bbcode_enabled = true
 scroll_active = false
@@ -1383,7 +1404,8 @@ __meta__ = {
 }
 
 [node name="Line2D" type="Line2D" parent="HoodPannel/Dealer1"]
-position = Vector2( 10, 26 )
+position = Vector2( -24.598, 4 )
+scale = Vector2( 1.21653, 1.0339 )
 points = PoolVector2Array( 169, 414, 510, 414, 510, 630, 174, 630, 174, 414 )
 default_color = Color( 0, 0, 0, 1 )
 
@@ -1424,7 +1446,7 @@ __meta__ = {
 visible = false
 margin_left = 192.0
 margin_top = 608.0
-margin_right = 504.0
+margin_right = 578.0
 margin_bottom = 640.0
 text = "Vyber peníze"
 __meta__ = {
