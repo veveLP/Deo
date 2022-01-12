@@ -378,6 +378,7 @@ func _on_data():
 		$HoodPannel/Dealer2/ProgressBar.max_value = int(x[4])
 		$HoodPannel/Dealer2/ProgressBar.value = int(x[6])
 		
+		
 func _send(text):
 	var packet: PoolByteArray = text.to_utf8()
 	print("Sending: " + text)
