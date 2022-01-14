@@ -1008,10 +1008,10 @@ __meta__ = {
 [node name="UpperPanel" type="StaticBody2D" parent="HoodPannel"]
 
 [node name="PriceHeroinValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
-margin_left = 944.0
-margin_top = 328.0
-margin_right = 1056.0
-margin_bottom = 359.0
+margin_left = 953.0
+margin_top = 327.0
+margin_right = 1065.0
+margin_bottom = 358.0
 rect_pivot_offset = Vector2( 100, 80 )
 custom_fonts/normal_font = SubResource( 33 )
 text = "0"
@@ -1020,9 +1020,9 @@ __meta__ = {
 }
 
 [node name="PopHeroinValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
-margin_left = 985.0
+margin_left = 994.0
 margin_top = 265.0
-margin_right = 1064.0
+margin_right = 1073.0
 margin_bottom = 296.0
 rect_pivot_offset = Vector2( 100, 80 )
 custom_fonts/normal_font = SubResource( 33 )
@@ -1034,21 +1034,22 @@ __meta__ = {
 [node name="PopNabHeroinText" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
 margin_left = 872.0
 margin_top = 265.0
-margin_right = 992.0
+margin_right = 1006.0
 margin_bottom = 393.0
 custom_fonts/normal_font = SubResource( 31 )
-text = "Poptávka:
+text = "V inventáři:
 
- Cena:"
+   Cena:
+"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PricePikoValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
-margin_left = 615.0
-margin_top = 328.0
-margin_right = 752.0
-margin_bottom = 359.0
+margin_left = 630.0
+margin_top = 327.0
+margin_right = 767.0
+margin_bottom = 358.0
 rect_pivot_offset = Vector2( 168, -1 )
 custom_fonts/normal_font = SubResource( 33 )
 text = "0"
@@ -1057,9 +1058,9 @@ __meta__ = {
 }
 
 [node name="PopPikoValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
-margin_left = 657.0
+margin_left = 666.0
 margin_top = 265.0
-margin_right = 758.0
+margin_right = 767.0
 margin_bottom = 296.0
 rect_pivot_offset = Vector2( 170, 88 )
 custom_fonts/normal_font = SubResource( 33 )
@@ -1069,24 +1070,25 @@ __meta__ = {
 }
 
 [node name="PopNabPikoText" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
-margin_left = 544.0
+margin_left = 542.0
 margin_top = 265.0
-margin_right = 664.0
+margin_right = 678.0
 margin_bottom = 393.0
 rect_pivot_offset = Vector2( 283, 88 )
 custom_fonts/normal_font = SubResource( 31 )
-text = "Poptávka:
+text = "V inventáři:
 
- Cena:"
+    Cena:
+"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PriceWeedValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
-margin_left = 301.0
-margin_top = 328.0
-margin_right = 404.0
-margin_bottom = 359.0
+margin_left = 310.0
+margin_top = 327.0
+margin_right = 413.0
+margin_bottom = 358.0
 rect_pivot_offset = Vector2( 100, 80 )
 custom_fonts/normal_font = SubResource( 33 )
 text = "0"
@@ -1095,9 +1097,9 @@ __meta__ = {
 }
 
 [node name="PopWeedValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
-margin_left = 336.0
+margin_left = 349.0
 margin_top = 265.0
-margin_right = 419.0
+margin_right = 432.0
 margin_bottom = 296.0
 rect_pivot_offset = Vector2( 100, 80 )
 custom_fonts/normal_font = SubResource( 33 )
@@ -1109,12 +1111,13 @@ __meta__ = {
 [node name="PopNabWeedText" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
 margin_left = 224.0
 margin_top = 265.0
-margin_right = 344.0
+margin_right = 366.0
 margin_bottom = 393.0
 custom_fonts/normal_font = SubResource( 31 )
-text = "Poptávka:
+text = "V inventáři:
 
-  Cena:"
+    Cena:
+"
 __meta__ = {
 "_edit_use_anchors_": false
 }
