@@ -9,6 +9,7 @@ var tableitems = []
 var tablecount = 0
 onready var player = get_node("varna/player")
 var varnaID
+var user = loadd()
 
 onready var textbox = get_node("varna/textbox")
 
@@ -153,14 +154,13 @@ func _input(event):
 					"heroin":
 						pass
 		elif event.scancode == KEY_Q and firsttime == "y":
-			var user = loadd()
+			user = loadd()
 			_get_tablenumber()
 			if tablenumber == null:
 				pass
 			else:
-				_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$weed")
-				items[tablenumber].set_texture(pod)
-				tableitems[tablenumber] = "weed"
+				$varna.visible = false
+				$vyber.visible = true
 				firsttime = "n"
 		elif event.scancode == KEY_R and firsttime == "y": #testing only
 			var user = loadd()
@@ -204,3 +204,27 @@ func _on_Timer_timeout():
 	else:
 		$WeedMinigame/ProgressBar.value += 5
 	
+
+
+func _on_weed_pressed():
+	_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$weed")
+	items[tablenumber].set_texture(pod)
+	tableitems[tablenumber] = "weed"
+	$vyber.visible = false
+	$varna.visible = true
+
+
+func _on_heroin_pressed():
+	_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$heroin")
+	items[tablenumber].set_texture(null)
+	tableitems[tablenumber] = "heroin"
+	$vyber.visible = false
+	$varna.visible = true # Replace with function body.
+
+
+func _on_meth_pressed():
+	_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$meth")
+	items[tablenumber].set_texture(null)
+	tableitems[tablenumber] = "meth"
+	$vyber.visible = false
+	$varna.visible = true # Replace with function body.

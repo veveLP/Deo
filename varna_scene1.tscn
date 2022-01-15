@@ -1114,6 +1114,49 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="vyber" type="Panel" parent="."]
+visible = false
+margin_left = -169.0
+margin_top = -21.0
+margin_right = 618.0
+margin_bottom = 297.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="weed" type="Button" parent="vyber"]
+margin_left = 43.0
+margin_top = 58.0
+margin_right = 245.0
+margin_bottom = 270.0
+text = "weed"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="heroin" type="Button" parent="vyber"]
+margin_left = 292.0
+margin_top = 58.0
+margin_right = 494.0
+margin_bottom = 270.0
+text = "heroin"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="meth" type="Button" parent="vyber"]
+margin_left = 542.0
+margin_top = 57.0
+margin_right = 744.0
+margin_bottom = 269.0
+text = "meth"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="body_entered" from="varna/leave" to="." method="_on_leave_body_entered"]
 [connection signal="pressed" from="WeedMinigame/ButtonSelect" to="." method="_on_ButtonSelect_pressed"]
 [connection signal="timeout" from="WeedMinigame/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="vyber/weed" to="." method="_on_weed_pressed"]
+[connection signal="pressed" from="vyber/heroin" to="." method="_on_heroin_pressed"]
+[connection signal="pressed" from="vyber/meth" to="." method="_on_meth_pressed"]
