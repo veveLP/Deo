@@ -61,13 +61,11 @@ func _get_tablenumber():
 	var body = $varna/player/body.get_overlapping_areas()
 	tablenumber = null
 	if (body.size()==0):
-		print(body)
 		pass
 	else:
 		var table = body[0]
 		for i in tablecount+1:
 			if(table.name == "table" + String(i)):
-				print(i)
 				tablenumber = i
 				break
 
@@ -86,7 +84,7 @@ func _weedstart_weedharvest(var i, var text):
 		i+=1
 		_send("weedharvest" + text + "$" + varnaID + "$" + String(i))
 		firsttime = "n"
-	else:
+	elif (items[i].texture == pod):
 		i+=1
 		$varna.visible = false
 		$WeedMinigame.visible = true
@@ -154,6 +152,27 @@ func _input(event):
 						pass
 					"heroin":
 						pass
+		elif event.scancode == KEY_Q and firsttime == "y":
+			var user = loadd()
+			_get_tablenumber()
+			if tablenumber == null:
+				pass
+			else:
+				_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$weed")
+				items[tablenumber].set_texture(pod)
+				tableitems[tablenumber] = "weed"
+				firsttime = "n"
+		elif event.scancode == KEY_R and firsttime == "y": #testing only
+			var user = loadd()
+			_get_tablenumber()
+			if tablenumber == null:
+				pass
+			else:
+				_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$meth")
+				items[tablenumber].set_texture(null)
+				tableitems[tablenumber] = "meth"
+				firsttime = "n"
+
 		else:
 			firsttime = "y"
 
@@ -165,13 +184,13 @@ func _on_ButtonSelect_pressed():
 	var Quantity 
 	var PBvalue = $WeedMinigame/ProgressBar.value
 	var i = tablenumber + 1
-	if (PBvalue >= 0 && PBvalue < 12 || PBvalue > 88):
+	if PBvalue >= 0 && PBvalue < 12 || PBvalue > 88:
 		Quantity = 4
-	elif (PBvalue >= 12 && PBvalue < 23 || PBvalue > 77 && PBvalue <= 88):
+	elif PBvalue >= 12 && PBvalue < 23 || PBvalue > 77 && PBvalue <= 88:
 		Quantity = 3
-	elif (PBvalue >= 23 && PBvalue < 34 || PBvalue > 66 && PBvalue <= 77):
+	elif PBvalue >= 23 && PBvalue < 34 || PBvalue > 66 && PBvalue <= 77:
 		Quantity = 2
-	elif (PBvalue >= 34 && PBvalue < 45 || PBvalue > 55 && PBvalue <= 66):
+	elif PBvalue >= 34 && PBvalue < 45 || PBvalue > 55 && PBvalue <= 66:
 		Quantity = 1
 	else:
 		Quantity = 0
@@ -180,7 +199,7 @@ func _on_ButtonSelect_pressed():
 	$varna.visible = true
 
 func _on_Timer_timeout():
-	if($WeedMinigame/ProgressBar.value == 100):	
+	if $WeedMinigame/ProgressBar.value == 100:	
 		$WeedMinigame/ProgressBar.value = 0;
 	else:
 		$WeedMinigame/ProgressBar.value += 5

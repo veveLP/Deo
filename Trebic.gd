@@ -9,7 +9,8 @@ var unlockedHoods = 1
 #	return unlockedHoods
 
 var text = loadd()
-
+var time = [null,null,null,null]
+var collect = [false, false]
 
 func _ready():
 	#$HoodPannel/Dealer1/Pico.texture = load("res://assets/money.png")
@@ -103,34 +104,40 @@ func _on_data():
 			match (json_result[x[9]][x[7]]["drugs"][0]):
 				"weed": 
 					print("weed")
-					$HoodPannel/Dealer1/Drug1.texture = load("res://assets/weed.png") 
+					$HoodPannel/Dealer1/Drug1.icon = load("res://assets/weed.png") 
+					$HoodPannel/Dealer1/Drug1.text = "weed"
 					pass
 				"meth": 
 					print("meth") 
-					$HoodPannel/Dealer1/Drug1.texture = load("res://assets/pico.png") 
+					$HoodPannel/Dealer1/Drug1.icon = load("res://assets/pico.png") 
+					$HoodPannel/Dealer1/Drug1.text = "meth"
 					pass
 				"heroin": 
 					print("heroin") 
-					$HoodPannel/Dealer1/Drug1.texture = load("res://assets/herion.png") 
+					$HoodPannel/Dealer1/Drug1.icon = load("res://assets/herion.png") 
+					$HoodPannel/Dealer1/Drug1.text = "heroin"
 					pass
-			$HoodPannel/Dealer1/ProfitCut.text = str(json_result[x[9]][x[7]]["profit_cut"])
-			$HoodPannel/Dealer1/PoliceChance.text = str(json_result[x[9]][x[7]]["police_chance"])
-			$HoodPannel/Dealer1/SellingAmount.text = str(json_result[x[9]][x[7]]["selling_amount"])
+			$HoodPannel/Dealer1/ProfitCut.text = "Podíl ze zisku: "+str(json_result[x[9]][x[7]]["profit_cut"])
+			$HoodPannel/Dealer1/PoliceChance.text = "Šance na chycení: "+str(json_result[x[9]][x[7]]["police_chance"])
+			$HoodPannel/Dealer1/SellingAmount.text = "Max množství: "+str(json_result[x[9]][x[7]]["selling_amount"])
 			$HoodPannel/Dealer1/Name.bbcode_text = ("[center]"+json_result[x[9]][x[7]]["name"])
 			$HoodPannel/Dealer1/Dealer1.icon = load("res://assets/"+x[9]+x[7]+".png")
 		
 			match (json_result[x[9]][x[7]]["drugs"][1]):
 				"weed": 
 					print("weed")
-					$HoodPannel/Dealer1/Drug2.texture = load("res://assets/weed.png") 
+					$HoodPannel/Dealer1/Drug2.icon = load("res://assets/weed.png") 
+					$HoodPannel/Dealer1/Drug2.text = "weed"
 					pass
 				"meth": 
 					print("meth") 
-					$HoodPannel/Dealer1/Drug2.texture = load("res://assets/pico.png") 
+					$HoodPannel/Dealer1/Drug2.icon = load("res://assets/pico.png") 
+					$HoodPannel/Dealer1/Drug2.text = "meth"
 					pass
 				"heroin": 
 					print("heroin") 
-					$HoodPannel/Dealer1/Drug2.texture = load("res://assets/herion.png") 
+					$HoodPannel/Dealer1/Drug2.icon = load("res://assets/herion.png") 
+					$HoodPannel/Dealer1/Drug2.text = "heroin"
 					pass
 					
 		if x[8] == str(0):
@@ -144,41 +151,47 @@ func _on_data():
 			$HoodPannel/Dealer2/ProfitCut.visible = false
 			$HoodPannel/Dealer2/Dealer2.icon = load("res://assets/none.png") 
 		else:
-			$HoodPannel/Dealer2/ProfitCut.text = str(json_result[x[9]][x[8]]["profit_cut"])
-			$HoodPannel/Dealer2/PoliceChance.text = str(json_result[x[9]][x[8]]["police_chance"])
-			$HoodPannel/Dealer2/SellingAmount.text = str(json_result[x[9]][x[8]]["selling_amount"])
+			$HoodPannel/Dealer2/ProfitCut.text = "Podíl ze zisku: "+str(json_result[x[9]][x[8]]["profit_cut"])
+			$HoodPannel/Dealer2/PoliceChance.text = "Šance na chycení: "+str(json_result[x[9]][x[8]]["police_chance"])
+			$HoodPannel/Dealer2/SellingAmount.text = "Max množství: "+str(json_result[x[9]][x[8]]["selling_amount"])
 			$HoodPannel/Dealer2/Name.bbcode_text = ("[center]"+json_result[x[9]][x[8]]["name"])
 			$HoodPannel/Dealer2/Dealer2.icon = load("res://assets/"+x[9]+x[8]+".png")
 			match (json_result[x[9]][x[8]]["drugs"][0]):
 				"weed": 
 					print("weed")
-					$HoodPannel/Dealer2/Drug1.texture = load("res://assets/weed.png") 
+					$HoodPannel/Dealer2/Drug1.icon = load("res://assets/weed.png") 
+					$HoodPannel/Dealer2/Drug1.text = "weed"
 					pass
 				"meth": 
 					print("meth") 
-					$HoodPannel/Dealer2/Drug1.texture = load("res://assets/pico.png") 
+					$HoodPannel/Dealer2/Drug1.icon = load("res://assets/pico.png") 
+					$HoodPannel/Dealer2/Drug1.text = "meth"
 					pass
 				"heroin": 
 					print("heroin") 
-					$HoodPannel/Dealer2/Drug1.texture = load("res://assets/herion.png") 
+					$HoodPannel/Dealer2/Drug1.icon = load("res://assets/herion.png")
+					$HoodPannel/Dealer2/Drug1.text = "heroin" 
 					pass
 		
 			match (json_result[x[9]][x[8]]["drugs"][1]):
 				"weed": 
 					print("weed")
-					$HoodPannel/Dealer2/Drug2.texture = load("res://assets/weed.png") 
+					$HoodPannel/Dealer2/Drug2.icon = load("res://assets/weed.png") 
+					$HoodPannel/Dealer2/Drug2.text = "weed"
 					pass
 				"meth": 
 					print("meth") 
-					$HoodPannel/Dealer2/Drug2.texture = load("res://assets/pico.png") 
+					$HoodPannel/Dealer2/Drug2.icon = load("res://assets/pico.png") 
+					$HoodPannel/Dealer2/Drug2.text = "meth"
 					pass
 				"heroin": 
 					print("heroin") 
-					$HoodPannel/Dealer2/Drug2.texture = load("res://assets/herion.png") 
+					$HoodPannel/Dealer2/Drug2.icon = load("res://assets/herion.png") 
+					$HoodPannel/Dealer2/Drug2.text = "heroin"
 					pass
 		
 		
-		
+		##########################################################################################
 		
 		
 		#print("hood received")
@@ -189,8 +202,6 @@ func _on_data():
 		$HoodPannel/UpperPanel/PopHeroinValue.text = x[5]
 		$HoodPannel/UpperPanel/PriceHeroinValue.text = x[6]
 		
-		
-	
 	if(x[0] == "showdealers"):
 		var fileJSON = File.new()
 		fileJSON.open("res://assets/dealeri.json", fileJSON.READ)
@@ -308,8 +319,66 @@ func _on_data():
 				$DealerVyber/Dealer3/Drug2.texture = load("res://assets/herion.png") 
 				pass
 	
-	
-	
+	if(x[0] == "loaddealers"):
+		if int(x[2]) <= 0:
+			$HoodPannel/Dealer1/ButtonCollect.visible = true
+			collect[0] = true
+			$HoodPannel/Dealer1/RichTextLabel.visible = false
+		if int(x[2]) > 0:
+			#$HoodPannel/Dealer1/RichTextLabel.visible = true
+			$HoodPannel/Dealer1/Drug1.disabled = true
+			$HoodPannel/Dealer1/Drug2.disabled = true
+			$HoodPannel/Dealer1/Dealer1.disabled = true
+		if int(x[1]) == 0:
+			$HoodPannel/Dealer1/ButtonCollect.visible = false
+			$HoodPannel/Dealer1/Drug1.disabled = false
+			$HoodPannel/Dealer1/Drug2.disabled = false
+			$HoodPannel/Dealer1/Dealer1.disabled = false
+		if int(x[5]) <= 0:
+			$HoodPannel/Dealer2/ButtonCollect.visible = true
+			collect[1] = true
+			$HoodPannel/Dealer2/RichTextLabel.visible = false
+		if int(x[5]) > 0:
+			#$HoodPannel/Dealer2/RichTextLabel.visible = true
+			$HoodPannel/Dealer2/Drug1.disabled = true
+			$HoodPannel/Dealer2/Drug2.disabled = true
+			$HoodPannel/Dealer2/Dealer2.disabled = true
+		if int(x[4]) == 0:
+			$HoodPannel/Dealer2/ButtonCollect.visible = false
+			$HoodPannel/Dealer2/Drug1.disabled = false
+			$HoodPannel/Dealer2/Drug2.disabled = false
+			$HoodPannel/Dealer2/Dealer2.disabled = false
+			
+		var min1 = 0
+		var sec1 = int(x[2])
+		while sec1 > 59:
+			min1+=1
+			sec1-=60
+		time[0]=min1
+		time[1]=sec1
+		var min2 = 0
+		var sec2 = int(x[5])
+		while sec2 > 59:
+			min2+=1
+			sec2-=60
+		time[2]=min2
+		time[3]=sec2
+		if (sec1 > 9):
+			$HoodPannel/Dealer1/RichTextLabel.text = "Zbývá: " +str(min1) + ":" + str(sec1)
+		else:
+			$HoodPannel/Dealer1/RichTextLabel.text = "Zbývá: " +str(min1) + ":0" + str(sec1)
+		if (sec2 > 9):
+			$HoodPannel/Dealer2/RichTextLabel.text = "Zbývá: " +str(min2) + ":" + str(sec2)
+		else:
+			$HoodPannel/Dealer2/RichTextLabel.text = "Zbývá: " +str(min2) + ":0" + str(sec2)
+		$HoodPannel/Dealer1/ProgressBar/Label.text = x[3]+"/"+x[1]
+		$HoodPannel/Dealer2/ProgressBar/Label.text = x[6]+"/"+x[4]
+		$HoodPannel/Dealer1/ProgressBar.max_value = int(x[1])
+		$HoodPannel/Dealer1/ProgressBar.value = int(x[3])
+		$HoodPannel/Dealer2/ProgressBar.max_value = int(x[4])
+		$HoodPannel/Dealer2/ProgressBar.value = int(x[6])
+		
+		
 func _send(text):
 	var packet: PoolByteArray = text.to_utf8()
 	print("Sending: " + text)
@@ -324,6 +393,7 @@ func _send(text):
 
 func _on_Button_pressed():
 	$HoodPannel.visible = false
+	$HoodPannel/Timer.stop()
 
 
 
@@ -339,8 +409,8 @@ func _on_borovina_input_event(viewport, event, shape_idx):
 			$HoodPannel/HoodName.bbcode_text = "[center]Borovina[/center]"
 			$HoodPannel/HoodiD.text = "1"
 			_send("hood" + text + "$1")
-			
-
+			_send("loaddealers"+text+"$1")
+			$HoodPannel/Timer.start()
 
 func _on_kokain_ctvrt_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -408,6 +478,8 @@ func _on_horkasever_input_event(viewport, event, shape_idx):
 				$HoodPannel/HoodName.bbcode_text = "[center]Horka domky sever[/center]"
 				$HoodPannel/HoodiD.text = "2"
 				_send("hood" + text + "$2")
+				_send("loaddealers"+text+"$2")
+				$HoodPannel/Timer.start()
 
 
 func _on_horkajih_input_event(viewport, event, shape_idx):
@@ -720,3 +792,126 @@ func _on_ButtonDealer2_pressed():
 func _on_ButtonDealer3_pressed():
 	
 	_send("assigndealer" + text +"$" + $HoodPannel/HoodiD.text + "$" +$DealerVyber/Dealer3/DealerID.text)
+
+
+
+
+
+func _on_1Drug1_pressed():
+	$HoodPannel/Dealer1Remain1.visible = true
+	$HoodPannel/Dealer1Remain2.visible = false
+	$HoodPannel/Dealer1Remain1/HSlider.max_value = int($HoodPannel/Dealer1/SellingAmount.text)
+	$HoodPannel/Dealer1Remain1/Icon.icon = $HoodPannel/Dealer1/Drug1.icon
+	
+	
+
+
+func _on_1Drug2_pressed():
+	$HoodPannel/Dealer1Remain1.visible = false
+	$HoodPannel/Dealer1Remain2.visible = true
+	$HoodPannel/Dealer1Remain2/HSlider.max_value = int($HoodPannel/Dealer1/SellingAmount.text)
+	$HoodPannel/Dealer1Remain2/Icon.icon = $HoodPannel/Dealer1/Drug2.icon
+	
+
+func _on_2Drug1_pressed():
+	$HoodPannel/Dealer2Remain1.visible = true
+	$HoodPannel/Dealer2Remain2.visible = false
+	$HoodPannel/Dealer2Remain1/HSlider.max_value = int($HoodPannel/Dealer2/SellingAmount.text)
+	$HoodPannel/Dealer2Remain1/Icon.icon = $HoodPannel/Dealer2/Drug1.icon
+
+func _on_2Drug2_pressed():
+	$HoodPannel/Dealer2Remain1.visible = false
+	$HoodPannel/Dealer2Remain2.visible = true
+	$HoodPannel/Dealer2Remain2/HSlider.max_value = int($HoodPannel/Dealer2/SellingAmount.text)
+	$HoodPannel/Dealer2Remain2/Icon.icon = $HoodPannel/Dealer2/Drug2.icon
+
+func _on_1HSlider1_value_changed(value):
+	$HoodPannel/Dealer1Remain1/ButtonSend.text = "Prodat " + str($HoodPannel/Dealer1Remain1/HSlider.value) 
+
+
+func _on_1HSlider2_value_changed(value):
+	$HoodPannel/Dealer1Remain2/ButtonSend.text = "Prodat " + str($HoodPannel/Dealer1Remain2/HSlider.value)
+
+
+func _on_1ButtonSend1_pressed():
+	_send("sendtodealer"+text+ "$" +$HoodPannel/HoodiD.text + "$1$" + $HoodPannel/Dealer1/Drug1.text + "$" + str($HoodPannel/Dealer1Remain1/HSlider.value)  )
+	collect[0] = false
+	TimeStampID = 12
+	$HoodPannel/Dealer1Remain1.visible = false
+	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
+	$HoodPannel/Dealer1/RichTextLabel.visible = true
+	
+func _on_1ButtonSend2_pressed():
+	_send("sendtodealer"+text+ "$" +$HoodPannel/HoodiD.text + "$1$" + $HoodPannel/Dealer1/Drug2.text + "$" + str($HoodPannel/Dealer1Remain2/HSlider.value)  )
+	collect[0] = false
+	TimeStampID = 12
+	$HoodPannel/Dealer1Remain2.visible = false
+	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
+	$HoodPannel/Dealer1/RichTextLabel.visible = true
+	
+func _on_2HSlider1_value_changed(value):
+	$HoodPannel/Dealer2Remain1/ButtonSend.text = "Prodat " + str($HoodPannel/Dealer2Remain1/HSlider.value) 
+	
+
+func _on_2HSlider2_value_changed(value):
+	$HoodPannel/Dealer2Remain2/ButtonSend.text = "Prodat " + str($HoodPannel/Dealer2Remain2/HSlider.value) 
+	
+
+func _on_2ButtonSend1_pressed():
+	_send("sendtodealer"+text+ "$" +$HoodPannel/HoodiD.text + "$2$" + $HoodPannel/Dealer2/Drug1.text + "$" + str($HoodPannel/Dealer2Remain1/HSlider.value)  )
+	collect[1] = false
+	TimeStampID = 21
+	$HoodPannel/Dealer2Remain1.visible = false
+	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
+	$HoodPannel/Dealer2/RichTextLabel.visible = true
+	
+var TimeStampID
+var TimeStamp
+
+func _on_2ButtonSend2_pressed():
+	_send("sendtodealer"+text+ "$" +$HoodPannel/HoodiD.text + "$2$" + $HoodPannel/Dealer2/Drug2.text + "$" + str($HoodPannel/Dealer2Remain2/HSlider.value)  )
+	collect[1] = false
+	TimeStampID = 22
+	$HoodPannel/Dealer2Remain2.visible = false
+	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
+	$HoodPannel/Dealer2/RichTextLabel.visible = true
+
+func _on_ButtonCollect1_pressed():
+	_send("takeprofit"+text+"$"+$HoodPannel/HoodiD.text+ "$1")
+	$HoodPannel/Dealer1/ButtonCollect.visible = false
+	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
+	$HoodPannel/Dealer1/RichTextLabel.visible = false
+
+func _on_ButtonCollect2_pressed():
+	_send("takeprofit"+text+"$"+$HoodPannel/HoodiD.text+ "$2")
+	$HoodPannel/Dealer2/ButtonCollect.visible = false
+	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
+	$HoodPannel/Dealer2/RichTextLabel.visible = false
+
+func _on_Timer_timeout():
+	time[1]-=1
+	time[3]-=1
+	if(time[2] + time[3] < 0 && !collect[1]):
+		_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
+		collect[1] = true
+	else:
+		if (time[3]<0):
+			time[2]-=1
+			time[3]=59
+		if (time[3] > 9):
+			$HoodPannel/Dealer2/RichTextLabel.text = "Zbývá: " + str(time[2]) + ":" + str(time[3])
+		else:
+			$HoodPannel/Dealer2/RichTextLabel.text = "Zbývá: " +str(time[2]) + ":0" + str(time[3])
+		
+	if(time[0] + time[1] < 0 && !collect[0]):
+		_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
+		collect[0] = true
+	else:
+		if (time[1]<0):
+			time[0]-=1
+			time[1]=59
+		if (time[1] > 9):
+			$HoodPannel/Dealer1/RichTextLabel.text = "Zbývá: " +str(time[0]) + ":" + str(time[1])
+		else:
+			$HoodPannel/Dealer1/RichTextLabel.text = "Zbývá: " +str(time[0]) + ":0" + str(time[1])
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player.png" type="Texture" id=2]
@@ -9,10 +9,13 @@
 [ext_resource path="res://assets/ether.png" type="Texture" id=7]
 [ext_resource path="res://assets/aceton.png" type="Texture" id=8]
 [ext_resource path="res://assets/hydroxid.png" type="Texture" id=9]
+[ext_resource path="res://assets/ocet.png" type="Texture" id=10]
+[ext_resource path="res://assets/cpavek.png" type="Texture" id=11]
 [ext_resource path="res://assets/chloro.png" type="Texture" id=12]
 [ext_resource path="res://assets/alkohol.png" type="Texture" id=13]
 [ext_resource path="res://assets/varic.png" type="Texture" id=14]
 [ext_resource path="res://assets/uhlicitan.png" type="Texture" id=15]
+[ext_resource path="res://assets/vapno.png" type="Texture" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.0938, 12.5 )
@@ -27,6 +30,15 @@ load_path = "res://.import/kyselina.png-a49500f7ee6dc569651f4fdbb5e6080e.stex"
 [sub_resource type="StreamTexture" id=45]
 flags = 4
 load_path = "res://.import/hnuj.png-e8f2d3c41e6d5a10524b293bbef85bd8.stex"
+
+[sub_resource type="RectangleShape2D" id=82]
+extents = Vector2( 9, 27 )
+
+[sub_resource type="RectangleShape2D" id=83]
+extents = Vector2( 27, 9 )
+
+[sub_resource type="RectangleShape2D" id=84]
+extents = Vector2( 27, 9 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 45, 5.75 )
@@ -1177,18 +1189,19 @@ segments = PoolVector2Array( 0, 0, 24, 0, 24, 0, 24, 24, 24, 24, 0, 24, 0, 24, 0
 11/shapes = [  ]
 11/z_index = 0
 
-[sub_resource type="DynamicFontData" id=59]
+[sub_resource type="DynamicFontData" id=85]
 font_path = "res://DroidSans.ttf"
 
-[sub_resource type="DynamicFont" id=62]
+[sub_resource type="DynamicFont" id=86]
 size = 50
-font_data = SubResource( 59 )
+font_data = SubResource( 85 )
 
-[sub_resource type="DynamicFontData" id=61]
+[sub_resource type="DynamicFontData" id=89]
 font_path = "res://DroidSans.ttf"
 
-[sub_resource type="DynamicFont" id=63]
-font_data = SubResource( 61 )
+[sub_resource type="DynamicFont" id=88]
+size = 28
+font_data = SubResource( 89 )
 
 [node name="zastavarna" type="Node2D"]
 position = Vector2( 640, 217 )
@@ -1216,9 +1229,9 @@ shape = SubResource( 1 )
 position = Vector2( 145, 279 )
 
 [node name="Sprite" type="Sprite" parent="semen"]
-position = Vector2( -105, 5 )
+position = Vector2( -106, 9 )
 rotation = -1.5708
-scale = Vector2( 0.175939, 0.166658 )
+scale = Vector2( 0.138, 0.138 )
 z_index = 5
 texture = ExtResource( 3 )
 
@@ -1230,9 +1243,9 @@ shape = SubResource( 43 )
 [node name="varna" type="Area2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="varna"]
-position = Vector2( 39, 481 )
+position = Vector2( 38, 481 )
 rotation = -1.5708
-scale = Vector2( 0.13, 0.130346 )
+scale = Vector2( 0.138, 0.138 )
 z_index = 5
 texture = ExtResource( 5 )
 
@@ -1244,9 +1257,9 @@ shape = SubResource( 43 )
 [node name="aceton" type="Area2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="aceton"]
-position = Vector2( 249, 288 )
+position = Vector2( 251, 288 )
 rotation = 1.5708
-scale = Vector2( 0.121132, 0.114742 )
+scale = Vector2( 0.138, 0.138 )
 z_index = 5
 texture = ExtResource( 8 )
 
@@ -1258,9 +1271,9 @@ shape = SubResource( 43 )
 [node name="hydroxid" type="Area2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="hydroxid"]
-position = Vector2( 249, 384 )
+position = Vector2( 251, 384 )
 rotation = 1.5708
-scale = Vector2( 0.121132, 0.114742 )
+scale = Vector2( 0.138, 0.138 )
 z_index = 5
 texture = ExtResource( 9 )
 
@@ -1272,9 +1285,9 @@ shape = SubResource( 43 )
 [node name="kyselina" type="Area2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="kyselina"]
-position = Vector2( 249, 480 )
+position = Vector2( 251, 480 )
 rotation = 1.5708
-scale = Vector2( 0.121132, 0.114742 )
+scale = Vector2( 0.138, 0.138 )
 z_index = 5
 texture = SubResource( 44 )
 
@@ -1286,9 +1299,9 @@ shape = SubResource( 43 )
 [node name="hnuj" type="Area2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="hnuj"]
-position = Vector2( 40, 384 )
+position = Vector2( 38, 384 )
 rotation = -1.5708
-scale = Vector2( 0.121132, 0.114742 )
+scale = Vector2( 0.138, 0.138 )
 z_index = 5
 texture = SubResource( 45 )
 
@@ -1300,9 +1313,9 @@ shape = SubResource( 43 )
 [node name="ether" type="Area2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="ether"]
-position = Vector2( 421, 288 )
+position = Vector2( 420, 288 )
 rotation = -1.5708
-scale = Vector2( 0.137869, 0.130597 )
+scale = Vector2( 0.138, 0.138 )
 z_index = 5
 texture = ExtResource( 7 )
 
@@ -1315,9 +1328,9 @@ shape = SubResource( 43 )
 [node name="varic" type="Area2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="varic"]
-position = Vector2( 425, 383 )
+position = Vector2( 424, 383 )
 rotation = -1.5708
-scale = Vector2( 0.137869, 0.130597 )
+scale = Vector2( 0.138, 0.138 )
 z_index = 5
 texture = ExtResource( 14 )
 
@@ -1330,9 +1343,9 @@ shape = SubResource( 43 )
 [node name="chloroform" type="Area2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="chloroform"]
-position = Vector2( 421, 480 )
+position = Vector2( 420, 480 )
 rotation = -1.5708
-scale = Vector2( 0.137869, 0.130597 )
+scale = Vector2( 0.138, 0.138 )
 z_index = 5
 texture = ExtResource( 12 )
 
@@ -1345,9 +1358,9 @@ shape = SubResource( 43 )
 [node name="uhlicitan" type="Area2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="uhlicitan"]
-position = Vector2( 635, 287 )
+position = Vector2( 636, 287 )
 rotation = 1.5708
-scale = Vector2( 0.137869, 0.130597 )
+scale = Vector2( 0.138, 0.138 )
 z_index = 5
 texture = ExtResource( 15 )
 
@@ -1361,17 +1374,57 @@ shape = SubResource( 43 )
 position = Vector2( -3, -480 )
 
 [node name="Sprite" type="Sprite" parent="alkohol"]
-position = Vector2( 638, 864 )
+position = Vector2( 639, 864 )
 rotation = 1.5708
-scale = Vector2( 0.137869, 0.130597 )
+scale = Vector2( 0.138, 0.138 )
 z_index = 5
 texture = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="alkohol"]
-position = Vector2( 570, 870 )
+position = Vector2( 570, 864 )
 rotation = -4.46638e-06
 z_index = 2
 shape = SubResource( 43 )
+
+[node name="ocet" type="Area2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="ocet"]
+position = Vector2( 636, 480 )
+rotation = 1.5708
+scale = Vector2( 0.138, 0.138 )
+z_index = 5
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ocet"]
+position = Vector2( 567, 480 )
+z_index = 2
+shape = SubResource( 82 )
+
+[node name="cpavek" type="Area2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="cpavek"]
+position = Vector2( 144, 81 )
+scale = Vector2( 0.138, 0.138 )
+z_index = 5
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cpavek"]
+position = Vector2( 144, 153 )
+z_index = 2
+shape = SubResource( 83 )
+
+[node name="vapno" type="Area2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="vapno"]
+position = Vector2( 528, 84 )
+scale = Vector2( 0.138, 0.138 )
+z_index = 5
+texture = ExtResource( 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="vapno"]
+position = Vector2( 528, 153 )
+z_index = 2
+shape = SubResource( 84 )
 
 [node name="leave" type="Area2D" parent="."]
 position = Vector2( -48, -384 )
@@ -1422,10 +1475,10 @@ z_index = 5
 
 [node name="SelectPanel" type="Panel" parent="SelectBody"]
 process_priority = 3
-margin_left = 256.0
-margin_top = 424.0
-margin_right = 464.0
-margin_bottom = 616.0
+margin_left = 232.0
+margin_top = 255.0
+margin_right = 440.0
+margin_bottom = 447.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1446,7 +1499,7 @@ margin_left = 104.0
 margin_top = 72.0
 margin_right = 192.0
 margin_bottom = 128.0
-custom_fonts/normal_font = SubResource( 62 )
+custom_fonts/normal_font = SubResource( 86 )
 text = "1"
 scroll_active = false
 __meta__ = {
@@ -1485,11 +1538,12 @@ margin_left = 16.0
 margin_top = 144.0
 margin_right = 80.0
 margin_bottom = 176.0
-custom_fonts/font = SubResource( 63 )
 text = "Zrušit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Line2D" type="Line2D" parent="SelectBody/SelectPanel"]
-visible = false
 points = PoolVector2Array( 207, 0, 0, 0, 0, 192, 208, 192, 208, -1 )
 width = 2.0
 
@@ -1500,6 +1554,22 @@ margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="LabelPrice" type="Label" parent="SelectBody/SelectPanel"]
+margin_right = 208.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 88 )
+text = "Cena: 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemPrice" type="Label" parent="SelectBody/SelectPanel"]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
 
 [connection signal="body_entered" from="leave" to="." method="_on_leave_body_entered"]
 [connection signal="value_changed" from="SelectBody/SelectPanel/HSlider" to="." method="_on_HSlider_value_changed"]
