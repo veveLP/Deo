@@ -6,6 +6,8 @@ extends KinematicBody2D
 # var b = "text"
 
 var scene
+var moving = false
+var dir = ""
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	scene = String(get_tree().get_current_scene().get_name())
@@ -19,17 +21,30 @@ func get_input():
 	velocity = Vector2()
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += 1
+		moving = true
+		dir = "right"
 	if Input.is_action_pressed("ui_left"):
 		velocity.x -= 1
+		moving = true
+		dir = "left"
 	if Input.is_action_pressed("ui_down"):
 		velocity.y += 1
+		moving = true
+		dir = "down"
 	if Input.is_action_pressed("ui_up"):
 		velocity.y -= 1
+		moving = true
+		dir = "up"
 	velocity = velocity.normalized() * speed
 
 func _physics_process(delta):
 	get_input()
+	if (moving):
+		$AnimatedSprite.play(dir)
+	else:
+		$AnimatedSprite.play("standing_"+dir)
 	velocity = move_and_slide(velocity)
+	moving = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

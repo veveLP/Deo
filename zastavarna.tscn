@@ -1,7 +1,7 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=106 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
-[ext_resource path="res://assets/player.png" type="Texture" id=2]
+[ext_resource path="res://assets/player_map.png" type="Texture" id=2]
 [ext_resource path="res://assets/semeno.png" type="Texture" id=3]
 [ext_resource path="res://zastavarna.gd" type="Script" id=4]
 [ext_resource path="res://assets/varna.png" type="Texture" id=5]
@@ -20,6 +20,249 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.0938, 12.5 )
 
+[sub_resource type="AtlasTexture" id=72]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=73]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 64, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=74]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 128, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=75]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 192, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=76]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 256, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=77]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 320, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=78]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 384, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=79]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 448, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=80]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 512, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=81]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 704, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=82]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 64, 704, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=83]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 128, 704, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=84]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 192, 704, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=85]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 256, 704, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=86]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 320, 704, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=87]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 384, 704, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=88]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 448, 704, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=89]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 512, 704, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=90]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=91]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 64, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=92]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 128, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=93]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 192, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=94]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 256, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=95]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 320, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=96]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 384, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=97]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 448, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=98]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 512, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=110]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 704, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=111]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 640, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=108]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=99]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 640, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=100]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 64, 640, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=101]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 128, 640, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=102]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 192, 640, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=103]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 256, 640, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=104]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 320, 640, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=105]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 384, 640, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=106]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 448, 640, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=107]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 512, 640, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=112]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 576, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=113]
+animations = [ {
+"frames": [ SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ) ],
+"loop": true,
+"name": "left",
+"speed": 7.0
+}, {
+"frames": [ SubResource( 81 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ), SubResource( 89 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 90 ), SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 95 ), SubResource( 96 ), SubResource( 97 ), SubResource( 98 ) ],
+"loop": true,
+"name": "up",
+"speed": 7.0
+}, {
+"frames": [ SubResource( 110 ) ],
+"loop": true,
+"name": "standing_right",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 111 ) ],
+"loop": true,
+"name": "standing_down",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 108 ) ],
+"loop": true,
+"name": "standing_up",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ) ],
+"loop": true,
+"name": "down",
+"speed": 7.0
+}, {
+"frames": [ SubResource( 112 ) ],
+"loop": true,
+"name": "standing_left",
+"speed": 5.0
+} ]
+
 [sub_resource type="RectangleShape2D" id=43]
 extents = Vector2( 9, 27 )
 
@@ -31,13 +274,13 @@ load_path = "res://.import/kyselina.png-a49500f7ee6dc569651f4fdbb5e6080e.stex"
 flags = 4
 load_path = "res://.import/hnuj.png-e8f2d3c41e6d5a10524b293bbef85bd8.stex"
 
-[sub_resource type="RectangleShape2D" id=82]
+[sub_resource type="RectangleShape2D" id=114]
 extents = Vector2( 9, 27 )
 
-[sub_resource type="RectangleShape2D" id=83]
+[sub_resource type="RectangleShape2D" id=115]
 extents = Vector2( 27, 9 )
 
-[sub_resource type="RectangleShape2D" id=84]
+[sub_resource type="RectangleShape2D" id=116]
 extents = Vector2( 27, 9 )
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -358,10 +601,10 @@ segments = PoolVector2Array( 0, 0, 48, 0, 48, 0, 48, 48, 48, 48, 0, 48, 0, 48, 0
 [sub_resource type="ConcavePolygonShape2D" id=64]
 segments = PoolVector2Array( 0, 0, 48, 0, 48, 0, 48, 48, 48, 48, 0, 48, 0, 48, 0, 0 )
 
-[sub_resource type="ConcavePolygonShape2D" id=78]
+[sub_resource type="ConcavePolygonShape2D" id=117]
 segments = PoolVector2Array( 0, 0, 48, 0, 48, 0, 48, 48, 48, 48, 0, 48, 0, 48, 0, 0 )
 
-[sub_resource type="ConcavePolygonShape2D" id=79]
+[sub_resource type="ConcavePolygonShape2D" id=118]
 segments = PoolVector2Array( 0, 0, 48, 0, 48, 0, 48, 48, 48, 48, 0, 48, 0, 48, 0, 0 )
 
 [sub_resource type="ConcavePolygonShape2D" id=65]
@@ -706,14 +949,14 @@ segments = PoolVector2Array( 0, 0, 48, 0, 48, 0, 48, 48, 48, 48, 0, 48, 0, 48, 0
 24/navigation_offset = Vector2( 0, 0 )
 24/shape_offset = Vector2( 0, 0 )
 24/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-24/shape = SubResource( 78 )
+24/shape = SubResource( 117 )
 24/shape_one_way = false
 24/shape_one_way_margin = 1.0
 24/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 78 ),
+"shape": SubResource( 117 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 24/z_index = 0
@@ -727,22 +970,22 @@ segments = PoolVector2Array( 0, 0, 48, 0, 48, 0, 48, 48, 48, 48, 0, 48, 0, 48, 0
 25/navigation_offset = Vector2( 0, 0 )
 25/shape_offset = Vector2( 0, 0 )
 25/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-25/shape = SubResource( 79 )
+25/shape = SubResource( 118 )
 25/shape_one_way = false
 25/shape_one_way_margin = 1.0
 25/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 79 ),
+"shape": SubResource( 118 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 25/z_index = 0
 
-[sub_resource type="ConcavePolygonShape2D" id=80]
+[sub_resource type="ConcavePolygonShape2D" id=119]
 segments = PoolVector2Array( 0, 0, 48, 0, 48, 0, 48, 48, 48, 48, 0, 48, 0, 48, 0, 0 )
 
-[sub_resource type="ConcavePolygonShape2D" id=81]
+[sub_resource type="ConcavePolygonShape2D" id=120]
 segments = PoolVector2Array( 0, 0, 48, 0, 48, 0, 48, 48, 48, 48, 0, 48, 0, 48, 0, 0 )
 
 [sub_resource type="TileSet" id=69]
@@ -784,14 +1027,14 @@ segments = PoolVector2Array( 0, 0, 48, 0, 48, 0, 48, 48, 48, 48, 0, 48, 0, 48, 0
 4/navigation_offset = Vector2( 0, 0 )
 4/shape_offset = Vector2( 0, 0 )
 4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-4/shape = SubResource( 80 )
+4/shape = SubResource( 119 )
 4/shape_one_way = false
 4/shape_one_way_margin = 1.0
 4/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 80 ),
+"shape": SubResource( 119 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 4/z_index = 0
@@ -805,14 +1048,14 @@ segments = PoolVector2Array( 0, 0, 48, 0, 48, 0, 48, 48, 48, 48, 0, 48, 0, 48, 0
 5/navigation_offset = Vector2( 0, 0 )
 5/shape_offset = Vector2( 0, 0 )
 5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-5/shape = SubResource( 81 )
+5/shape = SubResource( 120 )
 5/shape_one_way = false
 5/shape_one_way_margin = 1.0
 5/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 81 ),
+"shape": SubResource( 120 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 5/z_index = 0
@@ -851,19 +1094,19 @@ segments = PoolVector2Array( 0, 0, 24, 0, 24, 0, 24, 24, 24, 24, 0, 24, 0, 24, 0
 [sub_resource type="ConcavePolygonShape2D" id=71]
 segments = PoolVector2Array( 0, 0, 24, 0, 24, 0, 24, 24, 24, 24, 0, 24, 0, 24, 0, 0 )
 
-[sub_resource type="ConcavePolygonShape2D" id=72]
+[sub_resource type="ConcavePolygonShape2D" id=121]
 segments = PoolVector2Array( 0, 0, 24, 0, 24, 0, 24, 24, 24, 24, 0, 24, 0, 24, 0, 0 )
 
-[sub_resource type="ConcavePolygonShape2D" id=73]
+[sub_resource type="ConcavePolygonShape2D" id=122]
 segments = PoolVector2Array( 0, 0, 24, 0, 24, 0, 24, 24, 24, 24, 0, 24, 0, 24, 0, 0 )
 
-[sub_resource type="ConcavePolygonShape2D" id=74]
+[sub_resource type="ConcavePolygonShape2D" id=123]
 segments = PoolVector2Array( 0, 0, 24, 0, 24, 0, 24, 24, 24, 24, 0, 24, 0, 24, 0, 0 )
 
-[sub_resource type="ConcavePolygonShape2D" id=75]
+[sub_resource type="ConcavePolygonShape2D" id=124]
 segments = PoolVector2Array( 0, 0, 24, 0, 24, 0, 24, 24, 24, 24, 0, 24, 0, 24, 0, 0 )
 
-[sub_resource type="TileSet" id=76]
+[sub_resource type="TileSet" id=125]
 0/name = "Zastavarna.png 0"
 0/texture = ExtResource( 6 )
 0/tex_offset = Vector2( 0, 0 )
@@ -916,14 +1159,14 @@ segments = PoolVector2Array( 0, 0, 24, 0, 24, 0, 24, 24, 24, 24, 0, 24, 0, 24, 0
 2/navigation_offset = Vector2( 0, 0 )
 2/shape_offset = Vector2( 0, 0 )
 2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape = SubResource( 72 )
+2/shape = SubResource( 121 )
 2/shape_one_way = false
 2/shape_one_way_margin = 1.0
 2/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 72 ),
+"shape": SubResource( 121 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 2/z_index = 0
@@ -937,14 +1180,14 @@ segments = PoolVector2Array( 0, 0, 24, 0, 24, 0, 24, 24, 24, 24, 0, 24, 0, 24, 0
 3/navigation_offset = Vector2( 0, 0 )
 3/shape_offset = Vector2( 0, 0 )
 3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-3/shape = SubResource( 73 )
+3/shape = SubResource( 122 )
 3/shape_one_way = false
 3/shape_one_way_margin = 1.0
 3/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 73 ),
+"shape": SubResource( 122 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 3/z_index = 0
@@ -972,14 +1215,14 @@ segments = PoolVector2Array( 0, 0, 24, 0, 24, 0, 24, 24, 24, 24, 0, 24, 0, 24, 0
 5/navigation_offset = Vector2( 0, 0 )
 5/shape_offset = Vector2( 0, 0 )
 5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-5/shape = SubResource( 74 )
+5/shape = SubResource( 123 )
 5/shape_one_way = false
 5/shape_one_way_margin = 1.0
 5/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 74 ),
+"shape": SubResource( 123 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 5/z_index = 0
@@ -993,14 +1236,14 @@ segments = PoolVector2Array( 0, 0, 24, 0, 24, 0, 24, 24, 24, 24, 0, 24, 0, 24, 0
 6/navigation_offset = Vector2( 0, 0 )
 6/shape_offset = Vector2( 0, 0 )
 6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-6/shape = SubResource( 75 )
+6/shape = SubResource( 124 )
 6/shape_one_way = false
 6/shape_one_way_margin = 1.0
 6/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 75 ),
+"shape": SubResource( 124 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 6/z_index = 0
@@ -1019,7 +1262,7 @@ segments = PoolVector2Array( 0, 0, 24, 0, 24, 0, 24, 24, 24, 24, 0, 24, 0, 24, 0
 7/shapes = [  ]
 7/z_index = 0
 
-[sub_resource type="TileSet" id=77]
+[sub_resource type="TileSet" id=126]
 0/name = "Zastavarna.png 0"
 0/texture = ExtResource( 6 )
 0/tex_offset = Vector2( 0, 0 )
@@ -1189,19 +1432,19 @@ segments = PoolVector2Array( 0, 0, 24, 0, 24, 0, 24, 24, 24, 24, 0, 24, 0, 24, 0
 11/shapes = [  ]
 11/z_index = 0
 
-[sub_resource type="DynamicFontData" id=85]
+[sub_resource type="DynamicFontData" id=127]
 font_path = "res://DroidSans.ttf"
 
-[sub_resource type="DynamicFont" id=86]
+[sub_resource type="DynamicFont" id=128]
 size = 50
-font_data = SubResource( 85 )
+font_data = SubResource( 127 )
 
-[sub_resource type="DynamicFontData" id=89]
+[sub_resource type="DynamicFontData" id=129]
 font_path = "res://DroidSans.ttf"
 
-[sub_resource type="DynamicFont" id=88]
+[sub_resource type="DynamicFont" id=130]
 size = 28
-font_data = SubResource( 89 )
+font_data = SubResource( 129 )
 
 [node name="zastavarna" type="Node2D"]
 position = Vector2( 640, 217 )
@@ -1214,16 +1457,17 @@ __meta__ = {
 position = Vector2( -23, -402 )
 script = ExtResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="player"]
-position = Vector2( 360.75, 961.515 )
-scale = Vector2( 1.23, 1.23 )
-z_index = 2
-texture = ExtResource( 2 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 position = Vector2( 359.75, 980.015 )
 z_index = 2
 shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="player"]
+position = Vector2( 360, 954 )
+scale = Vector2( 1.07812, 1.07812 )
+z_index = 2
+frames = SubResource( 113 )
+animation = "standing_up"
 
 [node name="semen" type="Area2D" parent="."]
 position = Vector2( 145, 279 )
@@ -1398,7 +1642,7 @@ texture = ExtResource( 10 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ocet"]
 position = Vector2( 567, 480 )
 z_index = 2
-shape = SubResource( 82 )
+shape = SubResource( 114 )
 
 [node name="cpavek" type="Area2D" parent="."]
 
@@ -1411,7 +1655,7 @@ texture = ExtResource( 11 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cpavek"]
 position = Vector2( 144, 153 )
 z_index = 2
-shape = SubResource( 83 )
+shape = SubResource( 115 )
 
 [node name="vapno" type="Area2D" parent="."]
 
@@ -1424,7 +1668,7 @@ texture = ExtResource( 16 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="vapno"]
 position = Vector2( 528, 153 )
 z_index = 2
-shape = SubResource( 84 )
+shape = SubResource( 116 )
 
 [node name="leave" type="Area2D" parent="."]
 position = Vector2( -48, -384 )
@@ -1457,14 +1701,14 @@ tile_data = PoolIntArray( 65538, 6, 0, 65539, 7, 0, 65546, 6, 0, 65547, 7, 0, 26
 
 [node name="TileMap4" type="TileMap" parent="."]
 z_index = 1
-tile_set = SubResource( 76 )
+tile_set = SubResource( 125 )
 cell_size = Vector2( 24, 24 )
 format = 1
 tile_data = PoolIntArray( 327682, 0, 0, 327683, 1, 0, 327704, 0, 0, 327705, 1, 0, 393218, 2, 0, 393219, 3, 0, 393240, 2, 0, 393241, 3, 0, 1638402, 0, 0, 1638403, 1, 0, 1638410, 4, 0, 1638411, 5, 0, 1638416, 6, 0, 1638417, 7, 0, 1638424, 0, 0, 1638425, 1, 0, 1900565, 11, 0, 1900566, 12, 0, 1900567, 13, 0, 1966100, 14, 0, 1966101, 15, 0, 1966102, 16, 0, 1966103, 17, 0 )
 
 [node name="TileMap5" type="TileMap" parent="."]
 z_index = 4
-tile_set = SubResource( 77 )
+tile_set = SubResource( 126 )
 cell_size = Vector2( 24, 24 )
 format = 1
 tile_data = PoolIntArray( 196610, 0, 0, 196611, 1, 0, 196632, 0, 0, 196633, 1, 0, 262146, 2, 0, 262147, 3, 0, 262168, 2, 0, 262169, 3, 0, 1441803, 4, 0, 1441808, 7, 0, 1507330, 0, 0, 1507331, 1, 0, 1507339, 5, 0, 1507344, 8, 0, 1507352, 0, 0, 1507353, 1, 0, 1572866, 2, 0, 1572867, 3, 0, 1572875, 6, 0, 1572880, 9, 0, 1572888, 2, 0, 1572889, 3, 0, 1703948, 10, 0, 1703949, 11, 0, 1703950, 10, 0, 1703951, 11, 0 )
@@ -1499,7 +1743,7 @@ margin_left = 104.0
 margin_top = 72.0
 margin_right = 192.0
 margin_bottom = 128.0
-custom_fonts/normal_font = SubResource( 86 )
+custom_fonts/normal_font = SubResource( 128 )
 text = "1"
 scroll_active = false
 __meta__ = {
@@ -1558,7 +1802,7 @@ __meta__ = {
 [node name="LabelPrice" type="Label" parent="SelectBody/SelectPanel"]
 margin_right = 208.0
 margin_bottom = 40.0
-custom_fonts/font = SubResource( 88 )
+custom_fonts/font = SubResource( 130 )
 text = "Cena: 0"
 align = 1
 valign = 1
