@@ -47,8 +47,8 @@ func _on_data():
 	var x = payload.split("$")
 	if (x[0] == "inventory"):
 		$RichTextLabel.bbcode_text = "[center]" + x[1] + "[/center]"
-		$RichTextLabel2.bbcode_text = "[center]" + x[3] + "[/center]"
-		$RichTextLabel3.bbcode_text = "[center]" + x[2] + "[/center]"
+		$RichTextLabel2.bbcode_text = "[center]" + x[2] + "[/center]"
+		$RichTextLabel3.bbcode_text = "[center]" + x[3] + "[/center]"
 		$SeminkoText.text = x[4]
 		$HnujText.text = "level: " + x[5]
 		$VarnaText.text = x[6]

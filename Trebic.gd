@@ -419,6 +419,10 @@ func _on_kokain_ctvrt_input_event(viewport, event, shape_idx):
 				
 				$HoodPannel.visible = true
 				$HoodPannel/HoodName.bbcode_text = "[center]Čtvrť zbohatlíků[/center]"
+				$HoodPannel/HoodiD.text = "10"
+				_send("hood" + text + "$10")
+				_send("loaddealers"+text+"$10")
+				$HoodPannel/Timer.start()
 
 
 func _on_podklasteri_input_event(viewport, event, shape_idx):
@@ -427,6 +431,10 @@ func _on_podklasteri_input_event(viewport, event, shape_idx):
 			if int(unlockedHoods) >= 9:
 				$HoodPannel.visible = true
 				$HoodPannel/HoodName.bbcode_text = "[center]Podkláštěří[/center]"
+				$HoodPannel/HoodiD.text = "9"
+				_send("hood" + text + "$9")
+				_send("loaddealers"+text+"$9")
+				$HoodPannel/Timer.start()
 
 
 func _on_zid_input_event(viewport, event, shape_idx):
@@ -435,6 +443,10 @@ func _on_zid_input_event(viewport, event, shape_idx):
 			if int(unlockedHoods) >= 8:
 				$HoodPannel.visible = true
 				$HoodPannel/HoodName.bbcode_text = "[center]Židovská čtvrť[/center]"
+				$HoodPannel/HoodiD.text = "8"
+				_send("hood" + text + "$8")
+				_send("loaddealers"+text+"$8")
+				$HoodPannel/Timer.start()
 
 
 func _on_namesti_input_event(viewport, event, shape_idx):
@@ -443,6 +455,10 @@ func _on_namesti_input_event(viewport, event, shape_idx):
 			if int(unlockedHoods) >= 7:
 				$HoodPannel.visible = true
 				$HoodPannel/HoodName.bbcode_text = "[center]Centrum[/center]"
+				$HoodPannel/HoodiD.text = "7"
+				_send("hood" + text + "$7")
+				_send("loaddealers"+text+"$7")
+				$HoodPannel/Timer.start()
 
 
 func _on_spst_input_event(viewport, event, shape_idx):
@@ -451,6 +467,10 @@ func _on_spst_input_event(viewport, event, shape_idx):
 			if int(unlockedHoods) >= 13:
 				$HoodPannel.visible = true
 				$HoodPannel/HoodName.bbcode_text = "[center]SPŠT[/center]"
+				$HoodPannel/HoodiD.text = "13"
+				_send("hood" + text + "$13")
+				_send("loaddealers"+text+"$13")
+				$HoodPannel/Timer.start()
 
 
 func _on_tyn_input_event(viewport, event, shape_idx):
@@ -459,6 +479,10 @@ func _on_tyn_input_event(viewport, event, shape_idx):
 			if int(unlockedHoods) >= 11:
 				$HoodPannel.visible = true
 				$HoodPannel/HoodName.bbcode_text = "[center]Týn[/center]"
+				$HoodPannel/HoodiD.text = "11"
+				_send("hood" + text + "$11")
+				_send("loaddealers"+text+"$11")
+				$HoodPannel/Timer.start()
 
 
 func _on_atom_input_event(viewport, event, shape_idx):
@@ -467,6 +491,10 @@ func _on_atom_input_event(viewport, event, shape_idx):
 			if int(unlockedHoods) >= 12:
 				$HoodPannel.visible = true
 				$HoodPannel/HoodName.bbcode_text = "[center]Hotel atom[/center]"
+				$HoodPannel/HoodiD.text = "12"
+				_send("hood" + text + "$12")
+				_send("loaddealers"+text+"$12")
+				$HoodPannel/Timer.start()
 
 
 func _on_horkasever_input_event(viewport, event, shape_idx):
@@ -489,7 +517,10 @@ func _on_horkajih_input_event(viewport, event, shape_idx):
 				var text = loadd()
 				$HoodPannel.visible = true
 				$HoodPannel/HoodName.bbcode_text = "[center]Horka domky jih[/center]"
+				$HoodPannel/HoodiD.text = "3"
 				_send("hood" + text + "$3")
+				_send("loaddealers"+text+"$3")
+				$HoodPannel/Timer.start()
 
 
 func _on_stopshop_input_event(viewport, event, shape_idx):
@@ -498,6 +529,10 @@ func _on_stopshop_input_event(viewport, event, shape_idx):
 			if int(unlockedHoods) >= 4:
 				$HoodPannel.visible = true
 				$HoodPannel/HoodName.bbcode_text = "[center]Stop shop[/center]"
+				$HoodPannel/HoodiD.text = "4"
+				_send("hood" + text + "$4")
+				_send("loaddealers"+text+"$4")
+				$HoodPannel/Timer.start()
 
 
 func _on_prumyslova_input_event(viewport, event, shape_idx):
@@ -506,6 +541,10 @@ func _on_prumyslova_input_event(viewport, event, shape_idx):
 			if int(unlockedHoods) >= 5:
 				$HoodPannel.visible = true
 				$HoodPannel/HoodName.bbcode_text = "[center]Průmyslová čtvrť[/center]"
+				$HoodPannel/HoodiD.text = "5"
+				_send("hood" + text + "$5")
+				_send("loaddealers"+text+"$5")
+				$HoodPannel/Timer.start()
 
 
 func _on_nemocnice_input_event(viewport, event, shape_idx):
@@ -514,6 +553,10 @@ func _on_nemocnice_input_event(viewport, event, shape_idx):
 			if int(unlockedHoods) >= 6:
 				$HoodPannel.visible = true
 				$HoodPannel/HoodName.bbcode_text = "[center]Nemocnice[/center]"
+				$HoodPannel/HoodiD.text = "6"
+				_send("hood" + text + "$6")
+				_send("loaddealers"+text+"$6")
+				$HoodPannel/Timer.start()
 
 
 ##############################################################
