@@ -13,11 +13,6 @@ var user = loadd()
 
 onready var textbox = get_node("varna/textbox")
 
-var pod = load("res://assets/pod.png")
-var weed_1 = load("res://assets/weed_1.png")
-var weed_2 = load("res://assets/weed_2.png")
-var weed_3 = load("res://assets/weed_3.png")
-
 func _ready():
 	client.connect("connection_closed", self, "_on_connection_closed")
 	client.connect("connection_error", self, "_on_connection_closed")
@@ -33,31 +28,20 @@ func _ready():
 	varnaID.erase(0,11)
 
 func _set_item(var drug, var state, var item):
-	match drug:
-		"weed":
-			if (state != "0"):
-				item.set_texture(weed_3)
-			else:
-				item.set_texture(pod)
-		"meth":
-			pass
-		"heroin":
-			pass
+	if (state == "0"):
+		item.play("empty_"+drug)
+	else:
+		match drug:
+			"meth":
+				item.play("done1_"+drug)
+			"weed":
+				item.play("done_"+drug)
+			"heroine":
+				pass
  
 func _get_table_count(var x):
 	return (x.size()-2)/2
 
-func _weedstart(var item):
-	print(OS.get_system_time_secs())
-	$varna/textbox.visible = true
-	$varna/textbox.text = "You just planted a seed"
-	item.set_texture(weed_1)
-	yield(get_tree().create_timer(3.0), "timeout")
-	item.set_texture(weed_2)
-	$varna/textbox.visible = false
-	yield(get_tree().create_timer(3.0), "timeout")
-	item.set_texture(weed_3)
-	
 func _get_tablenumber():
 	var body = $varna/player/body.get_overlapping_areas()
 	tablenumber = null
@@ -70,26 +54,81 @@ func _get_tablenumber():
 				tablenumber = i
 				break
 
+func _weedstart(var item):
+	print(OS.get_system_time_secs())
+	$varna/textbox.visible = true
+	$varna/textbox.text = "You just planted a seed"
+	item.play("growing_weed")
+	yield(get_tree().create_timer(3.0), "timeout")
+	$varna/textbox.visible = false
+	yield(get_tree().create_timer(7.0), "timeout")
+	item.play("done_weed")
+	
+
 func _weedharvest(var i,var grams):
 	if tablenumber == null:
 		pass
 	else:
-		items[i].set_texture(pod)
+		items[i].play("empty_weed")
 		$varna/textbox.visible = true
 		$varna/textbox.text = "You just harvested " + grams + " weed"
 		yield(get_tree().create_timer(3.0), "timeout")
 		$varna/textbox.visible = false
 
 func _weedstart_weedharvest(var i, var text):
-	if (items[i].texture == weed_3):
+	if (items[i].animation == "done_weed"):
 		i+=1
 		_send("weedharvest" + text + "$" + varnaID + "$" + String(i))
 		firsttime = "n"
-	elif (items[i].texture == pod):
+	elif (items[i].animation == "empty_weed"):
 		i+=1
 		$varna.visible = false
 		$WeedMinigame.visible = true
 		$WeedMinigame/Timer.start()
+		firsttime = "n"
+
+func _methstart(var item):
+	print(OS.get_system_time_secs())
+	$varna/textbox.visible = true
+	$varna/textbox.text = "You just started distilling"
+	item.play("des_meth")
+	yield(get_tree().create_timer(3.0), "timeout")
+	$varna/textbox.visible = false
+	yield(get_tree().create_timer(7.0), "timeout")
+	item.play("done1_meth")
+
+func _methcontinue(var item):
+	print(OS.get_system_time_secs())
+	$varna/textbox.visible = true
+	$varna/textbox.text = "You will have to wait a until it's done"
+	item.play("kry_meth")
+	yield(get_tree().create_timer(3.0), "timeout")
+	$varna/textbox.visible = false
+	yield(get_tree().create_timer(7.0), "timeout")
+	item.play("done_meth")
+
+func _methharvest(var i,var grams):
+	if tablenumber == null:
+		pass
+	else:
+		items[i].play("empty_meth")
+		$varna/textbox.visible = true
+		$varna/textbox.text = "You just got " + grams + " meth"
+		yield(get_tree().create_timer(3.0), "timeout")
+		$varna/textbox.visible = false
+
+func _methstart_methharvest(var i, var text):
+	if (items[i].animation == "done_meth"):
+		i+=1
+		_send("methharvest" + text + "$" + varnaID + "$" + String(i))
+		firsttime = "n"
+	elif (items[i].animation == "done1_meth"):
+		i+=1
+		_send("methcontinue" + text + "$" + varnaID + "$" + String(i))
+		firsttime = "n"
+	elif (items[i].animation == "empty_meth"):
+		i+=1
+		_send("methstart" + text + "$" + varnaID + "$" + String(i))
 		firsttime = "n"
 
 func _process(delta):
@@ -120,11 +159,17 @@ func _on_data():
 			_weedstart(items[tablenumber])
 		"weedharvest":
 			_weedharvest(tablenumber,x[1])
+		"methstart":
+			_methstart(items[tablenumber])
+		"methcontinue":
+			_methcontinue(items[tablenumber])
+		"methharvest":
+			_methharvest(tablenumber,x[1])
 		"loadinterior":
 			var m = 1
 			var n = 2
 			for i in _get_table_count(x):
-				items.append(get_node("varna/table"+ String(i) +"/Sprite"))
+				items.append(get_node("varna/table"+ String(i) +"/AnimatedSprite"))
 				_set_item(x[m],x[n],items[i])
 				tablecount = i
 				tableitems.append(x[m])
@@ -150,7 +195,7 @@ func _input(event):
 					"weed":
 						_weedstart_weedharvest(tablenumber,loadd())
 					"meth":
-						pass
+						_methstart_methharvest(tablenumber,loadd())
 					"heroin":
 						pass
 		elif event.scancode == KEY_Q and firsttime == "y":
@@ -197,7 +242,7 @@ func _on_Timer_timeout():
 
 func _on_weed_pressed():
 	_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$weed")
-	items[tablenumber].set_texture(pod)
+	items[tablenumber].play("empty_weed")
 	tableitems[tablenumber] = "weed"
 	$vyber.visible = false
 	$varna.visible = true
@@ -205,15 +250,15 @@ func _on_weed_pressed():
 
 func _on_heroin_pressed():
 	_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$heroin")
-	items[tablenumber].set_texture(null)
+	items[tablenumber].play("empty_heroin")
 	tableitems[tablenumber] = "heroin"
 	$vyber.visible = false
-	$varna.visible = true # Replace with function body.
+	$varna.visible = true 
 
 
 func _on_meth_pressed():
 	_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$meth")
-	items[tablenumber].set_texture(null)
+	items[tablenumber].play("empty_meth")
 	tableitems[tablenumber] = "meth"
 	$vyber.visible = false
-	$varna.visible = true # Replace with function body.
+	$varna.visible = true 
