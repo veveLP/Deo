@@ -33,6 +33,7 @@ func _set_item(var drug, var state, var item):
 	else:
 		match drug:
 			"meth":
+				#_send("methgetstage")
 				item.play("done1_"+drug)
 			"weed":
 				item.play("done_"+drug)
@@ -124,11 +125,11 @@ func _methstart_methharvest(var i, var text):
 		firsttime = "n"
 	elif (items[i].animation == "done1_meth"):
 		i+=1
-		_send("methcontinue" + text + "$" + varnaID + "$" + String(i))
+		_send("methcontinue" + text + "$" + varnaID + "$" + String(i) + "$5")
 		firsttime = "n"
 	elif (items[i].animation == "empty_meth"):
 		i+=1
-		_send("methstart" + text + "$" + varnaID + "$" + String(i))
+		_send("methstart" + text + "$" + varnaID + "$" + String(i) + "$0")
 		firsttime = "n"
 
 func _process(delta):
