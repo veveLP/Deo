@@ -27,21 +27,23 @@ func _ready():
 	varnaID = $varna/player.scene
 	varnaID.erase(0,11)
 
-func _set_item(var drug, var state, var item):
+func _set_item(var drug, var state, var stage, var item):
 	if (state == "0"):
 		item.play("empty_"+drug)
 	else:
 		match drug:
 			"meth":
-				#_send("methgetstage")
-				item.play("done1_"+drug)
+				if(stage == "1"):
+					item.play("done1_"+drug)
+				else:
+					item.play("done_"+drug)
 			"weed":
 				item.play("done_"+drug)
 			"heroine":
 				pass
  
 func _get_table_count(var x):
-	return (x.size()-2)/2
+	return (x.size()-2)/3
 
 func _get_tablenumber():
 	var body = $varna/player/body.get_overlapping_areas()
@@ -169,13 +171,15 @@ func _on_data():
 		"loadinterior":
 			var m = 1
 			var n = 2
+			var o = 3
 			for i in _get_table_count(x):
 				items.append(get_node("varna/table"+ String(i) +"/AnimatedSprite"))
-				_set_item(x[m],x[n],items[i])
+				_set_item(x[m],x[n],x[o],items[i])
 				tablecount = i
 				tableitems.append(x[m])
-				n+=2
-				m+=2
+				n+=3
+				m+=3
+				o+=3
 
 func _send(text):
 	var packet: PoolByteArray = text.to_utf8()
