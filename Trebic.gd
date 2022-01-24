@@ -557,6 +557,14 @@ func _on_nemocnice_input_event(viewport, event, shape_idx):
 				_send("hood" + text + "$6")
 				_send("loaddealers"+text+"$6")
 				$HoodPannel/Timer.start()
+				
+
+func _on_Pole_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			get_tree().change_scene("res://Pole.tscn")
+
+
 
 
 ##############################################################
@@ -785,6 +793,18 @@ func _on_spst_mouse_entered():
 func _on_spst_mouse_exited():
 	$Trebic/spst/Line2D.hide()
 	$Trebic/spst/RichTextLabel.hide()
+	
+func _on_Pole_mouse_entered():
+	$Trebic/Pole/Line2D.points = $Trebic/Pole/CollisionPolygon2D.polygon
+	$Trebic/Pole/Line2D.show()
+	$Trebic/Pole/RichTextLabel.show()
+	$Trebic/Pole/Line2D.default_color = Color.green
+	$Trebic/Pole/RichTextLabel.add_color_override("default_color",Color.green)
+	$Trebic/Pole/RichTextLabel.text = "Pole"
+
+func _on_Pole_mouse_exited():
+	$Trebic/Pole/Line2D.hide()
+	$Trebic/Pole/RichTextLabel.hide()
 
 #####################################################################
 
@@ -957,4 +977,7 @@ func _on_Timer_timeout():
 			$HoodPannel/Dealer1/RichTextLabel.text = "Zbývá: " +str(time[0]) + ":" + str(time[1])
 		else:
 			$HoodPannel/Dealer1/RichTextLabel.text = "Zbývá: " +str(time[0]) + ":0" + str(time[1])
+
+
+
 

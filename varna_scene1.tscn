@@ -6,7 +6,6 @@
 [ext_resource path="res://48x48/Room.png" type="Texture" id=4]
 [ext_resource path="res://assets/WeedMinigameBG.png" type="Texture" id=5]
 [ext_resource path="res://assets/Progressbar.png" type="Texture" id=6]
-[ext_resource path="res://assets/cooking-up.png" type="Texture" id=7]
 [ext_resource path="res://assets/player_map.png" type="Texture" id=8]
 [ext_resource path="res://assets/weed_2.png" type="Texture" id=9]
 [ext_resource path="res://assets/pod.png" type="Texture" id=10]
@@ -149,10 +148,10 @@ flags = 4
 atlas = ExtResource( 8 )
 region = Rect2( 512, 512, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=110]
+[sub_resource type="AtlasTexture" id=112]
 flags = 4
 atlas = ExtResource( 8 )
-region = Rect2( 0, 704, 64, 64 )
+region = Rect2( 0, 576, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=111]
 flags = 4
@@ -168,6 +167,11 @@ region = Rect2( 0, 576, 64, 64 )
 flags = 4
 atlas = ExtResource( 8 )
 region = Rect2( 0, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=110]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 0, 704, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=99]
 flags = 4
@@ -231,9 +235,9 @@ animations = [ {
 "name": "up",
 "speed": 7.0
 }, {
-"frames": [ SubResource( 110 ) ],
+"frames": [ SubResource( 112 ) ],
 "loop": true,
-"name": "standing_right",
+"name": "standing_left",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 111 ) ],
@@ -249,6 +253,11 @@ animations = [ {
 "frames": [ SubResource( 108 ) ],
 "loop": true,
 "name": "standing_up",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 110 ) ],
+"loop": true,
+"name": "standing_right",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ) ],
@@ -1202,8 +1211,6 @@ atlas = ExtResource( 7 )
 region = Rect2( 96, 0, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=51]
-flags = 4
-atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=136]
@@ -1472,24 +1479,22 @@ atlas = ExtResource( 12 )
 region = Rect2( 144, 144, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=66]
-flags = 4
-atlas = ExtResource( 7 )
 region = Rect2( 144, 0, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=67]
-flags = 4
-atlas = ExtResource( 7 )
 region = Rect2( 192, 0, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=68]
-flags = 4
-atlas = ExtResource( 7 )
 region = Rect2( 240, 0, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=69]
-flags = 4
-atlas = ExtResource( 7 )
 region = Rect2( 288, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=70]
+region = Rect2( 48, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=71]
+region = Rect2( 96, 0, 48, 48 )
 
 [sub_resource type="SpriteFrames" id=65]
 animations = [ {
