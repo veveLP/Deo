@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=2]
+[gd_scene load_steps=93 format=2]
 
 [ext_resource path="res://assets/trebic.png" type="Texture" id=1]
 [ext_resource path="res://borovina.gd" type="Script" id=2]
@@ -43,12 +43,40 @@ outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = SubResource( 22 )
 
+[sub_resource type="DynamicFontData" id=64]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=65]
+size = 20
+font_data = SubResource( 64 )
+
 [sub_resource type="DynamicFontData" id=46]
 font_path = "res://DroidSans.ttf"
 
 [sub_resource type="DynamicFont" id=47]
 size = 24
 font_data = SubResource( 46 )
+
+[sub_resource type="DynamicFontData" id=62]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=63]
+size = 20
+font_data = SubResource( 62 )
+
+[sub_resource type="DynamicFontData" id=66]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=67]
+size = 20
+font_data = SubResource( 66 )
+
+[sub_resource type="DynamicFontData" id=68]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=69]
+size = 32
+font_data = SubResource( 68 )
 
 [sub_resource type="Theme" id=1]
 
@@ -247,7 +275,7 @@ __meta__ = {
 }
 
 [node name="Line2D" type="Line2D" parent="Trebic/borovina"]
-points = PoolVector2Array( -1216.28, 524.96, -979.678, 561.929 )
+points = PoolVector2Array( -1038.83, 536.05, -1038.83, 536.05 )
 width = 20.0
 
 [node name="kokain_ctvrt" type="StaticBody2D" parent="Trebic"]
@@ -538,6 +566,34 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="pole" type="StaticBody2D" parent="Trebic"]
+input_pickable = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trebic/pole"]
+process_priority = 1
+position = Vector2( 3.69702, -3.6969 )
+polygon = PoolVector2Array( -3131.27, -1179.31, -3072.12, -1157.13, -2953.82, -1079.49, -2924.25, -1072.1, -2887.28, -1068.4, -2887.28, -1042.53, -2887.28, -1027.74, -2757.89, -975.981, -2739.4, -975.981, -2706.13, -953.8, -2743.1, -890.953, -2754.19, -879.862, -2743.1, -865.074, -2765.28, -831.802, -2761.58, -809.621, -2794.86, -765.258, -2820.73, -713.501, -2835.52, -695.017, -2861.4, -635.867, -2850.31, -584.11, -2879.88, -621.079, -3027.76, -754.167, -3057.34, -809.621, -3112.79, -913.134, -3160.85, -990.769, -3205.21, -1049.92, -3168.24, -1094.28, -3138.67, -1183.01 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Trebic/pole"]
+visible = false
+light_mask = 0
+margin_left = -3009.28
+margin_top = -1338.28
+margin_right = -2444.28
+margin_bottom = -1194.28
+rect_rotation = 29.3922
+custom_colors/default_color = Color( 0.156863, 1, 0.156863, 1 )
+custom_fonts/normal_font = SubResource( 23 )
+text = "Pole"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line2D" type="Line2D" parent="Trebic/pole"]
+points = PoolVector2Array( -1031.43, 550.838, -1031.43, 550.838 )
+width = 20.0
+
 [node name="nemocnice" type="StaticBody2D" parent="Trebic"]
 position = Vector2( -0.000244141, 0 )
 input_pickable = true
@@ -695,31 +751,41 @@ __meta__ = {
 [node name="Dealer1" type="StaticBody2D" parent="DealerVyber"]
 
 [node name="ProfitCut" type="RichTextLabel" parent="DealerVyber/Dealer1"]
-margin_left = 128.0
+margin_left = 272.0
 margin_top = 424.0
-margin_right = 320.0
+margin_right = 336.0
 margin_bottom = 456.0
-text = "Placeholder 1"
+rect_rotation = -0.135484
+custom_fonts/normal_font = SubResource( 65 )
+text = "0
+"
+scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PoliceChance" type="RichTextLabel" parent="DealerVyber/Dealer1"]
-margin_left = 128.0
+margin_left = 272.0
 margin_top = 464.0
-margin_right = 320.0
+margin_right = 336.0
 margin_bottom = 496.0
-text = "Placeholder 2"
+custom_fonts/normal_font = SubResource( 65 )
+text = "0
+"
+scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SellingAmount" type="RichTextLabel" parent="DealerVyber/Dealer1"]
-margin_left = 128.0
-margin_top = 504.0
-margin_right = 320.0
-margin_bottom = 537.0
-text = "Placeholder 3"
+margin_left = 272.0
+margin_top = 503.0
+margin_right = 336.0
+margin_bottom = 536.0
+custom_fonts/normal_font = SubResource( 65 )
+text = "0
+"
+scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -763,6 +829,7 @@ __meta__ = {
 }
 
 [node name="DealerID" type="RichTextLabel" parent="DealerVyber/Dealer1"]
+visible = false
 margin_left = 200.0
 margin_top = 64.0
 margin_right = 240.0
@@ -771,34 +838,70 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label3" type="Label" parent="DealerVyber/Dealer1"]
+margin_left = 100.0
+margin_top = 504.0
+margin_right = 228.0
+margin_bottom = 536.0
+custom_fonts/font = SubResource( 63 )
+text = "Max množství:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="DealerVyber/Dealer1"]
+margin_left = 100.0
+margin_top = 464.0
+margin_right = 254.0
+margin_bottom = 496.0
+custom_fonts/font = SubResource( 63 )
+text = "Šance na chycení:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="DealerVyber/Dealer1"]
+margin_left = 100.0
+margin_top = 424.0
+margin_right = 228.0
+margin_bottom = 456.0
+custom_fonts/font = SubResource( 63 )
+text = "Podíl ze zisku:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Dealer2" type="StaticBody2D" parent="DealerVyber"]
 
 [node name="ProfitCut" type="RichTextLabel" parent="DealerVyber/Dealer2"]
-margin_left = 513.0
+margin_left = 656.0
 margin_top = 424.0
-margin_right = 705.0
+margin_right = 721.0
 margin_bottom = 456.0
-text = "Placeholder 1"
+custom_fonts/normal_font = SubResource( 67 )
+text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PoliceChance" type="RichTextLabel" parent="DealerVyber/Dealer2"]
-margin_left = 513.0
+margin_left = 656.0
 margin_top = 464.0
-margin_right = 705.0
+margin_right = 721.0
 margin_bottom = 496.0
-text = "Placeholder 2"
+custom_fonts/normal_font = SubResource( 67 )
+text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SellingAmount" type="RichTextLabel" parent="DealerVyber/Dealer2"]
-margin_left = 513.0
+margin_left = 656.0
 margin_top = 504.0
-margin_right = 705.0
+margin_right = 721.0
 margin_bottom = 537.0
-text = "Placeholder 3"
+custom_fonts/normal_font = SubResource( 67 )
+text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -842,6 +945,7 @@ __meta__ = {
 }
 
 [node name="DealerID" type="RichTextLabel" parent="DealerVyber/Dealer2"]
+visible = false
 margin_left = 592.0
 margin_top = 64.0
 margin_right = 632.0
@@ -850,34 +954,70 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label3" type="Label" parent="DealerVyber/Dealer2"]
+margin_left = 490.0
+margin_top = 500.0
+margin_right = 620.0
+margin_bottom = 532.0
+custom_fonts/font = SubResource( 63 )
+text = "Max množství:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="DealerVyber/Dealer2"]
+margin_left = 490.0
+margin_top = 460.0
+margin_right = 649.0
+margin_bottom = 492.0
+custom_fonts/font = SubResource( 63 )
+text = "Šance na chycení:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="DealerVyber/Dealer2"]
+margin_left = 490.0
+margin_top = 420.0
+margin_right = 618.0
+margin_bottom = 452.0
+custom_fonts/font = SubResource( 63 )
+text = "Podíl ze zisku:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Dealer3" type="StaticBody2D" parent="DealerVyber"]
 
 [node name="ProfitCut" type="RichTextLabel" parent="DealerVyber/Dealer3"]
-margin_left = 895.0
+margin_left = 1040.0
 margin_top = 424.0
 margin_right = 1087.0
 margin_bottom = 456.0
-text = "Placeholder 1"
+custom_fonts/normal_font = SubResource( 67 )
+text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PoliceChance" type="RichTextLabel" parent="DealerVyber/Dealer3"]
-margin_left = 895.0
+margin_left = 1040.0
 margin_top = 464.0
 margin_right = 1087.0
 margin_bottom = 496.0
-text = "Placeholder 2"
+custom_fonts/normal_font = SubResource( 67 )
+text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SellingAmount" type="RichTextLabel" parent="DealerVyber/Dealer3"]
-margin_left = 895.0
+margin_left = 1040.0
 margin_top = 504.0
 margin_right = 1087.0
 margin_bottom = 537.0
-text = "Placeholder 3"
+custom_fonts/normal_font = SubResource( 67 )
+text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -921,10 +1061,44 @@ __meta__ = {
 }
 
 [node name="DealerID" type="RichTextLabel" parent="DealerVyber/Dealer3"]
+visible = false
 margin_left = 976.0
 margin_top = 72.0
 margin_right = 1016.0
 margin_bottom = 112.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="DealerVyber/Dealer3"]
+margin_left = 874.0
+margin_top = 504.0
+margin_right = 1004.0
+margin_bottom = 536.0
+custom_fonts/font = SubResource( 63 )
+text = "Max množství:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="DealerVyber/Dealer3"]
+margin_left = 874.0
+margin_top = 464.0
+margin_right = 1033.0
+margin_bottom = 496.0
+custom_fonts/font = SubResource( 63 )
+text = "Šance na chycení:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="DealerVyber/Dealer3"]
+margin_left = 874.0
+margin_top = 424.0
+margin_right = 1002.0
+margin_bottom = 456.0
+custom_fonts/font = SubResource( 63 )
+text = "Podíl ze zisku:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -934,18 +1108,24 @@ margin_left = 64.0
 margin_top = 576.0
 margin_right = 385.0
 margin_bottom = 640.0
+custom_fonts/font = SubResource( 69 )
+text = "Najmout"
 
 [node name="ButtonDealer2" type="Button" parent="DealerVyber"]
 margin_left = 448.0
 margin_top = 576.0
 margin_right = 768.0
 margin_bottom = 640.0
+custom_fonts/font = SubResource( 69 )
+text = "Najmout"
 
 [node name="ButtonDealer3" type="Button" parent="DealerVyber"]
 margin_left = 832.0
 margin_top = 576.0
 margin_right = 1152.0
 margin_bottom = 640.0
+custom_fonts/font = SubResource( 69 )
+text = "Najmout"
 
 [node name="ButtonVyberExit" type="Button" parent="DealerVyber"]
 margin_left = 1160.0
@@ -953,6 +1133,9 @@ margin_top = 8.0
 margin_right = 1208.0
 margin_bottom = 28.0
 text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HoodPannel" type="Panel" parent="."]
 margin_left = 322.0
@@ -1197,9 +1380,9 @@ default_color = Color( 0, 0, 0, 1 )
 
 [node name="Dealer2" type="Button" parent="HoodPannel/Dealer2"]
 margin_left = 179.0
-margin_top = 484.0
+margin_top = 480.0
 margin_right = 447.0
-margin_bottom = 746.0
+margin_bottom = 742.0
 rect_scale = Vector2( 0.45, 0.45 )
 expand_icon = true
 __meta__ = {
@@ -1207,10 +1390,10 @@ __meta__ = {
 }
 
 [node name="Drug2" type="Button" parent="HoodPannel/Dealer2"]
-margin_left = 113.0
-margin_top = 546.0
-margin_right = 369.0
-margin_bottom = 802.0
+margin_left = 115.0
+margin_top = 545.0
+margin_right = 371.0
+margin_bottom = 801.0
 rect_scale = Vector2( 0.21, 0.21 )
 expand_icon = true
 __meta__ = {
@@ -1219,7 +1402,7 @@ __meta__ = {
 
 [node name="ProgressBar" type="ProgressBar" parent="HoodPannel/Dealer2"]
 margin_left = 115.0
-margin_top = 608.0
+margin_top = 604.0
 margin_right = 339.0
 margin_bottom = 640.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -1235,7 +1418,7 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="HoodPannel/Dealer2/ProgressBar"]
 margin_right = 224.0
-margin_bottom = 32.0
+margin_bottom = 36.0
 text = "58/100"
 align = 1
 valign = 1
@@ -1255,9 +1438,9 @@ __meta__ = {
 }
 
 [node name="Drug1" type="Button" parent="HoodPannel/Dealer2"]
-margin_left = 113.0
+margin_left = 115.0
 margin_top = 484.0
-margin_right = 369.0
+margin_right = 371.0
 margin_bottom = 740.0
 rect_scale = Vector2( 0.21, 0.21 )
 expand_icon = true
@@ -1325,9 +1508,9 @@ __meta__ = {
 position = Vector2( -2, -4 )
 
 [node name="ProfitCut" type="RichTextLabel" parent="HoodPannel/Dealer1"]
-margin_left = 392.0
+margin_left = 388.0
 margin_top = 480.0
-margin_right = 577.0
+margin_right = 573.0
 margin_bottom = 506.0
 custom_fonts/normal_font = SubResource( 57 )
 text = "Placeholder 1"
@@ -1336,9 +1519,9 @@ __meta__ = {
 }
 
 [node name="PoliceChance" type="RichTextLabel" parent="HoodPannel/Dealer1"]
-margin_left = 392.0
+margin_left = 388.0
 margin_top = 524.0
-margin_right = 587.0
+margin_right = 583.0
 margin_bottom = 551.0
 custom_fonts/normal_font = SubResource( 59 )
 text = "Placeholder 2"
@@ -1347,9 +1530,9 @@ __meta__ = {
 }
 
 [node name="SellingAmount" type="RichTextLabel" parent="HoodPannel/Dealer1"]
-margin_left = 392.0
+margin_left = 388.0
 margin_top = 572.0
-margin_right = 577.0
+margin_right = 573.0
 margin_bottom = 598.0
 custom_fonts/normal_font = SubResource( 61 )
 text = "Placeholder 3"
@@ -1367,7 +1550,7 @@ custom_fonts/font = SubResource( 51 )
 custom_styles/fg = SubResource( 52 )
 custom_styles/bg = SubResource( 53 )
 min_value = 1.0
-value = 50.0
+value = 75.0
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1413,10 +1596,10 @@ points = PoolVector2Array( 169, 414, 510, 414, 510, 630, 174, 630, 174, 414 )
 default_color = Color( 0, 0, 0, 1 )
 
 [node name="Dealer1" type="Button" parent="HoodPannel/Dealer1"]
-margin_left = 264.0
-margin_top = 480.0
-margin_right = 532.0
-margin_bottom = 742.0
+margin_left = 259.0
+margin_top = 484.0
+margin_right = 527.0
+margin_bottom = 746.0
 rect_scale = Vector2( 0.45, 0.45 )
 expand_icon = true
 __meta__ = {
@@ -1425,9 +1608,9 @@ __meta__ = {
 
 [node name="Drug2" type="Button" parent="HoodPannel/Dealer1"]
 margin_left = 198.0
-margin_top = 542.0
+margin_top = 549.0
 margin_right = 454.0
-margin_bottom = 798.0
+margin_bottom = 805.0
 rect_scale = Vector2( 0.21, 0.21 )
 expand_icon = true
 __meta__ = {
@@ -1436,9 +1619,9 @@ __meta__ = {
 
 [node name="Drug1" type="Button" parent="HoodPannel/Dealer1"]
 margin_left = 198.0
-margin_top = 480.0
+margin_top = 487.0
 margin_right = 454.0
-margin_bottom = 736.0
+margin_bottom = 743.0
 rect_scale = Vector2( 0.21, 0.21 )
 expand_icon = true
 __meta__ = {
@@ -1450,7 +1633,7 @@ visible = false
 margin_left = 192.0
 margin_top = 608.0
 margin_right = 578.0
-margin_bottom = 640.0
+margin_bottom = 644.0
 text = "Vyber peníze"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1475,7 +1658,7 @@ margin_left = 424.0
 margin_top = 692.0
 margin_right = 511.0
 margin_bottom = 740.0
-text = "Placeholder"
+text = "Prodat 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1515,7 +1698,7 @@ margin_left = 424.0
 margin_top = 692.0
 margin_right = 514.0
 margin_bottom = 740.0
-text = "Placeholder"
+text = "Prodat 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1556,7 +1739,7 @@ margin_left = 421.0
 margin_top = 688.0
 margin_right = 511.0
 margin_bottom = 736.0
-text = "Placeholder"
+text = "Prodat 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1596,7 +1779,7 @@ margin_left = 933.0
 margin_top = 688.0
 margin_right = 1023.0
 margin_bottom = 736.0
-text = "Placeholder"
+text = "Prodat 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2356,6 +2539,9 @@ scroll_active = false
 [connection signal="mouse_entered" from="Trebic/prumyslova" to="Trebic/prumyslova" method="_on_prumyslova_mouse_entered"]
 [connection signal="mouse_exited" from="Trebic/prumyslova" to="." method="_on_prumyslova_mouse_exited"]
 [connection signal="mouse_exited" from="Trebic/prumyslova" to="Trebic/prumyslova" method="_on_prumyslova_mouse_exited"]
+[connection signal="input_event" from="Trebic/pole" to="." method="_on_pole_input_event"]
+[connection signal="mouse_entered" from="Trebic/pole" to="." method="_on_pole_mouse_entered"]
+[connection signal="mouse_exited" from="Trebic/pole" to="." method="_on_pole_mouse_exited"]
 [connection signal="input_event" from="Trebic/nemocnice" to="." method="_on_nemocnice_input_event"]
 [connection signal="mouse_entered" from="Trebic/nemocnice" to="." method="_on_nemocnice_mouse_entered"]
 [connection signal="mouse_entered" from="Trebic/nemocnice" to="Trebic/nemocnice" method="_on_nemocnice_mouse_entered"]

@@ -85,6 +85,8 @@ func _on_data():
 		$HoodPannel/Dealer2/PoliceChance.visible = true
 		$HoodPannel/Dealer2/SellingAmount.visible = true
 		$HoodPannel/Dealer2/ProfitCut.visible = true
+		$HoodPannel/Dealer1/Dealer1.disabled = true
+		
 		
 		var fileJSON = File.new()
 		fileJSON.open("res://assets/dealeri.json", fileJSON.READ)
@@ -99,6 +101,7 @@ func _on_data():
 			$HoodPannel/Dealer1/SellingAmount.visible = false
 			$HoodPannel/Dealer1/ProfitCut.visible = false
 			$HoodPannel/Dealer1/Dealer1.icon = load("res://assets/none.png") 
+			
 		else:
 			
 			match (json_result[x[9]][x[7]]["drugs"][0]):
@@ -150,7 +153,9 @@ func _on_data():
 			$HoodPannel/Dealer2/SellingAmount.visible = false
 			$HoodPannel/Dealer2/ProfitCut.visible = false
 			$HoodPannel/Dealer2/Dealer2.icon = load("res://assets/none.png") 
+			
 		else:
+			
 			$HoodPannel/Dealer2/ProfitCut.text = "Podíl ze zisku: "+str(json_result[x[9]][x[8]]["profit_cut"])
 			$HoodPannel/Dealer2/PoliceChance.text = "Šance na chycení: "+str(json_result[x[9]][x[8]]["police_chance"])
 			$HoodPannel/Dealer2/SellingAmount.text = "Max množství: "+str(json_result[x[9]][x[8]]["selling_amount"])
@@ -557,6 +562,13 @@ func _on_nemocnice_input_event(viewport, event, shape_idx):
 				_send("hood" + text + "$6")
 				_send("loaddealers"+text+"$6")
 				$HoodPannel/Timer.start()
+				
+
+func _on_pole_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			get_tree().change_scene("res://pole.tscn")
+
 
 
 ##############################################################
@@ -785,6 +797,20 @@ func _on_spst_mouse_entered():
 func _on_spst_mouse_exited():
 	$Trebic/spst/Line2D.hide()
 	$Trebic/spst/RichTextLabel.hide()
+	
+func _on_pole_mouse_entered():
+	$Trebic/pole/Line2D.points = $Trebic/pole/CollisionPolygon2D.polygon
+	$Trebic/pole/Line2D.show()
+	$Trebic/pole/RichTextLabel.show()
+	$Trebic/pole/Line2D.default_color = Color.green
+	$Trebic/pole/RichTextLabel.add_color_override("default_color",Color.green)
+	$Trebic/pole/RichTextLabel.text = "Pole"
+	
+
+
+func _on_pole_mouse_exited():
+	$Trebic/pole/Line2D.hide()
+	$Trebic/pole/RichTextLabel.hide()
 
 #####################################################################
 
@@ -798,17 +824,19 @@ func _on_ExitButtonNo_pressed():
 #####################################################################
 
 
-
-
-
-
 func _on_Dealer1_pressed():
+	if $HoodPannel/Dealer1/Dealer1.icon != load("res://assets/none.png"): 
+		OS.alert("debug")
+		return
 	$HoodPannel.visible = false
 	$DealerVyber.visible = true
 	var text = loadd()
 	_send("showdealers"+ text + "$" +$HoodPannel/HoodiD.text)
 
 func _on_Dealer2_pressed():
+	if $HoodPannel/Dealer2/Dealer2.icon != load("res://assets/none.png"): 
+		OS.alert("debug")
+		return
 	$HoodPannel.visible = false
 	$DealerVyber.visible = true
 	var text = loadd()
@@ -818,7 +846,7 @@ func _on_Dealer2_pressed():
 
 
 func _on_ButtonVyberExit_pressed():
-	$HoodPannel.visible = true
+	#$HoodPannel.visible = true
 	$DealerVyber.visible = false
 
 
@@ -957,4 +985,8 @@ func _on_Timer_timeout():
 			$HoodPannel/Dealer1/RichTextLabel.text = "Zbývá: " +str(time[0]) + ":" + str(time[1])
 		else:
 			$HoodPannel/Dealer1/RichTextLabel.text = "Zbývá: " +str(time[0]) + ":0" + str(time[1])
+
+
+
+
 

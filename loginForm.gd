@@ -85,9 +85,4 @@ func login():
 
 
 func _on_Button2_pressed():
-	print($Panel/LineEdit.text)
-	print($Panel/LineEdit2.text)
-	var password = $Panel/LineEdit2.text
-	print(password.sha256_text())
-	password = password.sha256_text()
-	_send("registration$"+$Panel/LineEdit.text+"$"+password)
+	OS.alert("Registerace je aktálně možná pouze na www.deo.jecool.net")
