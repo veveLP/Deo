@@ -1,4 +1,4 @@
-[gd_scene load_steps=155 format=2]
+[gd_scene load_steps=158 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://varna_scene.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://assets/weed_1.png" type="Texture" id=11]
 [ext_resource path="res://assets/destilace.png" type="Texture" id=12]
 [ext_resource path="res://assets/krystalizace.png" type="Texture" id=13]
+[ext_resource path="res://assets/kokot.png" type="Texture" id=14]
 
 [sub_resource type="AtlasTexture" id=72]
 flags = 4
@@ -1554,6 +1555,12 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="StyleBoxFlat" id=167]
+bg_color = Color( 0.121569, 0.109804, 0.819608, 1 )
+
+[sub_resource type="StyleBoxFlat" id=168]
+bg_color = Color( 1, 1, 1, 1 )
+
 [node name="varna_scene1" type="Node2D"]
 position = Vector2( 731, 442 )
 script = ExtResource( 2 )
@@ -1709,6 +1716,7 @@ __meta__ = {
 visible = false
 position = Vector2( 231, 114 )
 scale = Vector2( 2.8, 2.8 )
+z_index = 4
 texture = ExtResource( 5 )
 
 [node name="ButtonSelect" type="Button" parent="WeedMinigame"]
@@ -1720,9 +1728,6 @@ text = "Select"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Timer" type="Timer" parent="WeedMinigame"]
-wait_time = 0.05
 
 [node name="Sprite" type="Sprite" parent="WeedMinigame"]
 position = Vector2( 0, -80.5357 )
@@ -1742,6 +1747,46 @@ percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TimerWeed" type="Timer" parent="WeedMinigame"]
+wait_time = 0.05
+
+[node name="MethMinigame" type="Sprite" parent="."]
+visible = false
+position = Vector2( 243, 116 )
+scale = Vector2( 2.21242, 2.21242 )
+z_index = 4
+texture = ExtResource( 14 )
+
+[node name="ProgressBar" type="ProgressBar" parent="MethMinigame"]
+margin_left = -32.0
+margin_top = 23.0
+margin_right = 47.0
+margin_bottom = 86.0
+rect_rotation = -89.9999
+custom_styles/fg = SubResource( 167 )
+custom_styles/bg = SubResource( 168 )
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="MethMinigame"]
+margin_left = -32.5436
+margin_top = 30.7356
+margin_right = 30.4564
+margin_bottom = 50.7356
+text = "press"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimerMeth" type="Timer" parent="MethMinigame"]
+wait_time = 0.05
+
+[node name="HeroinMinigame" type="Sprite" parent="."]
+visible = false
 
 [node name="vyber" type="Panel" parent="."]
 visible = false
@@ -1783,11 +1828,54 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="MethMinigame2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 231, 110 )
+scale = Vector2( 2.8, 2.8 )
+z_index = 4
+texture = ExtResource( 5 )
+
+[node name="Button2" type="Button" parent="MethMinigame2"]
+margin_left = -52.0
+margin_top = 59.0
+margin_right = 54.0
+margin_bottom = 86.0
+text = "Press"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="MethMinigame2"]
+position = Vector2( 0, -80.5357 )
+scale = Vector2( 1.77857, 0.928571 )
+texture = ExtResource( 6 )
+
+[node name="ProgressBar" type="ProgressBar" parent="MethMinigame2"]
+modulate = Color( 1, 1, 1, 0.392157 )
+margin_left = -91.0
+margin_top = -85.0
+margin_right = 91.0
+margin_bottom = -76.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimerMeth2" type="Timer" parent="MethMinigame2"]
+wait_time = 0.05
 
 [connection signal="body_entered" from="varna/leave" to="." method="_on_leave_body_entered"]
 [connection signal="pressed" from="WeedMinigame/ButtonSelect" to="." method="_on_ButtonSelect_pressed"]
-[connection signal="timeout" from="WeedMinigame/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="WeedMinigame/TimerWeed" to="." method="_on_TimerWeed_timeout"]
+[connection signal="button_down" from="MethMinigame/Button" to="." method="_on_Button_button_down"]
+[connection signal="button_up" from="MethMinigame/Button" to="." method="_on_Button_button_up"]
+[connection signal="timeout" from="MethMinigame/TimerMeth" to="." method="_on_TimerMeth_timeout"]
 [connection signal="pressed" from="vyber/weed" to="." method="_on_weed_pressed"]
 [connection signal="pressed" from="vyber/heroin" to="." method="_on_heroin_pressed"]
 [connection signal="pressed" from="vyber/meth" to="." method="_on_meth_pressed"]
+[connection signal="button_down" from="MethMinigame2/Button2" to="." method="_on_Button2_button_down"]
+[connection signal="button_up" from="MethMinigame2/Button2" to="." method="_on_Button2_button_up"]
+[connection signal="timeout" from="MethMinigame2/TimerMeth2" to="." method="_on_TimerMeth2_timeout"]
