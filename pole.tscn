@@ -1,0 +1,726 @@
+[gd_scene load_steps=49 format=2]
+
+[ext_resource path="res://player.gd" type="Script" id=1]
+[ext_resource path="res://assets/player_map.png" type="Texture" id=2]
+[ext_resource path="res://pole.gd" type="Script" id=3]
+[ext_resource path="res://assets/money.png" type="Texture" id=4]
+
+[sub_resource type="AtlasTexture" id=72]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=73]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 64, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=74]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 128, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=75]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 192, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=76]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 256, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=77]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 320, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=78]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 384, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=79]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 448, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=80]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 512, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=81]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 704, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=82]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 64, 704, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=83]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 128, 704, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=84]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 192, 704, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=85]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 256, 704, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=86]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 320, 704, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=87]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 384, 704, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=88]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 448, 704, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=89]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 512, 704, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=90]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=91]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 64, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=92]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 128, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=93]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 192, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=94]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 256, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=95]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 320, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=96]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 384, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=97]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 448, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=98]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 512, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=111]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 640, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=112]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=99]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 640, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=100]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 64, 640, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=101]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 128, 640, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=102]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 192, 640, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=103]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 256, 640, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=104]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 320, 640, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=105]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 384, 640, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=106]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 448, 640, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=107]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 512, 640, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=110]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 704, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=108]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 512, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=113]
+animations = [ {
+"frames": [ SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ) ],
+"loop": true,
+"name": "left",
+"speed": 7.0
+}, {
+"frames": [ SubResource( 81 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ), SubResource( 89 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 90 ), SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 95 ), SubResource( 96 ), SubResource( 97 ), SubResource( 98 ) ],
+"loop": true,
+"name": "up",
+"speed": 7.0
+}, {
+"frames": [ SubResource( 111 ) ],
+"loop": true,
+"name": "standing_down",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 112 ) ],
+"loop": true,
+"name": "standing_left",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ) ],
+"loop": true,
+"name": "down",
+"speed": 7.0
+}, {
+"frames": [ SubResource( 110 ) ],
+"loop": true,
+"name": "standing_right",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 108 ) ],
+"loop": true,
+"name": "standing_up",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=114]
+extents = Vector2( 15.0938, 10.75 )
+
+[sub_resource type="RectangleShape2D" id=115]
+extents = Vector2( 21, 7.5 )
+
+[sub_resource type="SpriteFrames" id=116]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="player" type="KinematicBody2D" parent="."]
+position = Vector2( -120, -192 )
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="player"]
+position = Vector2( 216, 434 )
+scale = Vector2( 1.07812, 1.07812 )
+z_index = 2
+frames = SubResource( 113 )
+animation = "standing_up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2( 216, 459 )
+z_index = 2
+shape = SubResource( 114 )
+
+[node name="body" type="Area2D" parent="player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/body"]
+position = Vector2( 216, 458 )
+z_index = 2
+shape = SubResource( 114 )
+
+[node name="leave" type="Area2D" parent="."]
+position = Vector2( -120, -192 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leave"]
+position = Vector2( 216, 490.5 )
+z_index = 3
+shape = SubResource( 115 )
+
+[node name="Pole1" type="Node2D" parent="."]
+
+[node name="slot2" type="Area2D" parent="Pole1"]
+position = Vector2( 136, 712 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole1/slot2"]
+position = Vector2( 216, 152 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole1/slot2"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -175, -105, 210, -105, 210, 175, -175, 175 )
+
+[node name="slot1" type="Area2D" parent="Pole1"]
+position = Vector2( 72, 712 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole1/slot1"]
+position = Vector2( 216, 152 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole1/slot1"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -280, -105, 105, -105, 105, 175, -280, 175 )
+
+[node name="Pole2" type="Node2D" parent="."]
+
+[node name="slot3" type="Area2D" parent="Pole2"]
+position = Vector2( 456, 712 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole2/slot3"]
+position = Vector2( 216, 152 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole2/slot3"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -280, -105, 105, -105, 105, 175, -280, 175 )
+
+[node name="slot4" type="Area2D" parent="Pole2"]
+position = Vector2( 520, 712 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole2/slot4"]
+position = Vector2( 216, 152 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole2/slot4"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -175, -105, 210, -105, 210, 175, -175, 175 )
+
+[node name="slot5" type="Area2D" parent="Pole2"]
+position = Vector2( 464, 656 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole2/slot5"]
+position = Vector2( 208, 144 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole2/slot5"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -315, -140, 70, -140, 70, 140, -315, 140 )
+
+[node name="slot6" type="Area2D" parent="Pole2"]
+position = Vector2( 552, 656 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole2/slot6"]
+position = Vector2( 184, 144 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole2/slot6"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -315, -140, 70, -140, 70, 140, -315, 140 )
+
+[node name="Pole3" type="Node2D" parent="."]
+
+[node name="slot7" type="Area2D" parent="Pole3"]
+position = Vector2( 456, 520 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole3/slot7"]
+position = Vector2( 216, 152 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole3/slot7"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -280, -105, 105, -105, 105, 175, -280, 175 )
+
+[node name="slot8" type="Area2D" parent="Pole3"]
+position = Vector2( 520, 520 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole3/slot8"]
+position = Vector2( 216, 152 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole3/slot8"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -175, -105, 210, -105, 210, 175, -175, 175 )
+
+[node name="slot9" type="Area2D" parent="Pole3"]
+position = Vector2( 464, 464 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole3/slot9"]
+position = Vector2( 208, 144 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole3/slot9"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -315, -140, 70, -140, 70, 140, -315, 140 )
+
+[node name="slot10" type="Area2D" parent="Pole3"]
+position = Vector2( 552, 464 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole3/slot10"]
+position = Vector2( 184, 144 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole3/slot10"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -315, -140, 70, -140, 70, 140, -315, 140 )
+
+[node name="slot11" type="Area2D" parent="Pole3"]
+position = Vector2( 464, 400 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole3/slot11"]
+position = Vector2( 208, 144 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole3/slot11"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -315, -140, 70, -140, 70, 140, -315, 140 )
+
+[node name="slot12" type="Area2D" parent="Pole3"]
+position = Vector2( 552, 400 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole3/slot12"]
+position = Vector2( 184, 144 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole3/slot12"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -315, -140, 70, -140, 70, 140, -315, 140 )
+
+[node name="Pole4" type="Node2D" parent="."]
+position = Vector2( -320, 64 )
+
+[node name="slot13" type="Area2D" parent="Pole4"]
+position = Vector2( 392, 520 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole4/slot13"]
+position = Vector2( 216, 152 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole4/slot13"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -280, -105, 105, -105, 105, 175, -280, 175 )
+
+[node name="slot14" type="Area2D" parent="Pole4"]
+position = Vector2( 456, 520 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole4/slot14"]
+position = Vector2( 216, 152 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole4/slot14"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -175, -105, 210, -105, 210, 175, -175, 175 )
+
+[node name="slot15" type="Area2D" parent="Pole4"]
+position = Vector2( 400, 464 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole4/slot15"]
+position = Vector2( 208, 144 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole4/slot15"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -315, -140, 70, -140, 70, 140, -315, 140 )
+
+[node name="slot16" type="Area2D" parent="Pole4"]
+position = Vector2( 488, 464 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole4/slot16"]
+position = Vector2( 184, 144 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole4/slot16"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -315, -140, 70, -140, 70, 140, -315, 140 )
+
+[node name="slot17" type="Area2D" parent="Pole4"]
+position = Vector2( 400, 400 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole4/slot17"]
+position = Vector2( 208, 144 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole4/slot17"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -315, -140, 70, -140, 70, 140, -315, 140 )
+
+[node name="slot18" type="Area2D" parent="Pole4"]
+position = Vector2( 488, 400 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole4/slot18"]
+position = Vector2( 184, 144 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole4/slot18"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -315, -140, 70, -140, 70, 140, -315, 140 )
+
+[node name="slot19" type="Area2D" parent="Pole4"]
+position = Vector2( 400, 336 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole4/slot19"]
+position = Vector2( 208, 144 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole4/slot19"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -315, -140, 70, -140, 70, 140, -315, 140 )
+
+[node name="slot20" type="Area2D" parent="Pole4"]
+position = Vector2( 488, 336 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole4/slot20"]
+position = Vector2( 184, 144 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole4/slot20"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -315, -140, 70, -140, 70, 140, -315, 140 )
+
+[node name="Pole5" type="Node2D" parent="."]
+
+[node name="slot21" type="Area2D" parent="Pole5"]
+position = Vector2( 72, 264 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole5/slot21"]
+position = Vector2( 216, 152 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole5/slot21"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -175, -105, 105, -105, 105, 280, -175, 280 )
+
+[node name="slot22" type="Area2D" parent="Pole5"]
+position = Vector2( 80, 208 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole5/slot22"]
+position = Vector2( 208, 144 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole5/slot22"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -210, -280, 70, -280, 70, 140, -210, 140 )
+
+[node name="slot23" type="Area2D" parent="Pole5"]
+position = Vector2( 136, 264 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole5/slot23"]
+position = Vector2( 216, 152 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole5/slot23"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -175, -105, 105, -105, 105, 280, -175, 280 )
+
+[node name="slot24" type="Area2D" parent="Pole5"]
+position = Vector2( 168, 208 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole5/slot24"]
+position = Vector2( 184, 144 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole5/slot24"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -315, -280, -35, -280, -35, 140, -315, 140 )
+
+[node name="slot25" type="Area2D" parent="Pole5"]
+position = Vector2( 200, 264 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole5/slot25"]
+position = Vector2( 216, 152 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole5/slot25"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -175, -105, 105, -105, 105, 280, -175, 280 )
+
+[node name="slot26" type="Area2D" parent="Pole5"]
+position = Vector2( 232, 208 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole5/slot26"]
+position = Vector2( 184, 144 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole5/slot26"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -315, -280, -35, -280, -35, 140, -315, 140 )
+
+[node name="slot27" type="Area2D" parent="Pole5"]
+position = Vector2( 392, 264 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole5/slot27"]
+position = Vector2( 216, 152 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole5/slot27"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -175, -105, 105, -105, 105, 280, -175, 280 )
+
+[node name="slot28" type="Area2D" parent="Pole5"]
+position = Vector2( 400, 208 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole5/slot28"]
+position = Vector2( 208, 144 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole5/slot28"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -210, -280, 70, -280, 70, 140, -210, 140 )
+
+[node name="slot29" type="Area2D" parent="Pole5"]
+position = Vector2( 456, 264 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole5/slot29"]
+position = Vector2( 216, 152 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole5/slot29"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -175, -105, 105, -105, 105, 280, -175, 280 )
+
+[node name="slot30" type="Area2D" parent="Pole5"]
+position = Vector2( 488, 208 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole5/slot30"]
+position = Vector2( 184, 144 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole5/slot30"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -315, -280, -35, -280, -35, 140, -315, 140 )
+
+[node name="slot31" type="Area2D" parent="Pole5"]
+position = Vector2( 520, 264 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole5/slot31"]
+position = Vector2( 216, 152 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole5/slot31"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -175, -105, 105, -105, 105, 280, -175, 280 )
+
+[node name="slot32" type="Area2D" parent="Pole5"]
+position = Vector2( 552, 208 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pole5/slot32"]
+position = Vector2( 184, 144 )
+scale = Vector2( 0.171429, 0.342857 )
+frames = SubResource( 116 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pole5/slot32"]
+position = Vector2( 224, 144 )
+scale = Vector2( 0.228571, 0.228571 )
+polygon = PoolVector2Array( -315, -280, -35, -280, -35, 140, -315, 140 )
+
+[connection signal="body_exited" from="leave" to="." method="_on_leave_body_exited"]
