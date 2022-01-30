@@ -846,7 +846,7 @@ func _on_Dealer2_pressed():
 
 
 func _on_ButtonVyberExit_pressed():
-	#$HoodPannel.visible = true
+	$HoodPannel.visible = true
 	$DealerVyber.visible = false
 
 

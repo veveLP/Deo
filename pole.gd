@@ -21,39 +21,35 @@ func _on_leave_body_exited(body):
 	get_tree().change_scene("res://Trebic.tscn")
 	
 
+var tablenumber = null
+var tablecount = 32
+var tableitems = []
+var firsttime = "y"
 
-func _on_Button_button_down():
-	if timer < 4:
-		$MethMinigameMake/Timer.start()
-	
-
-func _on_Button_button_up():
-	$MethMinigameMake/Timer.stop()
-	if timer < 4:
-		pole[timer] = count
-		count = 0
-		#$Label.text = str($ProgressBar.value)
-		timer += 1
-		if timer == 4:
-			print(str(pole[0]) +","+ str(pole[1]) +","+ str(pole[2]) +","+ str(pole[3]))
-			for i in 4:
-				error += abs(25-pole[i])
-			if(error <= 3):
-				print("0")
-			elif(error <= 6):
-				print("1")
-			elif(error <= 10):
-				print("2")
-			elif(error <= 15):
-				print("3")
-			elif(error <= 20):
-				print("4")
-			else:
-				print("5")
+func _get_tablenumber():
+	var body = $player/body.get_overlapping_areas()
+	tablenumber = null
+	if (body.size()==0):
+		pass
+	else:
+		var table = body[0]
+		for i in tablecount+1:
+			if(table.name == "slot" + String(i)):
+				tablenumber = i
+				OS.alert(str(tablenumber))
+				print(str(tablenumber))
+				break
 
 
-func _on_Timer_timeout():
-	if($MethMinigameMake/ProgressBar.value > 99):
-		$MethMinigameMake/Timer.stop()
-	$MethMinigameMake/ProgressBar.value += 1
-	count+= 1
+func _input(event):
+	if event is InputEventKey:
+		if event.scancode == KEY_E and firsttime == "y":
+			firsttime = "n"
+			_get_tablenumber()
+			if tablenumber == null:
+				pass
+		else:
+			firsttime = "y"
+
+
+
