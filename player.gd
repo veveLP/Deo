@@ -7,7 +7,7 @@ extends KinematicBody2D
 
 var scene
 var moving = false
-var dir = ""
+var dir = "up"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	scene = String(get_tree().get_current_scene().get_name())
