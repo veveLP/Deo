@@ -1,4 +1,5 @@
 extends Node2D
+
 export var SOCKET_URL = "ws://194.15.112.30:6988"
 var client = WebSocketClient.new()
 func _ready():
@@ -6,7 +7,7 @@ func _ready():
 	#print (loaded)
 	var x = loaded.split("$")
 	#print (x[1])
-	$Panel/LineEdit.text = x[1]
+	
 	client.connect("connection_closed", self, "_on_connection_closed")
 	client.connect("connection_error", self, "_on_connection_closed")
 	client.connect("connection_established", self, "_on_connected")
@@ -16,12 +17,15 @@ func _ready():
 	if err != OK:
 		print("Unable to connect")
 		set_process(false)
+	_send("loadpole" +text)
+
 func _process(delta):
 	client.poll()
 func _on_connection_closed(was_clean = false):
 	print("Closed, clean: ", was_clean)
 	set_process(false)
 
+var text = loadd()
 
 func _on_connected(proto = ""):
 	pass
@@ -29,24 +33,8 @@ func _on_connected(proto = ""):
 func _on_data():
 	var payload = client.get_peer(1).get_packet().get_string_from_utf8()
 	print("Received data: ", payload)
-	if payload == "error 0x01":
-		print ("cancel login")
-		OS.alert("Zadal jsi špatné údaje")
-	elif payload == "error 0x06":
-		print ("cancel login")
-		OS.alert("Tento uživatel je již registrovaný")
-	else:
-		print("login succesfull")
-		var password = $Panel/LineEdit2.text
-		print(password.sha256_text())
-		password = password.sha256_text()
-		password = password.left(10)
-		save("$"+$Panel/LineEdit.text+"$"+password)
-		get_tree().change_scene("res://Trebic.tscn")
-		if (check):
-			OS.window_fullscreen = true
-		else:
-			OS.window_size = Vector2(1920,1080)
+	print(payload)
+	
 
 
 func _send(text):
@@ -65,25 +53,54 @@ func save(content):
 	file.store_string(content)
 	file.close()
 var check = false
-func _on_Button_pressed():
-	login()
-func _on_CheckBox_toggled(button_pressed):
-	if (check):
-		check = false
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
+var timer = 0
+var count = 0
+var pole = [0,0,0,0]
+var error = 0
+
+# Called when the node enters the scene tree for the first time.
+
+
+func _on_leave_body_exited(body):
+	get_tree().change_scene("res://Trebic.tscn")
+	
+
+var tablenumber = null
+var tablecount = 32
+var tableitems = []
+var firsttime = "y"
+
+func _get_tablenumber():
+	var body = $player/body.get_overlapping_areas()
+	tablenumber = null
+	if (body.size()==0):
+		pass
 	else:
-		check = true
-func _on_LineEdit2_text_entered(new_text):
-	login()
-func login():
-	print($Panel/LineEdit.text)
-	print($Panel/LineEdit2.text)
-	var password = $Panel/LineEdit2.text
-	print(password.sha256_text())
-	password = password.sha256_text()
-	password = password.left(10)
-	_send("loadmap$" + $Panel/LineEdit.text + "$" + password)
+		var table = body[0]
+		for i in tablecount+1:
+			if(table.name == "slot" + String(i)):
+				tablenumber = i
+				OS.alert(str(tablenumber))
+				print(str(tablenumber))
+				#_send(makoviceharvest$nickname$<pass>$cislomakovice)
+				_send("makoviceharvest" +text+ "$"+str(tablenumber))
+				
+				
+				break
 
 
-func _on_Button2_pressed():
-	OS.shell_open("https://deo.jecool.net/registration.php")
-	#OS.alert("Registerace je aktálně možná pouze na www.deo.jecool.net")
+func _input(event):
+	if event is InputEventKey:
+		if event.scancode == KEY_E and firsttime == "y":
+			firsttime = "n"
+			_get_tablenumber()
+			if tablenumber == null:
+				pass
+		else:
+			firsttime = "y"
+
+
+
