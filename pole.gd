@@ -3,6 +3,11 @@ extends Node2D
 export var SOCKET_URL = "ws://194.15.112.30:6988"
 var client = WebSocketClient.new()
 func _ready():
+	var loaded = loadd()
+	#print (loaded)
+	var x = loaded.split("$")
+	#print (x[1])
+	
 	client.connect("connection_closed", self, "_on_connection_closed")
 	client.connect("connection_error", self, "_on_connection_closed")
 	client.connect("connection_established", self, "_on_connected")
