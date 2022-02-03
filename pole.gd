@@ -3,11 +3,6 @@ extends Node2D
 export var SOCKET_URL = "ws://194.15.112.30:6988"
 var client = WebSocketClient.new()
 func _ready():
-	var loaded = loadd()
-	#print (loaded)
-	var x = loaded.split("$")
-	#print (x[1])
-	
 	client.connect("connection_closed", self, "_on_connection_closed")
 	client.connect("connection_error", self, "_on_connection_closed")
 	client.connect("connection_established", self, "_on_connected")
@@ -33,7 +28,7 @@ func _on_connected(proto = ""):
 	var text = loadd()
 	print("Connected with protocol: ", proto)
 	_send("loadpole" +text)
-
+	
 func _on_data():
 	var payload = client.get_peer(1).get_packet().get_string_from_utf8()
 	print("Received data: ", payload)
@@ -45,6 +40,8 @@ func _on_data():
 			for i in unlocked:
 				if(int(x[i+1])<timestamp):
 					fieldsprites[i+1].frame = 12
+				else:
+					_set_sprite_frame(int(x[i+1])-timestamp,fieldsprites[i+1])
 		"error", "successful":
 			pass
 		_:
@@ -82,6 +79,11 @@ var fieldnumber = null
 var fieldcount = 32
 var fieldsprites = [0]
 var firsttime = "y"
+
+func _set_sprite_frame(var time, var sprite):
+	time*=0.52
+	time=13-time
+	sprite.frame = int(time)
 
 func _loadpole(var level):
 	match level:
