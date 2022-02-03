@@ -17,48 +17,58 @@ func _ready():
 	if err != OK:
 		print("Unable to connect")
 		set_process(false)
-	_send("loadpole" +text)
+	_gen_fieldsprites()
 
 func _process(delta):
 	client.poll()
+
 func _on_connection_closed(was_clean = false):
 	print("Closed, clean: ", was_clean)
 	set_process(false)
 
 var text = loadd()
+var timestamp
 
 func _on_connected(proto = ""):
-	pass
+	var text = loadd()
+	print("Connected with protocol: ", proto)
+	_send("loadpole" +text)
 
 func _on_data():
 	var payload = client.get_peer(1).get_packet().get_string_from_utf8()
 	print("Received data: ", payload)
-	print(payload)
-	
-
+	var x = payload.split("$")
+	match x[0]:
+		"loadpole":
+			_loadpole(x[1])
+		"loadsektorpole":
+			for i in unlocked:
+				if(int(x[i+1])<timestamp):
+					fieldsprites[i+1].frame = 12
+		"error", "successful":
+			pass
+		_:
+			timestamp = int(x[0])
 
 func _send(text):
 	var packet: PoolByteArray = text.to_utf8()
 	print("Sending: " + text)
 	client.get_peer(1).put_packet(packet)
+
 func loadd():
 	var file = File.new()
 	file.open("res://save_game.dat", File.READ)
 	var content = file.get_line()
 	file.close()
 	return content
+
 func save(content):
 	var file = File.new()
 	file.open("res://save_game.dat", File.WRITE)
 	file.store_string(content)
 	file.close()
+
 var check = false
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-var timer = 0
-var count = 0
-var pole = [0,0,0,0]
 var error = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -67,28 +77,59 @@ var error = 0
 func _on_leave_body_exited(body):
 	get_tree().change_scene("res://Trebic.tscn")
 	
-
-var tablenumber = null
-var tablecount = 32
-var tableitems = []
+var unlocked
+var fieldnumber = null
+var fieldcount = 32
+var fieldsprites = [0]
 var firsttime = "y"
 
-func _get_tablenumber():
+func _loadpole(var level):
+	match level:
+		"1":
+			unlocked=2
+		"2":
+			unlocked=6
+		"3":
+			unlocked=12
+		"4":
+			unlocked=20
+		"5":
+			unlocked=32
+	for i in unlocked:
+		_grow_field(fieldsprites[i+1])
+	_send("getservertimestamp" + text)
+	_send("loadsektorpole" + text + "$" + level)
+
+func _gen_fieldsprites():
+	for i in 32:
+		match i+1:
+			1, 2:
+				fieldsprites.append(get_node("Pole1/slot"+ String(i+1) +"/AnimatedSprite"))
+			3, 4, 5, 6:
+				fieldsprites.append(get_node("Pole2/slot"+ String(i+1) +"/AnimatedSprite"))
+			7, 8, 9, 10, 11, 12:
+				fieldsprites.append(get_node("Pole3/slot"+ String(i+1) +"/AnimatedSprite"))
+			13, 14, 15, 16, 17, 18, 19, 20:
+				fieldsprites.append(get_node("Pole4/slot"+ String(i+1) +"/AnimatedSprite"))
+			21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32:
+				fieldsprites.append(get_node("Pole5/slot"+ String(i+1) +"/AnimatedSprite"))
+
+func _grow_field(var x):
+	x.playing = true
+	while(x.get_frame() != 12):
+		yield(get_tree().create_timer(0.5), "timeout")
+	x.playing=false
+
+func _get_fieldnumber():
 	var body = $player/body.get_overlapping_areas()
-	tablenumber = null
+	fieldnumber = null
 	if (body.size()==0):
 		pass
 	else:
-		var table = body[0]
-		for i in tablecount+1:
-			if(table.name == "slot" + String(i)):
-				tablenumber = i
-				OS.alert(str(tablenumber))
-				print(str(tablenumber))
-				#_send(makoviceharvest$nickname$<pass>$cislomakovice)
-				_send("makoviceharvest" +text+ "$"+str(tablenumber))
-				
-				
+		var field = body[0]
+		for i in fieldcount+1:
+			if(field.name == "slot" + String(i)):
+				fieldnumber = i
 				break
 
 
@@ -96,11 +137,12 @@ func _input(event):
 	if event is InputEventKey:
 		if event.scancode == KEY_E and firsttime == "y":
 			firsttime = "n"
-			_get_tablenumber()
-			if tablenumber == null:
-				pass
+			_get_fieldnumber()
+			if fieldnumber != null:
+				if fieldsprites[fieldnumber].get_frame()==12:
+					_send("makoviceharvest" + text + "$" + String(fieldnumber))
+					fieldsprites[fieldnumber].frame = 0
+					_grow_field(fieldsprites[fieldnumber])
+
 		else:
 			firsttime = "y"
-
-
-
