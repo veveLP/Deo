@@ -11,11 +11,6 @@ onready var player = get_node("varna/player")
 var varnaID
 var user = loadd()
 
-var timer = 0
-var count = 0
-var pole = [0,0,0,0]
-var error = 0
-
 onready var textbox = get_node("varna/textbox")
 
 func _ready():
@@ -92,7 +87,7 @@ func _weedstart_weedharvest(var i, var text):
 		i+=1
 		$varna.visible = false
 		$WeedMinigame.visible = true
-		$WeedMinigame/TimerWeed.start()
+		$WeedMinigame/Timer.start()
 		firsttime = "n"
 
 func _methstart(var item):
@@ -132,13 +127,11 @@ func _methstart_methharvest(var i, var text):
 		firsttime = "n"
 	elif (items[i].animation == "done1_meth"):
 		i+=1
-		$varna.visible = false
-		$MethMinigame2.visible = true
+		_send("methcontinue" + text + "$" + varnaID + "$" + String(i) + "$5")
 		firsttime = "n"
 	elif (items[i].animation == "empty_meth"):
 		i+=1
-		$varna.visible = false
-		$MethMinigame.visible = true
+		_send("methstart" + text + "$" + varnaID + "$" + String(i) + "$0")
 		firsttime = "n"
 
 func _process(delta):
@@ -226,8 +219,8 @@ func _on_leave_body_entered(body):
 	get_tree().change_scene("res://Trebic.tscn")
 
 func _on_ButtonSelect_pressed():
-	$WeedMinigame/TimerWeed.stop()
-	var Quantity = 0
+	$WeedMinigame/Timer.stop()
+	var Quantity 
 	var PBvalue = $WeedMinigame/ProgressBar.value
 	var i = tablenumber + 1
 	if PBvalue >= 0 && PBvalue < 12 || PBvalue > 88:
@@ -238,16 +231,19 @@ func _on_ButtonSelect_pressed():
 		Quantity = 2
 	elif PBvalue >= 34 && PBvalue < 45 || PBvalue > 55 && PBvalue <= 66:
 		Quantity = 1
+	else:
+		Quantity = 0
 	_send("weedstart" + loadd() + "$" + varnaID + "$" + str(i) + "$" + str(Quantity))
-	$WeedMinigame/ProgressBar.value = 0
 	$WeedMinigame.visible = false
 	$varna.visible = true
 
-func _on_TimerWeed_timeout():
+func _on_Timer_timeout():
 	if $WeedMinigame/ProgressBar.value == 100:	
 		$WeedMinigame/ProgressBar.value = 0;
 	else:
 		$WeedMinigame/ProgressBar.value += 5
+	
+
 
 func _on_weed_pressed():
 	_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$weed")
@@ -256,12 +252,14 @@ func _on_weed_pressed():
 	$vyber.visible = false
 	$varna.visible = true
 
+
 func _on_heroin_pressed():
 	_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$heroin")
 	items[tablenumber].play("empty_heroin")
 	tableitems[tablenumber] = "heroin"
 	$vyber.visible = false
-	$varna.visible = true
+	$varna.visible = true 
+
 
 func _on_meth_pressed():
 	_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$meth")
@@ -269,72 +267,3 @@ func _on_meth_pressed():
 	tableitems[tablenumber] = "meth"
 	$vyber.visible = false
 	$varna.visible = true 
-
-func _on_Button_button_down():
-	if timer < 4:
-		$MethMinigame/TimerMeth.start()
-		print("fyou")
-
-func _on_Button_button_up():
-	$MethMinigame/TimerMeth.stop()
-	if timer < 4:
-		print("Error: " + str(error))
-		pole[timer] = count
-		count = 0
-		timer += 1
-		if timer == 4:
-			var Quantity = 5
-			var i = tablenumber + 1
-			print(str(pole[0]) +","+ str(pole[1]) +","+ str(pole[2]) +","+ str(pole[3]))
-			for j in 4:
-				error += abs(25-pole[j])
-			if(error <= 5):
-				Quantity = 0
-			elif(error <= 10):
-				Quantity = 1
-			elif(error <= 15):
-				Quantity = 2
-			elif(error <= 20):
-				Quantity = 3
-			elif(error <= 25):
-				Quantity = 4
-			print("Error: " + str(error))
-			print("quantity: " + str(Quantity))
-			_send("methstart" + loadd() + "$" + varnaID + "$" + str(i) + "$" + str(Quantity))
-			timer = 0
-			error = 0
-			$MethMinigame/ProgressBar.value = 0
-			$MethMinigame.visible = false
-			$varna.visible = true
-
-func _on_TimerMeth_timeout():
-	if($MethMinigame/ProgressBar.value > 99):
-		$MethMinigame/TimerMeth.stop()
-	$MethMinigame/ProgressBar.value += 1
-	count += 1
-
-func _on_Button2_button_down():
-	$MethMinigame2/TimerMeth2.start()
-
-func _on_Button2_button_up():
-	$MethMinigame2/TimerMeth2.stop()
-	var i = tablenumber + 1
-	var PBvalue = $MethMinigame2/ProgressBar.value
-	var Quantity = 0
-	if PBvalue >= 0 && PBvalue < 12 || PBvalue > 88:
-		Quantity = 4
-	elif PBvalue >= 12 && PBvalue < 23 || PBvalue > 77 && PBvalue <= 88:
-		Quantity = 3
-	elif PBvalue >= 23 && PBvalue < 34 || PBvalue > 66 && PBvalue <= 77:
-		Quantity = 2
-	elif PBvalue >= 34 && PBvalue < 45 || PBvalue > 55 && PBvalue <= 66:
-		Quantity = 1
-	print(str(Quantity))
-	_send("methcontinue" + loadd() + "$" + varnaID + "$" + str(i) + "$" + str(Quantity))
-	$MethMinigame2/ProgressBar.value = 0
-	$MethMinigame2.visible = false
-	$varna.visible = true
-
-func _on_TimerMeth2_timeout():
-	$MethMinigame2/ProgressBar.value += 5
-	if $MethMinigame2/ProgressBar.value == 100: $MethMinigame2/TimerMeth2.stop()
