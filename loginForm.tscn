@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://loginForm.gd" type="Script" id=1]
 
@@ -7,6 +7,7 @@ font_path = "res://DroidSans.ttf"
 
 [sub_resource type="DynamicFont" id=2]
 size = 48
+use_filter = true
 font_data = SubResource( 1 )
 
 [sub_resource type="DynamicFontData" id=3]
@@ -35,7 +36,16 @@ font_path = "res://DroidSans.ttf"
 
 [sub_resource type="DynamicFont" id=10]
 size = 40
+use_filter = true
 font_data = SubResource( 9 )
+
+[sub_resource type="DynamicFontData" id=11]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=12]
+size = 24
+use_filter = true
+font_data = SubResource( 11 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -127,10 +137,11 @@ anchor_left = 0.297
 anchor_top = 0.261
 anchor_right = 0.297
 anchor_bottom = 0.261
-margin_left = 406.894
-margin_top = 519.234
-margin_right = 504.894
-margin_bottom = 543.234
+margin_left = 384.894
+margin_top = 509.234
+margin_right = 528.894
+margin_bottom = 546.234
+custom_fonts/font = SubResource( 12 )
 text = " Fullscreen"
 __meta__ = {
 "_edit_use_anchors_": false

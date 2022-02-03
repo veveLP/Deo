@@ -39,12 +39,35 @@ func _on_connection_closed(was_clean = false):
 	set_process(false)
 	
 func _on_connected(proto = ""):
+	var text = loadd()
 	print("Connected with protocol: ", proto)
+	_send("loadmap" + text)
 	
 func _on_data():
 	var payload = client.get_peer(1).get_packet().get_string_from_utf8()
 	print("Received data: ", payload)
 	var x = payload.split("$")
+	if (x[0] == "loadmap"):
+		$LabelMoney.text = x[2]
+	if (x[0] == "inventory"):
+		$Iv/Inv/RichTextLabel.bbcode_text = "[center]" + x[1] + "[/center]"
+		$Iv/Inv/RichTextLabel2.bbcode_text = "[center]" + x[2] + "[/center]"
+		$Iv/Inv/RichTextLabel3.bbcode_text = "[center]" + x[3] + "[/center]"
+		$Iv/Inv/SeminkoText.text = x[4]
+		$Iv/Inv/HnujText.text = "level: " + x[5]
+		$Iv/Inv/VarnaText.text = x[6]
+		$Iv/Inv/AcetonText.text = x[7]
+		$Iv/Inv/HydroxidText.text = x[8]
+		$Iv/Inv/KyselinaText.text = x[9]
+		$Iv/Inv/EtherText.text = x[10]
+		$Iv/Inv/EfedrinText.text = x[11]
+		$Iv/Inv/VaricText.text = x[12]
+		$Iv/Inv/ChloroformText.text = x[13]
+		$Iv/Inv/UhlicitanText.text = x[14]
+		$Iv/Inv/AlkoholText.text = x[16]
+		$Iv/Inv/OcetText.text = x[17]
+		$Iv/Inv/CpavekText.text = x[18]
+		$Iv/Inv/VapnoText.text = x[19]
 
 
 func _send(text):
@@ -151,9 +174,11 @@ func _on_ButtonMinus_pressed():
 
 
 func _on_ButtonBuy_pressed():
+	var text = loadd()
 	for n in $SelectBody/SelectPanel/HSlider.value:
 		_send("buy"+user+"$" + $SelectBody/SelectPanel/ItemID.text)
 	$SelectBody.visible = false;
+	_send("loadmap" + text)
 
 
 func _on_ButtonCancel_pressed():
@@ -163,3 +188,13 @@ func _on_ButtonCancel_pressed():
 func _on_HSlider_value_changed(value):
 	$SelectBody/SelectPanel/BuyAmount.text = str($SelectBody/SelectPanel/HSlider.value)
 	$SelectBody/SelectPanel/LabelPrice.text = "Cena:" + str(int($SelectBody/SelectPanel/ItemPrice.text) * int($SelectBody/SelectPanel/BuyAmount.text))
+
+
+func _on_ButtonInv_pressed():
+	var text = loadd()
+	_send("inventory" + text)
+	$Iv.visible = true
+
+
+func _on_ButtonInvExit_pressed():
+	$Iv.visible = false

@@ -1,10 +1,27 @@
-[gd_scene load_steps=111 format=2]
+[gd_scene load_steps=150 format=2]
 
 [ext_resource path="res://assets/player_map.png" type="Texture" id=1]
 [ext_resource path="res://player.gd" type="Script" id=2]
 [ext_resource path="res://lekarna.gd" type="Script" id=3]
 [ext_resource path="res://48x48/Lekarna.png" type="Texture" id=4]
 [ext_resource path="res://assets/efedrin.png" type="Texture" id=5]
+[ext_resource path="res://assets/money.png" type="Texture" id=6]
+[ext_resource path="res://assets/vapno.png" type="Texture" id=7]
+[ext_resource path="res://Inv.gd" type="Script" id=8]
+[ext_resource path="res://assets/aceton.png" type="Texture" id=9]
+[ext_resource path="res://assets/weed.png" type="Texture" id=10]
+[ext_resource path="res://assets/ether.png" type="Texture" id=11]
+[ext_resource path="res://assets/semeno.png" type="Texture" id=12]
+[ext_resource path="res://assets/varic.png" type="Texture" id=13]
+[ext_resource path="res://assets/herion.png" type="Texture" id=14]
+[ext_resource path="res://assets/cpavek.png" type="Texture" id=15]
+[ext_resource path="res://assets/ocet.png" type="Texture" id=16]
+[ext_resource path="res://assets/chloro.png" type="Texture" id=17]
+[ext_resource path="res://assets/alkohol.png" type="Texture" id=18]
+[ext_resource path="res://assets/uhlicitan.png" type="Texture" id=19]
+[ext_resource path="res://assets/varna.png" type="Texture" id=20]
+[ext_resource path="res://assets/pico.png" type="Texture" id=21]
+[ext_resource path="res://assets/hydroxid.png" type="Texture" id=22]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.0938, 12.5 )
@@ -147,20 +164,10 @@ flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 512, 512, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=110]
+[sub_resource type="AtlasTexture" id=112]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 704, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=111]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 640, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=108]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 512, 64, 64 )
+region = Rect2( 0, 576, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=99]
 flags = 4
@@ -207,10 +214,20 @@ flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 512, 640, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=112]
+[sub_resource type="AtlasTexture" id=108]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 576, 64, 64 )
+region = Rect2( 0, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=110]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 704, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=111]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 640, 64, 64 )
 
 [sub_resource type="SpriteFrames" id=113]
 animations = [ {
@@ -229,6 +246,21 @@ animations = [ {
 "name": "up",
 "speed": 7.0
 }, {
+"frames": [ SubResource( 112 ) ],
+"loop": true,
+"name": "standing_left",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ) ],
+"loop": true,
+"name": "down",
+"speed": 7.0
+}, {
+"frames": [ SubResource( 108 ) ],
+"loop": true,
+"name": "standing_up",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 110 ) ],
 "loop": true,
 "name": "standing_right",
@@ -237,21 +269,6 @@ animations = [ {
 "frames": [ SubResource( 111 ) ],
 "loop": true,
 "name": "standing_down",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 108 ) ],
-"loop": true,
-"name": "standing_up",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ) ],
-"loop": true,
-"name": "down",
-"speed": 7.0
-}, {
-"frames": [ SubResource( 112 ) ],
-"loop": true,
-"name": "standing_left",
 "speed": 5.0
 } ]
 
@@ -1516,6 +1533,7 @@ font_path = "res://DroidSans.ttf"
 
 [sub_resource type="DynamicFont" id=58]
 size = 20
+use_filter = true
 font_data = SubResource( 57 )
 
 [sub_resource type="DynamicFontData" id=63]
@@ -1523,12 +1541,35 @@ font_path = "res://DroidSans.ttf"
 
 [sub_resource type="DynamicFont" id=60]
 size = 50
+use_filter = true
 font_data = SubResource( 63 )
+
+[sub_resource type="DynamicFontData" id=116]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=117]
+use_filter = true
+font_data = SubResource( 116 )
+
+[sub_resource type="DynamicFontData" id=118]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=119]
+use_filter = true
+font_data = SubResource( 118 )
+
+[sub_resource type="DynamicFontData" id=120]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=121]
+use_filter = true
+font_data = SubResource( 120 )
 
 [sub_resource type="DynamicFontData" id=64]
 font_path = "res://DroidSans.ttf"
 
 [sub_resource type="DynamicFont" id=62]
+use_filter = true
 font_data = SubResource( 64 )
 
 [sub_resource type="DynamicFontData" id=114]
@@ -1537,6 +1578,67 @@ font_path = "res://DroidSans.ttf"
 [sub_resource type="DynamicFont" id=115]
 size = 28
 font_data = SubResource( 114 )
+
+[sub_resource type="DynamicFontData" id=124]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=123]
+size = 30
+use_filter = true
+font_data = SubResource( 124 )
+
+[sub_resource type="DynamicFontData" id=125]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=126]
+size = 40
+use_filter = true
+font_data = SubResource( 125 )
+
+[sub_resource type="DynamicFontData" id=139]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=128]
+size = 32
+font_data = SubResource( 139 )
+
+[sub_resource type="DynamicFontData" id=140]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=130]
+size = 32
+use_filter = true
+font_data = SubResource( 140 )
+
+[sub_resource type="DynamicFontData" id=141]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=132]
+size = 32
+font_data = SubResource( 141 )
+
+[sub_resource type="DynamicFontData" id=142]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=134]
+size = 32
+font_data = SubResource( 142 )
+
+[sub_resource type="StreamTexture" id=135]
+flags = 4
+load_path = "res://.import/kyselina.png-a49500f7ee6dc569651f4fdbb5e6080e.stex"
+
+[sub_resource type="StreamTexture" id=136]
+flags = 4
+load_path = "res://.import/hnuj.png-e8f2d3c41e6d5a10524b293bbef85bd8.stex"
+
+[sub_resource type="DynamicFontData" id=143]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=138]
+size = 30
+use_filter = true
+font_data = SubResource( 143 )
 
 [node name="lekarna" type="Node2D"]
 position = Vector2( 614, 266 )
@@ -1761,6 +1863,7 @@ margin_left = 40.0
 margin_top = 72.0
 margin_right = 72.0
 margin_bottom = 104.0
+custom_fonts/font = SubResource( 117 )
 text = "+"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1771,6 +1874,7 @@ margin_left = 40.0
 margin_top = 104.0
 margin_right = 72.0
 margin_bottom = 136.0
+custom_fonts/font = SubResource( 119 )
 text = "-"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1781,6 +1885,7 @@ margin_left = 128.0
 margin_top = 144.0
 margin_right = 192.0
 margin_bottom = 176.0
+custom_fonts/font = SubResource( 121 )
 text = "Koupit"
 
 [node name="ButtonCancel" type="Button" parent="SelectPanel"]
@@ -1816,6 +1921,611 @@ visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 
+[node name="Money" type="Sprite" parent="."]
+position = Vector2( -578.5, -175.75 )
+scale = Vector2( 0.196429, 0.196429 )
+texture = ExtResource( 6 )
+
+[node name="LabelMoney" type="RichTextLabel" parent="."]
+margin_left = -551.0
+margin_top = -194.0
+margin_right = -375.0
+margin_bottom = -154.0
+custom_fonts/normal_font = SubResource( 123 )
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonInv" type="Button" parent="."]
+margin_left = -606.0
+margin_top = -258.0
+margin_right = -374.0
+margin_bottom = -202.0
+custom_fonts/font = SubResource( 126 )
+text = "Inventář"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Iv" type="StaticBody2D" parent="."]
+z_index = 8
+
+[node name="Inv" type="Panel" parent="Iv"]
+margin_left = -310.0
+margin_top = -194.0
+margin_right = 906.0
+margin_bottom = 742.0
+rect_pivot_offset = Vector2( 224, 840 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button-Inv-Exit" type="Button" parent="Iv/Inv"]
+margin_left = 1160.0
+margin_top = 8.0
+margin_right = 1208.0
+margin_bottom = 28.0
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Weed" type="Sprite" parent="Iv/Inv"]
+position = Vector2( 288, 160 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 10 )
+
+[node name="Herion" type="Sprite" parent="Iv/Inv"]
+position = Vector2( 928, 160 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 14 )
+
+[node name="Pico" type="Sprite" parent="Iv/Inv"]
+position = Vector2( 608, 160 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 21 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 192.0
+margin_top = 192.0
+margin_right = 384.0
+margin_bottom = 256.0
+rect_pivot_offset = Vector2( 16, 152 )
+custom_fonts/normal_font = SubResource( 128 )
+bbcode_enabled = true
+bbcode_text = "[center]0[center]"
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 448.0
+margin_top = 192.0
+margin_right = 768.0
+margin_bottom = 256.0
+custom_fonts/normal_font = SubResource( 128 )
+bbcode_enabled = true
+bbcode_text = "[center]0[center]"
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 832.0
+margin_top = 192.0
+margin_right = 1024.0
+margin_bottom = 256.0
+custom_fonts/normal_font = SubResource( 128 )
+bbcode_enabled = true
+bbcode_text = "[center]0[center]"
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 832.0
+margin_top = 88.0
+margin_right = 1024.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 130 )
+bbcode_enabled = true
+bbcode_text = "[center]Heroin[center]"
+text = "Heroin"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 448.0
+margin_top = 88.0
+margin_right = 768.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 132 )
+bbcode_enabled = true
+bbcode_text = "[center]Piko[/center]"
+text = "Piko"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 192.0
+margin_top = 88.0
+margin_right = 384.0
+margin_bottom = 128.0
+custom_fonts/normal_font = SubResource( 134 )
+bbcode_enabled = true
+bbcode_text = "[center]Weed[center]"
+text = "Weed"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line2D" type="Line2D" parent="Iv/Inv"]
+points = PoolVector2Array( 128, 256, 576, 256, 592, 256, 608, 256, 1088, 256, 1088, 64, 128, 64, 128, 261 )
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="Aceton" type="Sprite" parent="Iv/Inv"]
+position = Vector2( 288, 352 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 9 )
+
+[node name="Alkohol" type="Sprite" parent="Iv/Inv"]
+position = Vector2( 288, 472 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 18 )
+
+[node name="Chloro" type="Sprite" parent="Iv/Inv"]
+position = Vector2( 288, 608 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 17 )
+
+[node name="Ocet" type="Sprite" parent="Iv/Inv"]
+position = Vector2( 288, 824 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 16 )
+
+[node name="Efedrin3" type="Sprite" parent="Iv/Inv"]
+position = Vector2( 608, 832 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 15 )
+
+[node name="Efedrin2" type="Sprite" parent="Iv/Inv"]
+position = Vector2( -848, -408 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 7 )
+offset = Vector2( 5937.78, 4142.22 )
+
+[node name="Efedrin" type="Sprite" parent="Iv/Inv"]
+position = Vector2( 288, 736 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 5 )
+
+[node name="Hydroxid" type="Sprite" parent="Iv/Inv"]
+position = Vector2( 608, 608 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 22 )
+
+[node name="Kyselina" type="Sprite" parent="Iv/Inv"]
+position = Vector2( 934, 352 )
+scale = Vector2( 0.3, 0.3 )
+texture = SubResource( 135 )
+
+[node name="Semeno" type="Sprite" parent="Iv/Inv"]
+position = Vector2( 616, 736 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 12 )
+
+[node name="Ether" type="Sprite" parent="Iv/Inv"]
+position = Vector2( 608, 352 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 11 )
+
+[node name="Hnuj" type="Sprite" parent="Iv/Inv"]
+position = Vector2( 608, 480 )
+scale = Vector2( 0.3, 0.3 )
+texture = SubResource( 136 )
+
+[node name="Uhlicitan" type="Sprite" parent="Iv/Inv"]
+position = Vector2( 934, 480 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 19 )
+
+[node name="Varic" type="Sprite" parent="Iv/Inv"]
+position = Vector2( 934, 608 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 13 )
+
+[node name="Varna" type="Sprite" parent="Iv/Inv"]
+position = Vector2( 935, 727 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 20 )
+
+[node name="HydroxidText" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 672.0
+margin_top = 592.0
+margin_right = 780.0
+margin_bottom = 634.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "0
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VaricText" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 992.0
+margin_top = 592.0
+margin_right = 1104.0
+margin_bottom = 634.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OcetText" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 352.0
+margin_top = 808.0
+margin_right = 448.0
+margin_bottom = 848.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VapnoText" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 992.0
+margin_top = 808.0
+margin_right = 1112.0
+margin_bottom = 848.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CpavekText" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 672.0
+margin_top = 808.0
+margin_right = 784.0
+margin_bottom = 848.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EfedrinText" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 351.0
+margin_top = 720.0
+margin_right = 445.0
+margin_bottom = 760.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SeminkoText" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 672.0
+margin_top = 728.0
+margin_right = 764.0
+margin_bottom = 768.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EtherText" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 672.0
+margin_top = 336.0
+margin_right = 816.0
+margin_bottom = 376.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KyselinaText" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 992.0
+margin_top = 336.0
+margin_right = 1120.0
+margin_bottom = 376.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UhlicitanText" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 992.0
+margin_top = 456.0
+margin_right = 1128.0
+margin_bottom = 504.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VarnaText" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 992.0
+margin_top = 728.0
+margin_right = 1096.0
+margin_bottom = 768.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "0
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HnujText" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 672.0
+margin_top = 456.0
+margin_right = 776.0
+margin_bottom = 504.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel18" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 808.0
+margin_top = 712.0
+margin_right = 888.0
+margin_bottom = 754.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "Varna"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel17" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 848.0
+margin_top = 336.0
+margin_right = 912.0
+margin_bottom = 378.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "HCl"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel16" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 824.0
+margin_top = 592.0
+margin_right = 892.0
+margin_bottom = 632.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "Vařič
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel15" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 784.0
+margin_top = 440.0
+margin_right = 916.0
+margin_bottom = 528.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "Uhličitan
+   sodný"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel14" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 456.0
+margin_top = 688.0
+margin_right = 576.0
+margin_bottom = 776.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "Semínko
+   trávy"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel13" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 440.0
+margin_top = 576.0
+margin_right = 576.0
+margin_bottom = 656.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "Hydroxid
+   sodný"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel12" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 504.0
+margin_top = 456.0
+margin_right = 572.0
+margin_bottom = 504.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "Hnůj"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel11" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 480.0
+margin_top = 320.0
+margin_right = 584.0
+margin_bottom = 400.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "Diethyl
+  ether"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel21" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 800.0
+margin_top = 808.0
+margin_right = 904.0
+margin_bottom = 848.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "Vápno"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel20" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 464.0
+margin_top = 808.0
+margin_right = 568.0
+margin_bottom = 848.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "Čpavek"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel19" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 176.0
+margin_top = 808.0
+margin_right = 248.0
+margin_bottom = 848.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "Ocet"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel10" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 144.0
+margin_top = 712.0
+margin_right = 248.0
+margin_bottom = 760.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "Efedrin"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel9" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 88.0
+margin_top = 584.0
+margin_right = 248.0
+margin_bottom = 632.0
+rect_pivot_offset = Vector2( -136, -304 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "Chloroform"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 144.0
+margin_top = 456.0
+margin_right = 248.0
+margin_bottom = 504.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "Alkohol"
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 144.0
+margin_top = 336.0
+margin_right = 248.0
+margin_bottom = 384.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 138 )
+text = "Aceton"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChloroformText" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 351.0
+margin_top = 576.0
+margin_right = 424.0
+margin_bottom = 616.0
+rect_pivot_offset = Vector2( 16, 152 )
+custom_fonts/normal_font = SubResource( 128 )
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AlkoholText" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 351.0
+margin_top = 456.0
+margin_right = 448.0
+margin_bottom = 496.0
+custom_fonts/normal_font = SubResource( 128 )
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AcetonText" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 351.0
+margin_top = 336.0
+margin_right = 448.0
+margin_bottom = 379.0
+custom_fonts/normal_font = SubResource( 128 )
+text = "0
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="body_entered" from="lekarna/leave" to="." method="_on_leave_body_entered"]
 [connection signal="pressed" from="NabidkaPanel/ButtonModafen" to="." method="_on_ButtonModafen_pressed"]
 [connection signal="pressed" from="NabidkaPanel/ButtonExit" to="." method="_on_ButtonExit_pressed"]
@@ -1825,3 +2535,5 @@ margin_bottom = 14.0
 [connection signal="pressed" from="SelectPanel/ButtonMinus" to="." method="_on_ButtonMinus_pressed"]
 [connection signal="pressed" from="SelectPanel/ButtonBuy" to="." method="_on_ButtonBuy_pressed"]
 [connection signal="pressed" from="SelectPanel/ButtonCancel" to="." method="_on_ButtonCancel_pressed"]
+[connection signal="pressed" from="ButtonInv" to="." method="_on_ButtonInv_pressed"]
+[connection signal="pressed" from="Iv/Inv/Button-Inv-Exit" to="." method="_on_ButtonInvExit_pressed"]

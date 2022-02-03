@@ -1,4 +1,4 @@
-[gd_scene load_steps=158 format=2]
+[gd_scene load_steps=155 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://varna_scene.gd" type="Script" id=2]
@@ -13,7 +13,6 @@
 [ext_resource path="res://assets/weed_1.png" type="Texture" id=11]
 [ext_resource path="res://assets/destilace.png" type="Texture" id=12]
 [ext_resource path="res://assets/krystalizace.png" type="Texture" id=13]
-[ext_resource path="res://assets/kokot.png" type="Texture" id=14]
 
 [sub_resource type="AtlasTexture" id=72]
 flags = 4
@@ -155,15 +154,15 @@ flags = 4
 atlas = ExtResource( 8 )
 region = Rect2( 0, 704, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=111]
-flags = 4
-atlas = ExtResource( 8 )
-region = Rect2( 0, 640, 64, 64 )
-
 [sub_resource type="AtlasTexture" id=112]
 flags = 4
 atlas = ExtResource( 8 )
 region = Rect2( 0, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=111]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 0, 640, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=108]
 flags = 4
@@ -237,14 +236,14 @@ animations = [ {
 "name": "standing_right",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 111 ) ],
-"loop": true,
-"name": "standing_down",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 112 ) ],
 "loop": true,
 "name": "standing_left",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 111 ) ],
+"loop": true,
+"name": "standing_down",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 108 ) ],
@@ -1187,11 +1186,6 @@ extents = Vector2( 21, 7.5 )
 [sub_resource type="RectangleShape2D" id=42]
 extents = Vector2( 35.875, 45 )
 
-[sub_resource type="AtlasTexture" id=166]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 240, 144, 48, 48 )
-
 [sub_resource type="AtlasTexture" id=66]
 flags = 4
 atlas = ExtResource( 7 )
@@ -1211,6 +1205,21 @@ region = Rect2( 240, 0, 48, 48 )
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 288, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=113]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=51]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=135]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 144, 144, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=136]
 flags = 4
@@ -1362,11 +1371,6 @@ flags = 4
 atlas = ExtResource( 13 )
 region = Rect2( 240, 144, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=113]
-flags = 4
-atlas = ExtResource( 12 )
-region = Rect2( 0, 0, 48, 48 )
-
 [sub_resource type="AtlasTexture" id=70]
 flags = 4
 atlas = ExtResource( 7 )
@@ -1377,10 +1381,10 @@ flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 96, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=51]
+[sub_resource type="AtlasTexture" id=166]
 flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 48, 48 )
+atlas = ExtResource( 13 )
+region = Rect2( 240, 144, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=114]
 flags = 4
@@ -1487,11 +1491,6 @@ flags = 4
 atlas = ExtResource( 12 )
 region = Rect2( 144, 144, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=135]
-flags = 4
-atlas = ExtResource( 12 )
-region = Rect2( 144, 144, 48, 48 )
-
 [sub_resource type="SpriteFrames" id=65]
 animations = [ {
 "frames": [  ],
@@ -1499,39 +1498,19 @@ animations = [ {
 "name": "empty",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 166 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 9 ), ExtResource( 3 ) ],
 "loop": false,
-"name": "done_meth",
-"speed": 5.0
+"name": "growing_weed",
+"speed": 0.3
 }, {
 "frames": [ SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ) ],
 "loop": true,
 "name": "cooking_1",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 136 ), SubResource( 137 ), SubResource( 138 ), SubResource( 139 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 146 ), SubResource( 147 ), SubResource( 148 ), SubResource( 149 ), SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), SubResource( 158 ), SubResource( 159 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ), SubResource( 163 ), SubResource( 164 ), SubResource( 165 ) ],
-"loop": true,
-"name": "kry_meth",
-"speed": 2.9
-}, {
 "frames": [ SubResource( 113 ) ],
 "loop": false,
 "name": "empty_meth",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "empty_weed",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "done_weed",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 70 ), SubResource( 71 ) ],
-"loop": false,
-"name": "starting_heroin",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 51 ) ],
@@ -1539,27 +1518,41 @@ animations = [ {
 "name": "empty_heroin",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 9 ), ExtResource( 3 ) ],
-"loop": false,
-"name": "growing_weed",
-"speed": 0.3
-}, {
-"frames": [ SubResource( 114 ), SubResource( 115 ), SubResource( 116 ), SubResource( 117 ), SubResource( 118 ), SubResource( 119 ), SubResource( 120 ), SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ), SubResource( 125 ), SubResource( 126 ), SubResource( 127 ), SubResource( 128 ), SubResource( 129 ), SubResource( 130 ), SubResource( 131 ), SubResource( 132 ), SubResource( 133 ), SubResource( 134 ) ],
-"loop": false,
-"name": "des_meth",
-"speed": 2.0
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "done_weed",
+"speed": 5.0
 }, {
 "frames": [ SubResource( 135 ) ],
 "loop": true,
 "name": "done1_meth",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 136 ), SubResource( 137 ), SubResource( 138 ), SubResource( 139 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 146 ), SubResource( 147 ), SubResource( 148 ), SubResource( 149 ), SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), SubResource( 158 ), SubResource( 159 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ), SubResource( 163 ), SubResource( 164 ), SubResource( 165 ) ],
+"loop": true,
+"name": "kry_meth",
+"speed": 2.9
+}, {
+"frames": [ SubResource( 70 ), SubResource( 71 ) ],
+"loop": false,
+"name": "starting_heroin",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "empty_weed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 166 ) ],
+"loop": false,
+"name": "done_meth",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 114 ), SubResource( 115 ), SubResource( 116 ), SubResource( 117 ), SubResource( 118 ), SubResource( 119 ), SubResource( 120 ), SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ), SubResource( 125 ), SubResource( 126 ), SubResource( 127 ), SubResource( 128 ), SubResource( 129 ), SubResource( 130 ), SubResource( 131 ), SubResource( 132 ), SubResource( 133 ), SubResource( 134 ) ],
+"loop": false,
+"name": "des_meth",
+"speed": 2.0
 } ]
-
-[sub_resource type="StyleBoxFlat" id=167]
-bg_color = Color( 0.121569, 0.109804, 0.819608, 1 )
-
-[sub_resource type="StyleBoxFlat" id=168]
-bg_color = Color( 1, 1, 1, 1 )
 
 [node name="varna_scene1" type="Node2D"]
 position = Vector2( 731, 442 )
@@ -1716,7 +1709,6 @@ __meta__ = {
 visible = false
 position = Vector2( 231, 114 )
 scale = Vector2( 2.8, 2.8 )
-z_index = 4
 texture = ExtResource( 5 )
 
 [node name="ButtonSelect" type="Button" parent="WeedMinigame"]
@@ -1728,6 +1720,9 @@ text = "Select"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Timer" type="Timer" parent="WeedMinigame"]
+wait_time = 0.05
 
 [node name="Sprite" type="Sprite" parent="WeedMinigame"]
 position = Vector2( 0, -80.5357 )
@@ -1747,46 +1742,6 @@ percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="TimerWeed" type="Timer" parent="WeedMinigame"]
-wait_time = 0.05
-
-[node name="MethMinigame" type="Sprite" parent="."]
-visible = false
-position = Vector2( 243, 116 )
-scale = Vector2( 2.21242, 2.21242 )
-z_index = 4
-texture = ExtResource( 14 )
-
-[node name="ProgressBar" type="ProgressBar" parent="MethMinigame"]
-margin_left = -32.0
-margin_top = 23.0
-margin_right = 47.0
-margin_bottom = 86.0
-rect_rotation = -89.9999
-custom_styles/fg = SubResource( 167 )
-custom_styles/bg = SubResource( 168 )
-step = 1.0
-percent_visible = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="MethMinigame"]
-margin_left = -32.5436
-margin_top = 30.7356
-margin_right = 30.4564
-margin_bottom = 50.7356
-text = "press"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TimerMeth" type="Timer" parent="MethMinigame"]
-wait_time = 0.05
-
-[node name="HeroinMinigame" type="Sprite" parent="."]
-visible = false
 
 [node name="vyber" type="Panel" parent="."]
 visible = false
@@ -1828,54 +1783,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MethMinigame2" type="Sprite" parent="."]
-visible = false
-position = Vector2( 231, 110 )
-scale = Vector2( 2.8, 2.8 )
-z_index = 4
-texture = ExtResource( 5 )
-
-[node name="Button2" type="Button" parent="MethMinigame2"]
-margin_left = -52.0
-margin_top = 59.0
-margin_right = 54.0
-margin_bottom = 86.0
-text = "Press"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Sprite" type="Sprite" parent="MethMinigame2"]
-position = Vector2( 0, -80.5357 )
-scale = Vector2( 1.77857, 0.928571 )
-texture = ExtResource( 6 )
-
-[node name="ProgressBar" type="ProgressBar" parent="MethMinigame2"]
-modulate = Color( 1, 1, 1, 0.392157 )
-margin_left = -91.0
-margin_top = -85.0
-margin_right = 91.0
-margin_bottom = -76.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-step = 1.0
-percent_visible = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TimerMeth2" type="Timer" parent="MethMinigame2"]
-wait_time = 0.05
+[node name="Sprite" type="Sprite" parent="."]
 
 [connection signal="body_entered" from="varna/leave" to="." method="_on_leave_body_entered"]
 [connection signal="pressed" from="WeedMinigame/ButtonSelect" to="." method="_on_ButtonSelect_pressed"]
-[connection signal="timeout" from="WeedMinigame/TimerWeed" to="." method="_on_TimerWeed_timeout"]
-[connection signal="button_down" from="MethMinigame/Button" to="." method="_on_Button_button_down"]
-[connection signal="button_up" from="MethMinigame/Button" to="." method="_on_Button_button_up"]
-[connection signal="timeout" from="MethMinigame/TimerMeth" to="." method="_on_TimerMeth_timeout"]
+[connection signal="timeout" from="WeedMinigame/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="vyber/weed" to="." method="_on_weed_pressed"]
 [connection signal="pressed" from="vyber/heroin" to="." method="_on_heroin_pressed"]
 [connection signal="pressed" from="vyber/meth" to="." method="_on_meth_pressed"]
-[connection signal="button_down" from="MethMinigame2/Button2" to="." method="_on_Button2_button_down"]
-[connection signal="button_up" from="MethMinigame2/Button2" to="." method="_on_Button2_button_up"]
-[connection signal="timeout" from="MethMinigame2/TimerMeth2" to="." method="_on_TimerMeth2_timeout"]
