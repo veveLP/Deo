@@ -1868,6 +1868,7 @@ __meta__ = {
 [node name="Timer" type="Timer" parent="HoodPannel"]
 
 [node name="Inv" type="Panel" parent="."]
+visible = false
 margin_left = 320.0
 margin_top = 128.0
 margin_right = 1536.0
