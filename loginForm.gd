@@ -35,10 +35,17 @@ func _on_data():
 	elif payload == "error 0x06":
 		print ("cancel login")
 		OS.alert("Tento uživatel je již registrovaný")
+	elif payload == "login$successful$true":
+		OS.alert("turorial")
+		get_tree().change_scene("res://Trebic.tscn")
+		if (check):
+			OS.window_fullscreen = true
+		else:
+			OS.window_size = Vector2(1920,1080)
 	else:
 		print("login succesfull")
 		var password = $Panel/LineEdit2.text
-		print(password.sha256_text())
+		#print(password.sha256_text())
 		password = password.sha256_text()
 		password = password.left(10)
 		save("$"+$Panel/LineEdit.text+"$"+password)
@@ -75,13 +82,13 @@ func _on_CheckBox_toggled(button_pressed):
 func _on_LineEdit2_text_entered(new_text):
 	login()
 func login():
-	print($Panel/LineEdit.text)
-	print($Panel/LineEdit2.text)
+	
 	var password = $Panel/LineEdit2.text
-	print(password.sha256_text())
+	
 	password = password.sha256_text()
 	password = password.left(10)
-	_send("loadmap$" + $Panel/LineEdit.text + "$" + password)
+	_send("login$" + $Panel/LineEdit.text + "$" + password)
+	
 
 
 func _on_Button2_pressed():

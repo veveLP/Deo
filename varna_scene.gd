@@ -216,8 +216,8 @@ func _input(event):
 			if tablenumber == null:
 				pass
 			else:
-				$varna.visible = false
-				$vyber.visible = true
+				#$varna.visible = false
+				$AreaVyber.visible = true
 				firsttime = "n"
 		else:
 			firsttime = "y"
@@ -253,22 +253,22 @@ func _on_weed_pressed():
 	_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$weed")
 	items[tablenumber].play("empty_weed")
 	tableitems[tablenumber] = "weed"
-	$vyber.visible = false
-	$varna.visible = true
+	$AreaVyber.visible = false
+	#$varna.visible = true
 
 func _on_heroin_pressed():
 	_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$heroin")
 	items[tablenumber].play("empty_heroin")
 	tableitems[tablenumber] = "heroin"
-	$vyber.visible = false
-	$varna.visible = true
+	$AreaVyber.visible = false
+	#$varna.visible = true
 
 func _on_meth_pressed():
 	_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$meth")
 	items[tablenumber].play("empty_meth")
 	tableitems[tablenumber] = "meth"
-	$vyber.visible = false
-	$varna.visible = true 
+	$AreaVyber.visible = false
+	#$varna.visible = true 
 
 func _on_Button_button_down():
 	if timer < 4:
