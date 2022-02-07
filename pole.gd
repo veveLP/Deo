@@ -81,8 +81,8 @@ var fieldsprites = [0]
 var firsttime = "y"
 
 func _set_sprite_frame(var time, var sprite):
-	time*=0.52
-	time=13-time
+	time*=sprite.get_sprite_frames().get_animation_speed(sprite.get_animation())
+	time=sprite.get_sprite_frames().get_frame_count(sprite.get_animation())-time
 	sprite.frame = int(time)
 
 func _loadpole(var level):
