@@ -140,25 +140,25 @@ flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 512, 512, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=112]
+[sub_resource type="AtlasTexture" id=108]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 0, 576, 64, 64 )
+region = Rect2( 0, 512, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=111]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 640, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=108]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 512, 64, 64 )
-
 [sub_resource type="AtlasTexture" id=110]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 704, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=112]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 576, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=99]
 flags = 4
@@ -222,9 +222,9 @@ animations = [ {
 "name": "up",
 "speed": 7.0
 }, {
-"frames": [ SubResource( 112 ) ],
+"frames": [ SubResource( 108 ) ],
 "loop": true,
-"name": "standing_left",
+"name": "standing_up",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 111 ) ],
@@ -232,14 +232,14 @@ animations = [ {
 "name": "standing_down",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 108 ) ],
-"loop": true,
-"name": "standing_up",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 110 ) ],
 "loop": true,
 "name": "standing_right",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 112 ) ],
+"loop": true,
+"name": "standing_left",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ) ],
@@ -324,7 +324,7 @@ animations = [ {
 "frames": [ SubResource( 117 ), SubResource( 118 ), SubResource( 119 ), SubResource( 120 ), SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ), SubResource( 125 ), SubResource( 126 ), SubResource( 127 ), SubResource( 128 ), SubResource( 129 ) ],
 "loop": true,
 "name": "grow_mak",
-"speed": 1.3
+"speed": 0.52
 } ]
 
 [node name="Node2D" type="Node2D"]

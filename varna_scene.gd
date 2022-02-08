@@ -15,7 +15,8 @@ var timer = 0
 var count = 0
 var pole = [0,0,0,0]
 var error = 0
-var colors = [1,1,1]
+var timestamp = 0
+var colors = [1,1,1]	
 
 onready var textbox = get_node("varna/textbox")
 
@@ -33,18 +34,51 @@ func _ready():
 	varnaID = $varna/player.scene
 	varnaID.erase(0,11)
 
+
+func _set_sprite_frame(var time, var sprite):
+	time*=sprite.get_sprite_frames().get_animation_speed(sprite.get_animation())
+	time=sprite.get_sprite_frames().get_frame_count(sprite.get_animation())-time
+	sprite.frame = int(time)
+
+func _play_animation(var sprite):
+	sprite.playing = true
+	while(sprite.get_frame() != sprite.get_sprite_frames().get_frame_count(sprite.get_animation())-1):
+		yield(get_tree().create_timer(0.1), "timeout")
+	sprite.playing=false
+
 func _set_item(var drug, var state, var stage, var item):
-	if (state == "0"):
-		item.play("empty_"+drug)
-	else:
+	if (state != "0"):
 		match drug:
 			"meth":
 				if(stage == "1"):
-					item.play("done1_"+drug)
+					item.set_animation("des_"+drug)
+					if (timestamp > int(state)):
+						item.frame = item.get_sprite_frames().get_frame_count(item.get_animation())-1
+					else:
+						_play_animation(item)
+						_set_sprite_frame(int(state)-timestamp,item)
 				else:
-					item.play("done_"+drug)
+					item.set_animation("kry_"+drug)
+					if (timestamp > int(state)):
+						item.frame = item.get_sprite_frames().get_frame_count(item.get_animation())-1
+					else:
+						_play_animation(item)
+						_set_sprite_frame(int(state)-timestamp,item)
 			"weed":
-				item.play("done_"+drug)
+				item.set_animation("growing_"+drug)
+				if (timestamp > int(state)):
+					item.frame = item.get_sprite_frames().get_frame_count(item.get_animation())-1
+				else:
+					_play_animation(item)
+					_set_sprite_frame(int(state)-timestamp,item)
+			"heroine":
+				pass
+	else:
+		match drug:
+			"meth":
+				item.set_animation("des_"+drug)
+			"weed":
+				item.set_animation("growing_"+drug)
 			"heroine":
 				pass
  
@@ -64,32 +98,28 @@ func _get_tablenumber():
 				break
 
 func _weedstart(var item):
-	print(OS.get_system_time_secs())
 	$varna/textbox.visible = true
 	$varna/textbox.text = "You just planted a seed"
-	item.play("growing_weed")
+	_play_animation(item)
 	yield(get_tree().create_timer(3.0), "timeout")
 	$varna/textbox.visible = false
-	yield(get_tree().create_timer(7.0), "timeout")
-	item.play("done_weed")
-	
 
 func _weedharvest(var i,var grams):
 	if tablenumber == null:
 		pass
 	else:
-		items[i].play("empty_weed")
+		items[i].frame = 0
 		$varna/textbox.visible = true
 		$varna/textbox.text = "You just harvested " + grams + " weed"
 		yield(get_tree().create_timer(3.0), "timeout")
 		$varna/textbox.visible = false
 
 func _weedstart_weedharvest(var i, var text):
-	if (items[i].animation == "done_weed"):
+	if (items[i].frame == items[i].get_sprite_frames().get_frame_count(items[i].get_animation())-1):
 		i+=1
 		_send("weedharvest" + text + "$" + varnaID + "$" + String(i))
 		firsttime = "n"
-	elif (items[i].animation == "empty_weed"):
+	elif (items[i].frame == 0):
 		i+=1
 		$varna.visible = false
 		$WeedMinigame.visible = true
@@ -100,43 +130,41 @@ func _methstart(var item):
 	print(OS.get_system_time_secs())
 	$varna/textbox.visible = true
 	$varna/textbox.text = "You just started distilling"
-	item.play("des_meth")
+	item.set_animation("des_meth")
+	_play_animation(item)
 	yield(get_tree().create_timer(3.0), "timeout")
 	$varna/textbox.visible = false
-	yield(get_tree().create_timer(7.0), "timeout")
-	item.play("done1_meth")
 
 func _methcontinue(var item):
 	print(OS.get_system_time_secs())
 	$varna/textbox.visible = true
 	$varna/textbox.text = "You will have to wait a until it's done"
-	item.play("kry_meth")
+	item.set_animation("kry_meth")
+	_play_animation(item)
 	yield(get_tree().create_timer(3.0), "timeout")
 	$varna/textbox.visible = false
-	yield(get_tree().create_timer(7.0), "timeout")
-	item.play("done_meth")
 
 func _methharvest(var i,var grams):
 	if tablenumber == null:
 		pass
 	else:
-		items[i].play("empty_meth")
+		items[i].set_animation("des_meth")
 		$varna/textbox.visible = true
 		$varna/textbox.text = "You just got " + grams + " meth"
 		yield(get_tree().create_timer(3.0), "timeout")
 		$varna/textbox.visible = false
 
 func _methstart_methharvest(var i, var text):
-	if (items[i].animation == "done_meth"):
+	if (items[i].animation == "kry_meth" && items[i].frame == items[i].get_sprite_frames().get_frame_count(items[i].get_animation())-1):
 		i+=1
 		_send("methharvest" + text + "$" + varnaID + "$" + String(i))
 		firsttime = "n"
-	elif (items[i].animation == "done1_meth"):
+	elif (items[i].animation == "des_meth" && items[i].frame == items[i].get_sprite_frames().get_frame_count(items[i].get_animation())-1):
 		i+=1
 		$varna.visible = false
 		$MethMinigame2.visible = true
 		firsttime = "n"
-	elif (items[i].animation == "empty_meth"):
+	elif (items[i].animation == "des_meth" && items[i].frame == 0):
 		i+=1
 		$varna.visible = false
 		$MethMinigame.visible = true
@@ -159,6 +187,7 @@ func _on_connection_closed(was_clean = false):
 func _on_connected(proto = ""):
 	var text = loadd()
 	print("Connected with protocol: ", proto)
+	_send("getservertimestamp" + text)
 	_send("loadinterior"+ text +"$" + varnaID)
 	
 func _on_data():
@@ -188,6 +217,10 @@ func _on_data():
 				n+=3
 				m+=3
 				o+=3
+		"error", "successful":
+			pass
+		_:
+			timestamp = int(x[0])
 
 func _send(text):
 	var packet: PoolByteArray = text.to_utf8()
@@ -255,18 +288,21 @@ func _on_weed_pressed():
 	items[tablenumber].play("empty_weed")
 	tableitems[tablenumber] = "weed"
 	$AreaVyber.visible = false
+	#$varna.visible = true
 
 func _on_heroin_pressed():
 	_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$heroin")
 	items[tablenumber].play("empty_heroin")
 	tableitems[tablenumber] = "heroin"
 	$AreaVyber.visible = false
+	#$varna.visible = true
 
 func _on_meth_pressed():
 	_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$meth")
 	items[tablenumber].play("empty_meth")
 	tableitems[tablenumber] = "meth"
-	$AreaVyber.visible = false 
+	$AreaVyber.visible = false
+	#$varna.visible = true 
 
 func _on_Button_button_down():
 	if timer < 4:
