@@ -71,16 +71,29 @@ func _set_item(var drug, var state, var stage, var item):
 				else:
 					_play_animation(item)
 					_set_sprite_frame(int(state)-timestamp,item)
-			"heroine":
-				pass
+			"heroin":
+				if(stage == "1"):
+					item.set_animation("cooking1_"+drug)
+					if (timestamp > int(state)):
+						item.frame = item.get_sprite_frames().get_frame_count(item.get_animation())-1
+					else:
+						_play_animation(item)
+						_set_sprite_frame(int(state)-timestamp,item)
+				else:
+					item.set_animation("cooking2_"+drug)
+					if (timestamp > int(state)):
+						item.frame = item.get_sprite_frames().get_frame_count(item.get_animation())-1
+					else:
+						_play_animation(item)
+						_set_sprite_frame(int(state)-timestamp,item)
 	else:
 		match drug:
 			"meth":
 				item.set_animation("des_"+drug)
 			"weed":
 				item.set_animation("growing_"+drug)
-			"heroine":
-				pass
+			"heroin":
+				item.set_animation("cooking1_"+drug)
  
 func _get_table_count(var x):
 	return (x.size()-2)/3
@@ -127,7 +140,6 @@ func _weedstart_weedharvest(var i, var text):
 		firsttime = "n"
 
 func _methstart(var item):
-	print(OS.get_system_time_secs())
 	$varna/textbox.visible = true
 	$varna/textbox.text = "You just started distilling"
 	item.set_animation("des_meth")
@@ -136,7 +148,6 @@ func _methstart(var item):
 	$varna/textbox.visible = false
 
 func _methcontinue(var item):
-	print(OS.get_system_time_secs())
 	$varna/textbox.visible = true
 	$varna/textbox.text = "You will have to wait a until it's done"
 	item.set_animation("kry_meth")
@@ -169,6 +180,46 @@ func _methstart_methharvest(var i, var text):
 		$varna.visible = false
 		$MethMinigame.visible = true
 		firsttime = "n"
+
+func _heroinstart_heroinharvest(var i, var text):
+	if (items[i].animation == "cooking2_heroin" && items[i].frame == items[i].get_sprite_frames().get_frame_count(items[i].get_animation())-1):
+		i+=1
+		_send("heroinharvest" + text + "$" + varnaID + "$" + String(i))
+		firsttime = "n"
+	elif (items[i].animation == "cooking1_heroin" && items[i].frame == items[i].get_sprite_frames().get_frame_count(items[i].get_animation())-1):
+		i+=1
+		_send("heroincontinue" + text + "$" + varnaID + "$" + String(i) + "$5")
+		firsttime = "n"
+	elif (items[i].animation == "cooking1_heroin" && items[i].frame == 0):
+		i+=1
+		_send("heroinstart" + text + "$" + varnaID + "$" + String(i) + "$5")
+		firsttime = "n"
+
+func _heroinstart(var item):
+	$varna/textbox.visible = true
+	$varna/textbox.text = "You just started cooking, wait until you can add alcohol"
+	item.set_animation("cooking1_heroin")
+	_play_animation(item)
+	yield(get_tree().create_timer(3.0), "timeout")
+	$varna/textbox.visible = false
+
+func _heroincontinue(var item):
+	$varna/textbox.visible = true
+	$varna/textbox.text = "You will have to wait a until it's done"
+	item.set_animation("cooking2_heroin")
+	_play_animation(item)
+	yield(get_tree().create_timer(3.0), "timeout")
+	$varna/textbox.visible = false
+
+func _heroinharvest(var i,var grams):
+	if tablenumber == null:
+		pass
+	else:
+		items[i].set_animation("cooking1_heroin")
+		$varna/textbox.visible = true
+		$varna/textbox.text = "You just got " + grams + " heroin"
+		yield(get_tree().create_timer(3.0), "timeout")
+		$varna/textbox.visible = false
 
 func _process(delta):
 	client.poll()
@@ -205,6 +256,12 @@ func _on_data():
 			_methcontinue(items[tablenumber])
 		"methharvest":
 			_methharvest(tablenumber,x[1])
+		"heroinstart":
+			_heroinstart(items[tablenumber])
+		"heroincontinue":
+			_heroincontinue(items[tablenumber])
+		"heroinharvest":
+			_heroinharvest(tablenumber,x[1])
 		"loadinterior":
 			var m = 1
 			var n = 2
@@ -243,7 +300,7 @@ func _input(event):
 					"meth":
 						_methstart_methharvest(tablenumber,loadd())
 					"heroin":
-						pass
+						_heroinstart_heroinharvest(tablenumber,loadd())
 		elif event.scancode == KEY_Q and firsttime == "y":
 			user = loadd()
 			_get_tablenumber()
@@ -285,21 +342,21 @@ func _on_TimerWeed_timeout():
 
 func _on_weed_pressed():
 	_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$weed")
-	items[tablenumber].play("empty_weed")
+	items[tablenumber].set_animation("growing_weed")
 	tableitems[tablenumber] = "weed"
 	$AreaVyber.visible = false
 	#$varna.visible = true
 
 func _on_heroin_pressed():
 	_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$heroin")
-	items[tablenumber].play("empty_heroin")
+	items[tablenumber].set_animation("cooking1_heroin")
 	tableitems[tablenumber] = "heroin"
 	$AreaVyber.visible = false
 	#$varna.visible = true
 
 func _on_meth_pressed():
 	_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$meth")
-	items[tablenumber].play("empty_meth")
+	items[tablenumber].set_animation("des_meth")
 	tableitems[tablenumber] = "meth"
 	$AreaVyber.visible = false
 	#$varna.visible = true 
