@@ -42,6 +42,9 @@ func _on_data():
 					fieldsprites[i+1].frame = 12
 				else:
 					_set_sprite_frame(int(x[i+1])-timestamp,fieldsprites[i+1])
+		"makoviceharvest":
+			fieldsprites[fieldnumber].frame = 0
+			_grow_field(fieldsprites[fieldnumber])
 		"error", "successful":
 			pass
 		_:
@@ -143,8 +146,5 @@ func _input(event):
 			if fieldnumber != null:
 				if fieldsprites[fieldnumber].get_frame()==12:
 					_send("makoviceharvest" + text + "$" + String(fieldnumber))
-					fieldsprites[fieldnumber].frame = 0
-					_grow_field(fieldsprites[fieldnumber])
-
 		else:
 			firsttime = "y"
