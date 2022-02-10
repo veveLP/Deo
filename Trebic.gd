@@ -333,7 +333,7 @@ func _on_data():
 			$HoodPannel/Dealer1/ProgressBar.visible = false#
 		if int(x[2]) > 0:
 			$HoodPannel/Dealer1/RichTextLabel.visible = true
-			$HoodPannel/Dealer1/ProgressBar.visible = true#
+			$HoodPannel/Dealer1/ProgressBar.visible = true
 			$HoodPannel/Dealer1/Drug1.disabled = true
 			$HoodPannel/Dealer1/Drug2.disabled = true
 			$HoodPannel/Dealer1/Dealer1.disabled = true
