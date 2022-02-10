@@ -39,7 +39,7 @@ func _on_data():
 		"loadsektorpole":
 			for i in unlocked:
 				if(int(x[i+1])<timestamp):
-					fieldsprites[i+1].frame = 12
+					fieldsprites[i+1].frame = fieldsprites[i+1].get_sprite_frames().get_frame_count(fieldsprites[i+1].get_animation())-1
 				else:
 					_set_sprite_frame(int(x[i+1])-timestamp,fieldsprites[i+1])
 		"makoviceharvest":
