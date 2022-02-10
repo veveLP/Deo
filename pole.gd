@@ -121,8 +121,8 @@ func _gen_fieldsprites():
 
 func _grow_field(var x):
 	x.playing = true
-	while(x.get_frame() != 12):
-		yield(get_tree().create_timer(0.5), "timeout")
+	while(x.get_frame() != x.get_sprite_frames().get_frame_count(x.get_animation())-1):
+		yield(get_tree().create_timer(2), "timeout")
 	x.playing=false
 
 func _get_fieldnumber():
@@ -144,7 +144,7 @@ func _input(event):
 			firsttime = "n"
 			_get_fieldnumber()
 			if fieldnumber != null:
-				if fieldsprites[fieldnumber].get_frame()==12:
+				if fieldsprites[fieldnumber].get_frame()==fieldsprites[fieldnumber].get_sprite_frames().get_frame_count(fieldsprites[fieldnumber].get_animation())-1:
 					_send("makoviceharvest" + text + "$" + String(fieldnumber))
 		else:
 			firsttime = "y"
