@@ -58,10 +58,12 @@ func _on_data():
 		$VaricText.text = x[12]
 		$ChloroformText.text = x[13]
 		$UhlicitanText.text = x[14]
+		$UhliText.text = x[15]
 		$AlkoholText.text = x[16]
 		$OcetText.text = x[17]
 		$CpavekText.text = x[18]
 		$VapnoText.text = x[19]
+		$MakoviceText.text = x[20]
 		
 		
 	

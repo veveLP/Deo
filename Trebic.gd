@@ -52,6 +52,7 @@ func _on_data():
 	if (x[0] == "loadmap"):
 		$LabelMoney.text = x[2]
 		unlockedHoods = x[1] 
+		$Trebic/UnlockedHoods.text = str(unlockedHoods)
 		var test=float(x[3])
 		var numb = float(0)
 		while float(test) > 1000:
@@ -846,24 +847,24 @@ func _on_Dealer2_pressed():
 
 
 func _on_ButtonVyberExit_pressed():
-	$HoodPannel.visible = true
+	#$HoodPannel.visible = true
 	$DealerVyber.visible = false
 
 
 func _on_ButtonDealer1_pressed():
 	
 	_send("assigndealer" + text +"$" + $HoodPannel/HoodiD.text + "$" +$DealerVyber/Dealer1/DealerID.text)
-
+	$DealerVyber.visible = false
 
 func _on_ButtonDealer2_pressed():
 	
 	_send("assigndealer" + text +"$" + $HoodPannel/HoodiD.text + "$" +$DealerVyber/Dealer2/DealerID.text)
-
+	$DealerVyber.visible = false
 
 func _on_ButtonDealer3_pressed():
 	
 	_send("assigndealer" + text +"$" + $HoodPannel/HoodiD.text + "$" +$DealerVyber/Dealer3/DealerID.text)
-
+	$DealerVyber.visible = false
 
 
 
@@ -910,6 +911,7 @@ func _on_1ButtonSend1_pressed():
 	TimeStampID = 12
 	$HoodPannel/Dealer1Remain1.visible = false
 	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
+	_send("hood" + text + "$" + $HoodPannel/HoodiD.text)
 	$HoodPannel/Dealer1/RichTextLabel.visible = true
 	
 func _on_1ButtonSend2_pressed():
@@ -918,6 +920,7 @@ func _on_1ButtonSend2_pressed():
 	TimeStampID = 12
 	$HoodPannel/Dealer1Remain2.visible = false
 	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
+	_send("hood" + text + "$" + $HoodPannel/HoodiD.text)
 	$HoodPannel/Dealer1/RichTextLabel.visible = true
 	
 func _on_2HSlider1_value_changed(value):
@@ -934,6 +937,7 @@ func _on_2ButtonSend1_pressed():
 	TimeStampID = 21
 	$HoodPannel/Dealer2Remain1.visible = false
 	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
+	_send("hood" + text + "$" + $HoodPannel/HoodiD.text)
 	$HoodPannel/Dealer2/RichTextLabel.visible = true
 	
 var TimeStampID
@@ -945,18 +949,21 @@ func _on_2ButtonSend2_pressed():
 	TimeStampID = 22
 	$HoodPannel/Dealer2Remain2.visible = false
 	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
+	_send("hood" + text + "$" + $HoodPannel/HoodiD.text)
 	$HoodPannel/Dealer2/RichTextLabel.visible = true
 
 func _on_ButtonCollect1_pressed():
 	_send("takeprofit"+text+"$"+$HoodPannel/HoodiD.text+ "$1")
 	$HoodPannel/Dealer1/ButtonCollect.visible = false
 	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
+	_send("loadmap" + text)
 	$HoodPannel/Dealer1/RichTextLabel.visible = false
 
 func _on_ButtonCollect2_pressed():
 	_send("takeprofit"+text+"$"+$HoodPannel/HoodiD.text+ "$2")
 	$HoodPannel/Dealer2/ButtonCollect.visible = false
 	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
+	_send("loadmap" + text)
 	$HoodPannel/Dealer2/RichTextLabel.visible = false
 
 func _on_Timer_timeout():
@@ -988,5 +995,61 @@ func _on_Timer_timeout():
 
 
 
+func _on_Varna1_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			get_tree().change_scene("res://varna_scene1.tscn")
 
 
+func _on_Varna2_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			if int(unlockedHoods) < 3:
+				OS.alert("Tuto varnu nemáš odemknutou!")
+				return
+			get_tree().change_scene("res://varna_scene2.tscn")
+
+
+func _on_Varna3_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			if int(unlockedHoods) < 5:
+				OS.alert("Tuto varnu nemáš odemknutou!")
+				return
+			get_tree().change_scene("res://varna_scene3.tscn")
+
+
+func _on_Varna4_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			if int(unlockedHoods) < 7:
+				OS.alert("Tuto varnu nemáš odemknutou!")
+				return
+			get_tree().change_scene("res://varna_scene4.tscn")
+
+
+func _on_Varna5_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			if int(unlockedHoods) < 9:
+				OS.alert("Tuto varnu nemáš odemknutou!")
+				return
+			get_tree().change_scene("res://varna_scene5.tscn")
+
+
+func _on_Varna6_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			if int(unlockedHoods) < 11:
+				OS.alert("Tuto varnu nemáš odemknutou!")
+				return
+			get_tree().change_scene("res://varna_scene6.tscn")
+
+
+func _on_Varna7_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			if int(unlockedHoods) < 13:
+				OS.alert("Tuto varnu nemáš odemknutou!")
+				return
+			get_tree().change_scene("res://varna_scene7.tscn")

@@ -57,10 +57,12 @@ func _on_data():
 		$Iv/Inv/VaricText.text = x[12]
 		$Iv/Inv/ChloroformText.text = x[13]
 		$Iv/Inv/UhlicitanText.text = x[14]
+		$Iv/Inv/UhliText.text = x[15]
 		$Iv/Inv/AlkoholText.text = x[16]
 		$Iv/Inv/OcetText.text = x[17]
 		$Iv/Inv/CpavekText.text = x[18]
 		$Iv/Inv/VapnoText.text = x[19]
+		$Iv/Inv/MakoviceText.text = x[20]
 
 func _send(text):
 	var packet: PoolByteArray = text.to_utf8()
@@ -134,3 +136,10 @@ func _on_ButtonInv_pressed():
 func _on_ButtonInvExit_pressed():
 	$Iv.visible = false
 
+
+
+func _on_ButtonAktivniUhli_pressed():
+	$SelectPanel/ItemPrice.text = "150"
+	$SelectPanel/ItemID.text = "12"
+	$SelectPanel/LabelPrice.text = "Cena:" + str(int($SelectPanel/ItemPrice.text) * int($SelectPanel/BuyAmount.text))
+	$SelectPanel.visible = true;
