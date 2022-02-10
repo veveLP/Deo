@@ -1,106 +1,93 @@
 {
     "1": {
-        "1": {
-            "name": "Richard 'swagger' Novotný",
-            "drugs": [
-                "weed",
-                "heroin"
-            ],
-            "profit_cut": 5,
-            "police_chance": 10,
-            "selling_amount": 30
-        },
-        "2": {
-            "name": "Baltazar 'baller' Pokorný",
-            "drugs": [
-                "weed",
-                "meth"
-            ],
-            "profit_cut": 5,
-            "police_chance": 8,
-            "selling_amount": 20
-        },
-        "3": {
-            "name": "Čestmír 'šlapka' Procházka",
-            "drugs": [
-                "heroin",
-                "meth"
-            ],
-            "profit_cut": 3,
-            "police_chance": 15,
-            "selling_amount": 10
-        },
-        "4": {
-            "name": "Patrik 'frajer' Dvořák",
-            "drugs": [
-                "weed",
-                "heroin"
-            ],
-            "profit_cut": 10,
-            "police_chance": 5,
-            "selling_amount": 25
-        },
-        "5": {
-            "name": "Lumír 'dement' Sedláček",
-            "drugs": [
-                "heroin",
-                "meth"
-            ],
-            "profit_cut": 5,
-            "police_chance": 25,
-            "selling_amount": 40
-        }
+        "1": {"name": "Richard 'swagger' Novotný", "drugs": ["meth", "heroin"], "profit_cut": 31, "police_chance": 3, "selling_amount": 26},
+        "2": {"name": "Baltazar 'baller' Pokorný", "drugs": ["weed", "meth"], "profit_cut": 8, "police_chance": 15, "selling_amount": 27},
+        "3": {"name": "Čestmír 'šlapka' Procházka", "drugs": ["meth", "heroin"], "profit_cut": 21, "police_chance": 10, "selling_amount": 32},
+        "4": {"name": "Patrik 'frajer' Dvořák", "drugs": ["heroin", "meth"], "profit_cut": 32, "police_chance": 3, "selling_amount": 28},
+        "5": {"name": "Lumír 'dement' Sedláček", "drugs": ["heroin", "weed"], "profit_cut": 26, "police_chance": 6, "selling_amount": 26}
     },
     "2": {
-        "1": {
-            "name": "Kryštof 'Slaďoušek' Skočdopole",
-            "drugs": [
-                "weed",
-                "heroin"
-            ],
-            "profit_cut": 8,
-            "police_chance": 10,
-            "selling_amount": 35
-        },
-        "2": {
-            "name": "Marek 'Chemik' Černík",
-            "drugs": [
-                "weed",
-                "meth"
-            ],
-            "profit_cut": 5,
-            "police_chance": 5,
-            "selling_amount": 25
-        },
-        "3": {
-            "name": "Kamil 'Kamzík' Koza",
-            "drugs": [
-                "heroin",
-                "meth"
-            ],
-            "profit_cut": 8,
-            "police_chance": 3,
-            "selling_amount": 20
-        },
-        "4": {
-            "name": "Ivan 'Mafián' Komárek",
-            "drugs": [
-                "weed",
-                "heroin"
-            ],
-            "profit_cut": 11,
-            "police_chance": 5,
-            "selling_amount": 35
-        },
-        "5": {
-            "name": "Hanz 'Nácek' Miláček",
-            "drugs": [
-                "heroin",
-                "meth"
-            ],
-            "profit_cut": 7,
-            "police_chance": 35,
-            "selling_amount": 80
-        }
+        "1": {"name": "Kryštof 'Slaďoušek' Skočdopole", "drugs": ["heroin", "weed"], "profit_cut": 12, "police_chance": 13, "selling_amount": 39},
+        "2": {"name": "Marek 'Chemik' Černík", "drugs": ["meth", "heroin"], "profit_cut": 21, "police_chance": 10, "selling_amount": 45},
+        "3": {"name": "Kamil 'Kamzík' Koza", "drugs": ["meth", "weed"], "profit_cut": 12, "police_chance": 15, "selling_amount": 51},
+        "4": {"name": "Ivan 'Mafián' Komárek", "drugs": ["meth", "weed"], "profit_cut": 17, "police_chance": 13, "selling_amount": 50},
+        "5": {"name": "Hanz 'Nácek' Miláček", "drugs": ["meth", "heroin"], "profit_cut": 24, "police_chance": 8, "selling_amount": 43}
+    },
+    "3": {
+        "1": {"name": "Leoš 'Lyžař' Mareš", "drugs": ["meth", "heroin"], "profit_cut": 20, "police_chance": 10, "selling_amount": 58},
+        "2": {"name": "Miloš 'Šíp' Zagora", "drugs": ["weed", "meth"], "profit_cut": 23, "police_chance": 8, "selling_amount": 58},
+        "3": {"name": "Drahomír 'Okounka' Brom", "drugs": ["meth", "heroin"], "profit_cut": 26, "police_chance": 6, "selling_amount": 55},
+        "4": {"name": "Šimon 'Mravenec' Kálai", "drugs": ["meth", "weed"], "profit_cut": 16, "police_chance": 11, "selling_amount": 55},
+        "5": {"name": "Miloslav 'Luňák' Bartošík", "drugs": ["meth", "weed"], "profit_cut": 11, "police_chance": 15, "selling_amount": 65}
+    },
+    "4": {
+        "1": {"name": "Mark 'Merkur' Loužil", "drugs": ["weed", "meth"], "profit_cut": 20, "police_chance": 9, "selling_amount": 69},
+        "2": {"name": "Vladimír 'Had' Vichta", "drugs": ["meth", "heroin"], "profit_cut": 27, "police_chance": 6, "selling_amount": 74},
+        "3": {"name": "Josef 'Béďa' Bureš", "drugs": ["meth", "heroin"], "profit_cut": 25, "police_chance": 8, "selling_amount": 76},
+        "4": {"name": "Milan 'Felix' Německý", "drugs": ["meth", "weed"], "profit_cut": 12, "police_chance": 14, "selling_amount": 76},
+        "5": {"name": "Miloslav 'Šedák' Mironov", "drugs": ["heroin", "meth"], "profit_cut": 10, "police_chance": 16, "selling_amount": 81}
+    },
+    "5": {
+        "1": {"name": "Lukáš 'Žralok' Karásek", "drugs": ["meth", "heroin"], "profit_cut": 18, "police_chance": 11, "selling_amount": 89},
+        "2": {"name": "Miroslav 'Špalek' Kollert", "drugs": ["weed", "meth"], "profit_cut": 18, "police_chance": 11, "selling_amount": 92},
+        "3": {"name": "Josef 'Smajlík' Horváth", "drugs": ["heroin", "meth"], "profit_cut": 30, "police_chance": 5, "selling_amount": 94},
+        "4": {"name": "Jaroslav 'Dráček' Brožek", "drugs": ["meth", "heroin"], "profit_cut": 18, "police_chance": 11, "selling_amount": 92},
+        "5": {"name": "David 'Kaktus' Pivoňka", "drugs": ["heroin", "weed"], "profit_cut": 27, "police_chance": 6, "selling_amount": 84} 
+    },
+    "6": {
+        "1": {"name": "Pavel 'Osel' Zemčík", "drugs": ["heroin", "weed"], "profit_cut": 20, "police_chance": 10, "selling_amount": 108},
+        "2": {"name": "Miloš 'Pirát' Štrba", "drugs": ["heroin", "weed"], "profit_cut": 20, "police_chance": 9, "selling_amount": 99},
+        "3": {"name": "Radovan 'Svišť' Trnka", "drugs": ["meth", "heroin"], "profit_cut": 31, "police_chance": 5, "selling_amount": 110},
+        "4": {"name": "Milan 'Žába' Noha", "drugs": ["heroin", "weed"], "profit_cut": 19, "police_chance": 10, "selling_amount": 102},
+        "5": {"name": "Michal 'Bříza' Mynář", "drugs": ["heroin", "weed"], "profit_cut": 32, "police_chance": 4, "selling_amount": 101}
+    },
+    "7": {
+        "1": {"name": "Jan 'Synek' Šturek", "drugs": ["weed", "heroin"], "profit_cut": 11, "police_chance": 14, "selling_amount": 117},
+        "2": {"name": "Miroslav 'Šmoula' Kopřiva", "drugs": ["heroin", "meth"], "profit_cut": 27, "police_chance": 6, "selling_amount": 120},
+        "3": {"name": "František 'Drobeček' Běla", "drugs": ["heroin", "weed"], "profit_cut": 14, "police_chance": 13, "selling_amount": 122},
+        "4": {"name": "Milan 'Pavouk' Svoboda", "drugs": ["meth", "heroin"], "profit_cut": 11, "police_chance": 15, "selling_amount": 126},
+        "5": {"name": "Jiří 'Sniper' Kaufman", "drugs": ["weed", "heroin"], "profit_cut": 29, "police_chance": 6, "selling_amount": 124}
+    },
+    "8": {
+        "1": {"name": "Milan 'Dědek' Kottnauer", "drugs": ["meth", "heroin"], "profit_cut": 27, "police_chance": 6, "selling_amount": 130},
+        "2": {"name": "Lukáš 'Šiška' Vorálek", "drugs": ["heroin", "weed"], "profit_cut": 18, "police_chance": 11, "selling_amount": 137},
+        "3": {"name": "Josef 'Dobrák' Štefka", "drugs": ["heroin", "weed"], "profit_cut": 12, "police_chance": 14, "selling_amount": 137},
+        "4": {"name": "Vladimír 'Koumák' Furmánek", "drugs": ["weed", "meth"], "profit_cut": 15, "police_chance": 12, "selling_amount": 134},
+        "5": {"name": "Stanislav 'Žirafa' Hybler", "drugs": ["heroin", "weed"], "profit_cut": 31, "police_chance": 5, "selling_amount": 140} 
+    },
+    "9": {
+        "1": {"name": "Jiří 'Žabátko' Konvičný", "drugs": ["meth", "heroin"], "profit_cut": 17, "police_chance": 12, "selling_amount": 150},
+        "2": {"name": "Vladimír 'Šulín' Přibáň", "drugs": ["meth", "heroin"], "profit_cut": 29, "police_chance": 6, "selling_amount": 152},
+        "3": {"name": "Milan 'Kuchař' Bejna", "drugs": ["heroin", "meth"], "profit_cut": 29, "police_chance": 5, "selling_amount": 148},
+        "4": {"name": "Josef 'Jezdec' Šemík", "drugs": ["meth", "heroin"], "profit_cut": 13, "police_chance": 13, "selling_amount": 144},
+        "5": {"name": "Bořivoj 'Alkoholik' Langr", "drugs": ["meth", "weed"], "profit_cut": 19, "police_chance": 11, "selling_amount": 155}
+    },
+    "10": {
+        "1": {"name": "František 'Dick' Zavřel", "drugs": ["weed", "heroin"], "profit_cut": 19, "police_chance": 10, "selling_amount": 165},
+        "2": {"name": "Jakub 'Mateřídouška' Rusakov", "drugs": ["heroin", "weed"], "profit_cut": 11, "police_chance": 14, "selling_amount": 164},
+        "3": {"name": "Jiří 'Kosťa' Csiszár", "drugs": ["meth", "weed"], "profit_cut": 25, "police_chance": 8, "selling_amount": 167},
+        "4": {"name": "Jan 'Tulipán' Hula", "drugs": ["weed", "heroin"], "profit_cut": 16, "police_chance": 12, "selling_amount": 159},
+        "5": {"name": "Aleš 'Burák' Bureš", "drugs": ["heroin", "meth"], "profit_cut": 28, "police_chance": 6, "selling_amount": 161}
+    },
+    "11": {
+        "1": {"name": "Jan 'Synek' Nečásek", "drugs": ["weed", "meth"], "profit_cut": 17, "police_chance": 11, "selling_amount": 175},
+        "2": {"name": "Jiří 'Rajče' Dostal", "drugs": ["heroin", "weed"], "profit_cut": 8, "police_chance": 16, "selling_amount": 175},
+        "3": {"name": "Vít 'Skřítek' Číž", "drugs": ["heroin", "weed"], "profit_cut": 30, "police_chance": 5, "selling_amount": 181},
+        "4": {"name": "Miroslav 'Šnek' Černohorský", "drugs": ["weed", "meth"], "profit_cut": 31, "police_chance": 5, "selling_amount": 184},
+        "5": {"name": "Slavomír 'Kruťas' Švestka", "drugs": ["heroin", "meth"], "profit_cut": 8, "police_chance": 16, "selling_amount": 183}
+    },
+    "12": {
+        "1": {"name": "Petr 'Kennedy' Mařík", "drugs": ["weed", "meth"], "profit_cut": 32, "police_chance": 4, "selling_amount": 191},
+        "2": {"name": "Milan 'Sluníčko' Karásek", "drugs": ["meth", "heroin"], "profit_cut": 23, "police_chance": 8, "selling_amount": 191},
+        "3": {"name": "Marek 'Uzlík' Šperkl", "drugs": ["heroin", "meth"], "profit_cut": 26, "police_chance": 7, "selling_amount": 192},
+        "4": {"name": "Ondřej 'Kokos' Braun", "drugs": ["heroin", "meth"], "profit_cut": 27, "police_chance": 6, "selling_amount": 189},
+        "5": {"name": "Roman 'Lenochod' Kudyn", "drugs": ["weed", "heroin"], "profit_cut": 18, "police_chance": 11, "selling_amount": 191} 
+    },
+    "13": {
+        "1": {"name": "Jaroslav 'Pleška' Doubrava", "drugs": ["heroin", "weed"], "profit_cut": 28, "police_chance": 6, "selling_amount": 209},
+        "2": {"name": "Jiří 'Muž' Novák", "drugs": ["heroin", "meth"], "profit_cut": 9, "police_chance": 16, "selling_amount": 211},
+        "3": {"name": "Jiří 'Filozof' Lidický", "drugs": ["weed", "heroin"], "profit_cut": 30, "police_chance": 5, "selling_amount": 216},
+        "4": {"name": "Jaroslav 'Fotograf' Černý", "drugs": ["heroin", "weed"], "profit_cut": 28, "police_chance": 6, "selling_amount": 205},
+        "5": {"name": "Martin 'Weeb' Koště", "drugs": ["weed", "meth"], "profit_cut": 26, "police_chance": 7, "selling_amount": 206}      
     }
 }
