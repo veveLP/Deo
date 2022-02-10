@@ -22,7 +22,7 @@
 [ext_resource path="res://assets/varna.png" type="Texture" id=20]
 [ext_resource path="res://assets/pico.png" type="Texture" id=21]
 [ext_resource path="res://assets/hydroxid.png" type="Texture" id=22]
-[ext_resource path="res://assets/mak-editlater.png" type="Texture" id=23]
+[ext_resource path="res://assets/mak-ico-upscale.png" type="Texture" id=23]
 [ext_resource path="res://assets/uhli.png" type="Texture" id=24]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -166,10 +166,25 @@ flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 512, 512, 64, 64 )
 
+[sub_resource type="AtlasTexture" id=112]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=111]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 640, 64, 64 )
+
 [sub_resource type="AtlasTexture" id=108]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=110]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 704, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=99]
 flags = 4
@@ -216,21 +231,6 @@ flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 512, 640, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=110]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 704, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=112]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 576, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=111]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 640, 64, 64 )
-
 [sub_resource type="SpriteFrames" id=113]
 animations = [ {
 "frames": [ SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ) ],
@@ -248,21 +248,6 @@ animations = [ {
 "name": "up",
 "speed": 7.0
 }, {
-"frames": [ SubResource( 108 ) ],
-"loop": true,
-"name": "standing_up",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ) ],
-"loop": true,
-"name": "down",
-"speed": 7.0
-}, {
-"frames": [ SubResource( 110 ) ],
-"loop": true,
-"name": "standing_right",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 112 ) ],
 "loop": true,
 "name": "standing_left",
@@ -272,6 +257,21 @@ animations = [ {
 "loop": true,
 "name": "standing_down",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 108 ) ],
+"loop": true,
+"name": "standing_up",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 110 ) ],
+"loop": true,
+"name": "standing_right",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ) ],
+"loop": true,
+"name": "down",
+"speed": 7.0
 } ]
 
 [sub_resource type="ConcavePolygonShape2D" id=3]
@@ -1981,7 +1981,6 @@ __meta__ = {
 }
 
 [node name="Iv" type="StaticBody2D" parent="."]
-visible = false
 z_index = 8
 
 [node name="Inv" type="Panel" parent="Iv"]
@@ -2559,8 +2558,8 @@ __meta__ = {
 }
 
 [node name="Makovice" type="Sprite" parent="Iv/Inv"]
-position = Vector2( 294, 959 )
-scale = Vector2( 4, 4 )
+position = Vector2( 297, 933 )
+scale = Vector2( 0.269792, 0.269792 )
 texture = ExtResource( 23 )
 
 [node name="MakoviceText" type="RichTextLabel" parent="Iv/Inv"]
