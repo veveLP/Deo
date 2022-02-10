@@ -330,8 +330,10 @@ func _on_data():
 			$HoodPannel/Dealer1/ButtonCollect.visible = true
 			collect[0] = true
 			$HoodPannel/Dealer1/RichTextLabel.visible = false
+			$HoodPannel/Dealer1/ProgressBar.visible = false#
 		if int(x[2]) > 0:
 			$HoodPannel/Dealer1/RichTextLabel.visible = true
+			$HoodPannel/Dealer1/ProgressBar.visible = true
 			$HoodPannel/Dealer1/Drug1.disabled = true
 			$HoodPannel/Dealer1/Drug2.disabled = true
 			$HoodPannel/Dealer1/Dealer1.disabled = true
@@ -344,8 +346,10 @@ func _on_data():
 			$HoodPannel/Dealer2/ButtonCollect.visible = true
 			collect[1] = true
 			$HoodPannel/Dealer2/RichTextLabel.visible = false
+			$HoodPannel/Dealer2/ProgressBar.visible = false
 		if int(x[5]) > 0:
 			$HoodPannel/Dealer2/RichTextLabel.visible = true
+			$HoodPannel/Dealer2/ProgressBar.visible = true
 			$HoodPannel/Dealer2/Drug1.disabled = true
 			$HoodPannel/Dealer2/Drug2.disabled = true
 			$HoodPannel/Dealer2/Dealer2.disabled = true
@@ -913,6 +917,7 @@ func _on_1ButtonSend1_pressed():
 	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
 	_send("hood" + text + "$" + $HoodPannel/HoodiD.text)
 	$HoodPannel/Dealer1/RichTextLabel.visible = true
+	$HoodPannel/Dealer1/ProgressBar.visible = true
 	
 func _on_1ButtonSend2_pressed():
 	_send("sendtodealer"+text+ "$" +$HoodPannel/HoodiD.text + "$1$" + $HoodPannel/Dealer1/Drug2.text + "$" + str($HoodPannel/Dealer1Remain2/HSlider.value)  )
@@ -922,6 +927,7 @@ func _on_1ButtonSend2_pressed():
 	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
 	_send("hood" + text + "$" + $HoodPannel/HoodiD.text)
 	$HoodPannel/Dealer1/RichTextLabel.visible = true
+	$HoodPannel/Dealer1/ProgressBar.visible = true
 	
 func _on_2HSlider1_value_changed(value):
 	$HoodPannel/Dealer2Remain1/ButtonSend.text = "Prodat " + str($HoodPannel/Dealer2Remain1/HSlider.value) 
@@ -939,6 +945,7 @@ func _on_2ButtonSend1_pressed():
 	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
 	_send("hood" + text + "$" + $HoodPannel/HoodiD.text)
 	$HoodPannel/Dealer2/RichTextLabel.visible = true
+	$HoodPannel/Dealer2/ProgressBar.visible = true
 	
 var TimeStampID
 var TimeStamp
@@ -951,6 +958,7 @@ func _on_2ButtonSend2_pressed():
 	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
 	_send("hood" + text + "$" + $HoodPannel/HoodiD.text)
 	$HoodPannel/Dealer2/RichTextLabel.visible = true
+	$HoodPannel/Dealer2/ProgressBar.visible = true
 
 func _on_ButtonCollect1_pressed():
 	_send("takeprofit"+text+"$"+$HoodPannel/HoodiD.text+ "$1")
@@ -965,6 +973,7 @@ func _on_ButtonCollect2_pressed():
 	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
 	_send("loadmap" + text)
 	$HoodPannel/Dealer2/RichTextLabel.visible = false
+	$HoodPannel/Dealer2/ProgressBar.visible = false
 
 func _on_Timer_timeout():
 	time[1]-=1
