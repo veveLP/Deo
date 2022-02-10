@@ -331,7 +331,7 @@ func _on_data():
 			collect[0] = true
 			$HoodPannel/Dealer1/RichTextLabel.visible = false
 		if int(x[2]) > 0:
-			#$HoodPannel/Dealer1/RichTextLabel.visible = true
+			$HoodPannel/Dealer1/RichTextLabel.visible = true
 			$HoodPannel/Dealer1/Drug1.disabled = true
 			$HoodPannel/Dealer1/Drug2.disabled = true
 			$HoodPannel/Dealer1/Dealer1.disabled = true
@@ -345,7 +345,7 @@ func _on_data():
 			collect[1] = true
 			$HoodPannel/Dealer2/RichTextLabel.visible = false
 		if int(x[5]) > 0:
-			#$HoodPannel/Dealer2/RichTextLabel.visible = true
+			$HoodPannel/Dealer2/RichTextLabel.visible = true
 			$HoodPannel/Dealer2/Drug1.disabled = true
 			$HoodPannel/Dealer2/Drug2.disabled = true
 			$HoodPannel/Dealer2/Dealer2.disabled = true
