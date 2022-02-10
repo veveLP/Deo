@@ -113,6 +113,7 @@ func _get_tablenumber():
 func _weedstart(var item):
 	$varna/textbox.visible = true
 	$varna/textbox.text = "You just planted a seed"
+	item.frame = 1
 	_play_animation(item)
 	yield(get_tree().create_timer(3.0), "timeout")
 	$varna/textbox.visible = false
