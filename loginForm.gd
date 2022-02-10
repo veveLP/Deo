@@ -36,7 +36,14 @@ func _on_data():
 		print ("cancel login")
 		OS.alert("Tento uživatel je již registrovaný")
 	elif payload == "login$successful$true":
-		OS.alert("turorial")
+		#OS.alert("turorial")
+		OS.alert("Cílem hry je odemknout všech 13 hoodu")
+		OS.alert("Hoody se vám odemknou za respekt který získáte prodáváním drog")
+		OS.alert("Věci na vaření a pěstování drog si můžeš koupit v zastavárně")
+		OS.alert("Na pěstovní trávy jsou potřeba semínky trávy")
+		OS.alert("Na výrobu pika je potřeba: varna, modafen, aceton, diethyl ether, kyselina chlorovodikova, hydroxid sodny, alkohol")
+		OS.alert("Na výrobu heroinu je potřeba: vařič, makovice, opium, vápno, čpavek, ocet, chloroform, voda, uhlicitan sodny, aktivni uhli, alkohol ")
+		OS.alert("V každám hoodu si můžete najmout 2 z 5 dealerů, kteří za vám potom drogy prodávají")
 		get_tree().change_scene("res://Trebic.tscn")
 		if (check):
 			OS.window_fullscreen = true
