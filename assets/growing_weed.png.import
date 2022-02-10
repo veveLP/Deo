@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/weed_1.png-102f00da8fc1930a955d12c39a78fb51.stex"
+path="res://.import/growing_weed.png-805f579e180bf663d39c2596efe105b2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/weed_1.png"
-dest_files=[ "res://.import/weed_1.png-102f00da8fc1930a955d12c39a78fb51.stex" ]
+source_file="res://assets/growing_weed.png"
+dest_files=[ "res://.import/growing_weed.png-805f579e180bf663d39c2596efe105b2.stex" ]
 
 [params]
 
