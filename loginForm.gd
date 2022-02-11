@@ -44,6 +44,12 @@ func _on_data():
 		OS.alert("Na výrobu pika je potřeba: varna, modafen, aceton, diethyl ether, kyselina chlorovodikova, hydroxid sodny, alkohol")
 		OS.alert("Na výrobu heroinu je potřeba: vařič, makovice, opium, vápno, čpavek, ocet, chloroform, voda, uhlicitan sodny, aktivni uhli, alkohol ")
 		OS.alert("V každám hoodu si můžete najmout 2 z 5 dealerů, kteří za vám potom drogy prodávají")
+		print("login succesfull")
+		var password = $Panel/LineEdit2.text
+		#print(password.sha256_text())
+		password = password.sha256_text()
+		password = password.left(10)
+		save("$"+$Panel/LineEdit.text+"$"+password)
 		get_tree().change_scene("res://Trebic.tscn")
 		if (check):
 			OS.window_fullscreen = true
