@@ -105,5 +105,5 @@ func login():
 
 
 func _on_Button2_pressed():
-	OS.shell_open("https://deo.jecool.net/registration.php")
-	#OS.alert("Registerace je aktálně možná pouze na www.deo.jecool.net")
+	OS.shell_open("https://www.drugempire.online/")
+	#OS.alert("Registerace je aktálně možná pouze na www.drugempire.online/")
