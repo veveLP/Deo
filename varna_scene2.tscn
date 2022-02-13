@@ -1,5 +1,6 @@
 [gd_scene load_steps=199 format=2]
 
+
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player_map.png" type="Texture" id=2]
 [ext_resource path="res://48x48/Room.png" type="Texture" id=3]
@@ -154,10 +155,10 @@ flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 640, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=110]
+[sub_resource type="AtlasTexture" id=111]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 0, 704, 64, 64 )
+region = Rect2( 0, 640, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=112]
 flags = 4
@@ -236,9 +237,9 @@ animations = [ {
 "name": "standing_down",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 110 ) ],
+"frames": [ SubResource( 111 ) ],
 "loop": true,
-"name": "standing_right",
+"name": "standing_down",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 112 ) ],

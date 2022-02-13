@@ -1210,7 +1210,6 @@ __meta__ = {
 }
 
 [node name="HoodPannel" type="Panel" parent="."]
-visible = false
 margin_left = 322.0
 margin_top = 148.0
 margin_right = 1538.0
