@@ -1,4 +1,4 @@
-⚗️<b>Deméter</b>🌿
+⚗️🌿<b>Deméter</b>💊💉
 
 ![version](https://img.shields.io/badge/Done-52%25-green)
 
