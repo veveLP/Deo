@@ -36,7 +36,20 @@ func _on_data():
 		print ("cancel login")
 		OS.alert("Tento uživatel je již registrovaný")
 	elif payload == "login$successful$true":
-		OS.alert("turorial")
+		#OS.alert("turorial")
+		OS.alert("Cílem hry je odemknout všech 13 hoodu")
+		OS.alert("Hoody se vám odemknou za respekt který získáte prodáváním drog")
+		OS.alert("Věci na vaření a pěstování drog si můžeš koupit v zastavárně")
+		OS.alert("Na pěstovní trávy jsou potřeba semínky trávy")
+		OS.alert("Na výrobu pika je potřeba: varna, modafen, aceton, diethyl ether, kyselina chlorovodikova, hydroxid sodny, alkohol")
+		OS.alert("Na výrobu heroinu je potřeba: vařič, makovice, opium, vápno, čpavek, ocet, chloroform, voda, uhlicitan sodny, aktivni uhli, alkohol ")
+		OS.alert("V každám hoodu si můžete najmout 2 z 5 dealerů, kteří za vám potom drogy prodávají")
+		print("login succesfull")
+		var password = $Panel/LineEdit2.text
+		#print(password.sha256_text())
+		password = password.sha256_text()
+		password = password.left(10)
+		save("$"+$Panel/LineEdit.text+"$"+password)
 		get_tree().change_scene("res://Trebic.tscn")
 		if (check):
 			OS.window_fullscreen = true
@@ -92,5 +105,5 @@ func login():
 
 
 func _on_Button2_pressed():
-	OS.shell_open("https://deo.jecool.net/registration.php")
-	#OS.alert("Registerace je aktálně možná pouze na www.deo.jecool.net")
+	OS.shell_open("https://www.drugempire.online/")
+	#OS.alert("Registerace je aktálně možná pouze na www.drugempire.online/")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=2]
+[gd_scene load_steps=102 format=2]
 
 [ext_resource path="res://assets/trebic.png" type="Texture" id=1]
 [ext_resource path="res://borovina.gd" type="Script" id=2]
@@ -19,20 +19,15 @@
 [ext_resource path="res://assets/cpavek.png" type="Texture" id=17]
 [ext_resource path="res://assets/pills.png" type="Texture" id=18]
 [ext_resource path="res://Trebic.gd" type="Script" id=19]
-[ext_resource path="res://Varna1.gd" type="Script" id=20]
 [ext_resource path="res://Inv.gd" type="Script" id=21]
 [ext_resource path="res://assets/money.png" type="Texture" id=22]
 [ext_resource path="res://zastavarna_load.gd" type="Script" id=23]
 [ext_resource path="res://assets/dollar.png" type="Texture" id=24]
 [ext_resource path="res://assets/herion.png" type="Texture" id=25]
-[ext_resource path="res://Varna2.gd" type="Script" id=26]
-[ext_resource path="res://Varna5.gd" type="Script" id=27]
-[ext_resource path="res://Varna6.gd" type="Script" id=28]
-[ext_resource path="res://Varna4.gd" type="Script" id=29]
-[ext_resource path="res://Varna3.gd" type="Script" id=30]
-[ext_resource path="res://Varna7.gd" type="Script" id=31]
 [ext_resource path="res://Lekarna_load.gd" type="Script" id=32]
 [ext_resource path="res://assets/vapno.png" type="Texture" id=33]
+[ext_resource path="res://assets/uhli.png" type="Texture" id=34]
+[ext_resource path="res://assets/mak-ico-upscale.png" type="Texture" id=35]
 
 [sub_resource type="DynamicFontData" id=22]
 font_path = "res://DroidSans.ttf"
@@ -43,6 +38,13 @@ outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = SubResource( 22 )
+
+[sub_resource type="DynamicFontData" id=88]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=89]
+size = 128
+font_data = SubResource( 88 )
 
 [sub_resource type="DynamicFontData" id=64]
 font_path = "res://DroidSans.ttf"
@@ -140,6 +142,13 @@ font_path = "res://DroidSans.ttf"
 size = 32
 use_filter = true
 font_data = SubResource( 28 )
+
+[sub_resource type="DynamicFontData" id=90]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=91]
+size = 32
+font_data = SubResource( 90 )
 
 [sub_resource type="DynamicFontData" id=50]
 font_path = "res://DroidSans.ttf"
@@ -244,13 +253,13 @@ load_path = "res://.import/kyselina.png-a49500f7ee6dc569651f4fdbb5e6080e.stex"
 flags = 4
 load_path = "res://.import/hnuj.png-e8f2d3c41e6d5a10524b293bbef85bd8.stex"
 
-[sub_resource type="DynamicFontData" id=85]
+[sub_resource type="DynamicFontData" id=87]
 font_path = "res://DroidSans.ttf"
 
 [sub_resource type="DynamicFont" id=21]
 size = 30
 use_filter = true
-font_data = SubResource( 85 )
+font_data = SubResource( 87 )
 
 [sub_resource type="DynamicFontData" id=8]
 font_path = "res://DroidSans.ttf"
@@ -705,8 +714,7 @@ position = Vector2( 4680.27, 1053.62 )
 polygon = PoolVector2Array( -4735.73, -1027.74, -4735.73, -1116.46, -4624.82, -1116.46, -4624.82, -1027.74, -4680.27, -990.769, -4698.76, -990.769 )
 
 [node name="Varna1" type="Area2D" parent="Trebic"]
-position = Vector2( -1419.61, 658.048 )
-script = ExtResource( 20 )
+position = Vector2( -1049.92, 846.59 )
 
 [node name="Sprite" type="Sprite" parent="Trebic/Varna1"]
 position = Vector2( 10.2607, -4.69836 )
@@ -718,8 +726,7 @@ position = Vector2( -692.799, -694.648 )
 polygon = PoolVector2Array( 643.261, 639.564, 776.349, 658.048, 780.046, 676.533, 765.258, 717.198, 717.199, 735.683, 650.654, 739.38, 624.776, 706.108, 632.17, 646.957 )
 
 [node name="Varna2" type="Area2D" parent="Trebic"]
-position = Vector2( -1234.76, 658.048 )
-script = ExtResource( 26 )
+position = Vector2( -225.511, 1497.24 )
 
 [node name="Sprite" type="Sprite" parent="Trebic/Varna2"]
 position = Vector2( 1.39648, -4.3291 )
@@ -731,8 +738,7 @@ position = Vector2( -700.193, -694.648 )
 polygon = PoolVector2Array( 643.261, 639.564, 776.349, 658.048, 780.046, 676.533, 765.258, 717.198, 717.199, 735.683, 650.654, 739.38, 624.776, 706.108, 632.17, 646.957 )
 
 [node name="Varna3" type="Area2D" parent="Trebic"]
-position = Vector2( -1072.1, 650.654 )
-script = ExtResource( 30 )
+position = Vector2( 2062.87, 1408.52 )
 
 [node name="Sprite" type="Sprite" parent="Trebic/Varna3"]
 position = Vector2( 10.2607, -1.00049 )
@@ -744,8 +750,7 @@ position = Vector2( -692.799, -690.951 )
 polygon = PoolVector2Array( 643.261, 639.564, 776.349, 658.048, 780.046, 676.533, 765.258, 717.198, 717.199, 735.683, 650.654, 739.38, 624.776, 706.108, 632.17, 646.957 )
 
 [node name="Varna4" type="Area2D" parent="Trebic"]
-position = Vector2( -894.649, 643.26 )
-script = ExtResource( 29 )
+position = Vector2( -532.353, 55.4536 )
 
 [node name="Sprite" type="Sprite" parent="Trebic/Varna4"]
 position = Vector2( 6.56445, -1.00183 )
@@ -757,8 +762,7 @@ position = Vector2( -696.496, -690.951 )
 polygon = PoolVector2Array( 643.261, 639.564, 776.349, 658.048, 780.046, 676.533, 765.258, 717.198, 717.199, 735.683, 650.654, 739.38, 624.776, 706.108, 632.17, 646.957 )
 
 [node name="Varna5" type="Area2D" parent="Trebic"]
-position = Vector2( -709.805, 639.564 )
-script = ExtResource( 27 )
+position = Vector2( -1279.13, -1046.22 )
 
 [node name="Sprite" type="Sprite" parent="Trebic/Varna5"]
 position = Vector2( 2.87158, -1.0022 )
@@ -770,8 +774,7 @@ position = Vector2( -700.193, -690.951 )
 polygon = PoolVector2Array( 643.261, 639.564, 776.349, 658.048, 780.046, 676.533, 765.258, 717.198, 717.199, 735.683, 650.654, 739.38, 624.776, 706.108, 632.17, 646.957 )
 
 [node name="Varna6" type="Area2D" parent="Trebic"]
-position = Vector2( -532.354, 639.564 )
-script = ExtResource( 28 )
+position = Vector2( 110.907, -1046.22 )
 
 [node name="Sprite" type="Sprite" parent="Trebic/Varna6"]
 position = Vector2( 2.8667, -1.00073 )
@@ -783,8 +786,7 @@ position = Vector2( -700.192, -690.951 )
 polygon = PoolVector2Array( 643.261, 639.564, 776.349, 658.048, 780.046, 676.533, 765.258, 717.198, 717.199, 735.683, 650.654, 739.38, 624.776, 706.108, 632.17, 646.957 )
 
 [node name="Varna7" type="Area2D" parent="Trebic"]
-position = Vector2( -358.599, 643.26 )
-script = ExtResource( 31 )
+position = Vector2( 857.68, -1401.12 )
 
 [node name="Sprite" type="Sprite" parent="Trebic/Varna7"]
 position = Vector2( 5.91479, -3.3269 )
@@ -794,6 +796,17 @@ texture = ExtResource( 18 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trebic/Varna7"]
 position = Vector2( -698.714, -691.32 )
 polygon = PoolVector2Array( 639.563, 635.867, 780.046, 658.048, 783.742, 676.532, 765.258, 717.198, 717.199, 735.683, 650.654, 739.38, 624.776, 706.108, 632.17, 646.957 )
+
+[node name="UnlockedHoods" type="Label" parent="Trebic"]
+visible = false
+margin_left = -2115.0
+margin_top = 1967.0
+margin_right = -1457.0
+margin_bottom = 2104.0
+custom_fonts/font = SubResource( 89 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="DealerVyber" type="Panel" parent="."]
 visible = false
@@ -1444,6 +1457,8 @@ margin_top = 480.0
 margin_right = 447.0
 margin_bottom = 742.0
 rect_scale = Vector2( 0.45, 0.45 )
+hint_tooltip = "Rád jezdí ve svojí hondě"
+custom_fonts/font = SubResource( 91 )
 expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1870,9 +1885,9 @@ __meta__ = {
 [node name="Inv" type="Panel" parent="."]
 visible = false
 margin_left = 320.0
-margin_top = 128.0
+margin_top = 72.0
 margin_right = 1536.0
-margin_bottom = 1064.0
+margin_bottom = 1072.0
 rect_pivot_offset = Vector2( 224, 840 )
 script = ExtResource( 21 )
 __meta__ = {
@@ -2347,6 +2362,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Makovice" type="Sprite" parent="Inv"]
+position = Vector2( 288, 924 )
+scale = Vector2( 0.32, 0.32 )
+texture = ExtResource( 35 )
+
+[node name="MakoviceText" type="RichTextLabel" parent="Inv"]
+margin_left = 351.0
+margin_top = 912.0
+margin_right = 456.0
+margin_bottom = 952.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 21 )
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel22" type="RichTextLabel" parent="Inv"]
+margin_left = 120.0
+margin_top = 912.0
+margin_right = 255.0
+margin_bottom = 952.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 21 )
+text = "Makovice"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="RichTextLabel19" type="RichTextLabel" parent="Inv"]
 margin_left = 176.0
 margin_top = 808.0
@@ -2438,6 +2483,37 @@ custom_fonts/normal_font = SubResource( 7 )
 text = "0
 "
 scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Uhli" type="Sprite" parent="Inv"]
+position = Vector2( 935, 944 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 34 )
+
+[node name="UhliText" type="RichTextLabel" parent="Inv"]
+margin_left = 992.0
+margin_top = 919.0
+margin_right = 1097.0
+margin_bottom = 959.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 21 )
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel23" type="RichTextLabel" parent="Inv"]
+margin_left = 792.0
+margin_top = 904.0
+margin_right = 895.0
+margin_bottom = 984.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 21 )
+text = "Aktivní 
+  uhlí"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2613,6 +2689,13 @@ scroll_active = false
 [connection signal="mouse_entered" from="Trebic/nemocnice" to="Trebic/nemocnice" method="_on_nemocnice_mouse_entered"]
 [connection signal="mouse_exited" from="Trebic/nemocnice" to="." method="_on_nemocnice_mouse_exited"]
 [connection signal="mouse_exited" from="Trebic/nemocnice" to="Trebic/nemocnice" method="_on_nemocnice_mouse_exited"]
+[connection signal="input_event" from="Trebic/Varna1" to="." method="_on_Varna1_input_event"]
+[connection signal="input_event" from="Trebic/Varna2" to="." method="_on_Varna2_input_event"]
+[connection signal="input_event" from="Trebic/Varna3" to="." method="_on_Varna3_input_event"]
+[connection signal="input_event" from="Trebic/Varna4" to="." method="_on_Varna4_input_event"]
+[connection signal="input_event" from="Trebic/Varna5" to="." method="_on_Varna5_input_event"]
+[connection signal="input_event" from="Trebic/Varna6" to="." method="_on_Varna6_input_event"]
+[connection signal="input_event" from="Trebic/Varna7" to="." method="_on_Varna7_input_event"]
 [connection signal="pressed" from="DealerVyber/ButtonDealer1" to="." method="_on_ButtonDealer1_pressed"]
 [connection signal="pressed" from="DealerVyber/ButtonDealer2" to="." method="_on_ButtonDealer2_pressed"]
 [connection signal="pressed" from="DealerVyber/ButtonDealer3" to="." method="_on_ButtonDealer3_pressed"]

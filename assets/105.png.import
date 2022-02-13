@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/weed_3.png-1e719cca6244b4af5697dc3253dc8f5f.stex"
+path="res://.import/105.png-95e78897d6fb027b559b5ff135b3d68c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/weed_3.png"
-dest_files=[ "res://.import/weed_3.png-1e719cca6244b4af5697dc3253dc8f5f.stex" ]
+source_file="res://assets/105.png"
+dest_files=[ "res://.import/105.png-95e78897d6fb027b559b5ff135b3d68c.stex" ]
 
 [params]
 

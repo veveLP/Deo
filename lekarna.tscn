@@ -1,4 +1,4 @@
-[gd_scene load_steps=150 format=2]
+[gd_scene load_steps=158 format=2]
 
 [ext_resource path="res://assets/player_map.png" type="Texture" id=1]
 [ext_resource path="res://player.gd" type="Script" id=2]
@@ -22,12 +22,59 @@
 [ext_resource path="res://assets/varna.png" type="Texture" id=20]
 [ext_resource path="res://assets/pico.png" type="Texture" id=21]
 [ext_resource path="res://assets/hydroxid.png" type="Texture" id=22]
+[ext_resource path="res://assets/mak-ico-upscale.png" type="Texture" id=23]
+[ext_resource path="res://assets/uhli.png" type="Texture" id=24]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.0938, 12.5 )
 
 [sub_resource type="RectangleShape2D" id=49]
 extents = Vector2( 15, 12 )
+
+[sub_resource type="AtlasTexture" id=90]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=91]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 64, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=92]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 128, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=93]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 192, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=94]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 256, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=95]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 320, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=96]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 384, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=97]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 448, 512, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=98]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 512, 512, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=72]
 flags = 4
@@ -119,50 +166,15 @@ flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 512, 704, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=90]
+[sub_resource type="AtlasTexture" id=111]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 512, 64, 64 )
+region = Rect2( 0, 640, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=91]
+[sub_resource type="AtlasTexture" id=110]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 64, 512, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=92]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 128, 512, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=93]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 192, 512, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=94]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 256, 512, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=95]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 320, 512, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=96]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 384, 512, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=97]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 448, 512, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=98]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 512, 512, 64, 64 )
+region = Rect2( 0, 704, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=112]
 flags = 4
@@ -219,18 +231,13 @@ flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 512, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=110]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 704, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=111]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 640, 64, 64 )
-
 [sub_resource type="SpriteFrames" id=113]
 animations = [ {
+"frames": [ SubResource( 90 ), SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 95 ), SubResource( 96 ), SubResource( 97 ), SubResource( 98 ) ],
+"loop": true,
+"name": "up",
+"speed": 7.0
+}, {
 "frames": [ SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ) ],
 "loop": true,
 "name": "left",
@@ -241,10 +248,15 @@ animations = [ {
 "name": "right",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 90 ), SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 95 ), SubResource( 96 ), SubResource( 97 ), SubResource( 98 ) ],
+"frames": [ SubResource( 111 ) ],
 "loop": true,
-"name": "up",
-"speed": 7.0
+"name": "standing_down",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 110 ) ],
+"loop": true,
+"name": "standing_right",
+"speed": 5.0
 }, {
 "frames": [ SubResource( 112 ) ],
 "loop": true,
@@ -259,16 +271,6 @@ animations = [ {
 "frames": [ SubResource( 108 ) ],
 "loop": true,
 "name": "standing_up",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 110 ) ],
-"loop": true,
-"name": "standing_right",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 111 ) ],
-"loop": true,
-"name": "standing_down",
 "speed": 5.0
 } ]
 
@@ -1536,6 +1538,14 @@ size = 20
 use_filter = true
 font_data = SubResource( 57 )
 
+[sub_resource type="DynamicFontData" id=149]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=150]
+size = 20
+use_filter = true
+font_data = SubResource( 149 )
+
 [sub_resource type="DynamicFontData" id=63]
 font_path = "res://DroidSans.ttf"
 
@@ -1640,6 +1650,22 @@ size = 30
 use_filter = true
 font_data = SubResource( 143 )
 
+[sub_resource type="DynamicFontData" id=146]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=145]
+size = 30
+use_filter = true
+font_data = SubResource( 146 )
+
+[sub_resource type="DynamicFontData" id=147]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=148]
+size = 30
+use_filter = true
+font_data = SubResource( 147 )
+
 [node name="lekarna" type="Node2D"]
 position = Vector2( 614, 266 )
 script = ExtResource( 3 )
@@ -1648,6 +1674,7 @@ script = ExtResource( 3 )
 
 [node name="player" type="KinematicBody2D" parent="lekarna"]
 position = Vector2( 238, 368 )
+z_index = 2
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lekarna/player"]
@@ -1742,8 +1769,8 @@ texture = ExtResource( 5 )
 
 [node name="Efedrin2" type="Sprite" parent="NabidkaPanel"]
 position = Vector2( 128, 322 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 5 )
+scale = Vector2( 0.45, 0.45 )
+texture = ExtResource( 24 )
 
 [node name="Efedrin3" type="Sprite" parent="NabidkaPanel"]
 position = Vector2( 384, 128 )
@@ -1776,11 +1803,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button2" type="Button" parent="NabidkaPanel"]
+[node name="ButtonAktivniUhli" type="Button" parent="NabidkaPanel"]
 margin_left = 64.0
 margin_top = 384.0
 margin_right = 192.0
 margin_bottom = 410.0
+custom_fonts/font = SubResource( 150 )
+text = "Koupit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Button3" type="Button" parent="NabidkaPanel"]
 margin_left = 320.0
@@ -1950,13 +1982,14 @@ __meta__ = {
 }
 
 [node name="Iv" type="StaticBody2D" parent="."]
+visible = false
 z_index = 8
 
 [node name="Inv" type="Panel" parent="Iv"]
 margin_left = -310.0
 margin_top = -194.0
 margin_right = 906.0
-margin_bottom = 742.0
+margin_bottom = 798.0
 rect_pivot_offset = Vector2( 224, 840 )
 script = ExtResource( 8 )
 __meta__ = {
@@ -2526,8 +2559,70 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Makovice" type="Sprite" parent="Iv/Inv"]
+position = Vector2( 297, 933 )
+scale = Vector2( 0.269792, 0.269792 )
+texture = ExtResource( 23 )
+
+[node name="MakoviceText" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 351.0
+margin_top = 912.0
+margin_right = 456.0
+margin_bottom = 952.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 145 )
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel22" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 120.0
+margin_top = 912.0
+margin_right = 255.0
+margin_bottom = 952.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 145 )
+text = "Makovice"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Uhli" type="Sprite" parent="Iv/Inv"]
+position = Vector2( 935, 944 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 24 )
+
+[node name="UhliText" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 992.0
+margin_top = 919.0
+margin_right = 1097.0
+margin_bottom = 959.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 148 )
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel23" type="RichTextLabel" parent="Iv/Inv"]
+margin_left = 792.0
+margin_top = 904.0
+margin_right = 895.0
+margin_bottom = 984.0
+rect_pivot_offset = Vector2( -80, 88 )
+custom_fonts/normal_font = SubResource( 148 )
+text = "Aktivní 
+  uhlí"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="body_entered" from="lekarna/leave" to="." method="_on_leave_body_entered"]
 [connection signal="pressed" from="NabidkaPanel/ButtonModafen" to="." method="_on_ButtonModafen_pressed"]
+[connection signal="pressed" from="NabidkaPanel/ButtonAktivniUhli" to="." method="_on_ButtonAktivniUhli_pressed"]
 [connection signal="pressed" from="NabidkaPanel/ButtonExit" to="." method="_on_ButtonExit_pressed"]
 [connection signal="changed" from="SelectPanel/HSlider" to="." method="_on_HSlider_changed"]
 [connection signal="value_changed" from="SelectPanel/HSlider" to="." method="_on_HSlider_value_changed"]
