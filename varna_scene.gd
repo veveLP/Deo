@@ -481,40 +481,41 @@ func _on_TimerHeroin_timeout():
 		$varna.visible = true
 
 func _on_ButtonHeroinIngredient1_pressed():
-	if timer != 0:
-		error += 1
-	if timer == 3:
-		_HeroinMinigame2()
 	timer += 1
-
-func _on_ButtonHeroinIngredient2_pressed():
 	if timer != 1:
 		error += 1
-	if timer == 3:
+	if timer == 4:
+		_HeroinMinigame2()
+
+func _on_ButtonHeroinIngredient2_pressed():
+	if timer != 2:
+		error += 1
+		print("Error2:" + str(error))
+	if timer == 4:
 		_HeroinMinigame2()
 	timer += 1
 
 func _on_ButtonHeroinIngredient3_pressed():
-	if timer != 2:
-		error += 1
-	if timer == 3:
-		_HeroinMinigame2()
 	timer += 1
-
-func _on_ButtonHeroinIngredient4_pressed():
 	if timer != 3:
 		error += 1
-	if timer == 3:
+	if timer == 4:
 		_HeroinMinigame2()
+
+func _on_ButtonHeroinIngredient4_pressed():
 	timer += 1
+	if timer != 4:
+		error += 1
+	if timer == 4:
+		_HeroinMinigame2()
 
 func _HeroinMinigame2():
 	var Quantity
 	print("Error: " + str(error))
 	if error == 3 || error == 4:
-		Quantity = timer + 1
+		Quantity = error
 	else:
-		Quantity = timer
+		Quantity = error - 1
 	print("Quantity: " + str(Quantity))
 	_send("heroincontinue" + loadd() + "$" + varnaID + "$" + str(tablenumber + 1) + "$" + str(Quantity))
 	error = 0
