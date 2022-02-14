@@ -145,6 +145,7 @@ func _methstart(var item):
 	$varna/textbox.visible = true
 	$varna/textbox.text = "You just started distilling"
 	item.set_animation("des_meth")
+	item.frame=1
 	_play_animation(item)
 	yield(get_tree().create_timer(3.0), "timeout")
 	$varna/textbox.visible = false
