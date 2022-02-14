@@ -236,6 +236,11 @@ animations = [ {
 "name": "standing_up",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 81 ) ],
+"loop": true,
+"name": "standing_right",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 112 ) ],
 "loop": true,
 "name": "standing_left",
@@ -1784,7 +1789,7 @@ position = Vector2( 263.5, 576.5 )
 scale = Vector2( 1.07812, 1.07812 )
 z_index = 2
 frames = SubResource( 113 )
-animation = "standing_up"
+animation = "standing_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="varna/player"]
 position = Vector2( 263.5, 601.5 )

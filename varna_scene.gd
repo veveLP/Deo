@@ -203,6 +203,7 @@ func _heroinstart(var item):
 	$varna/textbox.visible = true
 	$varna/textbox.text = "You just started cooking, wait until you can add alcohol"
 	item.set_animation("cooking1_heroin")
+	item.frame = 1
 	_play_animation(item)
 	yield(get_tree().create_timer(3.0), "timeout")
 	$varna/textbox.visible = false
