@@ -27,7 +27,6 @@ func _ready():
 	client.connect("connection_error", self, "_on_connection_closed")
 	client.connect("connection_established", self, "_on_connected")
 	client.connect("data_received", self, "_on_data")
-	
 	var err = client.connect_to_url(SOCKET_URL)
 	if err != OK:
 		print("Unable to connect")
@@ -35,7 +34,6 @@ func _ready():
 	$varna/textbox.visible = false
 	varnaID = $varna/player.scene
 	varnaID.erase(0,11)
-
 
 func _set_sprite_frame(var time, var sprite):
 	time*=sprite.get_sprite_frames().get_animation_speed(sprite.get_animation())
@@ -112,22 +110,6 @@ func _get_tablenumber():
 				tablenumber = i
 				break
 
-func _weedstart(var item):
-	$varna/textbox.visible = true
-	$varna/textbox.text = "You just planted a seed"
-	item.frame = 1
-	_play_animation(item)
-	yield(get_tree().create_timer(3.0), "timeout")
-	$varna/textbox.visible = false
-
-func _weedharvest(var i,var grams):
-	if tablenumber != null:
-		items[i].frame = 0
-		$varna/textbox.visible = true
-		$varna/textbox.text = "You just harvested " + grams + " weed"
-		yield(get_tree().create_timer(3.0), "timeout")
-		$varna/textbox.visible = false
-
 func _weedstart_weedharvest(var i, var text):
 	if (items[i].frame == items[i].get_sprite_frames().get_frame_count(items[i].get_animation())-1):
 		_send("weedharvest" + text + "$" + varnaID + "$" + str(i + 1))
@@ -145,28 +127,19 @@ func _weedstart_weedharvest(var i, var text):
 			$varna/textbox.visible = false
 		firsttime = "n"
 
-func _methstart(var item):
+func _weedstart(var item):
 	$varna/textbox.visible = true
-	$varna/textbox.text = "You just started distilling"
-	item.set_animation("des_meth")
+	$varna/textbox.text = "You just planted a seed"
 	item.frame = 1
 	_play_animation(item)
 	yield(get_tree().create_timer(3.0), "timeout")
 	$varna/textbox.visible = false
 
-func _methcontinue(var item):
-	$varna/textbox.visible = true
-	$varna/textbox.text = "You will have to wait a until it's done"
-	item.set_animation("kry_meth")
-	_play_animation(item)
-	yield(get_tree().create_timer(3.0), "timeout")
-	$varna/textbox.visible = false
-
-func _methharvest(var i,var grams):
+func _weedharvest(var i,var grams):
 	if tablenumber != null:
-		items[i].set_animation("des_meth")
+		items[i].frame = 0
 		$varna/textbox.visible = true
-		$varna/textbox.text = "You just got " + grams + " meth"
+		$varna/textbox.text = "You just harvested " + grams + " weed"
 		yield(get_tree().create_timer(3.0), "timeout")
 		$varna/textbox.visible = false
 
@@ -202,22 +175,59 @@ func _methstart_methharvest(var i, var text):
 			$varna/textbox.visible = false
 		firsttime = "n"
 
+func _methstart(var item):
+	$varna/textbox.visible = true
+	$varna/textbox.text = "You just started distilling"
+	item.set_animation("des_meth")
+	item.frame = 1
+	_play_animation(item)
+	yield(get_tree().create_timer(3.0), "timeout")
+	$varna/textbox.visible = false
+
+func _methcontinue(var item):
+	$varna/textbox.visible = true
+	$varna/textbox.text = "You will have to wait a until it's done"
+	item.set_animation("kry_meth")
+	_play_animation(item)
+	yield(get_tree().create_timer(3.0), "timeout")
+	$varna/textbox.visible = false
+
+func _methharvest(var i,var grams):
+	if tablenumber != null:
+		items[i].set_animation("des_meth")
+		$varna/textbox.visible = true
+		$varna/textbox.text = "You just got " + grams + " meth"
+		yield(get_tree().create_timer(3.0), "timeout")
+		$varna/textbox.visible = false
+
 func _heroinstart_heroinharvest(var i, var text):
 	if (items[i].animation == "cooking2_heroin" && items[i].frame == items[i].get_sprite_frames().get_frame_count(items[i].get_animation())-1):
 		_send("heroinharvest" + text + "$" + varnaID + "$" + str(i + 1))
 		firsttime = "n"
 	elif (items[i].animation == "cooking1_heroin" && items[i].frame == items[i].get_sprite_frames().get_frame_count(items[i].get_animation())-1):
-		$varna.visible = false
-		$HeroinMinigame2.visible = true
-		firsttime = "n"
-	elif (items[i].animation == "cooking1_heroin" && items[i].frame == 0):
 		var ingr = true
-		for i in 8:
+		for i in 5:
 			if int(inv[i + 13]) == 0:
 				ingr = false
 		if ingr:
-			for i in 8:
+			for i in 5:
 				inv[i + 13] = str(int(inv[i + 13]) - 1)
+			$varna.visible = false
+			$HeroinMinigame2.visible = true
+		else:
+			$varna/textbox.visible = true
+			$varna/textbox.text = "You don't have ingredients"
+			yield(get_tree().create_timer(3.0), "timeout")
+			$varna/textbox.visible = false
+		firsttime = "n"
+	elif (items[i].animation == "cooking1_heroin" && items[i].frame == 0):
+		var ingr = true
+		for i in 3:
+			if int(inv[i + 18]) == 0:
+				ingr = false
+		if ingr:
+			for i in 3:
+				inv[i + 18] = str(int(inv[i + 18]) - 1)
 			$varna.visible = false
 			$HeroinMinigame.visible = true
 		else:
@@ -356,16 +366,16 @@ func _on_weed_pressed():
 	tableitems[tablenumber] = "weed"
 	$AreaVyber.visible = false
 
-func _on_heroin_pressed():
-	_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$heroin")
-	items[tablenumber].set_animation("cooking1_heroin")
-	tableitems[tablenumber] = "heroin"
-	$AreaVyber.visible = false
-
 func _on_meth_pressed():
 	_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$meth")
 	items[tablenumber].set_animation("des_meth")
 	tableitems[tablenumber] = "meth"
+	$AreaVyber.visible = false
+
+func _on_heroin_pressed():
+	_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$heroin")
+	items[tablenumber].set_animation("cooking1_heroin")
+	tableitems[tablenumber] = "heroin"
 	$AreaVyber.visible = false
 
 func _on_ButtonWeed_pressed():

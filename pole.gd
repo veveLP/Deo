@@ -2,12 +2,12 @@ extends Node2D
 
 export var SOCKET_URL = "ws://194.15.112.30:6988"
 var client = WebSocketClient.new()
+
 func _ready():
 	client.connect("connection_closed", self, "_on_connection_closed")
 	client.connect("connection_error", self, "_on_connection_closed")
 	client.connect("connection_established", self, "_on_connected")
 	client.connect("data_received", self, "_on_data")
-
 	var err = client.connect_to_url(SOCKET_URL)
 	if err != OK:
 		print("Unable to connect")
@@ -28,7 +28,7 @@ func _on_connected(proto = ""):
 	var text = loadd()
 	print("Connected with protocol: ", proto)
 	_send("loadpole" +text)
-	
+
 func _on_data():
 	var payload = client.get_peer(1).get_packet().get_string_from_utf8()
 	print("Received data: ", payload)
@@ -71,12 +71,9 @@ func save(content):
 var check = false
 var error = 0
 
-# Called when the node enters the scene tree for the first time.
-
-
 func _on_leave_body_exited(body):
 	get_tree().change_scene("res://Trebic.tscn")
-	
+
 var unlocked
 var fieldnumber = null
 var fieldcount = 32
