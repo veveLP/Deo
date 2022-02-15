@@ -41,6 +41,8 @@ func _set_sprite_frame(var time, var sprite):
 	time*=sprite.get_sprite_frames().get_animation_speed(sprite.get_animation())
 	time=sprite.get_sprite_frames().get_frame_count(sprite.get_animation())-time
 	sprite.frame = int(time)
+	if ((sprite.animation == "des_meth" || sprite.animation == "growing_meth" || sprite.animation == "cooking1_heroin") && sprite.frame==0):
+		sprite.frame=1
 
 func _play_animation(var sprite):
 	sprite.playing = true
