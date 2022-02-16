@@ -17,7 +17,7 @@ var timer = 0
 var count = 0
 var pole = [0,0,0,0]
 var error = 0
-var colors = [1,1,1]
+var colors = [1,0.5,0]
 var first = true
 
 onready var textbox = get_node("varna/textbox")
@@ -440,18 +440,19 @@ func _on_ButtonMeth_button_up():
 func _on_TimerMeth_timeout():
 	if($MethMinigame/ProgressBar.value > 99):
 		$MethMinigame/TimerMeth.stop()
+	else:
+		count += 1	
 	$MethMinigame/ProgressBar.value += 1
-	count += 1
 	match timer:
 		1:
-			for i in 2:
-				colors[i] -= 0.04
+			colors[0] -= 0.04
+			colors[1] += 0.02
 		2:
-			colors[1] += 0.04
-			colors[2] -= 0.04
-		3:
-			colors[0] += 0.04
 			colors[1] -= 0.04
+			colors[2] += 0.04
+		3:
+			colors[2] -= 0.04
+			colors[0] += 0.04
 	for i in 3:
 		if colors[i] > 1:
 			colors[i] = 1
