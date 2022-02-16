@@ -1,4 +1,4 @@
-[gd_scene load_steps=205 format=2]
+[gd_scene load_steps=209 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://varna_scene.gd" type="Script" id=2]
@@ -1722,12 +1722,26 @@ size = 96
 use_filter = true
 font_data = SubResource( 222 )
 
+[sub_resource type="StyleBoxFlat" id=228]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=229]
+bg_color = Color( 0.392157, 0.392157, 0.392157, 1 )
+
 [sub_resource type="DynamicFontData" id=223]
 font_path = "res://DroidSans.ttf"
 
 [sub_resource type="DynamicFont" id=219]
+size = 96
 use_filter = true
 font_data = SubResource( 223 )
+
+[sub_resource type="DynamicFontData" id=230]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=231]
+size = 64
+font_data = SubResource( 230 )
 
 [node name="varna_scene1" type="Node2D"]
 position = Vector2( 731, 442 )
@@ -2034,36 +2048,42 @@ __meta__ = {
 [node name="TimerMeth2" type="Timer" parent="MethMinigame2"]
 wait_time = 0.05
 
-[node name="HeroinMinigame" type="Sprite" parent="."]
+[node name="HeroinMinigame" type="Area2D" parent="."]
 visible = false
-position = Vector2( 229, 98 )
-scale = Vector2( 5.6, 5.625 )
-texture = ExtResource( 14 )
+position = Vector2( 231, 110 )
+z_index = 4
 
-[node name="Sprite" type="Sprite" parent="HeroinMinigame"]
-position = Vector2( 0, -80.5357 )
-scale = Vector2( 1.77857, 0.928571 )
-texture = ExtResource( 6 )
+[node name="Background" type="Sprite" parent="HeroinMinigame"]
+position = Vector2( -1.99994, -12 )
+scale = Vector2( 5.6, 5.625 )
+texture = ExtResource( 9 )
 
 [node name="ProgressBar" type="ProgressBar" parent="HeroinMinigame"]
-modulate = Color( 1, 1, 1, 0.392157 )
-margin_left = -91.0
-margin_top = -85.0
-margin_right = 91.0
-margin_bottom = -76.0
+margin_left = -450.0
+margin_top = -520.0
+margin_right = 446.0
+margin_bottom = -480.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_styles/fg = SubResource( 228 )
+custom_styles/bg = SubResource( 229 )
 step = 1.0
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ProgressBarBG" type="Sprite" parent="HeroinMinigame"]
+modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( -1.99996, -500 )
+scale = Vector2( 8.96, 8 )
+texture = ExtResource( 6 )
+
 [node name="ButtonHeroin" type="Button" parent="HeroinMinigame"]
-margin_left = -36.7857
-margin_top = 61.4286
-margin_right = 38.2143
-margin_bottom = 86.4286
+margin_left = -194.0
+margin_top = 280.0
+margin_right = 190.0
+margin_bottom = 408.0
 custom_fonts/font = SubResource( 219 )
 text = "Press"
 __meta__ = {
@@ -2078,89 +2098,98 @@ wait_time = 3.0
 one_shot = true
 
 [node name="Time" type="RichTextLabel" parent="HeroinMinigame"]
-margin_left = 65.7143
-margin_top = -65.0
-margin_right = 106.714
-margin_bottom = -49.0
-text = "3.00 s"
+margin_left = 326.0
+margin_top = -424.0
+margin_right = 510.0
+margin_bottom = -270.0
+custom_fonts/normal_font = SubResource( 231 )
+text = "3.00 s
+"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HeroinMinigame2" type="Sprite" parent="."]
-visible = false
-position = Vector2( 257, 128 )
-scale = Vector2( 2.8, 2.8 )
+[node name="HeroinMinigame2" type="Area2D" parent="."]
+position = Vector2( 231, 110 )
 z_index = 4
-texture = ExtResource( 14 )
 
-[node name="HeroinIngredient1" type="StaticBody2D" parent="HeroinMinigame2"]
+[node name="HeroinMinigame2" type="Sprite" parent="HeroinMinigame2"]
+position = Vector2( -2.00007, -12 )
+scale = Vector2( 5.6, 5.625 )
+texture = ExtResource( 9 )
 
-[node name="Sprite" type="Sprite" parent="HeroinMinigame2/HeroinIngredient1"]
-position = Vector2( -88.5713, -48.2144 )
+[node name="Ingredient1" type="StaticBody2D" parent="HeroinMinigame2"]
+position = Vector2( 26, 18 )
+scale = Vector2( 2.8, 2.8 )
+
+[node name="Sprite" type="Sprite" parent="HeroinMinigame2/Ingredient1"]
+position = Vector2( -169.696, -28.9287 )
 scale = Vector2( 0.158622, 0.158622 )
 z_index = 1
 texture = ExtResource( 5 )
 
-[node name="ButtonHeroinIngredient1" type="Button" parent="HeroinMinigame2/HeroinIngredient1"]
-margin_left = -106.429
-margin_top = -68.5714
-margin_right = -66.0714
-margin_bottom = -27.8571
+[node name="ButtonHeroinIngredient1" type="Button" parent="HeroinMinigame2/Ingredient1"]
+margin_left = -187.554
+margin_top = -49.2857
+margin_right = -147.197
+margin_bottom = -8.57141
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HeroinIngredient2" type="StaticBody2D" parent="HeroinMinigame2"]
-position = Vector2( 57.8571, 1.42857 )
+[node name="Ingredient2" type="StaticBody2D" parent="HeroinMinigame2"]
+position = Vector2( 188, 22 )
+scale = Vector2( 2.8, 2.8 )
 
-[node name="Sprite" type="Sprite" parent="HeroinMinigame2/HeroinIngredient2"]
-position = Vector2( -88.5713, -48.2144 )
+[node name="Sprite" type="Sprite" parent="HeroinMinigame2/Ingredient2"]
+position = Vector2( -161.839, -29.2858 )
 scale = Vector2( 0.158622, 0.158622 )
 z_index = 1
 texture = ExtResource( 5 )
 
-[node name="ButtonHeroinIngredient2" type="Button" parent="HeroinMinigame2/HeroinIngredient2"]
-margin_left = -107.143
-margin_top = -69.6429
-margin_right = -67.1429
-margin_bottom = -29.6429
+[node name="ButtonHeroinIngredient2" type="Button" parent="HeroinMinigame2/Ingredient2"]
+margin_left = -180.411
+margin_top = -50.7143
+margin_right = -140.411
+margin_bottom = -10.7143
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HeroinIngredient3" type="StaticBody2D" parent="HeroinMinigame2"]
-position = Vector2( 113.571, 2.5 )
+[node name="Ingredient3" type="StaticBody2D" parent="HeroinMinigame2"]
+position = Vector2( 343.999, 25 )
+scale = Vector2( 2.8, 2.8 )
 
-[node name="Sprite" type="Sprite" parent="HeroinMinigame2/HeroinIngredient3"]
-position = Vector2( -88.5713, -48.2144 )
+[node name="Sprite" type="Sprite" parent="HeroinMinigame2/Ingredient3"]
+position = Vector2( -30.3567, -28.5715 )
 scale = Vector2( 0.158622, 0.158622 )
 z_index = 1
 texture = ExtResource( 5 )
 
-[node name="ButtonHeroinIngredient3" type="Button" parent="HeroinMinigame2/HeroinIngredient3"]
-margin_left = -110.357
-margin_top = -71.4286
-margin_right = -70.3571
-margin_bottom = -31.4286
+[node name="ButtonHeroinIngredient3" type="Button" parent="HeroinMinigame2/Ingredient3"]
+margin_left = -52.1424
+margin_top = -51.7857
+margin_right = -12.1425
+margin_bottom = -11.7857
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HeroinIngredient4" type="StaticBody2D" parent="HeroinMinigame2"]
-position = Vector2( 170, 2.5 )
+[node name="Ingredient4" type="StaticBody2D" parent="HeroinMinigame2"]
+position = Vector2( 502, 25 )
+scale = Vector2( 2.8, 2.8 )
 
-[node name="Sprite" type="Sprite" parent="HeroinMinigame2/HeroinIngredient4"]
-position = Vector2( -88.5713, -48.2144 )
+[node name="Sprite" type="Sprite" parent="HeroinMinigame2/Ingredient4"]
+position = Vector2( -22.5535, -31.4288 )
 scale = Vector2( 0.158622, 0.158622 )
 z_index = 1
 texture = ExtResource( 5 )
 
-[node name="ButtonHeroinIngredient4" type="Button" parent="HeroinMinigame2/HeroinIngredient4"]
-margin_left = -106.786
-margin_top = -68.5714
-margin_right = -66.7857
-margin_bottom = -28.5714
+[node name="ButtonHeroinIngredient4" type="Button" parent="HeroinMinigame2/Ingredient4"]
+margin_left = -40.7685
+margin_top = -51.7857
+margin_right = -0.76815
+margin_bottom = -11.7857
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2223,10 +2252,10 @@ __meta__ = {
 [connection signal="pressed" from="HeroinMinigame/ButtonHeroin" to="." method="_on_ButtonHeroin_pressed"]
 [connection signal="timeout" from="HeroinMinigame/TimerHeroinTick" to="." method="_on_TimerHeroinTick_timeout"]
 [connection signal="timeout" from="HeroinMinigame/TimerHeroin" to="." method="_on_TimerHeroin_timeout"]
-[connection signal="pressed" from="HeroinMinigame2/HeroinIngredient1/ButtonHeroinIngredient1" to="." method="_on_ButtonHeroinIngredient1_pressed"]
-[connection signal="pressed" from="HeroinMinigame2/HeroinIngredient2/ButtonHeroinIngredient2" to="." method="_on_ButtonHeroinIngredient2_pressed"]
-[connection signal="pressed" from="HeroinMinigame2/HeroinIngredient3/ButtonHeroinIngredient3" to="." method="_on_ButtonHeroinIngredient3_pressed"]
-[connection signal="pressed" from="HeroinMinigame2/HeroinIngredient4/ButtonHeroinIngredient4" to="." method="_on_ButtonHeroinIngredient4_pressed"]
+[connection signal="pressed" from="HeroinMinigame2/Ingredient1/ButtonHeroinIngredient1" to="." method="_on_ButtonHeroinIngredient1_pressed"]
+[connection signal="pressed" from="HeroinMinigame2/Ingredient2/ButtonHeroinIngredient2" to="." method="_on_ButtonHeroinIngredient2_pressed"]
+[connection signal="pressed" from="HeroinMinigame2/Ingredient3/ButtonHeroinIngredient3" to="." method="_on_ButtonHeroinIngredient3_pressed"]
+[connection signal="pressed" from="HeroinMinigame2/Ingredient4/ButtonHeroinIngredient4" to="." method="_on_ButtonHeroinIngredient4_pressed"]
 [connection signal="pressed" from="AreaVyber/vyber/weed" to="." method="_on_weed_pressed"]
 [connection signal="pressed" from="AreaVyber/vyber/heroin" to="." method="_on_heroin_pressed"]
 [connection signal="pressed" from="AreaVyber/vyber/meth" to="." method="_on_meth_pressed"]

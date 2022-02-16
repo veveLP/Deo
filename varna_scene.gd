@@ -522,6 +522,7 @@ func _on_TimerHeroin_timeout():
 		$varna.visible = true
 
 func _on_ButtonHeroinIngredient1_pressed():
+	$HeroinMinigame2/Ingredient1/ButtonHeroinIngredient1.disabled = true
 	timer += 1
 	if timer != 1:
 		error += 1
@@ -529,6 +530,7 @@ func _on_ButtonHeroinIngredient1_pressed():
 		_HeroinMinigame2()
 
 func _on_ButtonHeroinIngredient2_pressed():
+	$HeroinMinigame2/Ingredient2/ButtonHeroinIngredient2.disabled = true
 	if timer != 2:
 		error += 1
 		print("Error2:" + str(error))
@@ -537,6 +539,7 @@ func _on_ButtonHeroinIngredient2_pressed():
 	timer += 1
 
 func _on_ButtonHeroinIngredient3_pressed():
+	$HeroinMinigame2/Ingredient3/ButtonHeroinIngredient3.disabled = true
 	timer += 1
 	if timer != 3:
 		error += 1
@@ -544,6 +547,7 @@ func _on_ButtonHeroinIngredient3_pressed():
 		_HeroinMinigame2()
 
 func _on_ButtonHeroinIngredient4_pressed():
+	$HeroinMinigame2/Ingredient4/ButtonHeroinIngredient4.disabled = true
 	timer += 1
 	if timer != 4:
 		error += 1
@@ -561,5 +565,9 @@ func _HeroinMinigame2():
 	_send("heroincontinue" + loadd() + "$" + varnaID + "$" + str(tablenumber + 1) + "$" + str(Quantity))
 	error = 0
 	timer = 0
+	$HeroinMinigame2/Ingredient1/ButtonHeroinIngredient1.disabled = false
+	$HeroinMinigame2/Ingredient2/ButtonHeroinIngredient2.disabled = false
+	$HeroinMinigame2/Ingredient3/ButtonHeroinIngredient3.disabled = false
+	$HeroinMinigame2/Ingredient4/ButtonHeroinIngredient4.disabled = false
 	$HeroinMinigame2.visible = false
 	$varna.visible = true
