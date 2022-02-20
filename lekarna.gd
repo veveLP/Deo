@@ -107,8 +107,7 @@ func _on_ButtonCancel_pressed():
 
 func _on_ButtonBuy_pressed():
 	var text = loadd()
-	for n in $SelectPanel/HSlider.value:
-		_send("buy" + text + "$" + str($SelectPanel/ItemID.text))
+	_send("buy" + text + "$" + str($SelectPanel/ItemID.text) + "$" + str($SelectPanel/HSlider.value))
 	$SelectPanel.visible = false;
 	_send("loadmap" + text)
 
