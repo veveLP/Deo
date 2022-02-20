@@ -8,6 +8,9 @@ var text = loadd()
 var time = [null,null,null,null]
 var collect = [false, false]
 
+var TimeStampID
+var TimeStamp
+
 func _ready():
 	#$HoodPannel/Dealer1/Pico.texture = load("res://assets/money.png")
 	$HoodPannel.visible = false
@@ -21,19 +24,19 @@ func _ready():
 		print("Unable to connect")
 		set_process(false)
 
-func _process(delta):
-	client.poll()
-
-func _on_connection_closed(was_clean = false):
-	print("Closed, clean: ", was_clean)
-	set_process(false)
-
 func loadd():
 	var file = File.new()
 	file.open("res://save_game.dat", File.READ)
 	var content = file.get_line()
 	file.close()
 	return content
+
+func _process(delta):
+	client.poll()
+
+func _on_connection_closed(was_clean = false):
+	print("Closed, clean: ", was_clean)
+	set_process(false)
 
 func _on_connected(proto = ""):
 	var text = loadd()
@@ -320,12 +323,24 @@ func _send(text):
 	print("Sending: " + text)
 	client.get_peer(1).put_packet(packet)
 
-func _on_Button_pressed():
-	$HoodPannel.visible = false
-	$HoodPannel/Timer.stop()
+func _on_ButtonInv_pressed():
+	$Inv.visible = true
+
+func _on_ButtonInvExit_pressed():
+	$Inv.visible = false
 
 func _on_ButtonExit_pressed():
 	$ExitPanel.visible = true
+
+func _on_ExitButtonYes_pressed():
+	get_tree().quit()
+
+func _on_ExitButtonNo_pressed():
+	$ExitPanel.visible = false
+
+func _on_ButtonHoodExit_pressed():
+	$HoodPannel.visible = false
+	$HoodPannel/Timer.stop()
 
 func _on_borovina_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -477,12 +492,6 @@ func _on_pole_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			get_tree().change_scene("res://pole.tscn")
-
-func _on_ButtonInv_pressed():
-	$Inv.visible = true
-
-func _on_ButtonInvExit_pressed():
-	$Inv.visible = false
 
 func _on_horkasever_mouse_entered():
 	$Trebic/horkaSever/Line2D.points = $Trebic/horkaSever/CollisionPolygon2D.polygon
@@ -689,12 +698,6 @@ func _on_pole_mouse_exited():
 	$Trebic/pole/Line2D.hide()
 	$Trebic/pole/RichTextLabel.hide()
 
-func _on_ExitButtonYes_pressed():
-	get_tree().quit()
-
-func _on_ExitButtonNo_pressed():
-	$ExitPanel.visible = false
-
 func _on_Dealer1_pressed():
 	if $HoodPannel/Dealer1/Dealer1.icon != load("res://assets/none.png"): 
 		OS.alert("debug")
@@ -714,7 +717,6 @@ func _on_Dealer2_pressed():
 	_send("showdealers"+ text + "$" +$HoodPannel/HoodiD.text)
 
 func _on_ButtonVyberExit_pressed():
-	#$HoodPannel.visible = true
 	$DealerVyber.visible = false
 
 func _on_ButtonDealer1_pressed():
@@ -797,9 +799,6 @@ func _on_2ButtonSend1_pressed():
 	_send("hood" + text + "$" + $HoodPannel/HoodiD.text)
 	$HoodPannel/Dealer2/RichTextLabel.visible = true
 	$HoodPannel/Dealer2/ProgressBar.visible = true
-
-var TimeStampID
-var TimeStamp
 
 func _on_2ButtonSend2_pressed():
 	_send("sendtodealer"+text+ "$" +$HoodPannel/HoodiD.text + "$2$" + $HoodPannel/Dealer2/Drug2.text + "$" + str($HoodPannel/Dealer2Remain2/HSlider.value)  )

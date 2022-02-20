@@ -1,17 +1,20 @@
 extends Node2D
 
 export var SOCKET_URL = "ws://194.15.112.30:6988"
-
 var client = WebSocketClient.new()
 
+onready var player = get_node("varna/player")
+onready var textbox = get_node("varna/textbox")
 onready var items = []
+
 var tableitems = []
 var tablecount = 0
-onready var player = get_node("varna/player")
 var varnaID
 var user = loadd()
 var timestamp = 0
 var inv = []
+var firsttime = "y"
+var tablenumber = null
 
 var timer = 0
 var count = 0
@@ -19,8 +22,6 @@ var pole = [0,0,0,0]
 var error = 0
 var colors = [1,0.5,0]
 var first = true
-
-onready var textbox = get_node("varna/textbox")
 
 func _ready():
 	client.connect("connection_closed", self, "_on_connection_closed")
@@ -35,83 +36,207 @@ func _ready():
 	varnaID = $varna/player.scene
 	varnaID.erase(0,11)
 
-func _set_sprite_frame(var time, var sprite):
-	time*=sprite.get_sprite_frames().get_animation_speed(sprite.get_animation())
-	time=sprite.get_sprite_frames().get_frame_count(sprite.get_animation())-time
-	sprite.frame = int(time)
-	if ((sprite.animation == "des_meth" || sprite.animation == "growing_meth" || sprite.animation == "cooking1_heroin") && sprite.frame==0):
-		sprite.frame=1
+func _process(delta):
+	client.poll()
 
-func _play_animation(var sprite):
-	sprite.playing = true
-	while(sprite.get_frame() != sprite.get_sprite_frames().get_frame_count(sprite.get_animation())-1):
-		yield(get_tree().create_timer(0.1), "timeout")
-	sprite.playing=false
+func _on_leave_body_entered(body):
+	get_tree().change_scene("res://Trebic.tscn")
 
-func _set_item(var drug, var state, var stage, var item):
-	if (state != "0"):
-		match drug:
-			"meth":
-				if(stage == "1"):
-					item.set_animation("des_"+drug)
-					if (timestamp > int(state)):
-						item.frame = item.get_sprite_frames().get_frame_count(item.get_animation())-1
-					else:
-						_play_animation(item)
-						_set_sprite_frame(int(state)-timestamp,item)
-				else:
-					item.set_animation("kry_"+drug)
-					if (timestamp > int(state)):
-						item.frame = item.get_sprite_frames().get_frame_count(item.get_animation())-1
-					else:
-						_play_animation(item)
-						_set_sprite_frame(int(state)-timestamp,item)
-			"weed":
-				item.set_animation("growing_"+drug)
-				if (timestamp > int(state)):
-					item.frame = item.get_sprite_frames().get_frame_count(item.get_animation())-1
-				else:
-					_play_animation(item)
-					_set_sprite_frame(int(state)-timestamp,item)
-			"heroin":
-				if(stage == "1"):
-					item.set_animation("cooking1_"+drug)
-					if (timestamp > int(state)):
-						item.frame = item.get_sprite_frames().get_frame_count(item.get_animation())-1
-					else:
-						_play_animation(item)
-						_set_sprite_frame(int(state)-timestamp,item)
-				else:
-					item.set_animation("cooking2_"+drug)
-					if (timestamp > int(state)):
-						item.frame = item.get_sprite_frames().get_frame_count(item.get_animation())-1
-					else:
-						_play_animation(item)
-						_set_sprite_frame(int(state)-timestamp,item)
-	else:
-		match drug:
-			"meth":
-				item.set_animation("des_"+drug)
-			"weed":
-				item.set_animation("growing_"+drug)
-			"heroin":
-				item.set_animation("cooking1_"+drug)
- 
+func loadd():
+	var file = File.new()
+	file.open("res://save_game.dat", File.READ)
+	var content = file.get_line()
+	file.close()
+	return content
+
+func _on_connection_closed(was_clean = false):
+	print("Closed, clean: ", was_clean)
+	set_process(false)
+	
+func _on_connected(proto = ""):
+	var text = loadd()
+	print("Connected with protocol: ", proto)
+	_send("getservertimestamp" + text)
+	_send("loadinterior" + text + "$" + varnaID)
+	_send("inventory" + text)
+
+func _on_data():
+	var payload = client.get_peer(1).get_packet().get_string_from_utf8()
+	print("Received data: ", payload)
+	var x = payload.split("$")
+	match x[0]:
+		"weedstart":
+			_weedstart(items[tablenumber])
+		"weedharvest":
+			_weedharvest(tablenumber, x[1])
+		"methstart":
+			_methstart(items[tablenumber])
+		"methcontinue":
+			_methcontinue(items[tablenumber])
+		"methharvest":
+			_methharvest(tablenumber, x[1])
+		"heroinstart":
+			_heroinstart(items[tablenumber])
+		"heroincontinue":
+			_heroincontinue(items[tablenumber])
+		"heroinharvest":
+			_heroinharvest(tablenumber, x[1])
+		"loadinterior":
+			var m = 1
+			var n = 2
+			var o = 3
+			for i in _get_table_count(x):
+				items.append(get_node("varna/table" + str(i) + "/AnimatedSprite"))
+				_set_item(x[m], x[n], x[o], items[i])
+				tablecount = i
+				tableitems.append(x[m])
+				n += 3
+				m += 3
+				o += 3
+		"inventory":
+			inv = x
+		"changetable":
+			if x[1] == "successful":
+				match x[3]:
+					"weed":
+						items[int(x[2]) - 1].set_animation("growing_weed")
+						tableitems[int(x[2]) - 1] = "weed"
+						$varna/textbox.text = "Table changed to weed"
+					"meth":
+						items[int(x[2]) - 1].set_animation("des_meth")
+						tableitems[int(x[2]) - 1] = "meth"
+						$varna/textbox.text = "Table changed to meth"
+					"heroin":
+						items[int(x[2]) - 1].set_animation("cooking1_heroin")
+						tableitems[int(x[2]) - 1] = "heroin"
+						$varna/textbox.text = "Table changed to heroin"
+				yield(get_tree().create_timer(3.0), "timeout")
+				$varna/textbox.visible = false
+			else:
+				$varna/textbox.text = "Table hasn't changed"
+			$varna/textbox.visible = true
+			yield(get_tree().create_timer(3.0), "timeout")
+			$varna/textbox.visible = false
+		"error", "successful":
+			pass
+		"getservertimestamp":
+			timestamp = int(x[1])
+
+func _send(text):
+	var packet: PoolByteArray = text.to_utf8()
+	print("Sending: " + text)
+	client.get_peer(1).put_packet(packet)
+
+func _input(event):
+	if event is InputEventKey:
+		if event.scancode == KEY_E and firsttime == "y":
+			_get_tablenumber()
+			if tablenumber != null:
+				match tableitems[tablenumber]:
+					"weed":
+						_weedstart_weedharvest(tablenumber, loadd())
+					"meth":
+						_methstart_methharvest(tablenumber, loadd())
+					"heroin":
+						_heroinstart_heroinharvest(tablenumber, loadd())
+		elif event.scancode == KEY_Q and firsttime == "y":
+			user = loadd()
+			_get_tablenumber()
+			if tablenumber != null:
+				$AreaVyber.visible = true
+				firsttime = "n"
+		else:
+			firsttime = "y"
+
 func _get_table_count(var x):
-	return (x.size()-2)/3
+	return (x.size() - 2) / 3
 
 func _get_tablenumber():
 	var body = $varna/player/body.get_overlapping_areas()
 	tablenumber = null
-	if (body.size()!=0):
+	if body.size() != 0:
 		var table = body[0]
-		for i in tablecount+1:
-			if(table.name == "table" + String(i)):
+		for i in tablecount + 1:
+			if table.name == "table" + str(i):
 				tablenumber = i
 				break
 
+func _set_sprite_frame(var time, var sprite):
+	time *= sprite.get_sprite_frames().get_animation_speed(sprite.get_animation())
+	time = sprite.get_sprite_frames().get_frame_count(sprite.get_animation()) - time
+	sprite.frame = int(time)
+	if (sprite.animation == "des_meth" || sprite.animation == "growing_meth" || sprite.animation == "cooking1_heroin") && sprite.frame == 0:
+		sprite.frame = 1
+
+func _play_animation(var sprite):
+	sprite.playing = true
+	while sprite.get_frame() != sprite.get_sprite_frames().get_frame_count(sprite.get_animation()) - 1:
+		yield(get_tree().create_timer(0.1), "timeout")
+	sprite.playing = false
+
+func _set_item(var drug, var state, var stage, var item):
+	if state != "0":
+		match drug:
+			"weed":
+				item.set_animation("growing_" + drug)
+				if timestamp > int(state):
+					item.frame = item.get_sprite_frames().get_frame_count(item.get_animation()) - 1
+				else:
+					_play_animation(item)
+					_set_sprite_frame(int(state) - timestamp, item)
+			"meth":
+				if stage == "1":
+					item.set_animation("des_" + drug)
+					if timestamp > int(state):
+						item.frame = item.get_sprite_frames().get_frame_count(item.get_animation()) - 1
+					else:
+						_play_animation(item)
+						_set_sprite_frame(int(state) - timestamp, item)
+				else:
+					item.set_animation("kry_" + drug)
+					if timestamp > int(state):
+						item.frame = item.get_sprite_frames().get_frame_count(item.get_animation()) - 1
+					else:
+						_play_animation(item)
+						_set_sprite_frame(int(state) - timestamp, item)
+			"heroin":
+				if stage == "1":
+					item.set_animation("cooking1_" + drug)
+					if timestamp > int(state):
+						item.frame = item.get_sprite_frames().get_frame_count(item.get_animation()) - 1
+					else:
+						_play_animation(item)
+						_set_sprite_frame(int(state) - timestamp, item)
+				else:
+					item.set_animation("cooking2_" + drug)
+					if timestamp > int(state):
+						item.frame = item.get_sprite_frames().get_frame_count(item.get_animation()) - 1
+					else:
+						_play_animation(item)
+						_set_sprite_frame(int(state) - timestamp, item)
+	else:
+		match drug:
+			"meth":
+				item.set_animation("des_" + drug)
+			"weed":
+				item.set_animation("growing_" + drug)
+			"heroin":
+				item.set_animation("cooking1_" + drug)
+
+func _on_weed_pressed():
+	_send("changetable" + user + "$" + varnaID + "$" + str(tablenumber+1) + "$weed")
+	$AreaVyber.visible = false
+
+func _on_meth_pressed():
+	_send("changetable" + user + "$" + varnaID + "$" + str(tablenumber+1) + "$meth")
+	$AreaVyber.visible = false
+
+func _on_heroin_pressed():
+	_send("changetable" + user + "$" + varnaID + "$" + str(tablenumber+1) + "$heroin")
+	$AreaVyber.visible = false
+
 func _weedstart_weedharvest(var i, var text):
-	if (items[i].frame == items[i].get_sprite_frames().get_frame_count(items[i].get_animation())-1):
+	if (items[i].frame == items[i].get_sprite_frames().get_frame_count(items[i].get_animation()) - 1):
 		_send("weedharvest" + text + "$" + varnaID + "$" + str(i + 1))
 		firsttime = "n"
 	elif (items[i].frame == 0):
@@ -144,10 +269,10 @@ func _weedharvest(var i,var grams):
 		$varna/textbox.visible = false
 
 func _methstart_methharvest(var i, var text):
-	if (items[i].animation == "kry_meth" && items[i].frame == items[i].get_sprite_frames().get_frame_count(items[i].get_animation())-1):
+	if items[i].animation == "kry_meth" && items[i].frame == items[i].get_sprite_frames().get_frame_count(items[i].get_animation()) - 1:
 		_send("methharvest" + text + "$" + varnaID + "$" + str(i + 1))
 		firsttime = "n"
-	elif (items[i].animation == "des_meth" && items[i].frame == items[i].get_sprite_frames().get_frame_count(items[i].get_animation())-1):
+	elif items[i].animation == "des_meth" && items[i].frame == items[i].get_sprite_frames().get_frame_count(items[i].get_animation()) - 1:
 		if int(inv[16]) > 0:
 			inv[16] = str(int(inv[16]) - 1)
 			$varna.visible = false
@@ -158,7 +283,7 @@ func _methstart_methharvest(var i, var text):
 			yield(get_tree().create_timer(3.0), "timeout")
 			$varna/textbox.visible = false
 		firsttime = "n"
-	elif (items[i].animation == "des_meth" && items[i].frame == 0):
+	elif items[i].animation == "des_meth" && items[i].frame == 0:
 		var ingr = true
 		for i in 5:
 			if int(inv[i + 7]) == 0:
@@ -201,10 +326,10 @@ func _methharvest(var i,var grams):
 		$varna/textbox.visible = false
 
 func _heroinstart_heroinharvest(var i, var text):
-	if (items[i].animation == "cooking2_heroin" && items[i].frame == items[i].get_sprite_frames().get_frame_count(items[i].get_animation())-1):
+	if items[i].animation == "cooking2_heroin" && items[i].frame == items[i].get_sprite_frames().get_frame_count(items[i].get_animation()) - 1:
 		_send("heroinharvest" + text + "$" + varnaID + "$" + str(i + 1))
 		firsttime = "n"
-	elif (items[i].animation == "cooking1_heroin" && items[i].frame == items[i].get_sprite_frames().get_frame_count(items[i].get_animation())-1):
+	elif items[i].animation == "cooking1_heroin" && items[i].frame == items[i].get_sprite_frames().get_frame_count(items[i].get_animation()) - 1:
 		var ingr = true
 		for i in 5:
 			if int(inv[i + 13]) == 0:
@@ -220,7 +345,7 @@ func _heroinstart_heroinharvest(var i, var text):
 			yield(get_tree().create_timer(3.0), "timeout")
 			$varna/textbox.visible = false
 		firsttime = "n"
-	elif (items[i].animation == "cooking1_heroin" && items[i].frame == 0):
+	elif items[i].animation == "cooking1_heroin" && items[i].frame == 0:
 		var ingr = true
 		for i in 3:
 			if int(inv[i + 18]) == 0:
@@ -261,122 +386,6 @@ func _heroinharvest(var i,var grams):
 		$varna/textbox.text = "You just got " + grams + " heroin"
 		yield(get_tree().create_timer(3.0), "timeout")
 		$varna/textbox.visible = false
-
-func _process(delta):
-	client.poll()
-	
-func loadd():
-	var file = File.new()
-	file.open("res://save_game.dat", File.READ)
-	var content = file.get_line()
-	file.close()
-	return content
-
-func _on_connection_closed(was_clean = false):
-	print("Closed, clean: ", was_clean)
-	set_process(false)
-	
-func _on_connected(proto = ""):
-	var text = loadd()
-	print("Connected with protocol: ", proto)
-	_send("getservertimestamp" + text)
-	_send("loadinterior" + text +"$" + varnaID)
-	_send("inventory" + text)
-	
-func _on_data():
-	var payload = client.get_peer(1).get_packet().get_string_from_utf8()
-	print("Received data: ", payload)
-	var x = payload.split("$")
-	match x[0]:
-		"weedstart":
-			_weedstart(items[tablenumber])
-		"weedharvest":
-			_weedharvest(tablenumber,x[1])
-		"methstart":
-			_methstart(items[tablenumber])
-		"methcontinue":
-			_methcontinue(items[tablenumber])
-		"methharvest":
-			_methharvest(tablenumber,x[1])
-		"heroinstart":
-			_heroinstart(items[tablenumber])
-		"heroincontinue":
-			_heroincontinue(items[tablenumber])
-		"heroinharvest":
-			_heroinharvest(tablenumber,x[1])
-		"loadinterior":
-			var m = 1
-			var n = 2
-			var o = 3
-			for i in _get_table_count(x):
-				items.append(get_node("varna/table"+ String(i) +"/AnimatedSprite"))
-				_set_item(x[m],x[n],x[o],items[i])
-				tablecount = i
-				tableitems.append(x[m])
-				n+=3
-				m+=3
-				o+=3
-		"inventory":
-			inv = x
-		"error", "successful":
-			pass
-		_:
-			timestamp = int(x[0])
-
-func _send(text):
-	var packet: PoolByteArray = text.to_utf8()
-	print("Sending: " + text)
-	client.get_peer(1).put_packet(packet)
-
-var firsttime = "y"
-var tablenumber = null
-
-func _input(event):
-	if event is InputEventKey:
-		if event.scancode == KEY_E and firsttime == "y":
-			_get_tablenumber()
-			if tablenumber == null:
-				pass
-			else:
-				match tableitems[tablenumber]:
-					"weed":
-						_weedstart_weedharvest(tablenumber,loadd())
-					"meth":
-						_methstart_methharvest(tablenumber,loadd())
-					"heroin":
-						_heroinstart_heroinharvest(tablenumber,loadd())
-		elif event.scancode == KEY_Q and firsttime == "y":
-			user = loadd()
-			_get_tablenumber()
-			if tablenumber == null:
-				pass
-			else:
-				#$varna.visible = false
-				$AreaVyber.visible = true
-				firsttime = "n"
-		else:
-			firsttime = "y"
-
-func _on_leave_body_entered(body):
-	get_tree().change_scene("res://Trebic.tscn")
-
-func _on_weed_pressed():
-	_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$weed")
-	items[tablenumber].set_animation("growing_weed")
-	tableitems[tablenumber] = "weed"
-	$AreaVyber.visible = false
-
-func _on_meth_pressed():
-	_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$meth")
-	items[tablenumber].set_animation("des_meth")
-	tableitems[tablenumber] = "meth"
-	$AreaVyber.visible = false
-
-func _on_heroin_pressed():
-	_send("changetable" + user + "$" + varnaID + "$" + String(tablenumber+1) + "$heroin")
-	items[tablenumber].set_animation("cooking1_heroin")
-	tableitems[tablenumber] = "heroin"
-	$AreaVyber.visible = false
 
 func _on_ButtonWeed_pressed():
 	$WeedMinigame/TimerWeed.stop()

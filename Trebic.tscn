@@ -312,7 +312,7 @@ font_data = SubResource( 34 )
 script = ExtResource( 19 )
 
 [node name="Trebic" type="Sprite" parent="."]
-position = Vector2( 962, 499 )
+position = Vector2( 960, 496 )
 scale = Vector2( 0.270497, 0.270497 )
 texture = ExtResource( 1 )
 
@@ -689,7 +689,7 @@ __meta__ = {
 }
 
 [node name="zastavarna" type="Area2D" parent="Trebic"]
-position = Vector2( -561.929, -284.661 )
+position = Vector2( -532.354, -280.964 )
 script = ExtResource( 23 )
 
 [node name="Sprite" type="Sprite" parent="Trebic/zastavarna"]
@@ -714,7 +714,7 @@ position = Vector2( 4680.27, 1053.62 )
 polygon = PoolVector2Array( -4735.73, -1027.74, -4735.73, -1116.46, -4624.82, -1116.46, -4624.82, -1027.74, -4680.27, -990.769, -4698.76, -990.769 )
 
 [node name="Varna1" type="Area2D" parent="Trebic"]
-position = Vector2( -1049.92, 846.59 )
+position = Vector2( -1027.74, 824.408 )
 
 [node name="Sprite" type="Sprite" parent="Trebic/Varna1"]
 position = Vector2( 10.2607, -4.69836 )
@@ -726,7 +726,7 @@ position = Vector2( -692.799, -694.648 )
 polygon = PoolVector2Array( 643.261, 639.564, 776.349, 658.048, 780.046, 676.533, 765.258, 717.198, 717.199, 735.683, 650.654, 739.38, 624.776, 706.108, 632.17, 646.957 )
 
 [node name="Varna2" type="Area2D" parent="Trebic"]
-position = Vector2( -225.511, 1497.24 )
+position = Vector2( -221.814, 1260.64 )
 
 [node name="Sprite" type="Sprite" parent="Trebic/Varna2"]
 position = Vector2( 1.39648, -4.3291 )
@@ -750,7 +750,7 @@ position = Vector2( -692.799, -690.951 )
 polygon = PoolVector2Array( 643.261, 639.564, 776.349, 658.048, 780.046, 676.533, 765.258, 717.198, 717.199, 735.683, 650.654, 739.38, 624.776, 706.108, 632.17, 646.957 )
 
 [node name="Varna4" type="Area2D" parent="Trebic"]
-position = Vector2( -532.353, 55.4536 )
+position = Vector2( -469.506, 29.5751 )
 
 [node name="Sprite" type="Sprite" parent="Trebic/Varna4"]
 position = Vector2( 6.56445, -1.00183 )
@@ -774,7 +774,7 @@ position = Vector2( -700.193, -690.951 )
 polygon = PoolVector2Array( 643.261, 639.564, 776.349, 658.048, 780.046, 676.533, 765.258, 717.198, 717.199, 735.683, 650.654, 739.38, 624.776, 706.108, 632.17, 646.957 )
 
 [node name="Varna6" type="Area2D" parent="Trebic"]
-position = Vector2( 110.907, -1046.22 )
+position = Vector2( 103.513, -1024.04 )
 
 [node name="Sprite" type="Sprite" parent="Trebic/Varna6"]
 position = Vector2( 2.8667, -1.00073 )
@@ -786,7 +786,7 @@ position = Vector2( -700.192, -690.951 )
 polygon = PoolVector2Array( 643.261, 639.564, 776.349, 658.048, 780.046, 676.533, 765.258, 717.198, 717.199, 735.683, 650.654, 739.38, 624.776, 706.108, 632.17, 646.957 )
 
 [node name="Varna7" type="Area2D" parent="Trebic"]
-position = Vector2( 857.68, -1401.12 )
+position = Vector2( 883.559, -1434.4 )
 
 [node name="Sprite" type="Sprite" parent="Trebic/Varna7"]
 position = Vector2( 5.91479, -3.3269 )
@@ -1222,7 +1222,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="HoodPannel"]
+[node name="ButtonHoodExit" type="Button" parent="HoodPannel"]
 anchor_left = 0.095
 anchor_top = 0.195
 anchor_right = 0.154
@@ -2700,7 +2700,7 @@ scroll_active = false
 [connection signal="pressed" from="DealerVyber/ButtonDealer2" to="." method="_on_ButtonDealer2_pressed"]
 [connection signal="pressed" from="DealerVyber/ButtonDealer3" to="." method="_on_ButtonDealer3_pressed"]
 [connection signal="pressed" from="DealerVyber/ButtonVyberExit" to="." method="_on_ButtonVyberExit_pressed"]
-[connection signal="pressed" from="HoodPannel/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="HoodPannel/ButtonHoodExit" to="." method="_on_ButtonHoodExit_pressed"]
 [connection signal="pressed" from="HoodPannel/Dealer2/Dealer2" to="." method="_on_Dealer2_pressed"]
 [connection signal="pressed" from="HoodPannel/Dealer2/Drug2" to="." method="_on_2Drug2_pressed"]
 [connection signal="pressed" from="HoodPannel/Dealer2/Drug1" to="." method="_on_2Drug1_pressed"]
