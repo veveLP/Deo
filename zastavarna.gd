@@ -41,6 +41,7 @@ func _on_data():
 	var x = payload.split("$")
 	if (x[0] == "loadmap"):
 		$LabelMoney.text = x[2]
+		
 	if (x[0] == "inventory"):
 		$Iv/Inv/RichTextLabel.bbcode_text = "[center]" + x[1] + "[/center]"
 		$Iv/Inv/RichTextLabel2.bbcode_text = "[center]" + x[2] + "[/center]"
@@ -65,7 +66,7 @@ func _send(text):
 	var packet: PoolByteArray = text.to_utf8()
 	print("Sending: " + text)
 	client.get_peer(1).put_packet(packet)
-
+var idk = true
 func _input(event):
 	if event is InputEventKey:
 		if event.scancode == KEY_E and firsttime == "y":
@@ -76,10 +77,26 @@ func _input(event):
 				$SelectBody/SelectPanel/ItemID.text = "1"
 				$SelectBody/SelectPanel/LabelPrice.text = "Cena: " + str(int($SelectBody/SelectPanel/ItemPrice.text) * int($SelectBody/SelectPanel/BuyAmount.text))
 			if $hnuj.overlaps_body($player):
-				$SelectBody.visible = true
-				$SelectBody/SelectPanel/ItemPrice.text = "50"
-				$SelectBody/SelectPanel/ItemID.text = "2"
-				$SelectBody/SelectPanel/LabelPrice.text = "Cena: " + str(int($SelectBody/SelectPanel/ItemPrice.text) * int($SelectBody/SelectPanel/BuyAmount.text))
+				
+				#OS.alert($Iv/Inv/HnujText.text)
+				if $Iv/Inv/HnujText.text == "level: 0":
+					$SelectBody2/SelectPanel/ItemPrice.text = "500"
+				if $Iv/Inv/HnujText.text == "level: 1":
+					$SelectBody2/SelectPanel/ItemPrice.text = "5000"
+				if $Iv/Inv/HnujText.text == "level: 2":
+					$SelectBody2/SelectPanel/ItemPrice.text = "50000"
+				if $Iv/Inv/HnujText.text == "level: 3":
+					$SelectBody2/SelectPanel/ItemPrice.text = "69"
+					idk = !idk
+				if idk:
+					OS.alert("Hnůj máš na maximální úrovni")
+					return
+				if $SelectBody2/SelectPanel/ItemPrice.text == "69":
+					return
+				$SelectBody2.visible = true
+				
+				$SelectBody2/SelectPanel/ItemID.text = "2"
+				$SelectBody2/SelectPanel/LabelPrice.text = "Cena: " + str(int($SelectBody2/SelectPanel/ItemPrice.text))
 			if $varna.overlaps_body($player):
 				$SelectBody.visible = true
 				$SelectBody/SelectPanel/ItemPrice.text = "4000"
@@ -158,8 +175,7 @@ func _on_ButtonMinus_pressed():
 
 func _on_ButtonBuy_pressed():
 	var text = loadd()
-	for n in $SelectBody/SelectPanel/HSlider.value:
-		_send("buy" + user + "$" + $SelectBody/SelectPanel/ItemID.text)
+	_send("buy" + text + "$" + str($SelectPanel/ItemID.text) + "$" + str($SelectPanel/HSlider.value))
 	$SelectBody.visible = false;
 	_send("loadmap" + text)
 
@@ -177,3 +193,15 @@ func _on_ButtonInv_pressed():
 
 func _on_ButtonInvExit_pressed():
 	$Iv.visible = false
+
+
+func _on_ButtonBuy2_pressed():
+	var text = loadd()
+	_send("buy" + text + "$" + str($SelectBody2/SelectPanel/ItemID.text) + "$" + str("1"))
+	$SelectBody2.visible = false;
+	_send("loadmap" + text)
+	_send("inventory" + text)
+
+
+func _on_ButtonCancel2_pressed():
+	$SelectBody2.visible = false;
