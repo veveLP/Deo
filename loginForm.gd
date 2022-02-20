@@ -1,12 +1,13 @@
 extends Node2D
+
 export var SOCKET_URL = "ws://194.15.112.30:6988"
 var client = WebSocketClient.new()
 
+var check = false
+
 func _ready():
 	var loaded = loadd()
-	#print (loaded)
 	var x = loaded.split("$")
-	#print (x[1])
 	$Panel/LineEdit.text = x[1]
 	client.connect("connection_closed", self, "_on_connection_closed")
 	client.connect("connection_error", self, "_on_connection_closed")
@@ -16,6 +17,7 @@ func _ready():
 	if err != OK:
 		print("Unable to connect")
 		set_process(false)
+
 func _process(delta):
 	client.poll()
 
@@ -36,7 +38,6 @@ func _on_data():
 		print ("cancel login")
 		OS.alert("Tento uživatel je již registrovaný")
 	elif payload == "login$successful$true":
-		#OS.alert("turorial")
 		OS.alert("Cílem hry je odemknout všech 13 hoodu")
 		OS.alert("Hoody se vám odemknou za respekt který získáte prodáváním drog")
 		OS.alert("Věci na vaření a pěstování drog si můžeš koupit v zastavárně")
@@ -46,24 +47,22 @@ func _on_data():
 		OS.alert("V každám hoodu si můžete najmout 2 z 5 dealerů, kteří za vám potom drogy prodávají")
 		print("login succesfull")
 		var password = $Panel/LineEdit2.text
-		#print(password.sha256_text())
 		password = password.sha256_text()
 		password = password.left(10)
 		save("$"+$Panel/LineEdit.text+"$"+password)
 		get_tree().change_scene("res://Trebic.tscn")
-		if (check):
+		if check:
 			OS.window_fullscreen = true
 		else:
 			OS.window_size = Vector2(1920,1080)
 	else:
 		print("login succesfull")
 		var password = $Panel/LineEdit2.text
-		#print(password.sha256_text())
 		password = password.sha256_text()
 		password = password.left(10)
-		save("$"+$Panel/LineEdit.text+"$"+password)
+		save("$" + $Panel/LineEdit.text + "$" + password)
 		get_tree().change_scene("res://Trebic.tscn")
-		if (check):
+		if check:
 			OS.window_fullscreen = true
 		else:
 			OS.window_size = Vector2(1920,1080)
@@ -86,13 +85,11 @@ func save(content):
 	file.store_string(content)
 	file.close()
 
-var check = false
-
 func _on_Button_pressed():
 	login()
 
 func _on_CheckBox_toggled(button_pressed):
-	if (check):
+	if check:
 		check = false
 	else:
 		check = true
@@ -108,4 +105,3 @@ func login():
 
 func _on_Button2_pressed():
 	OS.shell_open("https://www.drugempire.online/")
-	#OS.alert("Registerace je aktálně možná pouze na www.drugempire.online/")

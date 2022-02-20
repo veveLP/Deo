@@ -3,6 +3,9 @@ extends Node2D
 export var SOCKET_URL = "ws://194.15.112.30:6988"
 var client = WebSocketClient.new()
 
+var user = loadd()
+var firsttime = "y"
+
 func _ready():
 	client.connect("connection_closed", self, "_on_connection_closed")
 	client.connect("connection_error", self, "_on_connection_closed")
@@ -15,8 +18,6 @@ func _ready():
 
 func _process(delta):
 	client.poll()
-
-var user = loadd()
 
 func loadd():
 	var file = File.new()
@@ -65,79 +66,77 @@ func _send(text):
 	print("Sending: " + text)
 	client.get_peer(1).put_packet(packet)
 
-var firsttime = "y"
-
 func _input(event):
 	if event is InputEventKey:
 		if event.scancode == KEY_E and firsttime == "y":
 			
-			if ($semen.overlaps_body($player)):
-				$SelectBody.visible=true
+			if $semen.overlaps_body($player):
+				$SelectBody.visible = true
 				$SelectBody/SelectPanel/ItemPrice.text = "100"
 				$SelectBody/SelectPanel/ItemID.text = "1"
 				$SelectBody/SelectPanel/LabelPrice.text = "Cena: " + str(int($SelectBody/SelectPanel/ItemPrice.text) * int($SelectBody/SelectPanel/BuyAmount.text))
-			if ($hnuj.overlaps_body($player)):
-				$SelectBody.visible=true
+			if $hnuj.overlaps_body($player):
+				$SelectBody.visible = true
 				$SelectBody/SelectPanel/ItemPrice.text = "50"
 				$SelectBody/SelectPanel/ItemID.text = "2"
 				$SelectBody/SelectPanel/LabelPrice.text = "Cena: " + str(int($SelectBody/SelectPanel/ItemPrice.text) * int($SelectBody/SelectPanel/BuyAmount.text))
-			if ($varna.overlaps_body($player)):
-				$SelectBody.visible=true
+			if $varna.overlaps_body($player):
+				$SelectBody.visible = true
 				$SelectBody/SelectPanel/ItemPrice.text = "4000"
 				$SelectBody/SelectPanel/ItemID.text = "3"
 				$SelectBody/SelectPanel/LabelPrice.text = "Cena: " + str(int($SelectBody/SelectPanel/ItemPrice.text) * int($SelectBody/SelectPanel/BuyAmount.text))
-			if ($aceton.overlaps_body($player)):
-				$SelectBody.visible=true
+			if $aceton.overlaps_body($player):
+				$SelectBody.visible = true
 				$SelectBody/SelectPanel/ItemPrice.text = "100"
 				$SelectBody/SelectPanel/ItemID.text = "4"
 				$SelectBody/SelectPanel/LabelPrice.text = "Cena: " + str(int($SelectBody/SelectPanel/ItemPrice.text) * int($SelectBody/SelectPanel/BuyAmount.text))
-			if ($hydroxid.overlaps_body($player)):
-				$SelectBody.visible=true
+			if $hydroxid.overlaps_body($player):
+				$SelectBody.visible = true
 				$SelectBody/SelectPanel/ItemPrice.text = "80"
 				$SelectBody/SelectPanel/ItemID.text = "5"
 				$SelectBody/SelectPanel/LabelPrice.text = "Cena: " + str(int($SelectBody/SelectPanel/ItemPrice.text) * int($SelectBody/SelectPanel/BuyAmount.text))
-			if ($kyselina.overlaps_body($player)):
-				$SelectBody.visible=true
+			if $kyselina.overlaps_body($player):
+				$SelectBody.visible = true
 				$SelectBody/SelectPanel/ItemPrice.text = "95"
 				$SelectBody/SelectPanel/ItemID.text = "6"
 				$SelectBody/SelectPanel/LabelPrice.text = "Cena: " + str(int($SelectBody/SelectPanel/ItemPrice.text) * int($SelectBody/SelectPanel/BuyAmount.text))
-			if ($ether.overlaps_body($player)):
-				$SelectBody.visible=true
+			if $ether.overlaps_body($player):
+				$SelectBody.visible = true
 				$SelectBody/SelectPanel/ItemPrice.text = "370"
 				$SelectBody/SelectPanel/ItemID.text = "7"
 				$SelectBody/SelectPanel/LabelPrice.text = "Cena: " + str(int($SelectBody/SelectPanel/ItemPrice.text) * int($SelectBody/SelectPanel/BuyAmount.text))
-			if ($varic.overlaps_body($player)):
-				$SelectBody.visible=true
+			if $varic.overlaps_body($player):
+				$SelectBody.visible = true
 				$SelectBody/SelectPanel/ItemPrice.text = "1000"
 				$SelectBody/SelectPanel/ItemID.text = "9"
 				$SelectBody/SelectPanel/LabelPrice.text = "Cena: " + str(int($SelectBody/SelectPanel/ItemPrice.text) * int($SelectBody/SelectPanel/BuyAmount.text))
-			if ($chloroform.overlaps_body($player)):
-				$SelectBody.visible=true
+			if $chloroform.overlaps_body($player):
+				$SelectBody.visible = true
 				$SelectBody/SelectPanel/ItemPrice.text = "120"
 				$SelectBody/SelectPanel/ItemID.text = "10"
 				$SelectBody/SelectPanel/LabelPrice.text = "Cena: " + str(int($SelectBody/SelectPanel/ItemPrice.text) * int($SelectBody/SelectPanel/BuyAmount.text))
-			if ($uhlicitan.overlaps_body($player)):
-				$SelectBody.visible=true
+			if $uhlicitan.overlaps_body($player):
+				$SelectBody.visible = true
 				$SelectBody/SelectPanel/ItemPrice.text = "50"
 				$SelectBody/SelectPanel/ItemID.text = "11"
 				$SelectBody/SelectPanel/LabelPrice.text = "Cena: " + str(int($SelectBody/SelectPanel/ItemPrice.text) * int($SelectBody/SelectPanel/BuyAmount.text))
-			if ($alkohol.overlaps_body($player)):
-				$SelectBody.visible=true
+			if $alkohol.overlaps_body($player):
+				$SelectBody.visible = true
 				$SelectBody/SelectPanel/ItemPrice.text = "100"
 				$SelectBody/SelectPanel/ItemID.text = "13"
 				$SelectBody/SelectPanel/LabelPrice.text = "Cena: " + str(int($SelectBody/SelectPanel/ItemPrice.text) * int($SelectBody/SelectPanel/BuyAmount.text))
-			if ($ocet.overlaps_body($player)):
-				$SelectBody.visible=true
+			if $ocet.overlaps_body($player):
+				$SelectBody.visible = true
 				$SelectBody/SelectPanel/ItemPrice.text = "15"
 				$SelectBody/SelectPanel/ItemID.text = "14"
 				$SelectBody/SelectPanel/LabelPrice.text = "Cena: " + str(int($SelectBody/SelectPanel/ItemPrice.text) * int($SelectBody/SelectPanel/BuyAmount.text))
-			if ($cpavek.overlaps_body($player)):
-				$SelectBody.visible=true
+			if $cpavek.overlaps_body($player):
+				$SelectBody.visible = true
 				$SelectBody/SelectPanel/ItemPrice.text = "600"
 				$SelectBody/SelectPanel/ItemID.text = "15"
 				$SelectBody/SelectPanel/LabelPrice.text = "Cena: " + str(int($SelectBody/SelectPanel/ItemPrice.text) * int($SelectBody/SelectPanel/BuyAmount.text))
-			if ($vapno.overlaps_body($player)):
-				$SelectBody.visible=true
+			if $vapno.overlaps_body($player):
+				$SelectBody.visible = true
 				$SelectBody/SelectPanel/ItemPrice.text = "80"
 				$SelectBody/SelectPanel/ItemID.text = "16"
 				$SelectBody/SelectPanel/LabelPrice.text = "Cena: " + str(int($SelectBody/SelectPanel/ItemPrice.text) * int($SelectBody/SelectPanel/BuyAmount.text))
@@ -150,17 +149,17 @@ func _on_leave_body_entered(body):
 func _on_ButtonPlus_pressed():
 	if $SelectBody/SelectPanel/HSlider.value < 100:
 		$SelectBody/SelectPanel/BuyAmount.text = str($SelectBody/SelectPanel/HSlider.value)
-		$SelectBody/SelectPanel/HSlider.value = int($SelectBody/SelectPanel/HSlider.value+1)
+		$SelectBody/SelectPanel/HSlider.value = $SelectBody/SelectPanel/HSlider.value + 1
 
 func _on_ButtonMinus_pressed():
 	if $SelectBody/SelectPanel/HSlider.value > 1:
 		$SelectBody/SelectPanel/BuyAmount.text = str($SelectBody/SelectPanel/HSlider.value)
-		$SelectBody/SelectPanel/HSlider.value = $SelectBody/SelectPanel/HSlider.value-1
+		$SelectBody/SelectPanel/HSlider.value = $SelectBody/SelectPanel/HSlider.value - 1
 
 func _on_ButtonBuy_pressed():
 	var text = loadd()
 	for n in $SelectBody/SelectPanel/HSlider.value:
-		_send("buy"+user+"$" + $SelectBody/SelectPanel/ItemID.text)
+		_send("buy" + user + "$" + $SelectBody/SelectPanel/ItemID.text)
 	$SelectBody.visible = false;
 	_send("loadmap" + text)
 

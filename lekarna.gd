@@ -1,8 +1,11 @@
 extends Node2D
 
 export var SOCKET_URL = "ws://194.15.112.30:6988"
-
 var client = WebSocketClient.new()
+
+var user = loadd()
+var firsttime = "y"
+var select_id
 
 func _ready():
 	client.connect("connection_closed", self, "_on_connection_closed")
@@ -16,8 +19,6 @@ func _ready():
 
 func _process(delta):
 	client.poll()
-
-var user = loadd()
 
 func loadd():
 	var file = File.new()
@@ -68,22 +69,18 @@ func _send(text):
 	print("Sending: " + text)
 	client.get_peer(1).put_packet(packet)
 
-var firsttime = "y"
-
 func _input(event):
 	if event is InputEventKey:
 		if event.scancode == KEY_E and firsttime == "y":
 			if ($lekarna/Prodavac.overlaps_body($lekarna/player)):
-				$lekarna.visible=false
-				$NabidkaPanel.visible=true
+				$lekarna.visible = false
+				$NabidkaPanel.visible = true
 				firsttime = "n"
 		else:
 			firsttime = "y"
 
 func _on_leave_body_entered(body):
 	get_tree().change_scene("res://Trebic.tscn")
-
-var select_id
 
 func _on_ButtonModafen_pressed():
 	$SelectPanel/ItemPrice.text = "2000"
@@ -98,12 +95,12 @@ func _on_HSlider_value_changed(value):
 func _on_ButtonPlus_pressed():
 	if $SelectPanel/HSlider.value < 100:
 		$SelectPanel/BuyAmount.text = str($SelectPanel/HSlider.value)
-		$SelectPanel/HSlider.value = int($SelectPanel/HSlider.value+1)
+		$SelectPanel/HSlider.value = $SelectPanel/HSlider.value + 1
 
 func _on_ButtonMinus_pressed():
 	if $SelectPanel/HSlider.value > 1:
 		$SelectPanel/BuyAmount.text = str($SelectPanel/HSlider.value)
-		$SelectPanel/HSlider.value = $SelectPanel/HSlider.value-1
+		$SelectPanel/HSlider.value = $SelectPanel/HSlider.value - 1
 
 func _on_ButtonCancel_pressed():
 	$SelectPanel.visible = false;
@@ -111,7 +108,7 @@ func _on_ButtonCancel_pressed():
 func _on_ButtonBuy_pressed():
 	var text = loadd()
 	for n in $SelectPanel/HSlider.value:
-		_send("buy"+text+"$"+str($SelectPanel/ItemID.text))
+		_send("buy" + text + "$" + str($SelectPanel/ItemID.text))
 	$SelectPanel.visible = false;
 	_send("loadmap" + text)
 
