@@ -343,358 +343,194 @@ func _on_ButtonHoodExit_pressed():
 	$HoodPannel/Timer.stop()
 	$HoodPannel/Timer2.stop()
 
+func hood_click(var bbtext,var id):
+	var text = loadd()
+	$HoodPannel.visible = true
+	$HoodPannel/HoodName.bbcode_text = bbtext
+	$HoodPannel/HoodiD.text = str(id)
+	_send("hood" + text + "$" + str(id))
+	_send("loaddealers"+text+"$" + str(id))
+	$HoodPannel/Timer.start()
+	$HoodPannel/Timer2.start()
+
 func _on_borovina_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			var text = loadd()
-			$HoodPannel.visible = true
-			$HoodPannel/HoodName.bbcode_text = "[center]Borovina[/center]"
-			$HoodPannel/HoodiD.text = "1"
-			_send("hood" + text + "$1")
-			_send("loaddealers"+text+"$1")
-			$HoodPannel/Timer.start()
-			$HoodPannel/Timer2.start()
-
-func _on_kokain_ctvrt_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and event.pressed:
-			if int(unlockedHoods) >= 10:
-				
-				$HoodPannel.visible = true
-				$HoodPannel/HoodName.bbcode_text = "[center]Čtvrť zbohatlíků[/center]"
-				$HoodPannel/HoodiD.text = "10"
-				_send("hood" + text + "$10")
-				_send("loaddealers"+text+"$10")
-				$HoodPannel/Timer.start()
-				$HoodPannel/Timer2.start()
-
-func _on_podklasteri_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and event.pressed:
-			if int(unlockedHoods) >= 9:
-				$HoodPannel.visible = true
-				$HoodPannel/HoodName.bbcode_text = "[center]Podkláštěří[/center]"
-				$HoodPannel/HoodiD.text = "9"
-				_send("hood" + text + "$9")
-				_send("loaddealers"+text+"$9")
-				$HoodPannel/Timer.start()
-				$HoodPannel/Timer2.start()
-
-func _on_zid_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and event.pressed:
-			if int(unlockedHoods) >= 8:
-				$HoodPannel.visible = true
-				$HoodPannel/HoodName.bbcode_text = "[center]Židovská čtvrť[/center]"
-				$HoodPannel/HoodiD.text = "8"
-				_send("hood" + text + "$8")
-				_send("loaddealers"+text+"$8")
-				$HoodPannel/Timer.start()
-				$HoodPannel/Timer2.start()
-
-func _on_namesti_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and event.pressed:
-			if int(unlockedHoods) >= 7:
-				$HoodPannel.visible = true
-				$HoodPannel/HoodName.bbcode_text = "[center]Centrum[/center]"
-				$HoodPannel/HoodiD.text = "7"
-				_send("hood" + text + "$7")
-				_send("loaddealers"+text+"$7")
-				$HoodPannel/Timer.start()
-				$HoodPannel/Timer2.start()
-
-func _on_spst_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and event.pressed:
-			if int(unlockedHoods) >= 13:
-				$HoodPannel.visible = true
-				$HoodPannel/HoodName.bbcode_text = "[center]SPŠT[/center]"
-				$HoodPannel/HoodiD.text = "13"
-				_send("hood" + text + "$13")
-				_send("loaddealers"+text+"$13")
-				$HoodPannel/Timer.start()
-				$HoodPannel/Timer2.start()
-
-func _on_tyn_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and event.pressed:
-			if int(unlockedHoods) >= 11:
-				$HoodPannel.visible = true
-				$HoodPannel/HoodName.bbcode_text = "[center]Týn[/center]"
-				$HoodPannel/HoodiD.text = "11"
-				_send("hood" + text + "$11")
-				_send("loaddealers"+text+"$11")
-				$HoodPannel/Timer.start()
-				$HoodPannel/Timer2.start()
-
-func _on_atom_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and event.pressed:
-			if int(unlockedHoods) >= 12:
-				$HoodPannel.visible = true
-				$HoodPannel/HoodName.bbcode_text = "[center]Hotel atom[/center]"
-				$HoodPannel/HoodiD.text = "12"
-				_send("hood" + text + "$12")
-				_send("loaddealers"+text+"$12")
-				$HoodPannel/Timer.start()
-				$HoodPannel/Timer2.start()
+			hood_click("[center]Borovina[/center]",1)
+			
 
 func _on_horkasever_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if int(unlockedHoods) >= 2:
-				var text = loadd()
-				$HoodPannel.visible = true
-				$HoodPannel/HoodName.bbcode_text = "[center]Horka domky sever[/center]"
-				$HoodPannel/HoodiD.text = "2"
-				_send("hood" + text + "$2")
-				_send("loaddealers"+text+"$2")
-				$HoodPannel/Timer.start()
-				$HoodPannel/Timer2.start()
+				hood_click("[center]Horka domky sever[/center]",2)
 
 func _on_horkajih_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if int(unlockedHoods) >= 3:
-				var text = loadd()
-				$HoodPannel.visible = true
-				$HoodPannel/HoodName.bbcode_text = "[center]Horka domky jih[/center]"
-				$HoodPannel/HoodiD.text = "3"
-				_send("hood" + text + "$3")
-				_send("loaddealers"+text+"$3")
-				$HoodPannel/Timer.start()
-				$HoodPannel/Timer2.start()
+				hood_click("[center]Horka domky jih[/center]",3)
 
 func _on_stopshop_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if int(unlockedHoods) >= 4:
-				$HoodPannel.visible = true
-				$HoodPannel/HoodName.bbcode_text = "[center]Stop shop[/center]"
-				$HoodPannel/HoodiD.text = "4"
-				_send("hood" + text + "$4")
-				_send("loaddealers"+text+"$4")
-				$HoodPannel/Timer.start()
-				$HoodPannel/Timer2.start()
+				hood_click("[center]Stop shop[/center]",4)
 
 func _on_prumyslova_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if int(unlockedHoods) >= 5:
-				$HoodPannel.visible = true
-				$HoodPannel/HoodName.bbcode_text = "[center]Průmyslová čtvrť[/center]"
-				$HoodPannel/HoodiD.text = "5"
-				_send("hood" + text + "$5")
-				_send("loaddealers"+text+"$5")
-				$HoodPannel/Timer.start()
-				$HoodPannel/Timer2.start()
+				hood_click("[center]Průmyslová čtvrť[/center]",5)
 
 func _on_nemocnice_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if int(unlockedHoods) >= 6:
-				$HoodPannel.visible = true
-				$HoodPannel/HoodName.bbcode_text = "[center]Nemocnice[/center]"
-				$HoodPannel/HoodiD.text = "6"
-				_send("hood" + text + "$6")
-				_send("loaddealers"+text+"$6")
-				$HoodPannel/Timer.start()
-				$HoodPannel/Timer2.start()
+				hood_click("[center]Nemocnice[/center]",6)
+
+func _on_namesti_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			if int(unlockedHoods) >= 7:
+				hood_click("[center]Centrum[/center]",7)
+
+func _on_zid_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			if int(unlockedHoods) >= 8:
+				hood_click("[center]Židovská čtvrť[/center]",8)
+
+
+func _on_podklasteri_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			if int(unlockedHoods) >= 9:
+				hood_click("[center]Podkláštěří[/center]",9)
+				
+
+func _on_kokain_ctvrt_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			if int(unlockedHoods) >= 10:
+				hood_click("[center]Čtvrť zbohatlíků[/center]",10)
+
+func _on_tyn_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			if int(unlockedHoods) >= 11:
+				hood_click("[center]Týn[/center]",11)
+
+func _on_atom_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			if int(unlockedHoods) >= 12:
+				hood_click("[center]Hotel atom[/center]",12)
+
+func _on_spst_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			if int(unlockedHoods) >= 13:
+				hood_click("[center]SPŠT[/center]",13)
+
+
 
 func _on_pole_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			get_tree().change_scene("res://pole.tscn")
 
-func _on_horkasever_mouse_entered():
-	$Trebic/horkaSever/Line2D.points = $Trebic/horkaSever/CollisionPolygon2D.polygon
-	$Trebic/horkaSever/Line2D.show()
-	$Trebic/horkaSever/RichTextLabel.show()
-	if int(unlockedHoods) >= 2:
-		$Trebic/horkaSever/Line2D.default_color = Color.green
-		$Trebic/horkaSever/RichTextLabel.add_color_override("default_color",Color.green)
-		$Trebic/horkaSever/RichTextLabel.text = "Horka domky sever"
+func mouse_enter(var hood,var id,var full_txt):
+	get_node("Trebic/"+hood+"/Line2D").points = get_node("Trebic/"+hood+"/CollisionPolygon2D").polygon
+	get_node("Trebic/"+hood+"/Line2D").show()
+	get_node("Trebic/"+hood+"/RichTextLabel").show()
+	if int(unlockedHoods) >= int(id):
+		get_node("Trebic/"+hood+"/Line2D").default_color = Color.green
+		get_node("Trebic/"+hood+"/RichTextLabel").add_color_override("default_color",Color.green)
+		get_node("Trebic/"+hood+"/RichTextLabel").text = full_txt
 	else:
-		$Trebic/horkaSever/Line2D.default_color = Color.red
-		$Trebic/horkaSever/RichTextLabel.add_color_override("default_color",Color.red)
+		get_node("Trebic/"+hood+"/Line2D").default_color = Color.red
+		get_node("Trebic/"+hood+"/RichTextLabel").add_color_override("default_color",Color.red)
+
+func _on_horkasever_mouse_entered():
+	mouse_enter("horkaSever",2, "Horka domky sever")
 
 func _on_horkasever_mouse_exited():
 	$Trebic/horkaSever/Line2D.hide()
 	$Trebic/horkaSever/RichTextLabel.hide()
 
 func _on_horkajih_mouse_entered():
-	$Trebic/horkaJih/Line2D.points = $Trebic/horkaJih/CollisionPolygon2D.polygon
-	$Trebic/horkaJih/Line2D.show()
-	$Trebic/horkaJih/RichTextLabel.show()
-	if int(unlockedHoods) >= 3:
-		$Trebic/horkaJih/Line2D.default_color = Color.green
-		$Trebic/horkaJih/RichTextLabel.add_color_override("default_color",Color.green)
-		$Trebic/horkaJih/RichTextLabel.text = "Horka domky jih"
-	else:
-		$Trebic/horkaJih/Line2D.default_color = Color.red
-		$Trebic/horkaJih/RichTextLabel.add_color_override("default_color",Color.red)
+	mouse_enter("horkaJih",3, "Horka domky jih")
 
 func _on_horkajih_mouse_exited():
 	$Trebic/horkaJih/Line2D.hide()
 	$Trebic/horkaJih/RichTextLabel.hide()
 
 func _on_stopshop_mouse_entered():
-	$Trebic/StopShop/Line2D.points = $Trebic/StopShop/CollisionPolygon2D.polygon
-	$Trebic/StopShop/Line2D.show()
-	$Trebic/StopShop/RichTextLabel.show()
-	if int(unlockedHoods) >= 4:
-		$Trebic/StopShop/Line2D.default_color = Color.green
-		$Trebic/StopShop/RichTextLabel.add_color_override("default_color",Color.green)
-		$Trebic/StopShop/RichTextLabel.text = "Stop Shop"
-	else:
-		$Trebic/StopShop/Line2D.default_color = Color.red
-		$Trebic/StopShop/RichTextLabel.add_color_override("default_color",Color.red)
+	mouse_enter("StopShop",4, "Stop Shop")
 
 func _on_stopshop_mouse_exited():
 	$Trebic/StopShop/Line2D.hide()
 	$Trebic/StopShop/RichTextLabel.hide()
 
 func _on_prumyslova_mouse_entered():
-	$Trebic/prumyslova/Line2D.points = $Trebic/prumyslova/CollisionPolygon2D.polygon
-	$Trebic/prumyslova/Line2D.show()
-	$Trebic/prumyslova/RichTextLabel.show()
-	if int(unlockedHoods) >= 5:
-		$Trebic/prumyslova/Line2D.default_color = Color.green
-		$Trebic/prumyslova/RichTextLabel.add_color_override("default_color",Color.green)
-		$Trebic/prumyslova/RichTextLabel.text = "Průmyslová čtvrť"
-	else:
-		$Trebic/prumyslova/Line2D.default_color = Color.red
-		$Trebic/prumyslova/RichTextLabel.add_color_override("default_color",Color.red)
+	mouse_enter("prumyslova",5, "Průmyslová čtvrť")
 
 func _on_prumyslova_mouse_exited():
 	$Trebic/prumyslova/Line2D.hide()
 	$Trebic/prumyslova/RichTextLabel.hide()
 
 func _on_nemocnice_mouse_entered():
-	$Trebic/nemocnice/Line2D.points = $Trebic/nemocnice/CollisionPolygon2D.polygon
-	$Trebic/nemocnice/Line2D.show()
-	$Trebic/nemocnice/RichTextLabel.show()
-	if int(unlockedHoods) >= 6:
-		$Trebic/nemocnice/Line2D.default_color = Color.green
-		$Trebic/nemocnice/RichTextLabel.add_color_override("default_color",Color.green)
-		$Trebic/nemocnice/RichTextLabel.text = "Nemocnice"
-	else:
-		$Trebic/nemocnice/Line2D.default_color = Color.red
-		$Trebic/nemocnice/RichTextLabel.add_color_override("default_color",Color.red)
+	mouse_enter("nemocnice",6, "Nemocnice")
 
 func _on_nemocnice_mouse_exited():
 	$Trebic/nemocnice/Line2D.hide()
 	$Trebic/nemocnice/RichTextLabel.hide()
 
 func _on_namesti_mouse_entered():
-	$Trebic/namesti/Line2D.points = $Trebic/namesti/CollisionPolygon2D.polygon
-	$Trebic/namesti/Line2D.show()
-	$Trebic/namesti/RichTextLabel.show()
-	if int(unlockedHoods) >= 7:
-		$Trebic/namesti/Line2D.default_color = Color.green
-		$Trebic/namesti/RichTextLabel.add_color_override("default_color",Color.green)
-		$Trebic/namesti/RichTextLabel.text = "Centrum"
-	else:
-		$Trebic/namesti/Line2D.default_color = Color.red
-		$Trebic/namesti/RichTextLabel.add_color_override("default_color",Color.red)
+	mouse_enter("namesti",7, "Centrum")
 
 func _on_namesti_mouse_exited():
 	$Trebic/namesti/Line2D.hide()
 	$Trebic/namesti/RichTextLabel.hide()
 
 func _on_zid_mouse_entered():
-	$Trebic/zid/Line2D.points = $Trebic/zid/CollisionPolygon2D.polygon
-	$Trebic/zid/Line2D.show()
-	$Trebic/zid/RichTextLabel.show()
-	if int(unlockedHoods) >= 8:
-		$Trebic/zid/Line2D.default_color = Color.green
-		$Trebic/zid/RichTextLabel.add_color_override("default_color",Color.green)
-		$Trebic/zid/RichTextLabel.text = "Židovská čtvrť"
-	else:
-		$Trebic/zid/Line2D.default_color = Color.red
-		$Trebic/zid/RichTextLabel.add_color_override("default_color",Color.red)
+	mouse_enter("zid",8, "Židovská čtvrť")
 
 func _on_zid_mouse_exited():
 	$Trebic/zid/Line2D.hide()
 	$Trebic/zid/RichTextLabel.hide()
 
 func _on_podklasteri_mouse_entered():
-	$Trebic/podklasteri/Line2D.points = $Trebic/podklasteri/CollisionPolygon2D.polygon
-	$Trebic/podklasteri/Line2D.show()
-	$Trebic/podklasteri/RichTextLabel.show()
-	if int(unlockedHoods) >= 9:
-		$Trebic/podklasteri/Line2D.default_color = Color.green
-		$Trebic/podklasteri/RichTextLabel.add_color_override("default_color",Color.green)
-		$Trebic/podklasteri/RichTextLabel.text = "Podkláštěří"
-	else:
-		$Trebic/podklasteri/Line2D.default_color = Color.red
-		$Trebic/podklasteri/RichTextLabel.add_color_override("default_color",Color.red)
+	mouse_enter("podklasteri",9, "Podkláštěří")
 
 func _on_podklasteri_mouse_exited():
 	$Trebic/podklasteri/Line2D.hide()
 	$Trebic/podklasteri/RichTextLabel.hide()
 
 func _on_kokain_ctvrt_mouse_entered():
-	$Trebic/kokain_ctvrt/Line2D.points = $Trebic/kokain_ctvrt/CollisionPolygon2D.polygon
-	$Trebic/kokain_ctvrt/Line2D.show()
-	$Trebic/kokain_ctvrt/RichTextLabel.show()
-	if int(unlockedHoods) >= 10:
-		$Trebic/kokain_ctvrt/Line2D.default_color = Color.green
-		$Trebic/kokain_ctvrt/RichTextLabel.add_color_override("default_color",Color.green)
-		$Trebic/kokain_ctvrt/RichTextLabel.text = "Čtvrť zbohatlíků"
-	else:
-		$Trebic/kokain_ctvrt/Line2D.default_color = Color.red
-		$Trebic/kokain_ctvrt/RichTextLabel.add_color_override("default_color",Color.red)
+	mouse_enter("kokain_ctvrt",10, "Čtvrť zbohatlíků")
 
 func _on_kokain_ctvrt_mouse_exited():
 	$Trebic/kokain_ctvrt/Line2D.hide()
 	$Trebic/kokain_ctvrt/RichTextLabel.hide()
 
 func _on_tyn_mouse_entered():
-	$Trebic/tyn/Line2D.points = $Trebic/tyn/CollisionPolygon2D.polygon
-	$Trebic/tyn/Line2D.show()
-	$Trebic/tyn/RichTextLabel.show()
-	if int(unlockedHoods) >= 11:
-		$Trebic/tyn/Line2D.default_color = Color.green
-		$Trebic/tyn/RichTextLabel.add_color_override("default_color",Color.green)
-		$Trebic/tyn/RichTextLabel.text = "Týn"
-		
-	else:
-		$Trebic/tyn/Line2D.default_color = Color.red
-		$Trebic/tyn/RichTextLabel.add_color_override("default_color",Color.red)
+	mouse_enter("tyn",11, "Týn")
 
 func _on_tyn_mouse_exited():
 	$Trebic/tyn/Line2D.hide()
 	$Trebic/tyn/RichTextLabel.hide()
 
 func _on_atom_mouse_entered():
-	$Trebic/atom/Line2D.points = $Trebic/atom/CollisionPolygon2D.polygon
-	$Trebic/atom/Line2D.show()
-	$Trebic/atom/RichTextLabel.show()
-	if int(unlockedHoods) >= 12:
-		$Trebic/atom/Line2D.default_color = Color.green
-		$Trebic/atom/RichTextLabel.add_color_override("default_color",Color.green)
-		$Trebic/atom/RichTextLabel.text = "Atom"
-	else:
-		$Trebic/atom/Line2D.default_color = Color.red
-		$Trebic/atom/RichTextLabel.add_color_override("default_color",Color.red)
+	mouse_enter("atom",12, "Atom")
 
 func _on_atom_mouse_exited():
 	$Trebic/atom/Line2D.hide()
 	$Trebic/atom/RichTextLabel.hide()
 
 func _on_spst_mouse_entered():
-	$Trebic/spst/Line2D.points = $Trebic/spst/CollisionPolygon2D.polygon
-	$Trebic/spst/Line2D.show()
-	$Trebic/spst/RichTextLabel.show()
-	if int(unlockedHoods) >= 13:
-		$Trebic/spst/Line2D.default_color = Color.green
-		$Trebic/spst/RichTextLabel.add_color_override("default_color",Color.green)
-		$Trebic/spst/RichTextLabel.text = "SPŠT"
-	else:
-		$Trebic/spst/Line2D.default_color = Color.red
-		$Trebic/spst/RichTextLabel.add_color_override("default_color",Color.red)
+	mouse_enter("spst",13, "SPŠT")
 
 func _on_spst_mouse_exited():
 	$Trebic/spst/Line2D.hide()
