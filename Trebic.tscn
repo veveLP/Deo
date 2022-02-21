@@ -1882,6 +1882,9 @@ __meta__ = {
 
 [node name="Timer" type="Timer" parent="HoodPannel"]
 
+[node name="Timer2" type="Timer" parent="HoodPannel"]
+wait_time = 10.0
+
 [node name="Inv" type="Panel" parent="."]
 visible = false
 margin_left = 320.0
@@ -2718,6 +2721,7 @@ scroll_active = false
 [connection signal="value_changed" from="HoodPannel/Dealer2Remain2/HSlider" to="." method="_on_2HSlider2_value_changed"]
 [connection signal="pressed" from="HoodPannel/Dealer2Remain2/ButtonSend" to="." method="_on_2ButtonSend2_pressed"]
 [connection signal="timeout" from="HoodPannel/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="HoodPannel/Timer2" to="." method="_on_Timer2_timeout"]
 [connection signal="pressed" from="Inv/Button-Inv-Exit" to="." method="_on_ButtonInvExit_pressed"]
 [connection signal="pressed" from="ButtonExit" to="." method="_on_ButtonExit_pressed"]
 [connection signal="pressed" from="ButtonExit" to="Inv" method="_on_ButtonExit_pressed"]

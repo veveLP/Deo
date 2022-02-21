@@ -341,6 +341,7 @@ func _on_ExitButtonNo_pressed():
 func _on_ButtonHoodExit_pressed():
 	$HoodPannel.visible = false
 	$HoodPannel/Timer.stop()
+	$HoodPannel/Timer2.stop()
 
 func _on_borovina_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -352,6 +353,7 @@ func _on_borovina_input_event(viewport, event, shape_idx):
 			_send("hood" + text + "$1")
 			_send("loaddealers"+text+"$1")
 			$HoodPannel/Timer.start()
+			$HoodPannel/Timer2.start()
 
 func _on_kokain_ctvrt_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -364,6 +366,7 @@ func _on_kokain_ctvrt_input_event(viewport, event, shape_idx):
 				_send("hood" + text + "$10")
 				_send("loaddealers"+text+"$10")
 				$HoodPannel/Timer.start()
+				$HoodPannel/Timer2.start()
 
 func _on_podklasteri_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -375,6 +378,7 @@ func _on_podklasteri_input_event(viewport, event, shape_idx):
 				_send("hood" + text + "$9")
 				_send("loaddealers"+text+"$9")
 				$HoodPannel/Timer.start()
+				$HoodPannel/Timer2.start()
 
 func _on_zid_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -386,6 +390,7 @@ func _on_zid_input_event(viewport, event, shape_idx):
 				_send("hood" + text + "$8")
 				_send("loaddealers"+text+"$8")
 				$HoodPannel/Timer.start()
+				$HoodPannel/Timer2.start()
 
 func _on_namesti_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -397,6 +402,7 @@ func _on_namesti_input_event(viewport, event, shape_idx):
 				_send("hood" + text + "$7")
 				_send("loaddealers"+text+"$7")
 				$HoodPannel/Timer.start()
+				$HoodPannel/Timer2.start()
 
 func _on_spst_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -408,6 +414,7 @@ func _on_spst_input_event(viewport, event, shape_idx):
 				_send("hood" + text + "$13")
 				_send("loaddealers"+text+"$13")
 				$HoodPannel/Timer.start()
+				$HoodPannel/Timer2.start()
 
 func _on_tyn_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -419,6 +426,7 @@ func _on_tyn_input_event(viewport, event, shape_idx):
 				_send("hood" + text + "$11")
 				_send("loaddealers"+text+"$11")
 				$HoodPannel/Timer.start()
+				$HoodPannel/Timer2.start()
 
 func _on_atom_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -430,6 +438,7 @@ func _on_atom_input_event(viewport, event, shape_idx):
 				_send("hood" + text + "$12")
 				_send("loaddealers"+text+"$12")
 				$HoodPannel/Timer.start()
+				$HoodPannel/Timer2.start()
 
 func _on_horkasever_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -442,6 +451,7 @@ func _on_horkasever_input_event(viewport, event, shape_idx):
 				_send("hood" + text + "$2")
 				_send("loaddealers"+text+"$2")
 				$HoodPannel/Timer.start()
+				$HoodPannel/Timer2.start()
 
 func _on_horkajih_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -454,6 +464,7 @@ func _on_horkajih_input_event(viewport, event, shape_idx):
 				_send("hood" + text + "$3")
 				_send("loaddealers"+text+"$3")
 				$HoodPannel/Timer.start()
+				$HoodPannel/Timer2.start()
 
 func _on_stopshop_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -465,6 +476,7 @@ func _on_stopshop_input_event(viewport, event, shape_idx):
 				_send("hood" + text + "$4")
 				_send("loaddealers"+text+"$4")
 				$HoodPannel/Timer.start()
+				$HoodPannel/Timer2.start()
 
 func _on_prumyslova_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -476,6 +488,7 @@ func _on_prumyslova_input_event(viewport, event, shape_idx):
 				_send("hood" + text + "$5")
 				_send("loaddealers"+text+"$5")
 				$HoodPannel/Timer.start()
+				$HoodPannel/Timer2.start()
 
 func _on_nemocnice_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -487,6 +500,7 @@ func _on_nemocnice_input_event(viewport, event, shape_idx):
 				_send("hood" + text + "$6")
 				_send("loaddealers"+text+"$6")
 				$HoodPannel/Timer.start()
+				$HoodPannel/Timer2.start()
 
 func _on_pole_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -904,3 +918,7 @@ func _on_Varna7_input_event(viewport, event, shape_idx):
 				OS.alert("Tuto varnu nemáš odemknutou!")
 				return
 			get_tree().change_scene("res://varna_scene7.tscn")
+
+
+func _on_Timer2_timeout():
+	_send("loaddealers"+text+"$" + $HoodPannel/HoodiD.text)
