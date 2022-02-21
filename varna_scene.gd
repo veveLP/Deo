@@ -406,7 +406,7 @@ func _on_ButtonWeed_pressed():
 	$varna.visible = true
 
 func _on_TimerWeed_timeout():
-	if $WeedMinigame/ProgressBar.value == 100:	
+	if $WeedMinigame/ProgressBar.value == 100:
 		$WeedMinigame/ProgressBar.value = 0;
 	else:
 		$WeedMinigame/ProgressBar.value += 5
