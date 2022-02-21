@@ -163,6 +163,26 @@ flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 512, 512, 64, 64 )
 
+[sub_resource type="AtlasTexture" id=111]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 640, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=110]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 704, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=112]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=108]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 512, 64, 64 )
+
 [sub_resource type="AtlasTexture" id=99]
 flags = 4
 atlas = ExtResource( 2 )
@@ -208,26 +228,6 @@ flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 512, 640, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=108]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 512, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=110]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 704, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=112]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 576, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=111]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 640, 64, 64 )
-
 [sub_resource type="SpriteFrames" id=113]
 animations = [ {
 "frames": [ SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ) ],
@@ -245,14 +245,9 @@ animations = [ {
 "name": "up",
 "speed": 7.0
 }, {
-"frames": [ SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ) ],
+"frames": [ SubResource( 111 ) ],
 "loop": true,
-"name": "down",
-"speed": 7.0
-}, {
-"frames": [ SubResource( 108 ) ],
-"loop": true,
-"name": "standing_up",
+"name": "standing_down",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 110 ) ],
@@ -265,10 +260,15 @@ animations = [ {
 "name": "standing_left",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 111 ) ],
+"frames": [ SubResource( 108 ) ],
 "loop": true,
-"name": "standing_down",
+"name": "standing_up",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ) ],
+"loop": true,
+"name": "down",
+"speed": 7.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=43]

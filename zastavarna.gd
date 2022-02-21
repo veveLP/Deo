@@ -66,7 +66,9 @@ func _send(text):
 	var packet: PoolByteArray = text.to_utf8()
 	print("Sending: " + text)
 	client.get_peer(1).put_packet(packet)
-var idk = true
+
+var idk = false
+
 func _input(event):
 	if event is InputEventKey:
 		if event.scancode == KEY_E and firsttime == "y":
@@ -78,7 +80,7 @@ func _input(event):
 				$SelectBody/SelectPanel/LabelPrice.text = "Cena: " + str(int($SelectBody/SelectPanel/ItemPrice.text) * int($SelectBody/SelectPanel/BuyAmount.text))
 			if $hnuj.overlaps_body($player):
 				
-				#OS.alert($Iv/Inv/HnujText.text)
+				#OS.alert("press")
 				if $Iv/Inv/HnujText.text == "level: 0":
 					$SelectBody2/SelectPanel/ItemPrice.text = "500"
 				if $Iv/Inv/HnujText.text == "level: 1":
@@ -88,7 +90,10 @@ func _input(event):
 				if $Iv/Inv/HnujText.text == "level: 3":
 					$SelectBody2/SelectPanel/ItemPrice.text = "69"
 					idk = !idk
+
+
 				if idk:
+					#OS.alert(str(idk))
 					OS.alert("Hnůj máš na maximální úrovni")
 					return
 				if $SelectBody2/SelectPanel/ItemPrice.text == "69":
@@ -175,7 +180,7 @@ func _on_ButtonMinus_pressed():
 
 func _on_ButtonBuy_pressed():
 	var text = loadd()
-	_send("buy" + text + "$" + str($SelectPanel/ItemID.text) + "$" + str($SelectPanel/HSlider.value))
+	_send("buy" + text + "$" + str($SelectBody/SelectPanel/ItemID.text) + "$" + str($SelectBody/SelectPanel/HSlider.value))
 	$SelectBody.visible = false;
 	_send("loadmap" + text)
 
