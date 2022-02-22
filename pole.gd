@@ -56,8 +56,8 @@ func _on_data():
 			_grow_field(fieldsprites[fieldnumber])
 		"error", "successful":
 			pass
-		_:
-			timestamp = int(x[0])
+		"getservertimestamp":
+			timestamp = int(x[1])
 
 func _send(text):
 	var packet: PoolByteArray = text.to_utf8()
@@ -90,12 +90,29 @@ func _loadpole(var level):
 		"1":
 			unlocked=2
 		"2":
+			$TileMap2.set_cell(13,13,12)
 			unlocked=6
 		"3":
+			$TileMap2.set_cell(13,13,12)
+			$TileMap2.set_cell(10,9,11)
 			unlocked=12
 		"4":
+			$TileMap2.set_cell(13,13,12)
+			$TileMap2.set_cell(10,9,11)
+			$TileMap2.set_cell(13,7,12)
+			$TileMap2.set_cell(16,9,16)
+			$TileMap2.set_cell(17,9,15)
 			unlocked=20
 		"5":
+			$TileMap2.set_cell(13,13,12)
+			$TileMap2.set_cell(10,9,11)
+			$TileMap2.set_cell(13,7,12)
+			$TileMap2.set_cell(16,9,16)
+			$TileMap2.set_cell(17,9,15)
+			$TileMap2.set_cell(27,9,16)
+			$TileMap2.set_cell(28,9,15)
+			$TileMap2.set_cell(22,6,12)
+			$TileMap2.set_cell(22,13,12)
 			unlocked=32
 	for i in unlocked:
 		_grow_field(fieldsprites[i + 1])
