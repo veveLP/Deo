@@ -73,51 +73,6 @@ flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 512, 512, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=72]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 576, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=73]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 64, 576, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=74]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 128, 576, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=75]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 192, 576, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=76]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 256, 576, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=77]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 320, 576, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=78]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 384, 576, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=79]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 448, 576, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=80]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 512, 576, 64, 64 )
-
 [sub_resource type="AtlasTexture" id=81]
 flags = 4
 atlas = ExtResource( 2 )
@@ -162,6 +117,51 @@ region = Rect2( 448, 704, 64, 64 )
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 512, 704, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=72]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=73]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 64, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=74]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 128, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=75]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 192, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=76]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 256, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=77]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 320, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=78]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 384, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=79]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 448, 576, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=80]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 512, 576, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=99]
 flags = 4
@@ -208,6 +208,11 @@ flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 512, 640, 64, 64 )
 
+[sub_resource type="AtlasTexture" id=110]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 704, 64, 64 )
+
 [sub_resource type="AtlasTexture" id=108]
 flags = 4
 atlas = ExtResource( 2 )
@@ -223,11 +228,6 @@ flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 640, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=110]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 704, 64, 64 )
-
 [sub_resource type="SpriteFrames" id=113]
 animations = [ {
 "frames": [ SubResource( 90 ), SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 95 ), SubResource( 96 ), SubResource( 97 ), SubResource( 98 ) ],
@@ -235,20 +235,25 @@ animations = [ {
 "name": "up",
 "speed": 7.0
 }, {
-"frames": [ SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ) ],
-"loop": true,
-"name": "left",
-"speed": 7.0
-}, {
 "frames": [ SubResource( 81 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ), SubResource( 89 ) ],
 "loop": true,
 "name": "right",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ) ],
+"loop": true,
+"name": "left",
+"speed": 7.0
+}, {
 "frames": [ SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ) ],
 "loop": true,
 "name": "down",
 "speed": 7.0
+}, {
+"frames": [ SubResource( 110 ) ],
+"loop": true,
+"name": "standing_right",
+"speed": 5.0
 }, {
 "frames": [ SubResource( 108 ) ],
 "loop": true,
@@ -263,11 +268,6 @@ animations = [ {
 "frames": [ SubResource( 111 ) ],
 "loop": true,
 "name": "standing_down",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 110 ) ],
-"loop": true,
-"name": "standing_right",
 "speed": 5.0
 } ]
 
@@ -1455,50 +1455,50 @@ size = 36
 use_filter = true
 font_data = SubResource( 129 )
 
-[sub_resource type="DynamicFontData" id=131]
+[sub_resource type="DynamicFontData" id=161]
 font_path = "res://DroidSans.ttf"
 
 [sub_resource type="DynamicFont" id=132]
 size = 30
 use_filter = true
-font_data = SubResource( 131 )
+font_data = SubResource( 161 )
 
-[sub_resource type="DynamicFontData" id=138]
+[sub_resource type="DynamicFontData" id=162]
 font_path = "res://DroidSans.ttf"
 
 [sub_resource type="DynamicFont" id=139]
 size = 40
 use_filter = true
-font_data = SubResource( 138 )
+font_data = SubResource( 162 )
 
-[sub_resource type="DynamicFontData" id=140]
+[sub_resource type="DynamicFontData" id=163]
 font_path = "res://DroidSans.ttf"
 
 [sub_resource type="DynamicFont" id=141]
 size = 32
-font_data = SubResource( 140 )
+font_data = SubResource( 163 )
 
-[sub_resource type="DynamicFontData" id=142]
+[sub_resource type="DynamicFontData" id=164]
 font_path = "res://DroidSans.ttf"
 
 [sub_resource type="DynamicFont" id=143]
 size = 32
 use_filter = true
-font_data = SubResource( 142 )
+font_data = SubResource( 164 )
 
-[sub_resource type="DynamicFontData" id=144]
+[sub_resource type="DynamicFontData" id=165]
 font_path = "res://DroidSans.ttf"
 
 [sub_resource type="DynamicFont" id=145]
 size = 32
-font_data = SubResource( 144 )
+font_data = SubResource( 165 )
 
-[sub_resource type="DynamicFontData" id=133]
+[sub_resource type="DynamicFontData" id=166]
 font_path = "res://DroidSans.ttf"
 
 [sub_resource type="DynamicFont" id=146]
 size = 32
-font_data = SubResource( 133 )
+font_data = SubResource( 166 )
 
 [sub_resource type="StreamTexture" id=147]
 flags = 4
@@ -1508,29 +1508,29 @@ load_path = "res://.import/kyselina.png-a49500f7ee6dc569651f4fdbb5e6080e.stex"
 flags = 4
 load_path = "res://.import/hnuj.png-e8f2d3c41e6d5a10524b293bbef85bd8.stex"
 
-[sub_resource type="DynamicFontData" id=137]
+[sub_resource type="DynamicFontData" id=167]
 font_path = "res://DroidSans.ttf"
 
 [sub_resource type="DynamicFont" id=149]
 size = 30
 use_filter = true
-font_data = SubResource( 137 )
+font_data = SubResource( 167 )
 
-[sub_resource type="DynamicFontData" id=150]
+[sub_resource type="DynamicFontData" id=168]
 font_path = "res://DroidSans.ttf"
 
 [sub_resource type="DynamicFont" id=151]
 size = 30
 use_filter = true
-font_data = SubResource( 150 )
+font_data = SubResource( 168 )
 
-[sub_resource type="DynamicFontData" id=152]
+[sub_resource type="DynamicFontData" id=169]
 font_path = "res://DroidSans.ttf"
 
 [sub_resource type="DynamicFont" id=153]
 size = 30
 use_filter = true
-font_data = SubResource( 152 )
+font_data = SubResource( 169 )
 
 [node name="zastavarna" type="Node2D"]
 position = Vector2( 640, 217 )

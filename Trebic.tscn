@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=2]
+[gd_scene load_steps=104 format=2]
 
 [ext_resource path="res://assets/trebic.png" type="Texture" id=1]
 [ext_resource path="res://borovina.gd" type="Script" id=2]
@@ -216,50 +216,61 @@ font_path = "res://DroidSans.ttf"
 use_filter = true
 font_data = SubResource( 76 )
 
-[sub_resource type="DynamicFontData" id=81]
+[sub_resource type="DynamicFontData" id=311]
 font_path = "res://DroidSans.ttf"
 
-[sub_resource type="DynamicFont" id=7]
-size = 32
-font_data = SubResource( 81 )
-
-[sub_resource type="DynamicFontData" id=82]
-font_path = "res://DroidSans.ttf"
-
-[sub_resource type="DynamicFont" id=15]
+[sub_resource type="DynamicFont" id=324]
 size = 32
 use_filter = true
-font_data = SubResource( 82 )
+font_data = SubResource( 311 )
 
-[sub_resource type="DynamicFontData" id=83]
+[sub_resource type="DynamicFontData" id=313]
 font_path = "res://DroidSans.ttf"
 
-[sub_resource type="DynamicFont" id=17]
+[sub_resource type="DynamicFont" id=325]
 size = 32
-font_data = SubResource( 83 )
+use_filter = true
+font_data = SubResource( 313 )
 
-[sub_resource type="DynamicFontData" id=84]
+[sub_resource type="DynamicFontData" id=315]
 font_path = "res://DroidSans.ttf"
 
-[sub_resource type="DynamicFont" id=19]
+[sub_resource type="DynamicFont" id=326]
 size = 32
-font_data = SubResource( 84 )
+use_filter = true
+font_data = SubResource( 315 )
 
-[sub_resource type="StreamTexture" id=44]
+[sub_resource type="DynamicFontData" id=317]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=327]
+size = 32
+use_filter = true
+font_data = SubResource( 317 )
+
+[sub_resource type="DynamicFontData" id=319]
+font_path = "res://DroidSans.ttf"
+
+[sub_resource type="DynamicFont" id=328]
+size = 32
+use_filter = true
+font_data = SubResource( 319 )
+
+[sub_resource type="StreamTexture" id=329]
 flags = 4
 load_path = "res://.import/kyselina.png-a49500f7ee6dc569651f4fdbb5e6080e.stex"
 
-[sub_resource type="StreamTexture" id=45]
+[sub_resource type="StreamTexture" id=330]
 flags = 4
 load_path = "res://.import/hnuj.png-e8f2d3c41e6d5a10524b293bbef85bd8.stex"
 
-[sub_resource type="DynamicFontData" id=87]
+[sub_resource type="DynamicFontData" id=323]
 font_path = "res://DroidSans.ttf"
 
-[sub_resource type="DynamicFont" id=21]
+[sub_resource type="DynamicFont" id=331]
 size = 30
 use_filter = true
-font_data = SubResource( 87 )
+font_data = SubResource( 323 )
 
 [sub_resource type="DynamicFontData" id=8]
 font_path = "res://DroidSans.ttf"
@@ -357,15 +368,14 @@ width = 20.0
 [node name="RichTextLabel" type="RichTextLabel" parent="Trebic/kokain_ctvrt"]
 visible = false
 light_mask = 0
-margin_left = -2683.95
-margin_top = -402.962
-margin_right = -1826.95
-margin_bottom = -124.962
-rect_rotation = -25.8497
+margin_left = -2513.89
+margin_top = -147.876
+margin_right = -1623.89
+margin_bottom = 130.124
+rect_rotation = -39.0
 custom_colors/default_color = Color( 0.156863, 1, 0.156863, 1 )
 custom_fonts/normal_font = SubResource( 23 )
-text = "Čtvrť zbohatlíků
-         10M"
+text = "Čtvrť zbohatlíků 10M"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -383,15 +393,14 @@ width = 20.0
 [node name="RichTextLabel" type="RichTextLabel" parent="Trebic/podklasteri"]
 visible = false
 light_mask = 0
-margin_left = -2306.87
-margin_top = -1256.94
-margin_right = -1449.87
-margin_bottom = -984.944
+margin_left = -2158.99
+margin_top = -1301.31
+margin_right = -1301.99
+margin_bottom = -1029.31
 rect_rotation = -21.91
 custom_colors/default_color = Color( 0.156863, 1, 0.156863, 1 )
 custom_fonts/normal_font = SubResource( 23 )
-text = "Podkláštěří
-       2M"
+text = "Podkláštěří 2M"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -416,8 +425,7 @@ margin_bottom = -449.47
 rect_rotation = 12.9497
 custom_colors/default_color = Color( 0.156863, 1, 0.156863, 1 )
 custom_fonts/normal_font = SubResource( 23 )
-text = "Židovská čtvrť
-        500K"
+text = "Židovská čtvrť 500K"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -435,15 +443,14 @@ width = 20.0
 [node name="RichTextLabel" type="RichTextLabel" parent="Trebic/namesti"]
 visible = false
 light_mask = 0
-margin_left = -1112.77
-margin_top = -236.602
-margin_right = -255.767
-margin_bottom = 44.3988
+margin_left = -1212.58
+margin_top = -147.876
+margin_right = -355.58
+margin_bottom = 133.125
 rect_rotation = -7.50652
 custom_colors/default_color = Color( 0.156863, 1, 0.156863, 1 )
 custom_fonts/normal_font = SubResource( 23 )
-text = "Centrum
-   100K"
+text = "Centrum 100K"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -468,8 +475,7 @@ margin_bottom = -1530.39
 rect_rotation = 14.7586
 custom_colors/default_color = Color( 0.156863, 1, 0.156863, 1 )
 custom_fonts/normal_font = SubResource( 23 )
-text = "SPŠT
- 1B"
+text = "SPŠT 1B"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -487,15 +493,13 @@ width = 20.0
 [node name="RichTextLabel" type="RichTextLabel" parent="Trebic/tyn"]
 visible = false
 light_mask = 0
-margin_left = -1608.15
-margin_top = -1637.73
-margin_right = -1348.15
-margin_bottom = -1371.73
-rect_rotation = -28.6316
+margin_left = -207.026
+margin_top = -709.804
+margin_right = 52.9736
+margin_bottom = -443.804
 custom_colors/default_color = Color( 0.156863, 1, 0.156863, 1 )
 custom_fonts/normal_font = SubResource( 23 )
-text = " Týn
-50M"
+text = "Týn 50M"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -513,15 +517,14 @@ width = 20.0
 [node name="RichTextLabel" type="RichTextLabel" parent="Trebic/atom"]
 visible = false
 light_mask = 0
-margin_left = 1412.22
-margin_top = -1190.4
-margin_right = 1719.22
-margin_bottom = -927.401
+margin_left = 1449.18
+margin_top = -1183.01
+margin_right = 1806.18
+margin_bottom = -920.008
 rect_rotation = 38.5326
 custom_colors/default_color = Color( 0.156863, 1, 0.156863, 1 )
 custom_fonts/normal_font = SubResource( 23 )
-text = "Atom
-200M"
+text = "Atom 200M"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -540,15 +543,14 @@ width = 20.0
 [node name="RichTextLabel" type="RichTextLabel" parent="Trebic/horkaSever"]
 visible = false
 light_mask = 0
-margin_left = -1356.76
-margin_top = 1072.1
-margin_right = -286.762
-margin_bottom = 1363.1
+margin_left = -1065.0
+margin_top = 1094.0
+margin_right = -262.0
+margin_bottom = 1385.0
 rect_rotation = 0.701669
 custom_colors/default_color = Color( 0.156863, 1, 0.156863, 1 )
 custom_fonts/normal_font = SubResource( 23 )
-text = "Horka domky sever
-              50"
+text = "Horka domky sever 50"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -558,7 +560,7 @@ __meta__ = {
 input_pickable = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trebic/horkaJih"]
-position = Vector2( 11.0908, 14.7876 )
+position = Vector2( -3.05176e-05, 0 )
 polygon = PoolVector2Array( -495.385, 1061.01, 454.718, 1105.37, 1083.19, 787.438, 1179.31, 861.376, 1219.97, 1275.43, 528.656, 1659.9, 428.84, 1334.58, -107.21, 1338.27, -114.604, 1593.36, -354.901, 1589.66, -828.105, 1682.09, -1053.62, 1537.91, -920.528, 961.194, -739.38, 1072.1, -510.172, 1123.86, -510.172, 1072.1 )
 
 [node name="Line2D" type="Line2D" parent="Trebic/horkaJih"]
@@ -574,8 +576,7 @@ margin_bottom = 2032.72
 rect_rotation = -10.1414
 custom_colors/default_color = Color( 0.156863, 1, 0.156863, 1 )
 custom_fonts/normal_font = SubResource( 23 )
-text = "Horka domky jih
-              200"
+text = "Horka domky jih 200"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -600,8 +601,7 @@ margin_bottom = 1958.79
 rect_rotation = 10.1594
 custom_colors/default_color = Color( 0.156863, 1, 0.156863, 1 )
 custom_fonts/normal_font = SubResource( 23 )
-text = "Stop Shop
-      1K"
+text = "Stop Shop 1K"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -626,8 +626,7 @@ margin_bottom = 1050.74
 rect_rotation = 0.0556712
 custom_colors/default_color = Color( 0.156863, 1, 0.156863, 1 )
 custom_fonts/normal_font = SubResource( 23 )
-text = "Průmyslová čtvrť
-             5K"
+text = "Průmyslová čtvrť 5K"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -640,6 +639,10 @@ input_pickable = true
 process_priority = 1
 position = Vector2( 3.69702, -3.6969 )
 polygon = PoolVector2Array( -3131.27, -1179.31, -3072.12, -1157.13, -2953.82, -1079.49, -2924.25, -1072.1, -2887.28, -1068.4, -2887.28, -1042.53, -2887.28, -1027.74, -2757.89, -975.981, -2739.4, -975.981, -2706.13, -953.8, -2743.1, -890.953, -2754.19, -879.862, -2743.1, -865.074, -2765.28, -831.802, -2761.58, -809.621, -2794.86, -765.258, -2820.73, -713.501, -2835.52, -695.017, -2861.4, -635.867, -2850.31, -584.11, -2879.88, -621.079, -3027.76, -754.167, -3057.34, -809.621, -3112.79, -913.134, -3160.85, -990.769, -3205.21, -1049.92, -3168.24, -1094.28, -3138.67, -1183.01 )
+
+[node name="Line2D" type="Line2D" parent="Trebic/pole"]
+points = PoolVector2Array( -1031.43, 550.838, -1031.43, 550.838 )
+width = 20.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Trebic/pole"]
 visible = false
@@ -656,10 +659,6 @@ scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Line2D" type="Line2D" parent="Trebic/pole"]
-points = PoolVector2Array( -1031.43, 550.838, -1031.43, 550.838 )
-width = 20.0
 
 [node name="nemocnice" type="StaticBody2D" parent="Trebic"]
 position = Vector2( -0.000244141, 0 )
@@ -681,8 +680,7 @@ margin_bottom = 289.878
 rect_rotation = -2.19612
 custom_colors/default_color = Color( 0.156863, 1, 0.156863, 1 )
 custom_fonts/normal_font = SubResource( 23 )
-text = "Nemocnice
-      20K"
+text = "Nemocnice 20K"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -828,8 +826,7 @@ margin_right = 336.0
 margin_bottom = 456.0
 rect_rotation = -0.135484
 custom_fonts/normal_font = SubResource( 65 )
-text = "0
-"
+text = "0"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -841,8 +838,7 @@ margin_top = 464.0
 margin_right = 336.0
 margin_bottom = 496.0
 custom_fonts/normal_font = SubResource( 65 )
-text = "0
-"
+text = "0"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -854,8 +850,7 @@ margin_top = 503.0
 margin_right = 336.0
 margin_bottom = 536.0
 custom_fonts/normal_font = SubResource( 65 )
-text = "0
-"
+text = "0"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1264,10 +1259,10 @@ __meta__ = {
 [node name="UpperPanel" type="StaticBody2D" parent="HoodPannel"]
 
 [node name="PriceHeroinValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
-margin_left = 953.0
-margin_top = 327.0
-margin_right = 1065.0
-margin_bottom = 358.0
+margin_left = 934.0
+margin_top = 332.0
+margin_right = 1046.0
+margin_bottom = 363.0
 rect_pivot_offset = Vector2( 100, 80 )
 custom_fonts/normal_font = SubResource( 33 )
 text = "0"
@@ -1276,10 +1271,10 @@ __meta__ = {
 }
 
 [node name="PopHeroinValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
-margin_left = 994.0
-margin_top = 265.0
-margin_right = 1073.0
-margin_bottom = 296.0
+margin_left = 982.0
+margin_top = 268.0
+margin_right = 1061.0
+margin_bottom = 299.0
 rect_pivot_offset = Vector2( 100, 80 )
 custom_fonts/normal_font = SubResource( 33 )
 text = "0"
@@ -1288,24 +1283,23 @@ __meta__ = {
 }
 
 [node name="PopNabHeroinText" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
-margin_left = 872.0
-margin_top = 265.0
-margin_right = 1006.0
-margin_bottom = 393.0
+margin_left = 846.0
+margin_top = 268.0
+margin_right = 980.0
+margin_bottom = 396.0
 custom_fonts/normal_font = SubResource( 31 )
 text = "V inventáři:
 
-   Cena:
-"
+Cena:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PricePikoValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
-margin_left = 630.0
-margin_top = 327.0
-margin_right = 767.0
-margin_bottom = 358.0
+margin_left = 614.0
+margin_top = 332.0
+margin_right = 751.0
+margin_bottom = 363.0
 rect_pivot_offset = Vector2( 168, -1 )
 custom_fonts/normal_font = SubResource( 33 )
 text = "0"
@@ -1314,10 +1308,10 @@ __meta__ = {
 }
 
 [node name="PopPikoValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
-margin_left = 666.0
-margin_top = 265.0
-margin_right = 767.0
-margin_bottom = 296.0
+margin_left = 662.0
+margin_top = 268.0
+margin_right = 763.0
+margin_bottom = 299.0
 rect_pivot_offset = Vector2( 170, 88 )
 custom_fonts/normal_font = SubResource( 33 )
 text = "0"
@@ -1326,25 +1320,24 @@ __meta__ = {
 }
 
 [node name="PopNabPikoText" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
-margin_left = 542.0
-margin_top = 265.0
-margin_right = 678.0
-margin_bottom = 393.0
+margin_left = 526.0
+margin_top = 268.0
+margin_right = 662.0
+margin_bottom = 396.0
 rect_pivot_offset = Vector2( 283, 88 )
 custom_fonts/normal_font = SubResource( 31 )
 text = "V inventáři:
 
-    Cena:
-"
+Cena:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PriceWeedValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
-margin_left = 310.0
-margin_top = 327.0
-margin_right = 413.0
-margin_bottom = 358.0
+margin_left = 294.0
+margin_top = 332.0
+margin_right = 397.0
+margin_bottom = 363.0
 rect_pivot_offset = Vector2( 100, 80 )
 custom_fonts/normal_font = SubResource( 33 )
 text = "0"
@@ -1353,10 +1346,10 @@ __meta__ = {
 }
 
 [node name="PopWeedValue" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
-margin_left = 349.0
-margin_top = 265.0
-margin_right = 432.0
-margin_bottom = 296.0
+margin_left = 342.0
+margin_top = 268.0
+margin_right = 425.0
+margin_bottom = 299.0
 rect_pivot_offset = Vector2( 100, 80 )
 custom_fonts/normal_font = SubResource( 33 )
 text = "0"
@@ -1365,15 +1358,14 @@ __meta__ = {
 }
 
 [node name="PopNabWeedText" type="RichTextLabel" parent="HoodPannel/UpperPanel"]
-margin_left = 224.0
-margin_top = 265.0
-margin_right = 366.0
-margin_bottom = 393.0
+margin_left = 206.0
+margin_top = 268.0
+margin_right = 348.0
+margin_bottom = 396.0
 custom_fonts/normal_font = SubResource( 31 )
 text = "V inventáři:
 
-    Cena:
-"
+Cena:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1887,9 +1879,9 @@ wait_time = 10.0
 
 [node name="Inv" type="Panel" parent="."]
 visible = false
-margin_left = 320.0
+margin_left = 352.0
 margin_top = 72.0
-margin_right = 1536.0
+margin_right = 1568.0
 margin_bottom = 1072.0
 rect_pivot_offset = Vector2( 224, 840 )
 script = ExtResource( 21 )
@@ -1898,10 +1890,11 @@ __meta__ = {
 }
 
 [node name="Button-Inv-Exit" type="Button" parent="Inv"]
-margin_left = 1160.0
+margin_left = 1072.0
 margin_top = 8.0
 margin_right = 1208.0
-margin_bottom = 28.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 324 )
 text = "Exit"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1928,7 +1921,7 @@ margin_top = 192.0
 margin_right = 384.0
 margin_bottom = 256.0
 rect_pivot_offset = Vector2( 16, 152 )
-custom_fonts/normal_font = SubResource( 7 )
+custom_fonts/normal_font = SubResource( 325 )
 bbcode_enabled = true
 bbcode_text = "[center]0[center]"
 text = "0"
@@ -1942,7 +1935,7 @@ margin_left = 448.0
 margin_top = 192.0
 margin_right = 768.0
 margin_bottom = 256.0
-custom_fonts/normal_font = SubResource( 7 )
+custom_fonts/normal_font = SubResource( 325 )
 bbcode_enabled = true
 bbcode_text = "[center]0[center]"
 text = "0"
@@ -1956,7 +1949,7 @@ margin_left = 832.0
 margin_top = 192.0
 margin_right = 1024.0
 margin_bottom = 256.0
-custom_fonts/normal_font = SubResource( 7 )
+custom_fonts/normal_font = SubResource( 325 )
 bbcode_enabled = true
 bbcode_text = "[center]0[center]"
 text = "0"
@@ -1970,7 +1963,7 @@ margin_left = 832.0
 margin_top = 88.0
 margin_right = 1024.0
 margin_bottom = 128.0
-custom_fonts/normal_font = SubResource( 15 )
+custom_fonts/normal_font = SubResource( 326 )
 bbcode_enabled = true
 bbcode_text = "[center]Heroin[center]"
 text = "Heroin"
@@ -1984,7 +1977,7 @@ margin_left = 448.0
 margin_top = 88.0
 margin_right = 768.0
 margin_bottom = 128.0
-custom_fonts/normal_font = SubResource( 17 )
+custom_fonts/normal_font = SubResource( 327 )
 bbcode_enabled = true
 bbcode_text = "[center]Piko[/center]"
 text = "Piko"
@@ -1998,7 +1991,7 @@ margin_left = 192.0
 margin_top = 88.0
 margin_right = 384.0
 margin_bottom = 128.0
-custom_fonts/normal_font = SubResource( 19 )
+custom_fonts/normal_font = SubResource( 328 )
 bbcode_enabled = true
 bbcode_text = "[center]Weed[center]"
 text = "Weed"
@@ -2008,6 +2001,8 @@ __meta__ = {
 }
 
 [node name="Line2D" type="Line2D" parent="Inv"]
+position = Vector2( 42.1878, 0 )
+scale = Vector2( 0.930612, 1 )
 points = PoolVector2Array( 128, 256, 576, 256, 592, 256, 608, 256, 1088, 256, 1088, 64, 128, 64, 128, 261 )
 default_color = Color( 0, 0, 0, 1 )
 
@@ -2055,7 +2050,7 @@ texture = ExtResource( 5 )
 [node name="Kyselina" type="Sprite" parent="Inv"]
 position = Vector2( 934, 352 )
 scale = Vector2( 0.3, 0.3 )
-texture = SubResource( 44 )
+texture = SubResource( 329 )
 
 [node name="Semeno" type="Sprite" parent="Inv"]
 position = Vector2( 616, 736 )
@@ -2070,7 +2065,7 @@ texture = ExtResource( 3 )
 [node name="Hnuj" type="Sprite" parent="Inv"]
 position = Vector2( 608, 480 )
 scale = Vector2( 0.3, 0.3 )
-texture = SubResource( 45 )
+texture = SubResource( 330 )
 
 [node name="Uhlicitan" type="Sprite" parent="Inv"]
 position = Vector2( 934, 480 )
@@ -2088,38 +2083,37 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 9 )
 
 [node name="HydroxidText" type="RichTextLabel" parent="Inv"]
-margin_left = 672.0
-margin_top = 592.0
-margin_right = 780.0
-margin_bottom = 634.0
+margin_left = 667.0
+margin_top = 591.0
+margin_right = 775.0
+margin_bottom = 633.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
-text = "0
-"
+custom_fonts/normal_font = SubResource( 331 )
+text = "0"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VaricText" type="RichTextLabel" parent="Inv"]
-margin_left = 992.0
-margin_top = 592.0
-margin_right = 1104.0
-margin_bottom = 634.0
+margin_left = 995.0
+margin_top = 591.0
+margin_right = 1107.0
+margin_bottom = 633.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 331 )
 text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="OcetText" type="RichTextLabel" parent="Inv"]
-margin_left = 352.0
-margin_top = 808.0
-margin_right = 457.0
-margin_bottom = 848.0
+margin_left = 347.0
+margin_top = 807.0
+margin_right = 452.0
+margin_bottom = 847.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 331 )
 text = "0"
 scroll_active = false
 __meta__ = {
@@ -2127,12 +2121,12 @@ __meta__ = {
 }
 
 [node name="VapnoText" type="RichTextLabel" parent="Inv"]
-margin_left = 992.0
-margin_top = 808.0
-margin_right = 1104.0
-margin_bottom = 848.0
+margin_left = 995.0
+margin_top = 815.0
+margin_right = 1107.0
+margin_bottom = 855.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 331 )
 text = "0"
 scroll_active = false
 __meta__ = {
@@ -2140,12 +2134,12 @@ __meta__ = {
 }
 
 [node name="CpavekText" type="RichTextLabel" parent="Inv"]
-margin_left = 672.0
-margin_top = 808.0
-margin_right = 768.0
-margin_bottom = 848.0
+margin_left = 667.0
+margin_top = 815.0
+margin_right = 763.0
+margin_bottom = 855.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 331 )
 text = "0"
 scroll_active = false
 __meta__ = {
@@ -2153,12 +2147,12 @@ __meta__ = {
 }
 
 [node name="EfedrinText" type="RichTextLabel" parent="Inv"]
-margin_left = 351.0
-margin_top = 720.0
-margin_right = 456.0
-margin_bottom = 760.0
+margin_left = 347.0
+margin_top = 719.0
+margin_right = 452.0
+margin_bottom = 759.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 331 )
 text = "0"
 scroll_active = false
 __meta__ = {
@@ -2166,110 +2160,109 @@ __meta__ = {
 }
 
 [node name="SeminkoText" type="RichTextLabel" parent="Inv"]
-margin_left = 672.0
-margin_top = 728.0
-margin_right = 779.0
-margin_bottom = 768.0
+margin_left = 667.0
+margin_top = 719.0
+margin_right = 774.0
+margin_bottom = 759.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 331 )
 text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="EtherText" type="RichTextLabel" parent="Inv"]
-margin_left = 672.0
-margin_top = 336.0
-margin_right = 800.0
-margin_bottom = 376.0
+margin_left = 667.0
+margin_top = 335.0
+margin_right = 795.0
+margin_bottom = 375.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 331 )
 text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="KyselinaText" type="RichTextLabel" parent="Inv"]
-margin_left = 992.0
-margin_top = 336.0
-margin_right = 1096.0
-margin_bottom = 376.0
+margin_left = 995.0
+margin_top = 335.0
+margin_right = 1099.0
+margin_bottom = 375.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 331 )
 text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="UhlicitanText" type="RichTextLabel" parent="Inv"]
-margin_left = 992.0
-margin_top = 456.0
-margin_right = 1100.0
-margin_bottom = 504.0
+margin_left = 995.0
+margin_top = 463.0
+margin_right = 1103.0
+margin_bottom = 511.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 331 )
 text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VarnaText" type="RichTextLabel" parent="Inv"]
-margin_left = 992.0
-margin_top = 728.0
-margin_right = 1096.0
-margin_bottom = 768.0
+margin_left = 995.0
+margin_top = 719.0
+margin_right = 1099.0
+margin_bottom = 759.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
-text = "0
-"
+custom_fonts/normal_font = SubResource( 331 )
+text = "0"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HnujText" type="RichTextLabel" parent="Inv"]
-margin_left = 672.0
+margin_left = 648.0
 margin_top = 456.0
-margin_right = 776.0
+margin_right = 752.0
 margin_bottom = 504.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 331 )
 text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel18" type="RichTextLabel" parent="Inv"]
-margin_left = 808.0
+margin_left = 800.0
 margin_top = 712.0
-margin_right = 888.0
+margin_right = 880.0
 margin_bottom = 754.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 331 )
 text = "Varna"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel17" type="RichTextLabel" parent="Inv"]
-margin_left = 848.0
+margin_left = 840.0
 margin_top = 336.0
-margin_right = 912.0
+margin_right = 904.0
 margin_bottom = 378.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 331 )
 text = "HCl"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel16" type="RichTextLabel" parent="Inv"]
-margin_left = 824.0
+margin_left = 816.0
 margin_top = 592.0
-margin_right = 892.0
+margin_right = 884.0
 margin_bottom = 632.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 331 )
 text = "Vařič
 "
 scroll_active = false
@@ -2278,88 +2271,84 @@ __meta__ = {
 }
 
 [node name="RichTextLabel15" type="RichTextLabel" parent="Inv"]
-margin_left = 784.0
+margin_left = 768.0
 margin_top = 440.0
-margin_right = 916.0
+margin_right = 900.0
 margin_bottom = 528.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
-text = "Uhličitan
-   sodný"
+custom_fonts/normal_font = SubResource( 331 )
+text = "Uhličitan sodný"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel14" type="RichTextLabel" parent="Inv"]
-margin_left = 456.0
+margin_left = 448.0
 margin_top = 688.0
-margin_right = 576.0
+margin_right = 568.0
 margin_bottom = 776.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
-text = "Semínko
-   trávy"
+custom_fonts/normal_font = SubResource( 331 )
+text = "Semínko trávy"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel13" type="RichTextLabel" parent="Inv"]
-margin_left = 440.0
+margin_left = 432.0
 margin_top = 576.0
-margin_right = 576.0
+margin_right = 568.0
 margin_bottom = 656.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
-text = "Hydroxid
-   sodný"
+custom_fonts/normal_font = SubResource( 331 )
+text = "Hydroxid sodný"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel12" type="RichTextLabel" parent="Inv"]
-margin_left = 504.0
+margin_left = 496.0
 margin_top = 456.0
-margin_right = 572.0
+margin_right = 564.0
 margin_bottom = 504.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 331 )
 text = "Hnůj"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel11" type="RichTextLabel" parent="Inv"]
-margin_left = 480.0
+margin_left = 472.0
 margin_top = 320.0
-margin_right = 584.0
+margin_right = 576.0
 margin_bottom = 400.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
-text = "Diethyl
-  ether"
+custom_fonts/normal_font = SubResource( 331 )
+text = "Diethyl ether"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel21" type="RichTextLabel" parent="Inv"]
-margin_left = 800.0
+margin_left = 792.0
 margin_top = 808.0
-margin_right = 904.0
+margin_right = 896.0
 margin_bottom = 848.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 331 )
 text = "Vápno"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel20" type="RichTextLabel" parent="Inv"]
-margin_left = 464.0
+margin_left = 456.0
 margin_top = 808.0
-margin_right = 568.0
+margin_right = 560.0
 margin_bottom = 848.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 331 )
 text = "Čpavek"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2371,12 +2360,12 @@ scale = Vector2( 0.32, 0.32 )
 texture = ExtResource( 35 )
 
 [node name="MakoviceText" type="RichTextLabel" parent="Inv"]
-margin_left = 351.0
-margin_top = 912.0
-margin_right = 456.0
-margin_bottom = 952.0
+margin_left = 347.0
+margin_top = 911.0
+margin_right = 452.0
+margin_bottom = 951.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 331 )
 text = "0"
 scroll_active = false
 __meta__ = {
@@ -2384,81 +2373,81 @@ __meta__ = {
 }
 
 [node name="RichTextLabel22" type="RichTextLabel" parent="Inv"]
-margin_left = 120.0
+margin_left = 112.0
 margin_top = 912.0
-margin_right = 255.0
+margin_right = 247.0
 margin_bottom = 952.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 331 )
 text = "Makovice"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel19" type="RichTextLabel" parent="Inv"]
-margin_left = 176.0
+margin_left = 168.0
 margin_top = 808.0
-margin_right = 248.0
+margin_right = 240.0
 margin_bottom = 848.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 331 )
 text = "Ocet"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel10" type="RichTextLabel" parent="Inv"]
-margin_left = 144.0
+margin_left = 136.0
 margin_top = 712.0
-margin_right = 248.0
+margin_right = 240.0
 margin_bottom = 760.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 331 )
 text = "Efedrin"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel9" type="RichTextLabel" parent="Inv"]
-margin_left = 88.0
+margin_left = 80.0
 margin_top = 584.0
-margin_right = 248.0
+margin_right = 240.0
 margin_bottom = 632.0
 rect_pivot_offset = Vector2( -136, -304 )
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 331 )
 text = "Chloroform"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel8" type="RichTextLabel" parent="Inv"]
-margin_left = 144.0
+margin_left = 136.0
 margin_top = 456.0
-margin_right = 248.0
+margin_right = 240.0
 margin_bottom = 504.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 331 )
 text = "Alkohol"
 
 [node name="RichTextLabel7" type="RichTextLabel" parent="Inv"]
-margin_left = 144.0
+margin_left = 136.0
 margin_top = 336.0
-margin_right = 248.0
+margin_right = 240.0
 margin_bottom = 384.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 331 )
 text = "Aceton"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ChloroformText" type="RichTextLabel" parent="Inv"]
-margin_left = 351.0
-margin_top = 576.0
-margin_right = 435.0
-margin_bottom = 616.0
+margin_left = 347.0
+margin_top = 591.0
+margin_right = 431.0
+margin_bottom = 631.0
 rect_pivot_offset = Vector2( 16, 152 )
-custom_fonts/normal_font = SubResource( 7 )
+custom_fonts/normal_font = SubResource( 325 )
 text = "0"
 scroll_active = false
 __meta__ = {
@@ -2466,11 +2455,11 @@ __meta__ = {
 }
 
 [node name="AlkoholText" type="RichTextLabel" parent="Inv"]
-margin_left = 351.0
-margin_top = 456.0
-margin_right = 464.0
-margin_bottom = 496.0
-custom_fonts/normal_font = SubResource( 7 )
+margin_left = 347.0
+margin_top = 455.0
+margin_right = 460.0
+margin_bottom = 495.0
+custom_fonts/normal_font = SubResource( 325 )
 text = "0"
 scroll_active = false
 __meta__ = {
@@ -2478,13 +2467,12 @@ __meta__ = {
 }
 
 [node name="AcetonText" type="RichTextLabel" parent="Inv"]
-margin_left = 351.0
-margin_top = 336.0
-margin_right = 457.0
-margin_bottom = 379.0
-custom_fonts/normal_font = SubResource( 7 )
-text = "0
-"
+margin_left = 347.0
+margin_top = 335.0
+margin_right = 453.0
+margin_bottom = 378.0
+custom_fonts/normal_font = SubResource( 325 )
+text = "0"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2496,12 +2484,12 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 34 )
 
 [node name="UhliText" type="RichTextLabel" parent="Inv"]
-margin_left = 992.0
-margin_top = 919.0
-margin_right = 1097.0
-margin_bottom = 959.0
+margin_left = 995.0
+margin_top = 927.0
+margin_right = 1100.0
+margin_bottom = 967.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
+custom_fonts/normal_font = SubResource( 331 )
 text = "0"
 scroll_active = false
 __meta__ = {
@@ -2509,14 +2497,13 @@ __meta__ = {
 }
 
 [node name="RichTextLabel23" type="RichTextLabel" parent="Inv"]
-margin_left = 792.0
+margin_left = 784.0
 margin_top = 904.0
-margin_right = 895.0
+margin_right = 887.0
 margin_bottom = 984.0
 rect_pivot_offset = Vector2( -80, 88 )
-custom_fonts/normal_font = SubResource( 21 )
-text = "Aktivní 
-  uhlí"
+custom_fonts/normal_font = SubResource( 331 )
+text = "Aktivní uhlí"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2724,7 +2711,6 @@ scroll_active = false
 [connection signal="timeout" from="HoodPannel/Timer2" to="." method="_on_Timer2_timeout"]
 [connection signal="pressed" from="Inv/Button-Inv-Exit" to="." method="_on_ButtonInvExit_pressed"]
 [connection signal="pressed" from="ButtonExit" to="." method="_on_ButtonExit_pressed"]
-[connection signal="pressed" from="ButtonExit" to="Inv" method="_on_ButtonExit_pressed"]
 [connection signal="pressed" from="ButtonInv" to="." method="_on_ButtonInv_pressed"]
 [connection signal="pressed" from="ExitPanel/ExitButtonYes" to="." method="_on_ExitButtonYes_pressed"]
 [connection signal="pressed" from="ExitPanel/ExitButtonNo" to="." method="_on_ExitButtonNo_pressed"]

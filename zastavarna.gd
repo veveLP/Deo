@@ -41,7 +41,6 @@ func _on_data():
 	var x = payload.split("$")
 	if (x[0] == "loadmap"):
 		$LabelMoney.text = x[2]
-		
 	if (x[0] == "inventory"):
 		$Iv/Inv/RichTextLabel.bbcode_text = "[center]" + x[1] + "[/center]"
 		$Iv/Inv/RichTextLabel2.bbcode_text = "[center]" + x[2] + "[/center]"

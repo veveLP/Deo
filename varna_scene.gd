@@ -15,6 +15,7 @@ var timestamp = 0
 var inv = []
 var firsttime = "y"
 var tablenumber = null
+var StartMake
 
 var timer = 0
 var count = 0
@@ -59,6 +60,7 @@ func _on_connected(proto = ""):
 	_send("getservertimestamp" + text)
 	_send("loadinterior" + text + "$" + varnaID)
 	_send("inventory" + text)
+	_send("money" + text)
 
 func _on_data():
 	var payload = client.get_peer(1).get_packet().get_string_from_utf8()
@@ -95,6 +97,73 @@ func _on_data():
 				o += 3
 		"inventory":
 			inv = x
+			match StartMake:
+				"WeedStart":
+					if int(inv[4]) > 0:
+						inv[4] = str(int(inv[4]) - 1)
+						$varna.visible = false
+						$WeedMinigame.visible = true
+						$WeedMinigame/TimerWeed.start()
+					else:
+						$varna/textbox.visible = true
+						$varna/textbox.text = "You don't have ingredients"
+						yield(get_tree().create_timer(3.0), "timeout")
+						$varna/textbox.visible = false
+				"MethStart":
+					var ingr = true
+					for i in 5:
+						if int(inv[i + 7]) == 0:
+							ingr = false
+					if ingr:
+						for i in 5:
+							inv[i + 7] = str(int(inv[i + 7]) - 1)
+						$varna.visible = false
+						$MethMinigame.visible = true
+					else:
+						$varna/textbox.visible = true
+						$varna/textbox.text = "You don't have ingredients"
+						yield(get_tree().create_timer(3.0), "timeout")
+						$varna/textbox.visible = false
+				"MethContinue":
+					if int(inv[16]) > 0:
+						inv[16] = str(int(inv[16]) - 1)
+						$varna.visible = false
+						$MethMinigame2.visible = true
+					else:
+						$varna/textbox.visible = true
+						$varna/textbox.text = "You don't have ingredients"
+						yield(get_tree().create_timer(3.0), "timeout")
+						$varna/textbox.visible = false
+				"HeroinStart":
+					var ingr = true
+					for i in 3:
+						if int(inv[i + 18]) == 0:
+							ingr = false
+					if ingr:
+						for i in 3:
+							inv[i + 18] = str(int(inv[i + 18]) - 1)
+						$varna.visible = false
+						$HeroinMinigame.visible = true
+					else:
+						$varna/textbox.visible = true
+						$varna/textbox.text = "You don't have ingredients"
+						yield(get_tree().create_timer(3.0), "timeout")
+						$varna/textbox.visible = false
+				"HeroinContinue":
+					var ingr = true
+					for i in 5:
+						if int(inv[i + 13]) == 0:
+							ingr = false
+					if ingr:
+						for i in 5:
+							inv[i + 13] = str(int(inv[i + 13]) - 1)
+						$varna.visible = false
+						$HeroinMinigame2.visible = true
+					else:
+						$varna/textbox.visible = true
+						$varna/textbox.text = "You don't have ingredients"
+						yield(get_tree().create_timer(3.0), "timeout")
+						$varna/textbox.visible = false
 		"changetable":
 			if x[1] == "successful":
 				match x[3]:
@@ -121,6 +190,8 @@ func _on_data():
 			pass
 		"getservertimestamp":
 			timestamp = int(x[1])
+		_:
+			$LabelMoney.text = x[0]
 
 func _send(text):
 	var packet: PoolByteArray = text.to_utf8()
@@ -223,6 +294,32 @@ func _set_item(var drug, var state, var stage, var item):
 			"heroin":
 				item.set_animation("cooking1_" + drug)
 
+func _on_ButtonInv_pressed():
+	$Iv/Inv/RichTextLabel.bbcode_text = "[center]" + inv[1] + "[/center]"
+	$Iv/Inv/RichTextLabel2.bbcode_text = "[center]" + inv[2] + "[/center]"
+	$Iv/Inv/RichTextLabel3.bbcode_text = "[center]" + inv[3] + "[/center]"
+	$Iv/Inv/SeminkoText.text = inv[4]
+	$Iv/Inv/HnujText.text = "level: " + inv[5]
+	$Iv/Inv/VarnaText.text = inv[6]
+	$Iv/Inv/AcetonText.text = inv[7]
+	$Iv/Inv/HydroxidText.text = inv[8]
+	$Iv/Inv/KyselinaText.text = inv[9]
+	$Iv/Inv/EtherText.text = inv[10]
+	$Iv/Inv/EfedrinText.text = inv[11]
+	$Iv/Inv/VaricText.text = inv[12]
+	$Iv/Inv/ChloroformText.text = inv[13]
+	$Iv/Inv/UhlicitanText.text = inv[14]
+	$Iv/Inv/UhliText.text = inv[15]
+	$Iv/Inv/AlkoholText.text = inv[16]
+	$Iv/Inv/OcetText.text = inv[17]
+	$Iv/Inv/CpavekText.text = inv[18]
+	$Iv/Inv/VapnoText.text = inv[19]
+	$Iv/Inv/MakoviceText.text = inv[20]
+	$Iv.visible = true
+
+func _on_ButtonInvExit_pressed():
+	$Iv.visible = false
+
 func _on_weed_pressed():
 	_send("changetable" + user + "$" + varnaID + "$" + str(tablenumber+1) + "$weed")
 	$AreaVyber.visible = false
@@ -235,21 +332,16 @@ func _on_heroin_pressed():
 	_send("changetable" + user + "$" + varnaID + "$" + str(tablenumber+1) + "$heroin")
 	$AreaVyber.visible = false
 
+func _on_VyberExit_pressed():
+	$AreaVyber.visible = false
+
 func _weedstart_weedharvest(var i, var text):
 	if (items[i].frame == items[i].get_sprite_frames().get_frame_count(items[i].get_animation()) - 1):
 		_send("weedharvest" + text + "$" + varnaID + "$" + str(i + 1))
 		firsttime = "n"
 	elif (items[i].frame == 0):
-		if int(inv[4]) > 0:
-			inv[4] = str(int(inv[4]) - 1)
-			$varna.visible = false
-			$WeedMinigame.visible = true
-			$WeedMinigame/TimerWeed.start()
-		else:
-			$varna/textbox.visible = true
-			$varna/textbox.text = "You don't have ingredients"
-			yield(get_tree().create_timer(3.0), "timeout")
-			$varna/textbox.visible = false
+		StartMake = "WeedStart"
+		_send("inventory" + text)
 		firsttime = "n"
 
 func _weedstart(var item):
@@ -273,31 +365,12 @@ func _methstart_methharvest(var i, var text):
 		_send("methharvest" + text + "$" + varnaID + "$" + str(i + 1))
 		firsttime = "n"
 	elif items[i].animation == "des_meth" && items[i].frame == items[i].get_sprite_frames().get_frame_count(items[i].get_animation()) - 1:
-		if int(inv[16]) > 0:
-			inv[16] = str(int(inv[16]) - 1)
-			$varna.visible = false
-			$MethMinigame2.visible = true
-		else:
-			$varna/textbox.visible = true
-			$varna/textbox.text = "You don't have ingredients"
-			yield(get_tree().create_timer(3.0), "timeout")
-			$varna/textbox.visible = false
+		StartMake = "MethContinue"
+		_send("inventory" + text)
 		firsttime = "n"
 	elif items[i].animation == "des_meth" && items[i].frame == 0:
-		var ingr = true
-		for i in 5:
-			if int(inv[i + 7]) == 0:
-				ingr = false
-		if ingr:
-			for i in 5:
-				inv[i + 7] = str(int(inv[i + 7]) - 1)
-			$varna.visible = false
-			$MethMinigame.visible = true
-		else:
-			$varna/textbox.visible = true
-			$varna/textbox.text = "You don't have ingredients"
-			yield(get_tree().create_timer(3.0), "timeout")
-			$varna/textbox.visible = false
+		StartMake = "MethStart"
+		_send("inventory" + text)
 		firsttime = "n"
 
 func _methstart(var item):
@@ -330,36 +403,12 @@ func _heroinstart_heroinharvest(var i, var text):
 		_send("heroinharvest" + text + "$" + varnaID + "$" + str(i + 1))
 		firsttime = "n"
 	elif items[i].animation == "cooking1_heroin" && items[i].frame == items[i].get_sprite_frames().get_frame_count(items[i].get_animation()) - 1:
-		var ingr = true
-		for i in 5:
-			if int(inv[i + 13]) == 0:
-				ingr = false
-		if ingr:
-			for i in 5:
-				inv[i + 13] = str(int(inv[i + 13]) - 1)
-			$varna.visible = false
-			$HeroinMinigame2.visible = true
-		else:
-			$varna/textbox.visible = true
-			$varna/textbox.text = "You don't have ingredients"
-			yield(get_tree().create_timer(3.0), "timeout")
-			$varna/textbox.visible = false
+		StartMake = "HeroinContinue"
+		_send("inventory" + text)
 		firsttime = "n"
 	elif items[i].animation == "cooking1_heroin" && items[i].frame == 0:
-		var ingr = true
-		for i in 3:
-			if int(inv[i + 18]) == 0:
-				ingr = false
-		if ingr:
-			for i in 3:
-				inv[i + 18] = str(int(inv[i + 18]) - 1)
-			$varna.visible = false
-			$HeroinMinigame.visible = true
-		else:
-			$varna/textbox.visible = true
-			$varna/textbox.text = "You don't have ingredients"
-			yield(get_tree().create_timer(3.0), "timeout")
-			$varna/textbox.visible = false
+		StartMake = "HeroinStart"
+		_send("inventory" + text)
 		firsttime = "n"
 
 func _heroinstart(var item):
