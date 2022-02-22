@@ -155,11 +155,6 @@ flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 512, 704, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=112]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 576, 64, 64 )
-
 [sub_resource type="AtlasTexture" id=99]
 flags = 4
 atlas = ExtResource( 2 )
@@ -205,6 +200,11 @@ flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 512, 640, 64, 64 )
 
+[sub_resource type="AtlasTexture" id=112]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 576, 64, 64 )
+
 [sub_resource type="AtlasTexture" id=111]
 flags = 4
 atlas = ExtResource( 2 )
@@ -232,24 +232,24 @@ animations = [ {
 "name": "right",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 112 ) ],
-"loop": true,
-"name": "standing_left",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ) ],
 "loop": true,
 "name": "down",
 "speed": 7.0
 }, {
-"frames": [ SubResource( 81 ) ],
+"frames": [ SubResource( 112 ) ],
 "loop": true,
-"name": "standing_right",
+"name": "standing_left",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 111 ) ],
 "loop": true,
 "name": "standing_down",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 81 ) ],
+"loop": true,
+"name": "standing_right",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 108 ) ],
@@ -1312,6 +1312,186 @@ flags = 4
 atlas = ExtResource( 10 )
 region = Rect2( 0, 96, 48, 48 )
 
+[sub_resource type="AtlasTexture" id=272]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 48, 96, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=273]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 96, 96, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=274]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 144, 96, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=275]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 192, 96, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=276]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 144, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=277]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 48, 144, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=278]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 96, 144, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=279]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 144, 144, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=280]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 192, 144, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=281]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 192, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=282]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 48, 192, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=283]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 96, 192, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=284]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 144, 192, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=285]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 192, 192, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=250]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=251]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 48, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=252]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 96, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=253]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 144, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=254]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 192, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=255]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 240, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=256]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 48, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=257]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 48, 48, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=258]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 96, 48, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=259]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 144, 48, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=260]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 192, 48, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=261]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 240, 48, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=262]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 96, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=263]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 48, 96, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=264]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 96, 96, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=265]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 144, 96, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=266]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 192, 96, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=267]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 240, 96, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=268]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 144, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=269]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 48, 144, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=270]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 96, 144, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=271]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 144, 144, 48, 48 )
+
 [sub_resource type="AtlasTexture" id=136]
 flags = 4
 atlas = ExtResource( 8 )
@@ -1462,186 +1642,6 @@ flags = 4
 atlas = ExtResource( 8 )
 region = Rect2( 240, 144, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=250]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=251]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 48, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=252]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 96, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=253]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 144, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=254]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 192, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=255]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 240, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=256]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 0, 48, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=257]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 48, 48, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=258]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 96, 48, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=259]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 144, 48, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=260]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 192, 48, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=261]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 240, 48, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=262]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 0, 96, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=263]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 48, 96, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=264]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 96, 96, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=265]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 144, 96, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=266]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 192, 96, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=267]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 240, 96, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=268]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 0, 144, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=269]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 48, 144, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=270]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 96, 144, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=271]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 144, 144, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=272]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 48, 96, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=273]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 96, 96, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=274]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 144, 96, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=275]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 192, 96, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=276]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 0, 144, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=277]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 48, 144, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=278]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 96, 144, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=279]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 144, 144, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=280]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 192, 144, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=281]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 0, 192, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=282]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 48, 192, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=283]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 96, 192, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=284]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 144, 192, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=285]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 192, 192, 48, 48 )
-
 [sub_resource type="SpriteFrames" id=292]
 animations = [ {
 "frames": [  ],
@@ -1659,20 +1659,20 @@ animations = [ {
 "name": "cooking1_heroin",
 "speed": 0.01
 }, {
-"frames": [ SubResource( 136 ), SubResource( 137 ), SubResource( 138 ), SubResource( 139 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 146 ), SubResource( 147 ), SubResource( 148 ), SubResource( 149 ), SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), SubResource( 158 ), SubResource( 159 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ), SubResource( 163 ), SubResource( 164 ), SubResource( 165 ) ],
+"frames": [ SubResource( 272 ), SubResource( 273 ), SubResource( 274 ), SubResource( 275 ), SubResource( 276 ), SubResource( 277 ), SubResource( 278 ), SubResource( 279 ), SubResource( 280 ), SubResource( 281 ), SubResource( 282 ), SubResource( 283 ), SubResource( 284 ), SubResource( 285 ) ],
 "loop": true,
-"name": "kry_meth",
-"speed": 0.03
+"name": "cooking2_heroin",
+"speed": 0.01
 }, {
 "frames": [ SubResource( 250 ), SubResource( 251 ), SubResource( 252 ), SubResource( 253 ), SubResource( 254 ), SubResource( 255 ), SubResource( 256 ), SubResource( 257 ), SubResource( 258 ), SubResource( 259 ), SubResource( 260 ), SubResource( 261 ), SubResource( 262 ), SubResource( 263 ), SubResource( 264 ), SubResource( 265 ), SubResource( 266 ), SubResource( 267 ), SubResource( 268 ), SubResource( 269 ), SubResource( 270 ), SubResource( 271 ) ],
 "loop": false,
 "name": "des_meth",
 "speed": 0.02
 }, {
-"frames": [ SubResource( 272 ), SubResource( 273 ), SubResource( 274 ), SubResource( 275 ), SubResource( 276 ), SubResource( 277 ), SubResource( 278 ), SubResource( 279 ), SubResource( 280 ), SubResource( 281 ), SubResource( 282 ), SubResource( 283 ), SubResource( 284 ), SubResource( 285 ) ],
+"frames": [ SubResource( 136 ), SubResource( 137 ), SubResource( 138 ), SubResource( 139 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 146 ), SubResource( 147 ), SubResource( 148 ), SubResource( 149 ), SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), SubResource( 158 ), SubResource( 159 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ), SubResource( 163 ), SubResource( 164 ), SubResource( 165 ) ],
 "loop": true,
-"name": "cooking2_heroin",
-"speed": 0.01
+"name": "kry_meth",
+"speed": 0.03
 } ]
 
 [sub_resource type="RectangleShape2D" id=293]
@@ -1695,20 +1695,20 @@ animations = [ {
 "name": "cooking1_heroin",
 "speed": 0.01
 }, {
-"frames": [ SubResource( 136 ), SubResource( 137 ), SubResource( 138 ), SubResource( 139 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 146 ), SubResource( 147 ), SubResource( 148 ), SubResource( 149 ), SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), SubResource( 158 ), SubResource( 159 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ), SubResource( 163 ), SubResource( 164 ), SubResource( 165 ) ],
+"frames": [ SubResource( 272 ), SubResource( 273 ), SubResource( 274 ), SubResource( 275 ), SubResource( 276 ), SubResource( 277 ), SubResource( 278 ), SubResource( 279 ), SubResource( 280 ), SubResource( 281 ), SubResource( 282 ), SubResource( 283 ), SubResource( 284 ), SubResource( 285 ) ],
 "loop": true,
-"name": "kry_meth",
-"speed": 0.03
+"name": "cooking2_heroin",
+"speed": 0.01
 }, {
 "frames": [ SubResource( 250 ), SubResource( 251 ), SubResource( 252 ), SubResource( 253 ), SubResource( 254 ), SubResource( 255 ), SubResource( 256 ), SubResource( 257 ), SubResource( 258 ), SubResource( 259 ), SubResource( 260 ), SubResource( 261 ), SubResource( 262 ), SubResource( 263 ), SubResource( 264 ), SubResource( 265 ), SubResource( 266 ), SubResource( 267 ), SubResource( 268 ), SubResource( 269 ), SubResource( 270 ), SubResource( 271 ) ],
 "loop": false,
 "name": "des_meth",
 "speed": 0.02
 }, {
-"frames": [ SubResource( 272 ), SubResource( 273 ), SubResource( 274 ), SubResource( 275 ), SubResource( 276 ), SubResource( 277 ), SubResource( 278 ), SubResource( 279 ), SubResource( 280 ), SubResource( 281 ), SubResource( 282 ), SubResource( 283 ), SubResource( 284 ), SubResource( 285 ) ],
+"frames": [ SubResource( 136 ), SubResource( 137 ), SubResource( 138 ), SubResource( 139 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 146 ), SubResource( 147 ), SubResource( 148 ), SubResource( 149 ), SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), SubResource( 158 ), SubResource( 159 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ), SubResource( 163 ), SubResource( 164 ), SubResource( 165 ) ],
 "loop": true,
-"name": "cooking2_heroin",
-"speed": 0.01
+"name": "kry_meth",
+"speed": 0.03
 } ]
 
 [sub_resource type="DynamicFontData" id=287]
@@ -1857,7 +1857,7 @@ rotation = -1.5708
 scale = Vector2( 1.32409, 1.32409 )
 z_index = 3
 frames = SubResource( 292 )
-animation = "growing_weed"
+animation = "empty"
 
 [node name="table1" type="Area2D" parent="varna"]
 
@@ -1872,7 +1872,7 @@ position = Vector2( 432, 424 )
 scale = Vector2( 1.32409, 1.32409 )
 z_index = 3
 frames = SubResource( 294 )
-animation = "growing_weed"
+animation = "empty"
 
 [node name="table2" type="Area2D" parent="varna"]
 
@@ -1887,7 +1887,7 @@ rotation = 1.5708
 scale = Vector2( 1.32409, 1.32409 )
 z_index = 3
 frames = SubResource( 292 )
-animation = "growing_weed"
+animation = "empty"
 
 [node name="table3" type="Area2D" parent="varna"]
 
@@ -1902,7 +1902,7 @@ position = Vector2( 144, 88 )
 scale = Vector2( 1.32409, 1.32409 )
 z_index = 3
 frames = SubResource( 294 )
-animation = "growing_weed"
+animation = "empty"
 
 [node name="table4" type="Area2D" parent="varna"]
 
@@ -1917,7 +1917,7 @@ position = Vector2( 288, 88 )
 scale = Vector2( 1.32409, 1.32409 )
 z_index = 3
 frames = SubResource( 294 )
-animation = "growing_weed"
+animation = "empty"
 
 [node name="table5" type="Area2D" parent="varna"]
 
@@ -1932,7 +1932,7 @@ position = Vector2( 432, 184 )
 scale = Vector2( 1.32409, 1.32409 )
 z_index = 3
 frames = SubResource( 294 )
-animation = "growing_weed"
+animation = "empty"
 
 [node name="table6" type="Area2D" parent="varna"]
 
@@ -1947,7 +1947,7 @@ position = Vector2( 624, 184 )
 scale = Vector2( 1.32409, 1.32409 )
 z_index = 3
 frames = SubResource( 294 )
-animation = "growing_weed"
+animation = "empty"
 
 [node name="textbox" type="RichTextLabel" parent="varna"]
 margin_left = 51.0

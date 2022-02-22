@@ -5,7 +5,7 @@ var moving = false
 var dir = "up"
 
 func _ready():
-	scene = String(get_tree().get_current_scene().get_name())
+	scene = str(get_tree().get_current_scene().get_name())
 
 export (int) var speed = 200
 
