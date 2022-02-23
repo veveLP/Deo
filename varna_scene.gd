@@ -164,6 +164,8 @@ func _on_data():
 						$varna/textbox.text = "You don't have ingredients"
 						yield(get_tree().create_timer(3.0), "timeout")
 						$varna/textbox.visible = false
+		"money":
+			$LabelMoney.text = x[1]
 		"changetable":
 			if x[1] == "successful":
 				match x[3]:
@@ -190,8 +192,6 @@ func _on_data():
 			pass
 		"getservertimestamp":
 			timestamp = int(x[1])
-		_:
-			$LabelMoney.text = x[0]
 
 func _send(text):
 	var packet: PoolByteArray = text.to_utf8()
@@ -489,8 +489,7 @@ func _on_ButtonMeth_button_up():
 		_send("methstart" + loadd() + "$" + varnaID + "$" + str(tablenumber + 1) + "$" + str(Quantity))
 		timer = 0
 		error = 0
-		for j in 3:
-			colors[j] = 1
+		colors = [1,0.5,0]
 		$MethMinigame/ProgressBar.value = 0
 		$MethMinigame.visible = false
 		$varna.visible = true
