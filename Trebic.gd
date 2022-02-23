@@ -79,7 +79,7 @@ func _on_data():
 		$HoodPannel/Dealer2/PoliceChance.visible = true
 		$HoodPannel/Dealer2/SellingAmount.visible = true
 		$HoodPannel/Dealer2/ProfitCut.visible = true
-		$HoodPannel/Dealer1/Dealer1.disabled = true
+		#$HoodPannel/Dealer1/Dealer1.disabled = true
 		var fileJSON = File.new()
 		fileJSON.open("res://assets/dealeri.json", fileJSON.READ)
 		var json= fileJSON.get_as_text()
@@ -267,12 +267,12 @@ func _on_data():
 			$HoodPannel/Dealer1/ProgressBar.visible = true
 			$HoodPannel/Dealer1/Drug1.disabled = true
 			$HoodPannel/Dealer1/Drug2.disabled = true
-			$HoodPannel/Dealer1/Dealer1.disabled = true
+			#$HoodPannel/Dealer1/Dealer1.disabled = true
 		if int(x[1]) == 0:
 			$HoodPannel/Dealer1/ButtonCollect.visible = false
 			$HoodPannel/Dealer1/Drug1.disabled = false
 			$HoodPannel/Dealer1/Drug2.disabled = false
-			$HoodPannel/Dealer1/Dealer1.disabled = false
+			#$HoodPannel/Dealer1/Dealer1.disabled = false
 		if int(x[5]) <= 0:
 			$HoodPannel/Dealer2/ButtonCollect.visible = true
 			collect[1] = true
@@ -283,12 +283,12 @@ func _on_data():
 			$HoodPannel/Dealer2/ProgressBar.visible = true
 			$HoodPannel/Dealer2/Drug1.disabled = true
 			$HoodPannel/Dealer2/Drug2.disabled = true
-			$HoodPannel/Dealer2/Dealer2.disabled = true
+			#$HoodPannel/Dealer2/Dealer2.disabled = true
 		if int(x[4]) == 0:
 			$HoodPannel/Dealer2/ButtonCollect.visible = false
 			$HoodPannel/Dealer2/Drug1.disabled = false
 			$HoodPannel/Dealer2/Drug2.disabled = false
-			$HoodPannel/Dealer2/Dealer2.disabled = false
+			#$HoodPannel/Dealer2/Dealer2.disabled = false
 		var min1 = 0
 		var sec1 = int(x[2])
 		while sec1 > 59:
@@ -339,6 +339,10 @@ func _on_ExitButtonNo_pressed():
 	$ExitPanel.visible = false
 
 func _on_ButtonHoodExit_pressed():
+	$HoodPannel/Dealer1Remain1.visible = false
+	$HoodPannel/Dealer1Remain2.visible = false
+	$HoodPannel/Dealer2Remain1.visible = false
+	$HoodPannel/Dealer2Remain2.visible = false
 	$HoodPannel.visible = false
 	$HoodPannel/Timer.stop()
 	$HoodPannel/Timer2.stop()
@@ -550,7 +554,7 @@ func _on_pole_mouse_exited():
 
 func _on_Dealer1_pressed():
 	if $HoodPannel/Dealer1/Dealer1.icon != load("res://assets/none.png"): 
-		OS.alert("debug")
+		
 		return
 	$HoodPannel.visible = false
 	$DealerVyber.visible = true
@@ -559,7 +563,7 @@ func _on_Dealer1_pressed():
 
 func _on_Dealer2_pressed():
 	if $HoodPannel/Dealer2/Dealer2.icon != load("res://assets/none.png"): 
-		OS.alert("debug")
+		
 		return
 	$HoodPannel.visible = false
 	$DealerVyber.visible = true
