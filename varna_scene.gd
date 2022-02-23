@@ -97,6 +97,26 @@ func _on_data():
 				o += 3
 		"inventory":
 			inv = x
+			$Iv/Inv/RichTextLabel.bbcode_text = "[center]" + inv[1] + "[/center]"
+			$Iv/Inv/RichTextLabel2.bbcode_text = "[center]" + inv[2] + "[/center]"
+			$Iv/Inv/RichTextLabel3.bbcode_text = "[center]" + inv[3] + "[/center]"
+			$Iv/Inv/SeminkoText.text = inv[4]
+			$Iv/Inv/HnujText.text = "level: " + inv[5]
+			$Iv/Inv/VarnaText.text = inv[6]
+			$Iv/Inv/AcetonText.text = inv[7]
+			$Iv/Inv/HydroxidText.text = inv[8]
+			$Iv/Inv/KyselinaText.text = inv[9]
+			$Iv/Inv/EtherText.text = inv[10]
+			$Iv/Inv/EfedrinText.text = inv[11]
+			$Iv/Inv/VaricText.text = inv[12]
+			$Iv/Inv/ChloroformText.text = inv[13]
+			$Iv/Inv/UhlicitanText.text = inv[14]
+			$Iv/Inv/UhliText.text = inv[15]
+			$Iv/Inv/AlkoholText.text = inv[16]
+			$Iv/Inv/OcetText.text = inv[17]
+			$Iv/Inv/CpavekText.text = inv[18]
+			$Iv/Inv/VapnoText.text = inv[19]
+			$Iv/Inv/MakoviceText.text = inv[20]
 			match StartMake:
 				"WeedStart":
 					if int(inv[4]) > 0:
@@ -295,26 +315,7 @@ func _set_item(var drug, var state, var stage, var item):
 				item.set_animation("cooking1_" + drug)
 
 func _on_ButtonInv_pressed():
-	$Iv/Inv/RichTextLabel.bbcode_text = "[center]" + inv[1] + "[/center]"
-	$Iv/Inv/RichTextLabel2.bbcode_text = "[center]" + inv[2] + "[/center]"
-	$Iv/Inv/RichTextLabel3.bbcode_text = "[center]" + inv[3] + "[/center]"
-	$Iv/Inv/SeminkoText.text = inv[4]
-	$Iv/Inv/HnujText.text = "level: " + inv[5]
-	$Iv/Inv/VarnaText.text = inv[6]
-	$Iv/Inv/AcetonText.text = inv[7]
-	$Iv/Inv/HydroxidText.text = inv[8]
-	$Iv/Inv/KyselinaText.text = inv[9]
-	$Iv/Inv/EtherText.text = inv[10]
-	$Iv/Inv/EfedrinText.text = inv[11]
-	$Iv/Inv/VaricText.text = inv[12]
-	$Iv/Inv/ChloroformText.text = inv[13]
-	$Iv/Inv/UhlicitanText.text = inv[14]
-	$Iv/Inv/UhliText.text = inv[15]
-	$Iv/Inv/AlkoholText.text = inv[16]
-	$Iv/Inv/OcetText.text = inv[17]
-	$Iv/Inv/CpavekText.text = inv[18]
-	$Iv/Inv/VapnoText.text = inv[19]
-	$Iv/Inv/MakoviceText.text = inv[20]
+	_send("inventory" + loadd())
 	$Iv.visible = true
 
 func _on_ButtonInvExit_pressed():
