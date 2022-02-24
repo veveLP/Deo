@@ -375,7 +375,7 @@ margin_bottom = 130.124
 rect_rotation = -39.0
 custom_colors/default_color = Color( 0.156863, 1, 0.156863, 1 )
 custom_fonts/normal_font = SubResource( 23 )
-text = "Čtvrť zbohatlíků 10M"
+text = "Čtvrť zbohatlíků 20K"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -400,7 +400,7 @@ margin_bottom = -1029.31
 rect_rotation = -21.91
 custom_colors/default_color = Color( 0.156863, 1, 0.156863, 1 )
 custom_fonts/normal_font = SubResource( 23 )
-text = "Podkláštěří 2M"
+text = "Podkláštěří 15K"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -425,7 +425,7 @@ margin_bottom = -449.47
 rect_rotation = 12.9497
 custom_colors/default_color = Color( 0.156863, 1, 0.156863, 1 )
 custom_fonts/normal_font = SubResource( 23 )
-text = "Židovská čtvrť 500K"
+text = "Židovská čtvrť 10K"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -450,7 +450,7 @@ margin_bottom = 133.125
 rect_rotation = -7.50652
 custom_colors/default_color = Color( 0.156863, 1, 0.156863, 1 )
 custom_fonts/normal_font = SubResource( 23 )
-text = "Centrum 100K"
+text = "Centrum 7,5K"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -468,14 +468,14 @@ width = 20.0
 [node name="RichTextLabel" type="RichTextLabel" parent="Trebic/spst"]
 visible = false
 light_mask = 0
-margin_left = 850.287
-margin_top = -1800.39
-margin_right = 1119.29
-margin_bottom = -1530.39
+margin_left = 850.0
+margin_top = -1800.0
+margin_right = 1152.0
+margin_bottom = -1530.0
 rect_rotation = 14.7586
 custom_colors/default_color = Color( 0.156863, 1, 0.156863, 1 )
 custom_fonts/normal_font = SubResource( 23 )
-text = "SPŠT 1B"
+text = "SPŠT 100K"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -499,7 +499,7 @@ margin_right = 52.9736
 margin_bottom = -443.804
 custom_colors/default_color = Color( 0.156863, 1, 0.156863, 1 )
 custom_fonts/normal_font = SubResource( 23 )
-text = "Týn 50M"
+text = "Týn 30K"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -524,7 +524,7 @@ margin_bottom = -920.008
 rect_rotation = 38.5326
 custom_colors/default_color = Color( 0.156863, 1, 0.156863, 1 )
 custom_fonts/normal_font = SubResource( 23 )
-text = "Atom 200M"
+text = "Atom 50K"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -626,7 +626,7 @@ margin_bottom = 1050.74
 rect_rotation = 0.0556712
 custom_colors/default_color = Color( 0.156863, 1, 0.156863, 1 )
 custom_fonts/normal_font = SubResource( 23 )
-text = "Průmyslová čtvrť 5K"
+text = "Průmyslová čtvrť 2,5K"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -680,7 +680,7 @@ margin_bottom = 289.878
 rect_rotation = -2.19612
 custom_colors/default_color = Color( 0.156863, 1, 0.156863, 1 )
 custom_fonts/normal_font = SubResource( 23 )
-text = "Nemocnice 20K"
+text = "Nemocnice 5K"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
