@@ -11,6 +11,7 @@ var fieldnumber = null
 var fieldcount = 32
 var fieldsprites = [0]
 var firsttime = "y"
+var fieldlvl
 
 func _ready():
 	client.connect("connection_closed", self, "_on_connection_closed")
@@ -22,6 +23,8 @@ func _ready():
 		print("Unable to connect")
 		set_process(false)
 	_gen_fieldsprites()
+	for i in 32:
+		fieldsprites[i+1].frame = 71
 
 func _process(delta):
 	client.poll()
@@ -37,6 +40,8 @@ func _on_connected(proto = ""):
 	var text = loadd()
 	print("Connected with protocol: ", proto)
 	_send("loadpole" + text)
+	_send("inventory" + text)
+	_send("money" + text)
 
 func _on_data():
 	var payload = client.get_peer(1).get_packet().get_string_from_utf8()
@@ -44,7 +49,8 @@ func _on_data():
 	var x = payload.split("$")
 	match x[0]:
 		"loadpole":
-			_loadpole(x[1])
+			fieldlvl = x[1]
+			_loadpole()
 		"loadsektorpole":
 			for i in unlocked:
 				if int(x[i+1]) < timestamp:
@@ -58,6 +64,66 @@ func _on_data():
 			pass
 		"getservertimestamp":
 			timestamp = int(x[1])
+		"inventory":
+			$Iv/Inv/RichTextLabel.bbcode_text = "[center]" + x[1] + "[/center]"
+			$Iv/Inv/RichTextLabel2.bbcode_text = "[center]" + x[2] + "[/center]"
+			$Iv/Inv/RichTextLabel3.bbcode_text = "[center]" + x[3] + "[/center]"
+			$Iv/Inv/SeminkoText.text = x[4]
+			$Iv/Inv/HnujText.text = "level: " + x[5]
+			$Iv/Inv/VarnaText.text = x[6]
+			$Iv/Inv/AcetonText.text = x[7]
+			$Iv/Inv/HydroxidText.text = x[8]
+			$Iv/Inv/KyselinaText.text = x[9]
+			$Iv/Inv/EtherText.text = x[10]
+			$Iv/Inv/EfedrinText.text = x[11]
+			$Iv/Inv/VaricText.text = x[12]
+			$Iv/Inv/ChloroformText.text = x[13]
+			$Iv/Inv/UhlicitanText.text = x[14]
+			$Iv/Inv/UhliText.text = x[15]
+			$Iv/Inv/AlkoholText.text = x[16]
+			$Iv/Inv/OcetText.text = x[17]
+			$Iv/Inv/CpavekText.text = x[18]
+			$Iv/Inv/VapnoText.text = x[19]
+			$Iv/Inv/MakoviceText.text = x[20]
+		"money":
+			$LabelMoney.text = x[1]
+		"poleupgrade":
+			if x[1] == "successful":
+				fieldlvl = str(int(fieldlvl) + 1)
+				match fieldlvl:
+					"1":
+						$FieldUpgr/Panel/LabelMoney.text = "500"
+					"2":
+						$FieldUpgr/Panel/LabelMoney.text = "1250"
+					"3":
+						$FieldUpgr/Panel/LabelMoney.text = "2500"
+					"4":
+						$FieldUpgr/Panel/LabelMoney.text = "5000"
+					"5":
+						$FieldUpgr/Panel/LabelInfo.text	= "Už máš koupené všechna pole!!"
+						$FieldUpgr/Panel/LabelMoney.text = ""
+						$FieldUpgr/Panel/FieldUpgrade.disabled = true
+				_send("money" + text)
+				match fieldlvl:
+					"2":
+						$TileMap2.set_cell(13,13,12)
+					"3":
+						$TileMap2.set_cell(13,13,12)
+						$TileMap2.set_cell(10,9,11)
+					"4":
+						$TileMap2.set_cell(13,13,12)
+						$TileMap2.set_cell(10,9,11)
+						$TileMap2.set_cell(13,7,12)
+						$TileMap2.set_cell(16,9,16)
+						$TileMap2.set_cell(17,9,15)
+					"5":
+						$TileMap2.set_cell(13,13,12)
+						$TileMap2.set_cell(10,9,11)
+						$TileMap2.set_cell(13,7,12)
+						$TileMap2.set_cell(16,9,16)
+						$TileMap2.set_cell(17,9,15)
+						$TileMap2.set_cell(22,6,12)
+						$TileMap2.set_cell(22,13,12)
 
 func _send(text):
 	var packet: PoolByteArray = text.to_utf8()
@@ -77,16 +143,23 @@ func save(content):
 	file.store_string(content)
 	file.close()
 
-func _on_leave_body_exited(body):
+func _on_leave_body_entered(body):
 	get_tree().change_scene("res://Trebic.tscn")
+
+func _on_ButtonInv_pressed():
+	_send("inventory" + loadd())
+	$Iv.visible = true
+
+func _on_ButtonInvExit_pressed():
+	$Iv.visible = false
 
 func _set_sprite_frame(var time, var sprite):
 	time *= sprite.get_sprite_frames().get_animation_speed(sprite.get_animation())
 	time = sprite.get_sprite_frames().get_frame_count(sprite.get_animation()) - time
 	sprite.frame = int(time)
 
-func _loadpole(var level):
-	match level:
+func _loadpole():
+	match fieldlvl:
 		"1":
 			unlocked=2
 		"2":
@@ -109,15 +182,13 @@ func _loadpole(var level):
 			$TileMap2.set_cell(13,7,12)
 			$TileMap2.set_cell(16,9,16)
 			$TileMap2.set_cell(17,9,15)
-			$TileMap2.set_cell(27,9,16)
-			$TileMap2.set_cell(28,9,15)
 			$TileMap2.set_cell(22,6,12)
 			$TileMap2.set_cell(22,13,12)
 			unlocked=32
 	for i in unlocked:
 		_grow_field(fieldsprites[i + 1])
 	_send("getservertimestamp" + text)
-	_send("loadsektorpole" + text + "$" + level)
+	_send("loadsektorpole" + text + "$" + fieldlvl)
 
 func _gen_fieldsprites():
 	for i in 32:
@@ -155,9 +226,41 @@ func _input(event):
 	if event is InputEventKey:
 		if event.scancode == KEY_E and firsttime == "y":
 			firsttime = "n"
-			_get_fieldnumber()
-			if fieldnumber != null:
-				if fieldsprites[fieldnumber].get_frame() == fieldsprites[fieldnumber].get_sprite_frames().get_frame_count(fieldsprites[fieldnumber].get_animation()) - 1:
-					_send("makoviceharvest" + text + "$" + str(fieldnumber))
+			if $Albanec.overlaps_body($player):
+				match fieldlvl:
+					"1":
+						$FieldUpgr/Panel/LabelMoney.text = "500"
+					"2":
+						$FieldUpgr/Panel/LabelMoney.text = "1250"
+					"3":
+						$FieldUpgr/Panel/LabelMoney.text = "2500"
+					"4":
+						$FieldUpgr/Panel/LabelMoney.text = "5000"
+					"5":
+						$FieldUpgr/Panel/LabelInfo.text	= "Už máš koupené všechna pole!!"
+						$FieldUpgr/Panel/LabelMoney.text = ""
+						$FieldUpgr/Panel/FieldUpgrade.disabled = true
+				$FieldUpgr.visible = true
+			else:
+				_get_fieldnumber()
+				if fieldnumber != null:
+					if fieldsprites[fieldnumber].get_frame() == fieldsprites[fieldnumber].get_sprite_frames().get_frame_count(fieldsprites[fieldnumber].get_animation()) - 1:
+						_send("makoviceharvest" + text + "$" + str(fieldnumber))
 		else:
 			firsttime = "y"
+
+func _on_FieldUpgrade_pressed():
+	var price
+	match fieldlvl:
+		"1":
+			price = 500
+		"2":
+			price = 1250
+		"3":
+			price = 2500
+		"4":
+			price = 5000
+	if int($LabelMoney.text) >= price:
+		_send("poleupgrade" + loadd())
+func _on_FieldExit_pressed():
+	$FieldUpgr.visible = false
