@@ -23,6 +23,7 @@ var pole = [0,0,0,0]
 var error = 0
 var colors = [1,0.5,0]
 var first = true
+var minigameStart = false
 
 func _ready():
 	client.connect("connection_closed", self, "_on_connection_closed")
@@ -117,12 +118,14 @@ func _on_data():
 			$Iv/Inv/CpavekText.text = inv[18]
 			$Iv/Inv/VapnoText.text = inv[19]
 			$Iv/Inv/MakoviceText.text = inv[20]
+			if (!minigameStart): return
 			match StartMake:
 				"WeedStart":
 					if int(inv[4]) > 0:
 						inv[4] = str(int(inv[4]) - 1)
 						$varna.visible = false
 						$WeedMinigame.visible = true
+						print ("kokot")
 						$WeedMinigame/TimerWeed.start()
 					else:
 						$varna/textbox.visible = true
@@ -223,6 +226,7 @@ func _input(event):
 		if event.scancode == KEY_E and firsttime == "y":
 			_get_tablenumber()
 			if tablenumber != null:
+				minigameStart = true
 				match tableitems[tablenumber]:
 					"weed":
 						_weedstart_weedharvest(tablenumber, loadd())
@@ -315,6 +319,7 @@ func _set_item(var drug, var state, var stage, var item):
 				item.set_animation("cooking1_" + drug)
 
 func _on_ButtonInv_pressed():
+	minigameStart = false
 	_send("inventory" + loadd())
 	$Iv.visible = true
 
