@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MethTube2.png-5ce275619cb9e4b4f414c2dc005ed7c8.stex"
+path="res://.import/MainTube_close.png-43e02a29aeec13d3fd411ada0e4b4d6a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/MethTube2.png"
-dest_files=[ "res://.import/MethTube2.png-5ce275619cb9e4b4f414c2dc005ed7c8.stex" ]
+source_file="res://assets/MainTube_close.png"
+dest_files=[ "res://.import/MainTube_close.png-43e02a29aeec13d3fd411ada0e4b4d6a.stex" ]
 
 [params]
 
