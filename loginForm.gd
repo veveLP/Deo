@@ -8,7 +8,7 @@ var check = false
 func _ready():
 	var loaded = loadd()
 	var x = loaded.split("$")
-	$Panel/LineEdit.text = x[1]
+	$Panel/LineEdit.text = x[1] #remove for web export
 	client.connect("connection_closed", self, "_on_connection_closed")
 	client.connect("connection_error", self, "_on_connection_closed")
 	client.connect("connection_established", self, "_on_connected")
