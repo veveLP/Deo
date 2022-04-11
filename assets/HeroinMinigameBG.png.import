@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tube2.png-58e38516dd36dc7d27888db447734857.stex"
+path="res://.import/HeroinMinigameBG.png-0926f0a5a0a106b4adc5901c3b73c4db.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tube2.png"
-dest_files=[ "res://.import/Tube2.png-58e38516dd36dc7d27888db447734857.stex" ]
+source_file="res://assets/HeroinMinigameBG.png"
+dest_files=[ "res://.import/HeroinMinigameBG.png-0926f0a5a0a106b4adc5901c3b73c4db.stex" ]
 
 [params]
 

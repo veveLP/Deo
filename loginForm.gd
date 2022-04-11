@@ -8,7 +8,7 @@ var check = false
 func _ready():
 	var loaded = loadd()
 	var x = loaded.split("$")
-	$Panel/LineEdit.text = x[1] #remove for web export
+	$Panel/LineEdit.text = x[1]
 	client.connect("connection_closed", self, "_on_connection_closed")
 	client.connect("connection_error", self, "_on_connection_closed")
 	client.connect("connection_established", self, "_on_connected")
@@ -26,7 +26,7 @@ func _on_connection_closed(was_clean = false):
 	set_process(false)
 
 func _on_connected(proto = ""):
-	pass
+	print("Successful connected")
 
 func _on_data():
 	var payload = client.get_peer(1).get_packet().get_string_from_utf8()

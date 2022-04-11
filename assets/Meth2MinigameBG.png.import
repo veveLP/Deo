@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tube1.png-7fbe7c7853d45cc5f4a38f62d603c1bc.stex"
+path="res://.import/Meth2MinigameBG.png-ecc088965982128e1b19a5c0779277b6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tube1.png"
-dest_files=[ "res://.import/Tube1.png-7fbe7c7853d45cc5f4a38f62d603c1bc.stex" ]
+source_file="res://assets/Meth2MinigameBG.png"
+dest_files=[ "res://.import/Meth2MinigameBG.png-ecc088965982128e1b19a5c0779277b6.stex" ]
 
 [params]
 

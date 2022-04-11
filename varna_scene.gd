@@ -468,10 +468,24 @@ func _on_TimerWeed_timeout():
 
 func _on_ButtonMeth_button_down():
 	if timer < 4:
+		get_node("MethMinigame/Tube" + str(timer + 1)).play("none")
+		if timer <= 1:
+			$MethMinigame/TubeLeft.play("tube" + str(timer + 1))
+		else:
+			$MethMinigame/TubeRight.play("tube" + str(timer + 1))
+		$MethMinigame/TubeFlow.play("flow" + str(timer + 1))
+		$MethMinigame/MainTube.play("open")
 		$MethMinigame/TimerMeth.start()
 
 func _on_ButtonMeth_button_up():
 	$MethMinigame/TimerMeth.stop()
+	$MethMinigame/TubeFlow.play("none")
+	if timer <= 1:
+		$MethMinigame/TubeLeft.play("none")
+	else:
+		$MethMinigame/TubeRight.play("none")
+	get_node("MethMinigame/Tube" + str(timer + 1)).play("empty")
+	$MethMinigame/MainTube.play("close")
 	pole[timer] = count
 	count = 0
 	timer += 1
@@ -496,6 +510,8 @@ func _on_ButtonMeth_button_up():
 		timer = 0
 		error = 0
 		colors = [1,0.5,0]
+		for i in 4:
+			get_node("MethMinigame/Tube" + str(i + 1)).play("full")
 		$MethMinigame/ProgressBar.value = 0
 		$MethMinigame.visible = false
 		$varna.visible = true
@@ -504,7 +520,7 @@ func _on_TimerMeth_timeout():
 	if($MethMinigame/ProgressBar.value > 99):
 		$MethMinigame/TimerMeth.stop()
 	else:
-		count += 1	
+		count += 1
 	$MethMinigame/ProgressBar.value += 1
 	match timer:
 		1:
@@ -525,6 +541,8 @@ func _on_TimerMeth_timeout():
 
 func _on_ButtonMeth2_button_down():
 	$MethMinigame2/TimerMeth2.start()
+	$MethMinigame2/TubeLeft.animation = "tube"
+	$MethMinigame2/MainTube.animation = "none"
 
 func _on_ButtonMeth2_button_up():
 	$MethMinigame2/TimerMeth2.stop()
@@ -541,12 +559,24 @@ func _on_ButtonMeth2_button_up():
 	print("Quantity: " + str(Quantity))
 	_send("methcontinue" + loadd() + "$" + varnaID + "$" + str(tablenumber + 1) + "$" + str(Quantity))
 	$MethMinigame2/ProgressBar.value = 0
+	$MethMinigame2/TubeFlow.animation = "flow1"
+	$MethMinigame2/TubeLeft.animation = "none"
+	$MethMinigame2/MainTube.animation = "tube"
 	$MethMinigame2.visible = false
 	$varna.visible = true
 
 func _on_TimerMeth2_timeout():
 	$MethMinigame2/ProgressBar.value += 5
-	if $MethMinigame2/ProgressBar.value == 100: $MethMinigame2/TimerMeth2.stop()
+	if $MethMinigame2/ProgressBar.value == 100: 
+		$MethMinigame2/TimerMeth2.stop()
+	elif $MethMinigame2/ProgressBar.value >= 80:
+		$MethMinigame2/TubeFlow.animation = "flow5"
+	elif $MethMinigame2/ProgressBar.value >= 60:
+		$MethMinigame2/TubeFlow.animation = "flow4"
+	elif $MethMinigame2/ProgressBar.value >= 40:
+		$MethMinigame2/TubeFlow.animation = "flow3"
+	elif $MethMinigame2/ProgressBar.value >= 20:
+		$MethMinigame2/TubeFlow.animation = "flow2"
 
 func _on_ButtonHeroin_pressed():
 	if first:
